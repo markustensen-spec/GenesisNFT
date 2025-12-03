@@ -975,11 +975,11 @@ export default function App() {
                 <div className="bg-gradient-to-r from-amber-600/20 via-yellow-600/20 to-amber-600/20 border border-amber-500/50 rounded-xl px-6 py-4 max-w-3xl mx-auto">
                   <div className="flex items-center justify-center gap-3 mb-2">
                     <Trophy className="w-6 h-6 text-yellow-400" />
-                    <h3 className="text-2xl font-bold text-yellow-300">$50,000 USD PRIZE</h3>
+                    <h3 className="text-2xl font-bold text-yellow-300">&#36;50,000 USD PRIZE</h3>
                     <Trophy className="w-6 h-6 text-yellow-400" />
                   </div>
                   <p className="text-amber-100 text-sm">
-                    Mint the ultra-rare Leonardo Selfie (1 of 10,000) and win $50,000 when the collection sells out!
+                    Mint the ultra-rare Leonardo Selfie (1 of 10,000) and win &#36;50,000 when the collection sells out!
                   </p>
                 </div>
               </div>
