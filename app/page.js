@@ -1822,23 +1822,6 @@ export default function App() {
                   </CardContent>
                 </Card>
 
-                <Card className="bg-slate-900/50 border-amber-900/30">
-                  <CardHeader>
-                    <CardTitle className="text-amber-100">Join Whitelist</CardTitle>
-                    <CardDescription className="text-amber-100/60">Get early access to minting</CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-amber-100/70 text-sm mb-4">
-                      Join our exclusive whitelist for priority access to NFT minting and special perks.
-                    </p>
-                    <Button 
-                      onClick={() => setShowEmailPopup(true)} 
-                      className="w-full bg-amber-600 hover:bg-amber-700"
-                    >
-                      Join Whitelist
-                    </Button>
-                  </CardContent>
-                </Card>
               </div>
             </div>
           </div>
