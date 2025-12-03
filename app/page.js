@@ -194,6 +194,16 @@ export default function App() {
         }
       } else {
         // Login
+        // Security: Validate email format
+        if (!validateEmail(authForm.email)) {
+          throw new Error('Please enter a valid email address')
+        }
+        
+        // Security: Rate limiting (5 login attempts per minute)
+        if (!rateLimit(`login_${authForm.email}`, 5, 60000)) {
+          throw new Error('Too many login attempts. Please wait a minute and try again.')
+        }
+        
         const { data, error } = await supabase.auth.signInWithPassword({
           email: authForm.email,
           password: authForm.password
