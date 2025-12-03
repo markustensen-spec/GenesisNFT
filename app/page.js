@@ -27,6 +27,8 @@ export default function App() {
   const [showAuthModal, setShowAuthModal] = useState(false)
   const [authMode, setAuthMode] = useState('login') // 'login' or 'register'
   const [authForm, setAuthForm] = useState({ email: '', password: '', username: '' })
+  const [showVerificationMessage, setShowVerificationMessage] = useState(false)
+  const [verificationEmail, setVerificationEmail] = useState('')
 
   useEffect(() => {
     if (activeTab === 'investments') {
