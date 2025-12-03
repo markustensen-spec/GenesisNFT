@@ -1194,24 +1194,15 @@ export default function App() {
                     <CardDescription className="text-amber-100/60">Get early access to minting</CardDescription>
                   </CardHeader>
                   <CardContent>
-                    <form onSubmit={handleWhitelistSubmit} className="space-y-3">
-                      <Input 
-                        type="email" 
-                        placeholder="your@email.com" 
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        className="bg-slate-800 border-amber-900/30 text-amber-100"
-                        required
-                      />
-                      <Button type="submit" className="w-full bg-amber-600 hover:bg-amber-700">
-                        Join Whitelist
-                      </Button>
-                      {user && (
-                        <p className="text-xs text-amber-100/60 text-center">
-                          Wallet: {user.walletAddress?.slice(0, 12)}...
-                        </p>
-                      )}
-                    </form>
+                    <p className="text-amber-100/70 text-sm mb-4">
+                      Join our exclusive whitelist for priority access to NFT minting and special perks.
+                    </p>
+                    <Button 
+                      onClick={() => setShowEmailPopup(true)} 
+                      className="w-full bg-amber-600 hover:bg-amber-700"
+                    >
+                      Join Whitelist
+                    </Button>
                   </CardContent>
                 </Card>
               </div>
