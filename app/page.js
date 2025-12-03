@@ -558,6 +558,19 @@ export default function App() {
                 </div>
               ) : (
                 <form onSubmit={handleAuth} className="space-y-4">
+                {showVerificationSuccess && authMode === 'login' && (
+                  <div className="bg-emerald-900/20 border border-emerald-500/50 rounded-lg p-4 text-emerald-400 text-sm animate-fade-in">
+                    <div className="flex items-center space-x-2 mb-2">
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                      <span className="font-semibold">Email Verified Successfully!</span>
+                    </div>
+                    <p className="text-emerald-400/80 text-xs">
+                      Your email has been confirmed. You can now log in to your account.
+                    </p>
+                  </div>
+                )}
                 {authMode === 'register' && (
                   <div>
                     <Label className="text-amber-100">Username</Label>
