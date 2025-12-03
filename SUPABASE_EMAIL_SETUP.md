@@ -126,7 +126,7 @@ CREATE TRIGGER on_profile_updated
 
 2. **Legg til i "Redirect URLs":**
 ```
-https://genesishq-web3.preview.emergentagent.com
+https://genesis-crypto.preview.emergentagent.com
 http://localhost:3000
 ```
 
