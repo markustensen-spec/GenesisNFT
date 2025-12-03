@@ -84,27 +84,54 @@ export default function App() {
 
   const handleAuth = async (e) => {
     e.preventDefault()
+    setLoading(true)
+    
     try {
-      const endpoint = authMode === 'login' ? '/api/auth/login' : '/api/auth/register'
-      const response = await fetch(endpoint, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(authForm)
-      })
-      const data = await response.json()
-      
-      if (data.success) {
-        const userData = { ...data.user, walletAddress: 'GeN' + Math.random().toString(36).substring(2, 15) }
-        setUser(userData)
-        localStorage.setItem('genesishq_user', JSON.stringify(userData))
-        setShowAuthModal(false)
-        setAuthForm({ email: '', password: '', username: '' })
-        alert(authMode === 'login' ? 'Welcome back!' : 'Account created successfully!')
+      if (authMode === 'register') {
+        // Sign up with email verification
+        const { data, error } = await supabase.auth.signUp({
+          email: authForm.email,
+          password: authForm.password,
+          options: {
+            data: {
+              username: authForm.username,
+              wallet_address: 'GeN' + Math.random().toString(36).substring(2, 15)
+            },
+            emailRedirectTo: `${window.location.origin}?verified=true`
+          }
+        })
+
+        if (error) throw error
+
+        if (data.user) {
+          setShowAuthModal(false)
+          setAuthForm({ email: '', password: '', username: '' })
+          alert('✓ Registration successful! Please check your email to verify your account.')
+        }
       } else {
-        alert(data.error || 'Authentication failed')
+        // Login
+        const { data, error } = await supabase.auth.signInWithPassword({
+          email: authForm.email,
+          password: authForm.password
+        })
+
+        if (error) throw error
+
+        if (data.user) {
+          if (!data.user.email_confirmed_at) {
+            alert('⚠️ Please verify your email address before logging in. Check your inbox!')
+            await supabase.auth.signOut()
+            return
+          }
+          setShowAuthModal(false)
+          setAuthForm({ email: '', password: '', username: '' })
+          alert('✓ Welcome back to GenesisHQ!')
+        }
       }
     } catch (error) {
-      alert('Error: ' + error.message)
+      alert('❌ ' + (error.message || 'Authentication failed'))
+    } finally {
+      setLoading(false)
     }
   }
 
