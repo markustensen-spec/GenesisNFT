@@ -292,29 +292,39 @@ export default function App() {
       <main className="pt-24 pb-12">
         {activeTab === 'home' && (
           <div className="container mx-auto px-4">
-            {/* Hero Section */}
-            <div className="text-center mb-16 animate-fade-in">
-              <Badge className="mb-4 bg-amber-600/20 text-amber-400 border-amber-600/30 px-4 py-2">
-                <Sparkles className="w-4 h-4 mr-2 inline" />
-                Where Renaissance Meets Revolution
-              </Badge>
-              <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-amber-200 via-amber-400 to-amber-600 bg-clip-text text-transparent">
-                Welcome to GenesisHQ
-              </h1>
-              <p className="text-xl md:text-2xl text-amber-100/80 max-w-3xl mx-auto mb-8">
-                A revolutionary platform uniting Leonardo da Vinci's genius with blockchain technology, exclusive community access, and competitive gaming
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                {!user && (
-                  <Button size="lg" onClick={() => { setAuthMode('register'); setShowAuthModal(true) }} className="bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 text-white px-8">
-                    <UserPlus className="w-5 h-5 mr-2" />
-                    Join GenesisHQ
+            {/* Hero Section with Background */}
+            <div 
+              className="relative mb-16 rounded-2xl overflow-hidden"
+              style={{
+                backgroundImage: `url('https://customer-assets.emergentagent.com/job_genesishq/artifacts/aeckg0p4_grok_image_ky6eqj.jpg')`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center'
+              }}
+            >
+              <div className="absolute inset-0 bg-gradient-to-b from-slate-950/70 via-slate-950/85 to-slate-950"></div>
+              <div className="relative text-center py-20 px-4 animate-fade-in">
+                <Badge className="mb-4 bg-amber-600/30 text-amber-300 border-amber-600/50 px-4 py-2 backdrop-blur-sm">
+                  <Sparkles className="w-4 h-4 mr-2 inline" />
+                  Where Renaissance Meets Revolution
+                </Badge>
+                <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-amber-200 via-amber-400 to-amber-600 bg-clip-text text-transparent">
+                  Welcome to GenesisHQ
+                </h1>
+                <p className="text-xl md:text-2xl text-amber-100 max-w-3xl mx-auto mb-8 drop-shadow-lg">
+                  A revolutionary platform uniting Leonardo da Vinci's genius with blockchain technology, exclusive community access, and competitive gaming
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  {!user && (
+                    <Button size="lg" onClick={() => { setAuthMode('register'); setShowAuthModal(true) }} className="bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 text-white px-8 shadow-xl">
+                      <UserPlus className="w-5 h-5 mr-2" />
+                      Join GenesisHQ
+                    </Button>
+                  )}
+                  <Button size="lg" onClick={playGame} className="bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-500 hover:to-emerald-600 text-white px-8 shadow-xl">
+                    <Play className="w-5 h-5 mr-2" />
+                    Play Arena
                   </Button>
-                )}
-                <Button size="lg" onClick={playGame} className="bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-500 hover:to-emerald-600 text-white px-8">
-                  <Play className="w-5 h-5 mr-2" />
-                  Play Arena
-                </Button>
+                </div>
               </div>
             </div>
 
