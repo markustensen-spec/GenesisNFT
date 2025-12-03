@@ -1353,12 +1353,55 @@ function GameComponent({ user }) {
       keysRef.current[e.key] = false
     }
 
+    // Touch controls for mobile
+    let touchStartX = 0
+    let touchStartY = 0
+    
+    const handleTouchStart = (e) => {
+      const touch = e.touches[0]
+      touchStartX = touch.clientX
+      touchStartY = touch.clientY
+    }
+    
+    const handleTouchMove = (e) => {
+      e.preventDefault()
+      const touch = e.touches[0]
+      const canvas = canvasRef.current
+      if (!canvas || !playerRef.current) return
+      
+      const rect = canvas.getBoundingClientRect()
+      const scaleX = canvas.width / rect.width
+      const scaleY = canvas.height / rect.height
+      
+      const targetX = (touch.clientX - rect.left) * scaleX
+      const targetY = (touch.clientY - rect.top) * scaleY
+      
+      const player = playerRef.current
+      const dx = targetX - player.x
+      const dy = targetY - player.y
+      const distance = Math.sqrt(dx * dx + dy * dy)
+      
+      if (distance > 10) {
+        player.x += (dx / distance) * player.speed
+        player.y += (dy / distance) * player.speed
+      }
+    }
+
     window.addEventListener('keydown', handleKeyDown)
     window.addEventListener('keyup', handleKeyUp)
+    
+    if (canvasRef.current) {
+      canvasRef.current.addEventListener('touchstart', handleTouchStart, { passive: false })
+      canvasRef.current.addEventListener('touchmove', handleTouchMove, { passive: false })
+    }
 
     return () => {
       window.removeEventListener('keydown', handleKeyDown)
       window.removeEventListener('keyup', handleKeyUp)
+      if (canvasRef.current) {
+        canvasRef.current.removeEventListener('touchstart', handleTouchStart)
+        canvasRef.current.removeEventListener('touchmove', handleTouchMove)
+      }
       if (gameLoopRef.current) cancelAnimationFrame(gameLoopRef.current)
     }
   }, [])
