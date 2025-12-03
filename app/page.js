@@ -929,6 +929,18 @@ export default function App() {
                       <p className="text-amber-100/70 mb-6">
                         The first of 10 original Leonardo da Vinci inspired mechanical masterpieces. Each NFT combines Renaissance genius with modern holographic technology, creating a bridge between history and the future.
                       </p>
+                      <div className="bg-amber-900/20 border border-amber-600/30 rounded-lg p-4 mb-6">
+                        <h4 className="text-amber-300 font-bold mb-2 flex items-center">
+                          <Crown className="w-5 h-5 mr-2" />
+                          Lifetime Benefits
+                        </h4>
+                        <ul className="text-sm text-amber-100/70 space-y-1">
+                          <li>✓ Permanent voting rights in Codex Collective</li>
+                          <li>✓ Lifetime access to exclusive community features</li>
+                          <li>✓ Enhanced $CAX staking rewards forever</li>
+                          <li>✓ Priority access to all future drops</li>
+                        </ul>
+                      </div>
                       
                       <div className="space-y-3 mb-6">
                         <div className="flex justify-between">
