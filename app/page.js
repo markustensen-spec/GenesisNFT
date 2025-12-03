@@ -1190,7 +1190,7 @@ export default function App() {
                           </p>
                           <ol className="text-xs text-amber-100/70 space-y-1 list-decimal list-inside">
                             <li>Connect your Solana wallet (Phantom/Solflare)</li>
-                            <li>Click Mint NFT button ($100 USD in SOL)</li>
+                            <li>Click Mint NFT button (&#36;100 USD in SOL)</li>
                             <li>Confirm transaction in your wallet</li>
                             <li>Receive your Leonardo da Vinci NFT</li>
                           </ol>
