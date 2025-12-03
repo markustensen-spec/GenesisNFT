@@ -1041,6 +1041,10 @@ export default function App() {
                       
                       <div className="space-y-3 mb-6">
                         <div className="flex justify-between">
+                          <span className="text-amber-100/60">Mint Price</span>
+                          <span className="text-amber-100 font-semibold text-lg">100 SOL ($100)</span>
+                        </div>
+                        <div className="flex justify-between">
                           <span className="text-amber-100/60">Collection Size</span>
                           <span className="text-amber-100 font-semibold">10,000 NFTs</span>
                         </div>
@@ -1050,7 +1054,7 @@ export default function App() {
                         </div>
                         <div className="flex justify-between">
                           <span className="text-amber-100/60">Generative</span>
-                          <span className="text-amber-100 font-semibold">9,989</span>
+                          <span className="text-amber-100 font-semibold">9,990</span>
                         </div>
                         <div className="flex justify-between">
                           <span className="text-amber-100/60">Network</span>
