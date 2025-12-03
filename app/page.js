@@ -762,11 +762,11 @@ export default function App() {
                     <Trophy className="w-16 h-16 text-emerald-500 mb-4" />
                     <CardTitle className="text-amber-100 text-2xl">Minigames</CardTitle>
                     <CardDescription className="text-amber-100/60 text-base">
-                      Genesis Caviar game
+                      MVP Caviar Arena
                     </CardDescription>
                   </CardHeader>
                   <CardContent className="text-amber-100/70">
-                    <p className="mb-4 text-base">Compete in real-time multiplayer action. Grow your caviar, defeat opponents, and earn $CAX tokens based on your performance and ranking.</p>
+                    <p className="mb-4 text-base">Grow your caviar by consuming smaller ones. Avoid larger caviar!</p>
                     <ul className="space-y-2">
                       <li>✓ Real-time multiplayer gameplay</li>
                       <li>✓ Earn $CAX tokens by playing</li>
