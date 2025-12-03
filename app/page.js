@@ -748,8 +748,8 @@ export default function App() {
         )}
 
         {activeTab === 'investments' && (
-          <div className="container mx-auto px-4">
-            <div className="max-w-6xl mx-auto">
+          <div className="w-full">
+            <div className="container mx-auto px-4 max-w-7xl">
               <div className="text-center mb-12">
                 <Badge className="mb-4 bg-amber-600/20 text-amber-400 border-amber-600/30 px-4 py-2">
                   <Wallet className="w-4 h-4 mr-2 inline" />
