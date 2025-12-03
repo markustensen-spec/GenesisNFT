@@ -238,6 +238,62 @@ export default function App() {
         </div>
       )}
 
+      {/* Email Whitelist Popup */}
+      {showEmailPopup && (
+        <div className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4">
+          <Card className="w-full max-w-md bg-slate-900 border-amber-900/30">
+            <CardHeader>
+              <div className="flex justify-between items-center">
+                <CardTitle className="text-amber-100">Join NFT Whitelist</CardTitle>
+                <button onClick={() => {
+                  setShowEmailPopup(false)
+                  setWhitelistStatus('')
+                }}>
+                  <X className="w-6 h-6 text-amber-400" />
+                </button>
+              </div>
+              <CardDescription className="text-amber-100/60">
+                Get priority access to mint Leonardo da Vinci NFTs
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <form onSubmit={async (e) => {
+                e.preventDefault()
+                setWhitelistStatus('Joining whitelist...')
+                // Simulate API call
+                await new Promise(resolve => setTimeout(resolve, 1000))
+                setWhitelistStatus('✓ Successfully joined the whitelist! Check your email for confirmation.')
+                setWhitelistEmail('')
+                setTimeout(() => {
+                  setShowEmailPopup(false)
+                  setWhitelistStatus('')
+                }, 3000)
+              }} className="space-y-4">
+                <div>
+                  <Label className="text-amber-100">Email Address</Label>
+                  <Input
+                    type="email"
+                    placeholder="your@email.com"
+                    value={whitelistEmail}
+                    onChange={(e) => setWhitelistEmail(e.target.value)}
+                    className="bg-slate-800 border-amber-900/30 text-amber-100 mt-2"
+                    required
+                  />
+                </div>
+                {whitelistStatus && (
+                  <p className={`text-sm ${whitelistStatus.includes('✓') ? 'text-emerald-400' : 'text-amber-400'}`}>
+                    {whitelistStatus}
+                  </p>
+                )}
+                <Button type="submit" className="w-full bg-amber-600 hover:bg-amber-700">
+                  Join Whitelist
+                </Button>
+              </form>
+            </CardContent>
+          </Card>
+        </div>
+      )}
+
       {/* Navigation */}
       <nav className="fixed top-0 w-full z-40 bg-slate-950/80 backdrop-blur-xl border-b border-amber-900/20">
         <div className="container mx-auto px-4 py-4">
