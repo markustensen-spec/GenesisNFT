@@ -1116,8 +1116,13 @@ function GameComponent({ user }) {
   }, [])
 
   React.useEffect(() => {
-    if (gameState === 'playing') {
+    if (gameState === 'playing' && canvasRef.current) {
       gameLoop()
+    }
+    return () => {
+      if (gameLoopRef.current) {
+        cancelAnimationFrame(gameLoopRef.current)
+      }
     }
   }, [gameState])
 
