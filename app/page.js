@@ -215,14 +215,17 @@ export default function App() {
                 Home
               </Button>
               <Button variant="ghost" onClick={() => setActiveTab('investments')} className="text-amber-100 hover:text-amber-400">
-                Home Banking
+                HUB
               </Button>
-              <Button variant="ghost" onClick={() => setActiveTab('nft')} className="text-amber-100 hover:text-amber-400">
-                Leonardo NFT
+              <Button variant="ghost" onClick={() => setActiveTab('caviar')} className="text-amber-100 hover:text-amber-400">
+                Caviar ($CAX)
               </Button>
               <Button variant="ghost" onClick={() => setActiveTab('lounge')} className="text-amber-100 hover:text-amber-400 flex items-center">
                 <Crown className="w-4 h-4 mr-1" />
                 G Lounge
+              </Button>
+              <Button variant="ghost" onClick={() => setActiveTab('nft')} className="text-amber-100 hover:text-amber-400">
+                Leonardo NFT
               </Button>
               <Button variant="ghost" onClick={playGame} className="text-amber-100 hover:text-amber-400">
                 Play Arena
