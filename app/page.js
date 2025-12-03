@@ -430,28 +430,37 @@ export default function App() {
                 </button>
                 
                 {authMode === 'login' && (
-                  <button
-                    type="button"
-                    onClick={async () => {
-                      if (!authForm.email) {
-                        alert('⚠️ Please enter your email first')
-                        return
-                      }
-                      try {
-                        const { error } = await supabase.auth.resend({
-                          type: 'signup',
-                          email: authForm.email
-                        })
-                        if (error) throw error
-                        alert('✓ Verification email sent!\n\nCheck your inbox (and spam folder).')
-                      } catch (error) {
-                        alert('❌ Could not send email: ' + error.message)
-                      }
-                    }}
-                    className="w-full text-xs text-amber-400/70 hover:text-amber-300 mt-2"
-                  >
-                    📧 Didn't receive verification email? Click here
-                  </button>
+                  <>
+                    {resendSuccess && (
+                      <div className="bg-emerald-900/20 border border-emerald-500/50 rounded-lg p-2 text-emerald-400 text-xs text-center">
+                        ✓ Email sent! Check your inbox and spam folder.
+                      </div>
+                    )}
+                    <button
+                      type="button"
+                      onClick={async () => {
+                        if (!authForm.email) {
+                          setAuthError('Please enter your email first')
+                          return
+                        }
+                        try {
+                          setResendSuccess(false)
+                          const { error } = await supabase.auth.resend({
+                            type: 'signup',
+                            email: authForm.email
+                          })
+                          if (error) throw error
+                          setResendSuccess(true)
+                          setTimeout(() => setResendSuccess(false), 5000)
+                        } catch (error) {
+                          setAuthError('Could not send email: ' + error.message)
+                        }
+                      }}
+                      className="w-full text-xs text-amber-400/70 hover:text-amber-300 mt-2"
+                    >
+                      📧 Didn't receive verification email? Click here
+                    </button>
+                  </>
                 )}
               </form>
             )}
