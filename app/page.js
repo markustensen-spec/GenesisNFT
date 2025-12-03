@@ -87,12 +87,38 @@ export default function App() {
     }
   }
 
+  const handlePasswordReset = async (e) => {
+    e.preventDefault()
+    setLoading(true)
+    setAuthError('')
+    
+    try {
+      const { error } = await supabase.auth.resetPasswordForEmail(authForm.email, {
+        redirectTo: `${window.location.origin}/reset-password`
+      })
+      
+      if (error) throw error
+      
+      setResetEmailSent(true)
+      setAuthForm({ email: '', password: '', username: '' })
+    } catch (error) {
+      console.error('Password reset error:', error)
+      setAuthError(error.message || 'Failed to send reset email. Please try again.')
+    } finally {
+      setLoading(false)
+    }
+  }
+
   const handleAuth = async (e) => {
     e.preventDefault()
     setLoading(true)
     setAuthError('')
     
     try {
+      if (authMode === 'reset') {
+        return handlePasswordReset(e)
+      }
+      
       if (authMode === 'register') {
         // Sign up with email verification
         const { data, error } = await supabase.auth.signUp({
