@@ -931,7 +931,6 @@ export default function App() {
         {activeTab === 'crypto' && (
           <>
           {/* NFT Section */}
-          <div>
           <div className="container mx-auto px-4">
             <div className="max-w-6xl mx-auto">
               {/* Hero with Background */}
