@@ -399,6 +399,11 @@ export default function App() {
                     required
                   />
                 </div>
+                {authError && (
+                  <div className="bg-red-900/20 border border-red-500/50 rounded-lg p-3 text-red-400 text-sm">
+                    {authError}
+                  </div>
+                )}
                 <Button type="submit" className="w-full bg-amber-600 hover:bg-amber-700" disabled={loading}>
                   {loading ? (
                     <span className="flex items-center justify-center">
