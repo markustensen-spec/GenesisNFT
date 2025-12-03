@@ -266,13 +266,16 @@ export default function App() {
                 Home
               </Button>
               <Button variant="ghost" onClick={() => { setActiveTab('investments'); setMobileMenuOpen(false) }} className="w-full text-amber-100">
-                Home Banking
+                HUB
               </Button>
-              <Button variant="ghost" onClick={() => { setActiveTab('nft'); setMobileMenuOpen(false) }} className="w-full text-amber-100">
-                Leonardo NFT
+              <Button variant="ghost" onClick={() => { setActiveTab('caviar'); setMobileMenuOpen(false) }} className="w-full text-amber-100">
+                Caviar ($CAX)
               </Button>
               <Button variant="ghost" onClick={() => { setActiveTab('lounge'); setMobileMenuOpen(false) }} className="w-full text-amber-100">
                 G Lounge
+              </Button>
+              <Button variant="ghost" onClick={() => { setActiveTab('nft'); setMobileMenuOpen(false) }} className="w-full text-amber-100">
+                Leonardo NFT
               </Button>
               <Button variant="ghost" onClick={() => { playGame(); setMobileMenuOpen(false) }} className="w-full text-amber-100">
                 Play Arena
