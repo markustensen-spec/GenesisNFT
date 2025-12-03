@@ -263,7 +263,9 @@ export default function App() {
   }
 
   const handleLogout = async () => {
-    await supabase.auth.signOut()
+    if (supabase) {
+      await supabase.auth.signOut()
+    }
     setUser(null)
     setActiveTab('home')
   }
