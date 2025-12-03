@@ -109,6 +109,28 @@ export default function App() {
     }
   }
 
+  const fetchNFTStats = async () => {
+    try {
+      const response = await fetch('/api/nft/stats')
+      const data = await response.json()
+      if (data.success && data.stats) {
+        setStats({
+          totalMinted: data.stats.totalMinted || 0,
+          remaining: data.stats.remaining || 10000
+        })
+      }
+    } catch (error) {
+      console.error('Error fetching NFT stats:', error)
+    }
+  }
+
+  // Fetch NFT stats when crypto tab is accessed
+  useEffect(() => {
+    if (activeTab === 'crypto') {
+      fetchNFTStats()
+    }
+  }, [activeTab])
+
   const handlePasswordReset = async (e) => {
     e.preventDefault()
     setLoading(true)
