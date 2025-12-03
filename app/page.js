@@ -1089,19 +1089,23 @@ export default function App() {
                       <div className="space-y-3 mb-6">
                         <div className="flex justify-between">
                           <span className="text-amber-100/60">Mint Price</span>
-                          <span className="text-amber-100 font-semibold text-lg">100 SOL ($100)</span>
+                          <span className="text-amber-100 font-semibold text-lg">$100 USD</span>
                         </div>
                         <div className="flex justify-between">
                           <span className="text-amber-100/60">Collection Size</span>
                           <span className="text-amber-100 font-semibold">10,000 NFTs</span>
                         </div>
                         <div className="flex justify-between">
-                          <span className="text-amber-100/60">Original Pieces</span>
-                          <span className="text-amber-100 font-semibold">10</span>
+                          <span className="text-amber-100/60">Codex Sketches</span>
+                          <span className="text-amber-100 font-semibold">9,999</span>
                         </div>
                         <div className="flex justify-between">
-                          <span className="text-amber-100/60">Generative</span>
-                          <span className="text-amber-100 font-semibold">9,990</span>
+                          <span className="text-amber-100/60">Leonardo Selfie</span>
+                          <span className="text-amber-100 font-semibold">1 (Ultra-Rare)</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span className="text-amber-100/60">Prize Pool</span>
+                          <span className="text-emerald-400 font-semibold">$50,000 USD</span>
                         </div>
                         <div className="flex justify-between">
                           <span className="text-amber-100/60">Network</span>
