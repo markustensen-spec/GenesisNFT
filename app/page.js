@@ -273,6 +273,9 @@ export default function App() {
               <Button variant="ghost" onClick={() => { playGame(); setMobileMenuOpen(false) }} className="w-full text-amber-100">
                 Play Arena
               </Button>
+              <Button variant="ghost" onClick={() => { setActiveTab('whitepaper'); setMobileMenuOpen(false) }} className="w-full text-amber-100">
+                Whitepaper
+              </Button>
             </div>
           )}
         </div>
