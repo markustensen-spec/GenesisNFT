@@ -25,12 +25,13 @@ export default function App() {
   
   // Auth states
   const [showAuthModal, setShowAuthModal] = useState(false)
-  const [authMode, setAuthMode] = useState('login') // 'login' or 'register'
+  const [authMode, setAuthMode] = useState('login') // 'login', 'register', or 'reset'
   const [authForm, setAuthForm] = useState({ email: '', password: '', username: '' })
   const [showVerificationMessage, setShowVerificationMessage] = useState(false)
   const [verificationEmail, setVerificationEmail] = useState('')
   const [authError, setAuthError] = useState('')
   const [resendSuccess, setResendSuccess] = useState(false)
+  const [resetEmailSent, setResetEmailSent] = useState(false)
 
   useEffect(() => {
     if (activeTab === 'investments') {
