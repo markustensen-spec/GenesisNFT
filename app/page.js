@@ -9,6 +9,7 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Crown, TrendingUp, Wallet, Sparkles, Lock, Zap, Trophy, Users, Gem, ChevronRight, Menu, X, Play, LogIn, UserPlus, LogOut, BookOpen, MessageSquare, Lightbulb, Coins } from 'lucide-react'
 import WhitepaperSection from './whitepaper-section'
+import { supabase } from '@/lib/supabase'
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('home')
