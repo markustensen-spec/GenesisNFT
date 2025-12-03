@@ -1287,6 +1287,22 @@ export default function App() {
                     </ul>
                   </CardContent>
                 </Card>
+
+                <Card className="bg-gradient-to-br from-blue-900/30 to-slate-900/50 border-blue-600/30">
+                  <CardHeader>
+                    <Crown className="w-12 h-12 text-blue-500 mb-3" />
+                    <CardTitle className="text-amber-100 text-xl">Codex Collective</CardTitle>
+                  </CardHeader>
+                  <CardContent className="text-amber-100/70">
+                    <p className="mb-4">Where CAX holders vote for project or crazy idea to fund.</p>
+                    <ul className="space-y-2 text-sm">
+                      <li>✓ Community-driven funding decisions</li>
+                      <li>✓ Vote on innovative projects</li>
+                      <li>✓ Shape the ecosystem together</li>
+                      <li>✓ Democratic governance system</li>
+                    </ul>
+                  </CardContent>
+                </Card>
               </div>
 
               {/* Benefits Grid */}
