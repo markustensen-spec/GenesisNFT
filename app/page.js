@@ -2231,7 +2231,7 @@ function GameComponent({ user }) {
     <div className="container mx-auto px-4">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-8">
-          <h2 className="text-4xl font-bold text-amber-100 mb-4">Genesis Caviar Game</h2>
+          <h2 className="text-4xl font-bold text-amber-100 mb-4">MVP Caviar Arena</h2>
           <p className="text-xl text-amber-100/70">
             Grow your caviar by consuming smaller ones. Avoid larger caviar!
           </p>
