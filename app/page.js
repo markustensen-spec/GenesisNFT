@@ -1062,27 +1062,28 @@ export default function App() {
                         </div>
                       </div>
 
-                      <Card className="bg-amber-900/10 border-amber-600/20 mb-4">
+                      <Card className="bg-emerald-900/10 border-emerald-600/20 mb-4">
                         <CardContent className="p-4">
-                          <p className="text-amber-300 font-semibold mb-2 text-sm flex items-center">
+                          <p className="text-emerald-300 font-semibold mb-2 text-sm flex items-center">
                             <Sparkles className="w-4 h-4 mr-2" />
-                            How to Add Your NFT Images:
+                            Minting Instructions:
                           </p>
                           <ol className="text-xs text-amber-100/70 space-y-1 list-decimal list-inside">
-                            <li>Upload images to IPFS, GitHub, or ImgBB</li>
-                            <li>Update NEXT_PUBLIC_NFT_IMAGE_URL in .env</li>
-                            <li>Or provide image URLs to developer</li>
+                            <li>Connect your Solana wallet (Phantom/Solflare)</li>
+                            <li>Click Mint NFT button</li>
+                            <li>Send 100 SOL to treasury wallet</li>
+                            <li>Receive your Leonardo da Vinci NFT</li>
                           </ol>
                         </CardContent>
                       </Card>
 
                       <Button 
-                        disabled
-                        className="w-full bg-gradient-to-r from-slate-600 to-slate-700 cursor-not-allowed mb-3"
+                        onClick={handleMint}
+                        className="w-full bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-500 hover:to-emerald-600 mb-3"
                         size="lg"
                       >
-                        <Lock className="w-5 h-5 mr-2" />
-                        Mint Coming Soon
+                        <Gem className="w-5 h-5 mr-2" />
+                        Mint NFT - 100 SOL
                       </Button>
                       
                       {mintStatus && (
