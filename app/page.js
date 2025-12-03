@@ -1139,7 +1139,7 @@ export default function App() {
                           <li>✓ Lifetime access to exclusive community features</li>
                           <li>✓ Enhanced $CAX staking rewards forever</li>
                           <li>✓ Priority access to all future drops</li>
-                          <li className="text-yellow-400 font-semibold">✓ Chance to win $50,000 prize!</li>
+                          <li className="text-yellow-400 font-semibold">✓ Chance to win &#36;50,000 prize!</li>
                         </ul>
                       </div>
                       
