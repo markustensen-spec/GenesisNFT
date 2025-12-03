@@ -536,38 +536,39 @@ export default function App() {
       {/* Main Content */}
       <main className="pt-24 pb-12">
         {activeTab === 'home' && (
-          <div className="container mx-auto px-4">
-            {/* Hero Section with Background */}
-            <div 
-              className="relative mb-16 rounded-2xl overflow-hidden"
-              style={{
-                backgroundImage: `url('https://customer-assets.emergentagent.com/job_genesishq-web3/artifacts/7uu3db8w_grok_image_o8f8mx.jpg')`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center'
-              }}
-            >
-              <div className="absolute inset-0 bg-gradient-to-b from-slate-950/70 via-slate-950/85 to-slate-950"></div>
-              <div className="relative text-center py-20 px-4 animate-fade-in">
-                <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-amber-200 via-amber-400 to-amber-600 bg-clip-text text-transparent">
-                  GenesisHQ
-                </h1>
-                <p className="text-xl md:text-2xl text-amber-100 max-w-3xl mx-auto mb-8 drop-shadow-lg">
-                  Your money, your power, one Nexus.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  {!user && (
-                    <Button size="lg" onClick={() => { setAuthMode('register'); setShowAuthModal(true) }} className="bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 text-white px-8 shadow-xl">
-                      <UserPlus className="w-5 h-5 mr-2" />
-                      Join GenesisHQ
+          <div className="w-full">
+            <div className="container mx-auto px-4 max-w-7xl">
+              {/* Hero Section with Background */}
+              <div 
+                className="relative mb-16 rounded-2xl overflow-hidden mx-auto"
+                style={{
+                  backgroundImage: `url('https://customer-assets.emergentagent.com/job_genesishq-web3/artifacts/7uu3db8w_grok_image_o8f8mx.jpg')`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center'
+                }}
+              >
+                <div className="absolute inset-0 bg-gradient-to-b from-slate-950/70 via-slate-950/85 to-slate-950"></div>
+                <div className="relative text-center py-20 px-4 animate-fade-in">
+                  <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-amber-200 via-amber-400 to-amber-600 bg-clip-text text-transparent">
+                    GenesisHQ
+                  </h1>
+                  <p className="text-xl md:text-2xl text-amber-100 max-w-3xl mx-auto mb-8 drop-shadow-lg">
+                    Your money, your power, one Nexus.
+                  </p>
+                  <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    {!user && (
+                      <Button size="lg" onClick={() => { setAuthMode('register'); setShowAuthModal(true) }} className="bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 text-white px-8 shadow-xl">
+                        <UserPlus className="w-5 h-5 mr-2" />
+                        Join GenesisHQ
+                      </Button>
+                    )}
+                    <Button size="lg" onClick={playGame} className="bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-500 hover:to-emerald-600 text-white px-8 shadow-xl">
+                      <Play className="w-5 h-5 mr-2" />
+                      Play Arena
                     </Button>
-                  )}
-                  <Button size="lg" onClick={playGame} className="bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-500 hover:to-emerald-600 text-white px-8 shadow-xl">
-                    <Play className="w-5 h-5 mr-2" />
-                    Play Arena
-                  </Button>
+                  </div>
                 </div>
               </div>
-            </div>
 
             {/* Leonardo NFT Teaser */}
             <div className="mb-16">
