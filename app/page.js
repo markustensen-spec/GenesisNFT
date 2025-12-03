@@ -265,10 +265,10 @@ export default function App() {
                 Leonardo NFT
               </Button>
               <Button variant="ghost" onClick={() => { setActiveTab('lounge'); setMobileMenuOpen(false) }} className="w-full text-amber-100">
-                Codex Collective
+                G Lounge
               </Button>
               <Button variant="ghost" onClick={() => { playGame(); setMobileMenuOpen(false) }} className="w-full text-amber-100">
-                Play Game
+                Play Arena
               </Button>
             </div>
           )}
