@@ -68,7 +68,7 @@ export default function App() {
       await fetch('/api/whitelist', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, walletAddress: publicKey?.toString() })
+        body: JSON.stringify({ email, walletAddress: walletAddress })
       })
       alert('Successfully joined the whitelist!')
       setEmail('')
