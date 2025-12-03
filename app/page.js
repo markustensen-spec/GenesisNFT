@@ -289,14 +289,94 @@ export default function App() {
             <CardHeader>
               <div className="flex justify-between items-center">
                 <CardTitle className="text-amber-100">
-                  {authMode === 'login' ? 'Login to GenesisHQ' : 'Create Account'}
+                  {showVerificationMessage ? 'Verifiser din Email' : (authMode === 'login' ? 'Login to GenesisHQ' : 'Create Account')}
                 </CardTitle>
-                <button onClick={() => setShowAuthModal(false)}>
+                <button onClick={() => {
+                  setShowAuthModal(false)
+                  setShowVerificationMessage(false)
+                  setVerificationEmail('')
+                }}>
                   <X className="w-6 h-6 text-amber-400" />
                 </button>
               </div>
             </CardHeader>
             <CardContent>
+              {showVerificationMessage ? (
+                <div className="space-y-6 py-4">
+                  <div className="text-center">
+                    <div className="w-20 h-20 bg-emerald-600/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <svg className="w-10 h-10 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                      </svg>
+                    </div>
+                    <h3 className="text-2xl font-bold text-amber-100 mb-3">✓ Konto Opprettet!</h3>
+                    <p className="text-amber-100/80 mb-4">
+                      Vi har sendt en verifiserings-email til:
+                    </p>
+                    <p className="text-amber-400 font-semibold mb-6">
+                      {verificationEmail}
+                    </p>
+                  </div>
+
+                  <div className="bg-slate-950/50 border border-amber-900/30 rounded-lg p-4 space-y-3">
+                    <div className="flex items-start space-x-3">
+                      <span className="text-2xl">📧</span>
+                      <div>
+                        <h4 className="text-amber-100 font-semibold mb-1">Sjekk din innboks</h4>
+                        <p className="text-amber-100/70 text-sm">
+                          Åpne emailen fra Supabase og klikk på verifiserings-linken
+                        </p>
+                      </div>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <span className="text-2xl">⚠️</span>
+                      <div>
+                        <h4 className="text-amber-100 font-semibold mb-1">Sjekk spam-mappen</h4>
+                        <p className="text-amber-100/70 text-sm">
+                          Emailen kan havne i spam/søppelpost
+                        </p>
+                      </div>
+                    </div>
+                    <div className="flex items-start space-x-3">
+                      <span className="text-2xl">🔐</span>
+                      <div>
+                        <h4 className="text-amber-100 font-semibold mb-1">Logg inn etter verifisering</h4>
+                        <p className="text-amber-100/70 text-sm">
+                          Etter du har klikket på linken, kan du logge inn
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <Button 
+                    onClick={() => {
+                      setShowVerificationMessage(false)
+                      setAuthMode('login')
+                    }}
+                    className="w-full bg-amber-600 hover:bg-amber-700"
+                  >
+                    OK, jeg forstår
+                  </Button>
+
+                  <button
+                    onClick={async () => {
+                      try {
+                        const { error } = await supabase.auth.resend({
+                          type: 'signup',
+                          email: verificationEmail
+                        })
+                        if (error) throw error
+                        alert('✓ Email sendt på nytt! Sjekk din innboks.')
+                      } catch (error) {
+                        alert('❌ Kunne ikke sende email: ' + error.message)
+                      }
+                    }}
+                    className="w-full text-sm text-amber-400 hover:text-amber-300"
+                  >
+                    Send email på nytt
+                  </button>
+                </div>
+              ) : (
               <form onSubmit={handleAuth} className="space-y-4">
                 {authMode === 'register' && (
                   <div>
