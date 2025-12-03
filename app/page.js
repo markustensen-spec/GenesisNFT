@@ -1613,7 +1613,7 @@ export default function App() {
                         MINT YOUR NFT NOW
                       </Button>
                       <p className="text-amber-100 mt-6 text-lg font-semibold">
-                        Login required • Solana wallet needed • $85 per mint
+                        Login required • Solana wallet needed • 0.5 SOL per mint
                       </p>
                     </div>
                   )}
