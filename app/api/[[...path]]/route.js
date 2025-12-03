@@ -99,7 +99,14 @@ export async function GET(request) {
   // Game leaderboard
   if (path === '/game/leaderboard') {
     try {
-      const database = await connectDB()
+      const database = await initMongoDB()
+      if (!database) {
+        return NextResponse.json({
+          success: false,
+          error: 'Database not available - MongoDB not configured'
+        }, { status: 503 })
+      }
+      
       const leaderboard = await database
         .collection('leaderboard')
         .find({})
