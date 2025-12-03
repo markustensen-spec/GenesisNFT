@@ -1219,7 +1219,7 @@ function GameComponent({ user }) {
               />
             </div>
             <p className="text-center text-amber-100/60 text-sm mt-4">
-              Use WASD or Arrow Keys to move
+              Desktop: WASD/Arrow Keys | Mobile: Tap & Drag to move
             </p>
           </div>
         )}
