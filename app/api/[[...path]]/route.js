@@ -230,8 +230,15 @@ export async function POST(request) {
         )
       }
 
+      const database = await initMongoDB()
+      if (!database) {
+        return NextResponse.json({
+          success: false,
+          error: 'Database not available - MongoDB not configured'
+        }, { status: 503 })
+      }
+      
       const mintId = uuidv4()
-      const database = await connectDB()
       
       await database.collection('nft_mints').insertOne({
         id: mintId,
