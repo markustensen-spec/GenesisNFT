@@ -46,11 +46,15 @@ export async function POST(request) {
     const { index } = await request.json()
     
     // Select subject based on index or random
-    const subjectIndex = index ? index % anatomicalSubjects.length : Math.floor(Math.random() * anatomicalSubjects.length)
-    const subject = anatomicalSubjects[subjectIndex]
+    const subjectIndex = index ? index % leonardoSubjects.length : Math.floor(Math.random() * leonardoSubjects.length)
+    const selectedSubject = leonardoSubjects[subjectIndex]
     
-    // Enhanced Leonardo da Vinci style prompt
-    const prompt = `Leonardo da Vinci anatomical sketch of ${subject}, detailed Renaissance drawing, sepia tones, brown ink on aged parchment, anatomical precision, fine pen strokes, medical illustration, classical proportions, detailed scientific observation, 15th century style, museum quality`
+    // Enhanced Leonardo da Vinci style prompt with Italian annotations
+    const basePrompt = selectedSubject.type === 'anatomy' 
+      ? `Leonardo da Vinci anatomical study of ${selectedSubject.subject}`
+      : `Leonardo da Vinci technical drawing of ${selectedSubject.subject}`
+    
+    const prompt = `${basePrompt}, Renaissance codex page, detailed sketch on aged yellowed parchment paper, sepia brown ink, mirror writing in Italian script "${selectedSubject.italian}" annotations around the margins, mathematical notes and measurements, geometric diagrams, fine crosshatching, detailed technical precision, 15th century style, museum quality codex illustration, Leonardo's characteristic reversed handwriting, scientific observation notes in old Italian`
     
     console.log('Generating image with prompt:', prompt)
     
@@ -72,7 +76,9 @@ export async function POST(request) {
     return NextResponse.json({
       success: true,
       imageUrl: dataUrl,
-      subject,
+      subject: selectedSubject.subject,
+      italian: selectedSubject.italian,
+      type: selectedSubject.type,
       prompt
     })
     
