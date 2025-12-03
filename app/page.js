@@ -570,36 +570,36 @@ export default function App() {
                 </div>
               </div>
 
-            {/* Leonardo NFT Teaser */}
-            <div className="mb-16">
-              <Card className="bg-gradient-to-br from-amber-900/30 to-slate-900/50 border-amber-600/40 overflow-hidden">
-                <div className="grid md:grid-cols-2 gap-0">
-                  <div className="relative h-64 md:h-auto">
-                    <img 
-                      src={process.env.NEXT_PUBLIC_NFT_IMAGE_URL || '/api/placeholder/600/400'} 
-                      alt="Leonardo da Vinci NFT" 
-                      className="w-full h-full object-cover"
-                    />
+              {/* Leonardo NFT Teaser */}
+              <div className="mb-16">
+                <Card className="bg-gradient-to-br from-amber-900/30 to-slate-900/50 border-amber-600/40 overflow-hidden">
+                  <div className="grid md:grid-cols-2 gap-0">
+                    <div className="relative h-64 md:h-auto">
+                      <img 
+                        src={process.env.NEXT_PUBLIC_NFT_IMAGE_URL || '/api/placeholder/600/400'} 
+                        alt="Leonardo da Vinci NFT" 
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="p-8 flex flex-col justify-center">
+                      <Gem className="w-12 h-12 text-amber-500 mb-4" />
+                      <h3 className="text-3xl font-bold text-amber-100 mb-3">Leonardo da Vinci NFT Collection</h3>
+                      <p className="text-amber-100/80 mb-4">
+                        10 original masterpieces + 9,990 generative pieces. Own a piece of Renaissance genius on the blockchain with lifetime benefits and Codex Collective voting rights.
+                      </p>
+                      <Button onClick={() => setActiveTab('nft')} size="lg" className="bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 w-fit">
+                        <Gem className="w-5 h-5 mr-2" />
+                        Explore Collection
+                      </Button>
+                    </div>
                   </div>
-                  <div className="p-8 flex flex-col justify-center">
-                    <Gem className="w-12 h-12 text-amber-500 mb-4" />
-                    <h3 className="text-3xl font-bold text-amber-100 mb-3">Leonardo da Vinci NFT Collection</h3>
-                    <p className="text-amber-100/80 mb-4">
-                      10 original masterpieces + 9,990 generative pieces. Own a piece of Renaissance genius on the blockchain with lifetime benefits and Codex Collective voting rights.
-                    </p>
-                    <Button onClick={() => setActiveTab('nft')} size="lg" className="bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 w-fit">
-                      <Gem className="w-5 h-5 mr-2" />
-                      Explore Collection
-                    </Button>
-                  </div>
-                </div>
-              </Card>
-            </div>
+                </Card>
+              </div>
 
-            {/* Main Features Grid */}
-            <div className="mb-16">
-              <h2 className="text-3xl font-bold text-amber-100 text-center mb-8">Platform Features</h2>
-              <div className="grid md:grid-cols-2 gap-6">
+              {/* Main Features Grid */}
+              <div className="mb-16">
+                <h2 className="text-3xl font-bold text-amber-100 text-center mb-8">Platform Features</h2>
+                <div className="grid md:grid-cols-2 gap-6">
                 <Card className="bg-slate-900/50 border-amber-900/30 backdrop-blur-sm hover:border-amber-600/50 transition-all cursor-pointer" onClick={() => setActiveTab('investments')}>
                   <CardHeader>
                     <Wallet className="w-16 h-16 text-amber-500 mb-4" />
