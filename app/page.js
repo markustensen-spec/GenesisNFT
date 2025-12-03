@@ -648,6 +648,229 @@ export default function App() {
           </div>
         )}
 
+        {activeTab === 'caviar' && (
+          <div className="container mx-auto px-4">
+            <div className="max-w-6xl mx-auto">
+              {/* Hero */}
+              <div className="text-center mb-16">
+                <Badge className="mb-4 bg-amber-600/20 text-amber-400 border-amber-600/30 px-4 py-2">
+                  <Zap className="w-4 h-4 mr-2 inline" />
+                  The Power of the Ecosystem
+                </Badge>
+                <h2 className="text-4xl md:text-6xl font-bold text-amber-100 mb-4">
+                  Caviar Token ($CAX)
+                </h2>
+                <p className="text-xl md:text-2xl text-amber-100/80 max-w-3xl mx-auto mb-8">
+                  Your key to governance, staking rewards, and platform participation. Shape the future of GenesisHQ.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <Button size="lg" className="bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600">
+                    <Zap className="w-5 h-5 mr-2" />
+                    Buy $CAX
+                  </Button>
+                  <Button size="lg" variant="outline" className="border-amber-600 text-amber-400 hover:bg-amber-600/10">
+                    <Trophy className="w-5 h-5 mr-2" />
+                    Stake Now
+                  </Button>
+                </div>
+              </div>
+
+              {/* Token Stats */}
+              <div className="grid md:grid-cols-4 gap-6 mb-16">
+                <Card className="bg-slate-900/50 border-amber-900/30 text-center">
+                  <CardContent className="pt-6">
+                    <div className="text-3xl font-bold text-amber-400 mb-2">1B</div>
+                    <div className="text-amber-100/60 text-sm">Total Supply</div>
+                  </CardContent>
+                </Card>
+                <Card className="bg-slate-900/50 border-amber-900/30 text-center">
+                  <CardContent className="pt-6">
+                    <div className="text-3xl font-bold text-amber-400 mb-2">20%</div>
+                    <div className="text-amber-100/60 text-sm">Base APY</div>
+                  </CardContent>
+                </Card>
+                <Card className="bg-slate-900/50 border-amber-900/30 text-center">
+                  <CardContent className="pt-6">
+                    <div className="text-3xl font-bold text-amber-400 mb-2">2x</div>
+                    <div className="text-amber-100/60 text-sm">G Lounge Boost</div>
+                  </CardContent>
+                </Card>
+                <Card className="bg-slate-900/50 border-amber-900/30 text-center">
+                  <CardContent className="pt-6">
+                    <div className="text-3xl font-bold text-amber-400 mb-2">1%</div>
+                    <div className="text-amber-100/60 text-sm">Burn Rate</div>
+                  </CardContent>
+                </Card>
+              </div>
+
+              {/* Token Utilities */}
+              <div className="mb-16">
+                <h3 className="text-3xl font-bold text-amber-100 text-center mb-8">Token Utilities</h3>
+                <div className="grid md:grid-cols-2 gap-6">
+                  <Card className="bg-gradient-to-br from-amber-900/20 to-slate-900/50 border-amber-600/30">
+                    <CardHeader>
+                      <Zap className="w-12 h-12 text-amber-500 mb-3" />
+                      <CardTitle className="text-amber-100 text-xl">Governance</CardTitle>
+                    </CardHeader>
+                    <CardContent className="text-amber-100/70">
+                      <p className="mb-3">Vote on platform decisions and shape GenesisHQ's future</p>
+                      <ul className="space-y-2 text-sm">
+                        <li>✓ Proposal voting rights</li>
+                        <li>✓ Treasury allocation decisions</li>
+                        <li>✓ Feature prioritization</li>
+                        <li>✓ Community initiatives</li>
+                      </ul>
+                    </CardContent>
+                  </Card>
+
+                  <Card className="bg-gradient-to-br from-amber-900/20 to-slate-900/50 border-amber-600/30">
+                    <CardHeader>
+                      <Trophy className="w-12 h-12 text-amber-500 mb-3" />
+                      <CardTitle className="text-amber-100 text-xl">Staking Rewards</CardTitle>
+                    </CardHeader>
+                    <CardContent className="text-amber-100/70">
+                      <p className="mb-3">Earn passive income by staking your $CAX tokens</p>
+                      <ul className="space-y-2 text-sm">
+                        <li>✓ 20% base APY</li>
+                        <li>✓ +10% with NFT holder bonus</li>
+                        <li>✓ +10% for 6-month lock</li>
+                        <li>✓ 2x boost for G Lounge members</li>
+                      </ul>
+                    </CardContent>
+                  </Card>
+
+                  <Card className="bg-gradient-to-br from-amber-900/20 to-slate-900/50 border-amber-600/30">
+                    <CardHeader>
+                      <Users className="w-12 h-12 text-amber-500 mb-3" />
+                      <CardTitle className="text-amber-100 text-xl">Platform Access</CardTitle>
+                    </CardHeader>
+                    <CardContent className="text-amber-100/70">
+                      <p className="mb-3">$CAX unlocks exclusive platform features and benefits</p>
+                      <ul className="space-y-2 text-sm">
+                        <li>✓ P2E game entry fees</li>
+                        <li>✓ Tournament participation</li>
+                        <li>✓ Premium feature access</li>
+                        <li>✓ Reduced trading fees</li>
+                      </ul>
+                    </CardContent>
+                  </Card>
+
+                  <Card className="bg-gradient-to-br from-amber-900/20 to-slate-900/50 border-amber-600/30">
+                    <CardHeader>
+                      <Gem className="w-12 h-12 text-amber-500 mb-3" />
+                      <CardTitle className="text-amber-100 text-xl">NFT Benefits</CardTitle>
+                    </CardHeader>
+                    <CardContent className="text-amber-100/70">
+                      <p className="mb-3">NFT holders receive enhanced $CAX rewards and bonuses</p>
+                      <ul className="space-y-2 text-sm">
+                        <li>✓ Bonus token allocation</li>
+                        <li>✓ Enhanced staking APY</li>
+                        <li>✓ Priority access to IDO</li>
+                        <li>✓ Exclusive airdrops</li>
+                      </ul>
+                    </CardContent>
+                  </Card>
+                </div>
+              </div>
+
+              {/* Tokenomics */}
+              <div className="mb-16">
+                <h3 className="text-3xl font-bold text-amber-100 text-center mb-8">Tokenomics Distribution</h3>
+                <div className="grid md:grid-cols-3 gap-6">
+                  <Card className="bg-slate-900/50 border-emerald-600/30">
+                    <CardHeader>
+                      <CardTitle className="text-amber-100 text-center">50%</CardTitle>
+                      <CardDescription className="text-center text-amber-100/60">Codex Collective</CardDescription>
+                    </CardHeader>
+                    <CardContent className="text-amber-100/70 text-center">
+                      <p className="text-sm">Reserved for community governance, rewards, and collaborative projects</p>
+                    </CardContent>
+                  </Card>
+
+                  <Card className="bg-slate-900/50 border-amber-600/30">
+                    <CardHeader>
+                      <CardTitle className="text-amber-100 text-center">30%</CardTitle>
+                      <CardDescription className="text-center text-amber-100/60">Liquidity</CardDescription>
+                    </CardHeader>
+                    <CardContent className="text-amber-100/70 text-center">
+                      <p className="text-sm">DEX liquidity pools and market making operations</p>
+                    </CardContent>
+                  </Card>
+
+                  <Card className="bg-slate-900/50 border-purple-600/30">
+                    <CardHeader>
+                      <CardTitle className="text-amber-100 text-center">20%</CardTitle>
+                      <CardDescription className="text-center text-amber-100/60">Growth Jar</CardDescription>
+                    </CardHeader>
+                    <CardContent className="text-amber-100/70 text-center">
+                      <p className="text-sm">Marketing, partnerships, ecosystem development</p>
+                    </CardContent>
+                  </Card>
+                </div>
+              </div>
+
+              {/* Deflationary Mechanism */}
+              <Card className="bg-gradient-to-r from-amber-600/20 to-amber-900/20 border-amber-600/50 mb-12">
+                <CardContent className="py-12">
+                  <div className="text-center">
+                    <Sparkles className="w-16 h-16 text-amber-500 mx-auto mb-6" />
+                    <h3 className="text-3xl font-bold text-amber-100 mb-4">Deflationary Design</h3>
+                    <p className="text-xl text-amber-100/80 mb-6 max-w-2xl mx-auto">
+                      1% of every transaction is permanently burnt, making $CAX increasingly scarce over time
+                    </p>
+                    <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+                      <div>
+                        <div className="text-2xl font-bold text-amber-400 mb-2">Burn</div>
+                        <p className="text-sm text-amber-100/60">1% per transaction</p>
+                      </div>
+                      <div>
+                        <div className="text-2xl font-bold text-amber-400 mb-2">Scarcity</div>
+                        <p className="text-sm text-amber-100/60">Decreasing supply</p>
+                      </div>
+                      <div>
+                        <div className="text-2xl font-bold text-amber-400 mb-2">Value</div>
+                        <p className="text-sm text-amber-100/60">Long-term appreciation</p>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Roadmap Integration */}
+              <Card className="bg-slate-900/50 border-amber-900/30">
+                <CardHeader>
+                  <CardTitle className="text-amber-100 text-2xl text-center">$CAX Launch Timeline</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-4">
+                    <div className="flex items-start space-x-4">
+                      <div className="bg-emerald-600 rounded-full w-10 h-10 flex items-center justify-center text-white font-bold flex-shrink-0">Q1</div>
+                      <div>
+                        <h4 className="font-bold text-amber-100 mb-1">2026 - Token Generation</h4>
+                        <p className="text-amber-100/70 text-sm">$CAX launch on Solana, initial DEX listings, staking pools activated</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start space-x-4">
+                      <div className="bg-amber-600 rounded-full w-10 h-10 flex items-center justify-center text-white font-bold flex-shrink-0">Q2</div>
+                      <div>
+                        <h4 className="font-bold text-amber-100 mb-1">2026 - Platform Integration</h4>
+                        <p className="text-amber-100/70 text-sm">Game wagering enabled, governance portal live, CEX listings</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start space-x-4">
+                      <div className="bg-purple-600 rounded-full w-10 h-10 flex items-center justify-center text-white font-bold flex-shrink-0">Q3</div>
+                      <div>
+                        <h4 className="font-bold text-amber-100 mb-1">2026+ - Ecosystem Expansion</h4>
+                        <p className="text-amber-100/70 text-sm">Cross-chain bridges, institutional partnerships, global adoption</p>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        )}
+
         {activeTab === 'nft' && (
           <div className="container mx-auto px-4">
             <div className="max-w-6xl mx-auto">
