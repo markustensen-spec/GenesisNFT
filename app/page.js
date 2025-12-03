@@ -465,15 +465,74 @@ export default function App() {
         {activeTab === 'investments' && (
           <div className="container mx-auto px-4">
             <div className="max-w-6xl mx-auto">
-              <h2 className="text-4xl font-bold text-amber-100 mb-8">Live Investments</h2>
+              <div className="text-center mb-12">
+                <Badge className="mb-4 bg-amber-600/20 text-amber-400 border-amber-600/30 px-4 py-2">
+                  <Wallet className="w-4 h-4 mr-2 inline" />
+                  Your Financial Command Center
+                </Badge>
+                <h2 className="text-4xl md:text-5xl font-bold text-amber-100 mb-4">Wallet & Banking Ecosystem</h2>
+                <p className="text-xl text-amber-100/70 max-w-3xl mx-auto">
+                  A complete neo-banking solution combining traditional finance with Web3 innovation
+                </p>
+              </div>
+
+              {/* Banking Features */}
+              <div className="grid md:grid-cols-3 gap-6 mb-12">
+                <Card className="bg-slate-900/50 border-amber-900/30 hover:border-amber-600/50 transition-all">
+                  <CardHeader>
+                    <Wallet className="w-12 h-12 text-amber-500 mb-3" />
+                    <CardTitle className="text-amber-100">Multi-Currency Wallet</CardTitle>
+                  </CardHeader>
+                  <CardContent className="text-amber-100/70">
+                    <ul className="space-y-2 text-sm">
+                      <li>✓ AED, USD, EUR, NOK accounts</li>
+                      <li>✓ Crypto & fiat in one place</li>
+                      <li>✓ Real-time conversion</li>
+                      <li>✓ Secure cold storage</li>
+                    </ul>
+                  </CardContent>
+                </Card>
+
+                <Card className="bg-slate-900/50 border-amber-900/30 hover:border-amber-600/50 transition-all">
+                  <CardHeader>
+                    <TrendingUp className="w-12 h-12 text-amber-500 mb-3" />
+                    <CardTitle className="text-amber-100">Investment Hub</CardTitle>
+                  </CardHeader>
+                  <CardContent className="text-amber-100/70">
+                    <ul className="space-y-2 text-sm">
+                      <li>✓ Live crypto & stock prices</li>
+                      <li>✓ Portfolio tracking</li>
+                      <li>✓ Advanced analytics</li>
+                      <li>✓ Auto-invest features</li>
+                    </ul>
+                  </CardContent>
+                </Card>
+
+                <Card className="bg-slate-900/50 border-amber-900/30 hover:border-amber-600/50 transition-all">
+                  <CardHeader>
+                    <Lock className="w-12 h-12 text-amber-500 mb-3" />
+                    <CardTitle className="text-amber-100">Licensed Banking</CardTitle>
+                  </CardHeader>
+                  <CardContent className="text-amber-100/70">
+                    <ul className="space-y-2 text-sm">
+                      <li>✓ VARA VASP licensed</li>
+                      <li>✓ UAE banking license</li>
+                      <li>✓ PCI-DSS compliant</li>
+                      <li>✓ Insured deposits</li>
+                    </ul>
+                  </CardContent>
+                </Card>
+              </div>
               
+              {/* Live Crypto Prices */}
               <Tabs defaultValue="crypto" className="w-full">
                 <TabsList className="grid w-full max-w-md grid-cols-2 bg-slate-900/50">
                   <TabsTrigger value="crypto" className="data-[state=active]:bg-amber-600">Cryptocurrency</TabsTrigger>
-                  <TabsTrigger value="stocks" className="data-[state=active]:bg-amber-600">Stocks</TabsTrigger>
+                  <TabsTrigger value="banking" className="data-[state=active]:bg-amber-600">Banking Services</TabsTrigger>
                 </TabsList>
                 
                 <TabsContent value="crypto" className="mt-6">
+                  <h3 className="text-2xl font-bold text-amber-100 mb-4">Live Market Prices</h3>
                   {loading ? (
                     <div className="text-center py-12 text-amber-100">Loading market data...</div>
                   ) : (
@@ -496,7 +555,7 @@ export default function App() {
                               {crypto.price_change_24h >= 0 ? '↑' : '↓'} {Math.abs(crypto.price_change_percentage_24h).toFixed(2)}%
                             </div>
                             <Button className="w-full mt-4 bg-amber-600 hover:bg-amber-700" size="sm">
-                              Allocate $CAX
+                              Invest
                             </Button>
                           </CardContent>
                         </Card>
@@ -505,16 +564,80 @@ export default function App() {
                   )}
                 </TabsContent>
                 
-                <TabsContent value="stocks" className="mt-6">
-                  <Card className="bg-slate-900/50 border-amber-900/30">
-                    <CardContent className="py-12 text-center">
-                      <TrendingUp className="w-16 h-16 text-amber-500 mx-auto mb-4" />
-                      <p className="text-amber-100/60">Stock market integration coming soon</p>
-                      <p className="text-sm text-amber-100/40 mt-2">Connect with IEX Cloud for live stock data</p>
-                    </CardContent>
-                  </Card>
+                <TabsContent value="banking" className="mt-6">
+                  <h3 className="text-2xl font-bold text-amber-100 mb-6">Banking Services</h3>
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <Card className="bg-slate-900/50 border-amber-900/30">
+                      <CardHeader>
+                        <CardTitle className="text-amber-100">Debit Cards</CardTitle>
+                      </CardHeader>
+                      <CardContent className="text-amber-100/70">
+                        <p className="mb-4">Physical and virtual cards with global acceptance</p>
+                        <ul className="space-y-2 text-sm">
+                          <li>✓ Visa & Mastercard</li>
+                          <li>✓ Spend crypto & fiat</li>
+                          <li>✓ Cashback rewards</li>
+                          <li>✓ Apple Pay & Google Pay</li>
+                        </ul>
+                      </CardContent>
+                    </Card>
+
+                    <Card className="bg-slate-900/50 border-amber-900/30">
+                      <CardHeader>
+                        <CardTitle className="text-amber-100">Fiat On/Off Ramps</CardTitle>
+                      </CardHeader>
+                      <CardContent className="text-amber-100/70">
+                        <p className="mb-4">Seamless conversion between fiat and crypto</p>
+                        <ul className="space-y-2 text-sm">
+                          <li>✓ Instant conversions</li>
+                          <li>✓ Low fees (0.5%)</li>
+                          <li>✓ Bank transfers</li>
+                          <li>✓ Credit card deposits</li>
+                        </ul>
+                      </CardContent>
+                    </Card>
+
+                    <Card className="bg-slate-900/50 border-amber-900/30">
+                      <CardHeader>
+                        <CardTitle className="text-amber-100">IBANs & Wire Transfers</CardTitle>
+                      </CardHeader>
+                      <CardContent className="text-amber-100/70">
+                        <p className="mb-4">Multi-currency IBAN accounts</p>
+                        <ul className="space-y-2 text-sm">
+                          <li>✓ UAE IBAN</li>
+                          <li>✓ European IBAN</li>
+                          <li>✓ SWIFT transfers</li>
+                          <li>✓ SEPA payments</li>
+                        </ul>
+                      </CardContent>
+                    </Card>
+
+                    <Card className="bg-slate-900/50 border-amber-900/30">
+                      <CardHeader>
+                        <CardTitle className="text-amber-100">Savings & Staking</CardTitle>
+                      </CardHeader>
+                      <CardContent className="text-amber-100/70">
+                        <p className="mb-4">Earn passive income on your holdings</p>
+                        <ul className="space-y-2 text-sm">
+                          <li>✓ Up to 8% APY on stablecoins</li>
+                          <li>✓ $CAX staking rewards</li>
+                          <li>✓ Auto-compound options</li>
+                          <li>✓ Flexible withdrawals</li>
+                        </ul>
+                      </CardContent>
+                    </Card>
+                  </div>
                 </TabsContent>
               </Tabs>
+
+              {/* Coming Soon Banner */}
+              <Card className="mt-12 bg-gradient-to-r from-amber-600/20 to-amber-900/20 border-amber-600/50">
+                <CardContent className="py-8 text-center">
+                  <h3 className="text-2xl font-bold text-amber-100 mb-3">Full Banking Launch - Q2 2026</h3>
+                  <p className="text-amber-100/70 mb-4">Complete neo-banking platform with licensed operations in UAE and Norway</p>
+                  <Badge className="bg-amber-600 text-white px-4 py-2">Phase 2: Genesis NEXUS</Badge>
+                </CardContent>
+              </Card>
             </div>
           </div>
         )}
