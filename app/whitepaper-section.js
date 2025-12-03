@@ -5,8 +5,8 @@ import { Crown, TrendingUp, Trophy, BookOpen } from 'lucide-react'
 
 export default function WhitepaperSection() {
   return (
-    <div className="container mx-auto px-4">
-      <div className="max-w-6xl mx-auto">
+    <div className="w-full">
+      <div className="container mx-auto px-4 max-w-7xl">
         {/* Hero with Background */}
         <div 
           className="relative mb-16 rounded-2xl overflow-hidden"
