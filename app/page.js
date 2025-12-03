@@ -1009,13 +1009,20 @@ export default function App() {
                   <div className="grid md:grid-cols-2 gap-0">
                     <div className="relative h-96 md:h-auto">
                       <img 
-                        src={process.env.NEXT_PUBLIC_NFT_IMAGE_URL || '/api/placeholder/600/600'} 
-                        alt="Leonardo da Vinci NFT" 
+                        src="https://customer-assets.emergentagent.com/job_genesishq/artifacts/e8vx47cp_grok_image_sidn9a.jpg" 
+                        alt="Leonardo da Vinci NFT - Anatomia del Corpo" 
                         className="w-full h-full object-cover"
                       />
+                      <div className="absolute top-4 right-4 bg-amber-600 text-white px-3 py-1 rounded-full font-bold text-sm">
+                        Original #1
+                      </div>
                     </div>
                     <div className="p-8">
-                      <h3 className="text-2xl font-bold text-amber-100 mb-4">Genesis #0001</h3>
+                      <h3 className="text-2xl font-bold text-amber-100 mb-2">Anatomia del Corpo #0001</h3>
+                      <div className="flex items-center space-x-2 mb-4">
+                        <Badge className="bg-purple-600/20 text-purple-300 border-purple-500/30">Legendary</Badge>
+                        <Badge className="bg-amber-600/20 text-amber-300 border-amber-500/30">Original Piece</Badge>
+                      </div>
                       <p className="text-amber-100/70 mb-6">
                         The first of 10 original Leonardo da Vinci inspired mechanical masterpieces. Each NFT combines Renaissance genius with modern holographic technology, creating a bridge between history and the future.
                       </p>
