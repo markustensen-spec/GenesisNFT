@@ -348,7 +348,7 @@ export default function App() {
                   GenesisHQ
                 </h1>
                 <p className="text-xl md:text-2xl text-amber-100 max-w-3xl mx-auto mb-8 drop-shadow-lg">
-                  Your money. Your power. One seamless universe.
+                  Your money, your power, one Nexus.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   {!user && (
