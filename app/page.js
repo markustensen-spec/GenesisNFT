@@ -1766,7 +1766,7 @@ export default function App() {
                       </div>
                       <div className="text-center">
                         <p className="text-emerald-400 text-sm mb-1">Available</p>
-                        <p className="text-2xl font-bold text-emerald-400">{stats.remaining || 10000}</p>
+                        <p className="text-2xl font-bold text-emerald-400">{stats?.remaining || 10000}</p>
                       </div>
                       <div className="text-center">
                         <p className="text-purple-400 text-sm mb-1">Price</p>
