@@ -944,7 +944,7 @@ export default function App() {
               <div 
                 className="relative mb-16 rounded-2xl overflow-hidden"
                 style={{
-                  backgroundImage: `url('https://customer-assets.emergentagent.com/job_genesishq/artifacts/12zic6xd_grok_image_xwwjcmi.jpg')`,
+                  backgroundImage: `url('https://customer-assets.emergentagent.com/job_genesishq-web3/artifacts/nu4vi62t_images%20%281%29.jpeg')`,
                   backgroundSize: 'cover',
                   backgroundPosition: 'center'
                 }}
