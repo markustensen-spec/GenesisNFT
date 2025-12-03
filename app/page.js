@@ -1350,7 +1350,6 @@ export default function App() {
               </Card>
             </div>
           </div>
-          </>
         )}
 
         {activeTab === 'lounge' && (
