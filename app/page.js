@@ -30,6 +30,7 @@ export default function App() {
   const [showVerificationMessage, setShowVerificationMessage] = useState(false)
   const [verificationEmail, setVerificationEmail] = useState('')
   const [authError, setAuthError] = useState('')
+  const [resendSuccess, setResendSuccess] = useState(false)
 
   useEffect(() => {
     if (activeTab === 'investments') {
