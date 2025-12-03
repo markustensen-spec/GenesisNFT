@@ -348,17 +348,24 @@ export default function App() {
                     Got it!
                   </Button>
 
+                  {resendSuccess && (
+                    <div className="bg-emerald-900/20 border border-emerald-500/50 rounded-lg p-3 text-emerald-400 text-sm text-center">
+                      ✓ Email sent! Check your inbox.
+                    </div>
+                  )}
                   <button
                     onClick={async () => {
                       try {
+                        setResendSuccess(false)
                         const { error } = await supabase.auth.resend({
                           type: 'signup',
                           email: verificationEmail
                         })
                         if (error) throw error
-                        alert('✓ Email sent again! Check your inbox.')
+                        setResendSuccess(true)
+                        setTimeout(() => setResendSuccess(false), 5000)
                       } catch (error) {
-                        alert('❌ Could not send email: ' + error.message)
+                        console.error('Resend error:', error)
                       }
                     }}
                     className="w-full text-sm text-amber-400 hover:text-amber-300"
