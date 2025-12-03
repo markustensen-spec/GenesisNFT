@@ -532,6 +532,36 @@ export default function App() {
                     </button>
                   </>
                 )}
+                
+                {authMode === 'reset' && (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setAuthMode('login')
+                      setAuthError('')
+                      setAuthForm({ email: '', password: '', username: '' })
+                    }}
+                    className="w-full text-sm text-amber-400/70 hover:text-amber-300"
+                  >
+                    ← Back to Login
+                  </button>
+                )}
+                
+                {authMode !== 'reset' && (
+                  <div className="text-center pt-4 border-t border-amber-900/30">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setAuthMode(authMode === 'login' ? 'register' : 'login')
+                        setAuthError('')
+                        setAuthForm({ email: '', password: '', username: '' })
+                      }}
+                      className="text-sm text-amber-400/70 hover:text-amber-300"
+                    >
+                      {authMode === 'login' ? "Don't have an account? Register" : "Already have an account? Login"}
+                    </button>
+                  </div>
+                )}
               </form>
             )}
             </CardContent>
