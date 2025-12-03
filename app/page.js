@@ -94,6 +94,16 @@ export default function App() {
     setAuthError('')
     
     try {
+      // Security: Validate email format
+      if (!validateEmail(authForm.email)) {
+        throw new Error('Please enter a valid email address')
+      }
+      
+      // Security: Rate limiting (3 attempts per hour per email)
+      if (!rateLimit(`reset_${authForm.email}`, 3, 3600000)) {
+        throw new Error('Too many password reset attempts. Please try again in an hour.')
+      }
+      
       const { error } = await supabase.auth.resetPasswordForEmail(authForm.email, {
         redirectTo: `${window.location.origin}/reset-password`
       })
