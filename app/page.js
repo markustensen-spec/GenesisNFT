@@ -344,15 +344,11 @@ export default function App() {
             >
               <div className="absolute inset-0 bg-gradient-to-b from-slate-950/70 via-slate-950/85 to-slate-950"></div>
               <div className="relative text-center py-20 px-4 animate-fade-in">
-                <Badge className="mb-4 bg-amber-600/30 text-amber-300 border-amber-600/50 px-4 py-2 backdrop-blur-sm">
-                  <Sparkles className="w-4 h-4 mr-2 inline" />
-                  Where Renaissance Meets Revolution
-                </Badge>
                 <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-amber-200 via-amber-400 to-amber-600 bg-clip-text text-transparent">
-                  Welcome to GenesisHQ
+                  GenesisHQ
                 </h1>
                 <p className="text-xl md:text-2xl text-amber-100 max-w-3xl mx-auto mb-8 drop-shadow-lg">
-                  A revolutionary platform uniting Leonardo da Vinci's genius with blockchain technology, exclusive community access, and competitive gaming
+                  Your money. Your power. One seamless universe.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   {!user && (
