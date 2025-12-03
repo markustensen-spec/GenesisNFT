@@ -1188,7 +1188,8 @@ function GameComponent({ user }) {
               <div className="mt-6 text-left text-amber-100/60 text-sm">
                 <p className="font-semibold mb-2">How to Play:</p>
                 <ul className="space-y-1">
-                  <li>• Use WASD or Arrow Keys to move</li>
+                  <li>• Desktop: Use WASD or Arrow Keys</li>
+                  <li>• Mobile: Tap and drag to move</li>
                   <li>• Eat smaller caviar to grow</li>
                   <li>• Avoid larger caviar</li>
                   <li>• Grow as big as you can!</li>
