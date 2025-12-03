@@ -10,6 +10,7 @@ import { Label } from '@/components/ui/label'
 import { Crown, TrendingUp, Wallet, Sparkles, Lock, Zap, Trophy, Users, Gem, ChevronRight, Menu, X, Play, LogIn, UserPlus, LogOut, BookOpen, MessageSquare, Lightbulb, Coins, Loader2 } from 'lucide-react'
 import WhitepaperSection from './whitepaper-section'
 import { supabase } from '@/lib/supabase'
+import { validateEmail, validatePassword, validateUsername, rateLimit, sanitizeInput } from '@/lib/security'
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('home')
