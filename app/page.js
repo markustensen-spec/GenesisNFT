@@ -1832,23 +1832,47 @@ export default function App() {
                       </div>
                     </div>
 
+                    {/* Buy Solana Options */}
+                    <div className="bg-purple-900/20 border border-purple-500/30 rounded-lg p-5">
+                      <div className="flex items-center gap-2 mb-3">
+                        <Coins className="w-5 h-5 text-purple-400" />
+                        <h4 className="text-purple-300 font-semibold">Need Solana?</h4>
+                      </div>
+                      <p className="text-purple-100/70 text-sm mb-4">
+                        You need approximately 0.35 SOL ($85) to mint. Buy Solana instantly:
+                      </p>
+                      <div className="grid grid-cols-2 gap-3">
+                        <Button 
+                          onClick={() => window.open('https://phantom.app/buy', '_blank')}
+                          className="bg-purple-600 hover:bg-purple-700 text-white"
+                        >
+                          Buy in Phantom
+                        </Button>
+                        <Button 
+                          onClick={() => window.open('https://www.moonpay.com/buy/sol', '_blank')}
+                          className="bg-blue-600 hover:bg-blue-700 text-white"
+                        >
+                          Buy via MoonPay
+                        </Button>
+                      </div>
+                    </div>
+
                     {/* Minting Buttons */}
                     {user ? (
                       <div className="space-y-4">
-                        <Button 
-                          size="lg" 
-                          className="w-full bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 text-white font-bold py-6 text-lg shadow-xl"
-                          onClick={() => window.open('https://phantom.app', '_blank')}
-                        >
-                          <Wallet className="w-5 h-5 mr-2" />
-                          Open in Phantom Wallet to Mint
-                        </Button>
-                        <p className="text-center text-amber-100/60 text-xs">
-                          Copy this URL and paste it in your Phantom wallet browser: <br/>
-                          <code className="bg-slate-950/50 px-2 py-1 rounded text-amber-400">
-                            {typeof window !== 'undefined' ? window.location.href : 'genesishq.io'}
-                          </code>
-                        </p>
+                        {/* Import LazyMintNFT Component */}
+                        <div className="bg-slate-950/50 rounded-lg p-4 border border-amber-900/30">
+                          <LazyMintNFT user={user} />
+                        </div>
+                        
+                        <div className="bg-blue-900/10 border border-blue-500/20 rounded-lg p-4">
+                          <p className="text-blue-300 text-sm text-center">
+                            💡 <strong>Mobile Users:</strong> Open this site in your Phantom wallet's built-in browser for the best experience
+                          </p>
+                          <p className="text-blue-200/60 text-xs text-center mt-2">
+                            Phantom App → Settings → Browser → Paste URL: <code className="text-blue-400">{typeof window !== 'undefined' ? window.location.host : 'genesishq.io'}</code>
+                          </p>
+                        </div>
                       </div>
                     ) : (
                       <div className="text-center p-6 bg-slate-950/50 rounded-lg border border-amber-900/20">
