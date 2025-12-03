@@ -1113,6 +1113,18 @@ export default function App() {
                         </div>
                       </div>
 
+                      <Card className="bg-yellow-900/10 border-yellow-600/30 mb-4">
+                        <CardContent className="p-4">
+                          <p className="text-yellow-300 font-semibold mb-2 text-sm flex items-center">
+                            <Trophy className="w-4 h-4 mr-2" />
+                            Every Mint = Chance to Win $50K!
+                          </p>
+                          <p className="text-xs text-amber-100/70 mb-3">
+                            Each mint has a chance to reveal the ultra-rare Leonardo Selfie. Winner receives $50,000 USD when collection sells out!
+                          </p>
+                        </CardContent>
+                      </Card>
+
                       <Card className="bg-emerald-900/10 border-emerald-600/20 mb-4">
                         <CardContent className="p-4">
                           <p className="text-emerald-300 font-semibold mb-2 text-sm flex items-center">
@@ -1121,8 +1133,8 @@ export default function App() {
                           </p>
                           <ol className="text-xs text-amber-100/70 space-y-1 list-decimal list-inside">
                             <li>Connect your Solana wallet (Phantom/Solflare)</li>
-                            <li>Click Mint NFT button</li>
-                            <li>Send 100 SOL to treasury wallet</li>
+                            <li>Click Mint NFT button ($100 USD in SOL)</li>
+                            <li>Confirm transaction in your wallet</li>
                             <li>Receive your Leonardo da Vinci NFT</li>
                           </ol>
                         </CardContent>
@@ -1134,7 +1146,7 @@ export default function App() {
                         size="lg"
                       >
                         <Gem className="w-5 h-5 mr-2" />
-                        Mint NFT - 100 SOL
+                        Mint NFT - $100 USD
                       </Button>
                       
                       {mintStatus && (
