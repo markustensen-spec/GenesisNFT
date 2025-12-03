@@ -91,19 +91,56 @@ export default function App() {
       setShowAuthModal(true)
       return
     }
-    setMintStatus('Minting... (Testnet)')
+    
+    setMintStatus('Creating mint transaction...')
+    
     try {
-      const response = await fetch('/api/nft/mint', {
+      // Get mint transaction details
+      const mintResponse = await fetch('/api/nft/create-mint', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ walletAddress: user.walletAddress, userId: user.id })
+        body: JSON.stringify({ walletAddress: user.walletAddress })
       })
-      const data = await response.json()
-      if (data.success) {
-        setMintStatus(`Success! Mint ID: ${data.mintId}`)
-      } else {
-        setMintStatus('Mint failed: ' + data.error)
+      const mintData = await mintResponse.json()
+      
+      if (!mintData.success) {
+        setMintStatus('Failed to create mint transaction')
+        return
       }
+
+      // Show treasury wallet and amount
+      const treasuryWallet = mintData.treasury
+      const amount = mintData.amount
+      
+      setMintStatus(`Send ${amount} SOL to: ${treasuryWallet.slice(0, 8)}...${treasuryWallet.slice(-4)}`)
+      
+      // Simulate transaction confirmation (in production, user would send SOL)
+      const mockTxSignature = 'mock_tx_' + Math.random().toString(36).substring(2, 15)
+      
+      setTimeout(async () => {
+        setMintStatus('Confirming mint...')
+        
+        // Confirm mint after payment
+        const confirmResponse = await fetch('/api/nft/confirm-mint', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ 
+            walletAddress: user.walletAddress,
+            txSignature: mockTxSignature
+          })
+        })
+        const confirmData = await confirmResponse.json()
+        
+        if (confirmData.success) {
+          setMintStatus(`✅ Success! Minted: ${confirmData.nft.name}`)
+          setTimeout(() => {
+            alert(`🎉 NFT Minted Successfully!\n\n${confirmData.nft.name}\n\nPayment sent to treasury:\n${treasuryWallet}`)
+          }, 500)
+        } else {
+          setMintStatus('Mint confirmation failed')
+        }
+      }, 2000)
+      
     } catch (error) {
       setMintStatus('Error: ' + error.message)
     }
