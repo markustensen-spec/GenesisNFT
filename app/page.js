@@ -124,11 +124,11 @@ export default function App() {
 
             <div className="flex items-center space-x-4">
               <Button 
-                onClick={() => setConnected(!connected)}
+                onClick={connectWallet}
                 className="bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600"
               >
                 <Wallet className="w-4 h-4 mr-2" />
-                {connected ? 'Disconnect' : 'Connect Wallet'}
+                {connected ? `${walletAddress?.slice(0, 8)}...` : 'Connect Wallet'}
               </Button>
               <button className="md:hidden" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
                 {mobileMenuOpen ? <X className="w-6 h-6 text-amber-400" /> : <Menu className="w-6 h-6 text-amber-400" />}
