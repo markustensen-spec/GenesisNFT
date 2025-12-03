@@ -10,6 +10,9 @@ import { SOLANA_CONFIG } from '@/lib/solana-config'
 import { rateLimit, validateEmail } from '@/lib/security'
 import { supabase } from '@/lib/supabase'
 
+// Force dynamic rendering
+export const dynamic = 'force-dynamic'
+
 export async function POST(request) {
   try {
     const body = await request.json()
