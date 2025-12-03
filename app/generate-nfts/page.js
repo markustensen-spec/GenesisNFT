@@ -144,13 +144,23 @@ export default function GenerateNFTsPage() {
 
         {/* Instructions */}
         <div className="bg-blue-900/20 border border-blue-500/30 rounded-xl p-6">
-          <h3 className="text-lg font-bold text-blue-400 mb-3">📋 How to Use:</h3>
+          <h3 className="text-lg font-bold text-blue-400 mb-3">📋 What Gets Generated:</h3>
+          <div className="grid md:grid-cols-2 gap-4 mb-4">
+            <div className="bg-red-900/10 rounded-lg p-3 border border-red-600/20">
+              <h4 className="text-red-400 font-semibold mb-2">🫀 Anatomical Studies</h4>
+              <p className="text-blue-100/70 text-xs">Human anatomy sketches like Leonardo's famous medical illustrations</p>
+            </div>
+            <div className="bg-blue-900/10 rounded-lg p-3 border border-blue-600/20">
+              <h4 className="text-blue-400 font-semibold mb-2">⚙️ Inventions & Machines</h4>
+              <p className="text-blue-100/70 text-xs">Flying machines, tanks, weapons, and mechanical designs</p>
+            </div>
+          </div>
           <ul className="space-y-2 text-blue-100/70 text-sm">
-            <li>1. Click "Generate New NFT Image" to create a unique Leonardo da Vinci style sketch</li>
-            <li>2. AI generates anatomical studies (arms, legs, spine, heart, etc.)</li>
-            <li>3. Each image is unique with Renaissance-style sepia tones on aged parchment</li>
-            <li>4. Download images you like for your NFT collection</li>
-            <li>5. Generate as many as you need - completely free!</li>
+            <li>✨ Italian annotations and mirror writing (Leonardo's signature style)</li>
+            <li>📜 Aged parchment paper with sepia tones</li>
+            <li>✍️ Mathematical notes and geometric diagrams</li>
+            <li>🎨 Fine crosshatching and technical precision</li>
+            <li>♾️ Generate unlimited variations - completely free!</li>
           </ul>
           
           <div className="mt-4 p-4 bg-amber-900/20 rounded-lg">
