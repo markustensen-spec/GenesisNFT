@@ -6,35 +6,36 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Badge } from '@/components/ui/badge'
 import { Input } from '@/components/ui/input'
-import { Crown, TrendingUp, Wallet, Sparkles, Lock, Zap, Trophy, Users, Gem, ChevronRight, Menu, X } from 'lucide-react'
+import { Label } from '@/components/ui/label'
+import { Crown, TrendingUp, Wallet, Sparkles, Lock, Zap, Trophy, Users, Gem, ChevronRight, Menu, X, Play, LogIn, UserPlus, LogOut, BookOpen, MessageSquare, Lightbulb } from 'lucide-react'
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('home')
-  const [connected, setConnected] = useState(false)
-  const [walletAddress, setWalletAddress] = useState(null)
+  const [user, setUser] = useState(null)
   const [cryptoPrices, setCryptoPrices] = useState([])
   const [loading, setLoading] = useState(false)
   const [email, setEmail] = useState('')
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [mintStatus, setMintStatus] = useState('')
-
-  const connectWallet = () => {
-    if (!connected) {
-      // Simulate wallet connection
-      const mockAddress = 'GeN' + Math.random().toString(36).substring(2, 15) + 'HQ'
-      setWalletAddress(mockAddress)
-      setConnected(true)
-    } else {
-      setWalletAddress(null)
-      setConnected(false)
-    }
-  }
+  
+  // Auth states
+  const [showAuthModal, setShowAuthModal] = useState(false)
+  const [authMode, setAuthMode] = useState('login') // 'login' or 'register'
+  const [authForm, setAuthForm] = useState({ email: '', password: '', username: '' })
 
   useEffect(() => {
     if (activeTab === 'investments') {
       fetchCryptoPrices()
     }
   }, [activeTab])
+
+  // Check if user is logged in
+  useEffect(() => {
+    const savedUser = localStorage.getItem('genesishq_user')
+    if (savedUser) {
+      setUser(JSON.parse(savedUser))
+    }
+  }, [])
 
   const fetchCryptoPrices = async () => {
     setLoading(true)
@@ -51,9 +52,42 @@ export default function App() {
     }
   }
 
+  const handleAuth = async (e) => {
+    e.preventDefault()
+    try {
+      const endpoint = authMode === 'login' ? '/api/auth/login' : '/api/auth/register'
+      const response = await fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(authForm)
+      })
+      const data = await response.json()
+      
+      if (data.success) {
+        const userData = { ...data.user, walletAddress: 'GeN' + Math.random().toString(36).substring(2, 15) }
+        setUser(userData)
+        localStorage.setItem('genesishq_user', JSON.stringify(userData))
+        setShowAuthModal(false)
+        setAuthForm({ email: '', password: '', username: '' })
+        alert(authMode === 'login' ? 'Welcome back!' : 'Account created successfully!')
+      } else {
+        alert(data.error || 'Authentication failed')
+      }
+    } catch (error) {
+      alert('Error: ' + error.message)
+    }
+  }
+
+  const handleLogout = () => {
+    setUser(null)
+    localStorage.removeItem('genesishq_user')
+    setActiveTab('home')
+  }
+
   const handleMint = async () => {
-    if (!connected) {
-      setMintStatus('Please connect your wallet first')
+    if (!user) {
+      alert('Please login to mint NFTs')
+      setShowAuthModal(true)
       return
     }
     setMintStatus('Minting... (Testnet)')
@@ -61,11 +95,11 @@ export default function App() {
       const response = await fetch('/api/nft/mint', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ walletAddress: walletAddress })
+        body: JSON.stringify({ walletAddress: user.walletAddress, userId: user.id })
       })
       const data = await response.json()
       if (data.success) {
-        setMintStatus(`Success! Mock Mint ID: ${data.mintId}`)
+        setMintStatus(`Success! Mint ID: ${data.mintId}`)
       } else {
         setMintStatus('Mint failed: ' + data.error)
       }
@@ -80,7 +114,7 @@ export default function App() {
       await fetch('/api/whitelist', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, walletAddress: walletAddress })
+        body: JSON.stringify({ email, walletAddress: user?.walletAddress })
       })
       alert('Successfully joined the whitelist!')
       setEmail('')
@@ -89,10 +123,82 @@ export default function App() {
     }
   }
 
+  const playGame = () => {
+    if (!user) {
+      alert('Please login to play the game')
+      setShowAuthModal(true)
+      return
+    }
+    setActiveTab('game')
+  }
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-amber-950">
+      {/* Auth Modal */}
+      {showAuthModal && (
+        <div className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4">
+          <Card className="w-full max-w-md bg-slate-900 border-amber-900/30">
+            <CardHeader>
+              <div className="flex justify-between items-center">
+                <CardTitle className="text-amber-100">
+                  {authMode === 'login' ? 'Login to GenesisHQ' : 'Create Account'}
+                </CardTitle>
+                <button onClick={() => setShowAuthModal(false)}>
+                  <X className="w-6 h-6 text-amber-400" />
+                </button>
+              </div>
+            </CardHeader>
+            <CardContent>
+              <form onSubmit={handleAuth} className="space-y-4">
+                {authMode === 'register' && (
+                  <div>
+                    <Label className="text-amber-100">Username</Label>
+                    <Input
+                      value={authForm.username}
+                      onChange={(e) => setAuthForm({...authForm, username: e.target.value})}
+                      className="bg-slate-800 border-amber-900/30 text-amber-100"
+                      required={authMode === 'register'}
+                    />
+                  </div>
+                )}
+                <div>
+                  <Label className="text-amber-100">Email</Label>
+                  <Input
+                    type="email"
+                    value={authForm.email}
+                    onChange={(e) => setAuthForm({...authForm, email: e.target.value})}
+                    className="bg-slate-800 border-amber-900/30 text-amber-100"
+                    required
+                  />
+                </div>
+                <div>
+                  <Label className="text-amber-100">Password</Label>
+                  <Input
+                    type="password"
+                    value={authForm.password}
+                    onChange={(e) => setAuthForm({...authForm, password: e.target.value})}
+                    className="bg-slate-800 border-amber-900/30 text-amber-100"
+                    required
+                  />
+                </div>
+                <Button type="submit" className="w-full bg-amber-600 hover:bg-amber-700">
+                  {authMode === 'login' ? 'Login' : 'Create Account'}
+                </Button>
+                <button
+                  type="button"
+                  onClick={() => setAuthMode(authMode === 'login' ? 'register' : 'login')}
+                  className="w-full text-sm text-amber-400 hover:text-amber-300"
+                >
+                  {authMode === 'login' ? "Don't have an account? Register" : 'Already have an account? Login'}
+                </button>
+              </form>
+            </CardContent>
+          </Card>
+        </div>
+      )}
+
       {/* Navigation */}
-      <nav className="fixed top-0 w-full z-50 bg-slate-950/80 backdrop-blur-xl border-b border-amber-900/20">
+      <nav className="fixed top-0 w-full z-40 bg-slate-950/80 backdrop-blur-xl border-b border-amber-900/20">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-2">
@@ -115,21 +221,31 @@ export default function App() {
               </Button>
               <Button variant="ghost" onClick={() => setActiveTab('lounge')} className="text-amber-100 hover:text-amber-400 flex items-center">
                 <Crown className="w-4 h-4 mr-1" />
-                G Lounge
+                Codex Collective
               </Button>
-              <Button variant="ghost" onClick={() => setActiveTab('game')} className="text-amber-100 hover:text-amber-400">
-                Game
+              <Button variant="ghost" onClick={playGame} className="text-amber-100 hover:text-amber-400">
+                Play Game
               </Button>
             </div>
 
             <div className="flex items-center space-x-4">
-              <Button 
-                onClick={connectWallet}
-                className="bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600"
-              >
-                <Wallet className="w-4 h-4 mr-2" />
-                {connected ? `${walletAddress?.slice(0, 8)}...` : 'Connect Wallet'}
-              </Button>
+              {user ? (
+                <div className="flex items-center space-x-3">
+                  <div className="hidden sm:block text-right">
+                    <div className="text-sm text-amber-100">{user.username}</div>
+                    <div className="text-xs text-amber-400">{user.walletAddress?.slice(0, 8)}...</div>
+                  </div>
+                  <Button onClick={handleLogout} variant="outline" className="border-amber-600 text-amber-400 hover:bg-amber-600/10">
+                    <LogOut className="w-4 h-4 mr-2" />
+                    Logout
+                  </Button>
+                </div>
+              ) : (
+                <Button onClick={() => { setAuthMode('login'); setShowAuthModal(true) }} className="bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600">
+                  <LogIn className="w-4 h-4 mr-2" />
+                  Login
+                </Button>
+              )}
               <button className="md:hidden" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
                 {mobileMenuOpen ? <X className="w-6 h-6 text-amber-400" /> : <Menu className="w-6 h-6 text-amber-400" />}
               </button>
@@ -149,10 +265,10 @@ export default function App() {
                 Leonardo NFT
               </Button>
               <Button variant="ghost" onClick={() => { setActiveTab('lounge'); setMobileMenuOpen(false) }} className="w-full text-amber-100">
-                G Lounge
+                Codex Collective
               </Button>
-              <Button variant="ghost" onClick={() => { setActiveTab('game'); setMobileMenuOpen(false) }} className="w-full text-amber-100">
-                Game
+              <Button variant="ghost" onClick={() => { playGame(); setMobileMenuOpen(false) }} className="w-full text-amber-100">
+                Play Game
               </Button>
             </div>
           )}
@@ -173,69 +289,144 @@ export default function App() {
                 Welcome to GenesisHQ
               </h1>
               <p className="text-xl md:text-2xl text-amber-100/80 max-w-3xl mx-auto mb-8">
-                An exclusive platform combining Leonardo da Vinci's timeless genius with cutting-edge blockchain innovation
+                A revolutionary platform uniting Leonardo da Vinci's genius with blockchain technology, exclusive community access, and competitive gaming
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" onClick={() => setActiveTab('lounge')} className="bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 text-white px-8">
-                  <Crown className="w-5 h-5 mr-2" />
-                  Enter G Lounge
-                </Button>
-                <Button size="lg" variant="outline" onClick={() => setActiveTab('nft')} className="border-amber-600 text-amber-400 hover:bg-amber-600/10">
-                  View Leonardo Collection
+                {!user && (
+                  <Button size="lg" onClick={() => { setAuthMode('register'); setShowAuthModal(true) }} className="bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 text-white px-8">
+                    <UserPlus className="w-5 h-5 mr-2" />
+                    Join GenesisHQ
+                  </Button>
+                )}
+                <Button size="lg" onClick={playGame} className="bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-500 hover:to-emerald-600 text-white px-8">
+                  <Play className="w-5 h-5 mr-2" />
+                  Play Genesis Caviar
                 </Button>
               </div>
             </div>
 
-            {/* Feature Cards */}
-            <div className="grid md:grid-cols-3 gap-6 mb-16">
-              <Card className="bg-slate-900/50 border-amber-900/30 backdrop-blur-sm hover:border-amber-600/50 transition-all cursor-pointer" onClick={() => setActiveTab('lounge')}>
-                <CardHeader>
-                  <Crown className="w-12 h-12 text-amber-500 mb-4" />
-                  <CardTitle className="text-amber-100">G Lounge</CardTitle>
-                  <CardDescription className="text-amber-100/60">
-                    The ultimate exclusive members club
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="text-amber-100/70">
-                  <p>Access premium trading tools, exclusive content, and the Codex Collective. Join the elite.</p>
-                  <div className="mt-4 flex items-center text-amber-500">
-                    <span className="text-sm">$55/month membership</span>
-                  </div>
-                </CardContent>
-              </Card>
+            {/* Main Features Grid */}
+            <div className="mb-16">
+              <h2 className="text-3xl font-bold text-amber-100 text-center mb-8">Platform Features</h2>
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <Card className="bg-slate-900/50 border-amber-900/30 backdrop-blur-sm hover:border-amber-600/50 transition-all cursor-pointer" onClick={() => setActiveTab('lounge')}>
+                  <CardHeader>
+                    <Users className="w-12 h-12 text-amber-500 mb-4" />
+                    <CardTitle className="text-amber-100">Codex Collective</CardTitle>
+                    <CardDescription className="text-amber-100/60">
+                      Elite community of visionaries
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className="text-amber-100/70">
+                    <p className="mb-3">Join an exclusive community where Renaissance thinking meets modern innovation.</p>
+                    <ul className="space-y-1 text-sm">
+                      <li>• Private forums & discussions</li>
+                      <li>• Expert webinars & workshops</li>
+                      <li>• Collaborative projects</li>
+                      <li>• Networking opportunities</li>
+                    </ul>
+                  </CardContent>
+                </Card>
 
-              <Card className="bg-slate-900/50 border-amber-900/30 backdrop-blur-sm hover:border-amber-600/50 transition-all cursor-pointer" onClick={() => setActiveTab('nft')}>
-                <CardHeader>
-                  <Gem className="w-12 h-12 text-amber-500 mb-4" />
-                  <CardTitle className="text-amber-100">Leonardo da Vinci NFT</CardTitle>
-                  <CardDescription className="text-amber-100/60">
-                    10 originals + 9,989 generative pieces
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="text-amber-100/70">
-                  <p>Own a piece of history reimagined. Renaissance engineering meets blockchain technology.</p>
-                  <div className="mt-4 flex items-center text-amber-500">
-                    <span className="text-sm">Minting on Solana</span>
-                  </div>
-                </CardContent>
-              </Card>
+                <Card className="bg-slate-900/50 border-amber-900/30 backdrop-blur-sm hover:border-amber-600/50 transition-all cursor-pointer" onClick={() => setActiveTab('nft')}>
+                  <CardHeader>
+                    <Gem className="w-12 h-12 text-amber-500 mb-4" />
+                    <CardTitle className="text-amber-100">Leonardo da Vinci NFTs</CardTitle>
+                    <CardDescription className="text-amber-100/60">
+                      10,000 unique digital masterpieces
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className="text-amber-100/70">
+                    <p className="mb-3">Own a piece of Renaissance genius reimagined for the blockchain era.</p>
+                    <ul className="space-y-1 text-sm">
+                      <li>• 10 original artworks</li>
+                      <li>• 9,990 generative pieces</li>
+                      <li>• Exclusive holder benefits</li>
+                      <li>• $CAX token bonuses</li>
+                    </ul>
+                  </CardContent>
+                </Card>
 
-              <Card className="bg-slate-900/50 border-amber-900/30 backdrop-blur-sm hover:border-amber-600/50 transition-all cursor-pointer" onClick={() => setActiveTab('investments')}>
-                <CardHeader>
-                  <TrendingUp className="w-12 h-12 text-amber-500 mb-4" />
-                  <CardTitle className="text-amber-100">Live Investments</CardTitle>
-                  <CardDescription className="text-amber-100/60">
-                    Crypto & stocks with real-time data
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="text-amber-100/70">
-                  <p>Track and allocate your $CAX tokens across diverse investment opportunities with live market data.</p>
-                </CardContent>
-              </Card>
+                <Card className="bg-slate-900/50 border-amber-900/30 backdrop-blur-sm hover:border-amber-600/50 transition-all cursor-pointer" onClick={() => setActiveTab('investments')}>
+                  <CardHeader>
+                    <TrendingUp className="w-12 h-12 text-amber-500 mb-4" />
+                    <CardTitle className="text-amber-100">Live Investments</CardTitle>
+                    <CardDescription className="text-amber-100/60">
+                      Real-time market tracking
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className="text-amber-100/70">
+                    <p className="mb-3">Track and allocate $CAX across crypto and traditional markets.</p>
+                    <ul className="space-y-1 text-sm">
+                      <li>• Live cryptocurrency prices</li>
+                      <li>• Portfolio management</li>
+                      <li>• Market analytics</li>
+                      <li>• Investment strategies</li>
+                    </ul>
+                  </CardContent>
+                </Card>
+
+                <Card className="bg-slate-900/50 border-amber-900/30 backdrop-blur-sm hover:border-emerald-600/50 transition-all cursor-pointer" onClick={playGame}>
+                  <CardHeader>
+                    <Trophy className="w-12 h-12 text-emerald-500 mb-4" />
+                    <CardTitle className="text-amber-100">Genesis Caviar Game</CardTitle>
+                    <CardDescription className="text-amber-100/60">
+                      Compete, grow, and win
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className="text-amber-100/70">
+                    <p className="mb-3">Real-time multiplayer game where you grow by consuming caviar.</p>
+                    <ul className="space-y-1 text-sm">
+                      <li>• Real-time multiplayer</li>
+                      <li>• Compete for top scores</li>
+                      <li>• Global leaderboards</li>
+                      <li>• Skill-based gameplay</li>
+                    </ul>
+                  </CardContent>
+                </Card>
+
+                <Card className="bg-slate-900/50 border-amber-900/30 backdrop-blur-sm hover:border-amber-600/50 transition-all">
+                  <CardHeader>
+                    <Zap className="w-12 h-12 text-amber-500 mb-4" />
+                    <CardTitle className="text-amber-100">$CAX Token</CardTitle>
+                    <CardDescription className="text-amber-100/60">
+                      Platform utility token
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className="text-amber-100/70">
+                    <p className="mb-3">The heartbeat of the GenesisHQ ecosystem.</p>
+                    <ul className="space-y-1 text-sm">
+                      <li>• 1B total supply</li>
+                      <li>• Governance rights</li>
+                      <li>• Staking rewards</li>
+                      <li>• Platform benefits</li>
+                    </ul>
+                  </CardContent>
+                </Card>
+
+                <Card className="bg-slate-900/50 border-amber-900/30 backdrop-blur-sm hover:border-amber-600/50 transition-all">
+                  <CardHeader>
+                    <Lock className="w-12 h-12 text-amber-500 mb-4" />
+                    <CardTitle className="text-amber-100">Secure & Audited</CardTitle>
+                    <CardDescription className="text-amber-100/60">
+                      Built with security first
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className="text-amber-100/70">
+                    <p className="mb-3">Your assets and data protected with industry-leading security.</p>
+                    <ul className="space-y-1 text-sm">
+                      <li>• Smart contract audits</li>
+                      <li>• Secure authentication</li>
+                      <li>• Encrypted data</li>
+                      <li>• Regular security updates</li>
+                    </ul>
+                  </CardContent>
+                </Card>
+              </div>
             </div>
 
             {/* Stats */}
-            <div className="grid md:grid-cols-4 gap-6">
+            <div className="grid md:grid-cols-4 gap-6 mb-16">
               <div className="text-center p-6 bg-slate-900/30 rounded-lg border border-amber-900/20">
                 <div className="text-3xl font-bold text-amber-400 mb-2">10,000</div>
                 <div className="text-amber-100/60">NFT Collection</div>
@@ -245,12 +436,54 @@ export default function App() {
                 <div className="text-amber-100/60">Caviar Token</div>
               </div>
               <div className="text-center p-6 bg-slate-900/30 rounded-lg border border-amber-900/20">
-                <div className="text-3xl font-bold text-amber-400 mb-2">Elite</div>
-                <div className="text-amber-100/60">G Lounge Access</div>
+                <div className="text-3xl font-bold text-amber-400 mb-2">Live</div>
+                <div className="text-amber-100/60">Market Data</div>
               </div>
               <div className="text-center p-6 bg-slate-900/30 rounded-lg border border-amber-900/20">
                 <div className="text-3xl font-bold text-amber-400 mb-2">Play</div>
-                <div className="text-amber-100/60">Genesis Caviar Game</div>
+                <div className="text-amber-100/60">Genesis Caviar</div>
+              </div>
+            </div>
+
+            {/* How It Works */}
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-3xl font-bold text-amber-100 text-center mb-8">Getting Started</h2>
+              <div className="space-y-6">
+                <Card className="bg-slate-900/30 border-amber-900/20">
+                  <CardContent className="pt-6">
+                    <div className="flex items-start space-x-4">
+                      <div className="bg-amber-600 rounded-full w-8 h-8 flex items-center justify-center text-white font-bold flex-shrink-0">1</div>
+                      <div>
+                        <h3 className="text-xl font-bold text-amber-100 mb-2">Create Your Account</h3>
+                        <p className="text-amber-100/70">Sign up to join the GenesisHQ community. Get instant access to the platform and receive your unique wallet address.</p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                <Card className="bg-slate-900/30 border-amber-900/20">
+                  <CardContent className="pt-6">
+                    <div className="flex items-start space-x-4">
+                      <div className="bg-amber-600 rounded-full w-8 h-8 flex items-center justify-center text-white font-bold flex-shrink-0">2</div>
+                      <div>
+                        <h3 className="text-xl font-bold text-amber-100 mb-2">Explore & Engage</h3>
+                        <p className="text-amber-100/70">Browse Leonardo NFTs, track live investments, join the Codex Collective community, and play Genesis Caviar game.</p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                <Card className="bg-slate-900/30 border-amber-900/20">
+                  <CardContent className="pt-6">
+                    <div className="flex items-start space-x-4">
+                      <div className="bg-amber-600 rounded-full w-8 h-8 flex items-center justify-center text-white font-bold flex-shrink-0">3</div>
+                      <div>
+                        <h3 className="text-xl font-bold text-amber-100 mb-2">Mint & Collect</h3>
+                        <p className="text-amber-100/70">Mint your Leonardo da Vinci NFT, accumulate $CAX tokens, and unlock exclusive community benefits.</p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
               </div>
             </div>
           </div>
@@ -367,11 +600,10 @@ export default function App() {
 
                       <Button 
                         onClick={handleMint} 
-                        disabled={!connected}
                         className="w-full bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 mb-3"
                         size="lg"
                       >
-                        {connected ? 'Mint NFT (Testnet)' : 'Connect Wallet to Mint'}
+                        {user ? 'Mint NFT (Testnet)' : 'Login to Mint'}
                       </Button>
                       
                       {mintStatus && (
@@ -394,7 +626,7 @@ export default function App() {
                       <li>• Total Supply: 1,000,000,000 $CAX</li>
                       <li>• Utility: Staking, gaming, governance</li>
                       <li>• NFT holders receive bonus allocation</li>
-                      <li>• G Lounge members get premium rates</li>
+                      <li>• Community members get premium rates</li>
                     </ul>
                   </CardContent>
                 </Card>
@@ -417,9 +649,9 @@ export default function App() {
                       <Button type="submit" className="w-full bg-amber-600 hover:bg-amber-700">
                         Join Whitelist
                       </Button>
-                      {connected && (
+                      {user && (
                         <p className="text-xs text-amber-100/60 text-center">
-                          Wallet: {walletAddress?.slice(0, 12)}...
+                          Wallet: {user.walletAddress?.slice(0, 12)}...
                         </p>
                       )}
                     </form>
@@ -437,47 +669,61 @@ export default function App() {
               <div className="text-center mb-16 relative">
                 <div className="absolute inset-0 bg-gradient-to-r from-amber-600/20 to-amber-900/20 blur-3xl"></div>
                 <div className="relative">
-                  <Crown className="w-20 h-20 text-amber-500 mx-auto mb-6" />
+                  <Users className="w-20 h-20 text-amber-500 mx-auto mb-6" />
                   <h2 className="text-5xl md:text-6xl font-bold text-amber-100 mb-6">
-                    Welcome to G Lounge
+                    The Codex Collective
                   </h2>
                   <p className="text-xl md:text-2xl text-amber-100/80 max-w-3xl mx-auto mb-8">
-                    The ultimate exclusive members club where elite traders, collectors, and visionaries converge
+                    An exclusive community where Renaissance thinking meets modern innovation. Join elite visionaries, creators, and collectors.
                   </p>
-                  <Badge className="bg-amber-600 text-white px-6 py-3 text-lg">
-                    $55/month Premium Membership
+                  <Badge className="bg-amber-600/30 text-amber-200 px-6 py-3 text-lg border border-amber-500/30">
+                    Premium Membership - Coming Soon
                   </Badge>
                 </div>
               </div>
 
+              {/* What is Codex Collective */}
+              <Card className="bg-gradient-to-br from-amber-900/20 to-slate-900/50 border-amber-600/30 mb-12">
+                <CardContent className="p-8">
+                  <h3 className="text-3xl font-bold text-amber-100 mb-4">What is the Codex Collective?</h3>
+                  <p className="text-amber-100/80 text-lg leading-relaxed mb-4">
+                    Inspired by Leonardo da Vinci's codices—his notebooks of revolutionary ideas—the Codex Collective is a modern-day gathering of minds. Here, members share knowledge, collaborate on groundbreaking projects, and push the boundaries of what's possible in blockchain, art, and technology.
+                  </p>
+                  <p className="text-amber-100/80 text-lg leading-relaxed">
+                    This isn't just a community—it's a movement. A place where the curiosity of the Renaissance meets the innovation of Web3.
+                  </p>
+                </CardContent>
+              </Card>
+
               {/* Benefits Grid */}
+              <h3 className="text-3xl font-bold text-amber-100 text-center mb-8">Member Benefits</h3>
               <div className="grid md:grid-cols-2 gap-6 mb-12">
                 <Card className="bg-gradient-to-br from-amber-900/30 to-slate-900/50 border-amber-600/30">
                   <CardHeader>
-                    <Lock className="w-10 h-10 text-amber-500 mb-3" />
-                    <CardTitle className="text-amber-100 text-xl">Exclusive Content</CardTitle>
+                    <MessageSquare className="w-10 h-10 text-amber-500 mb-3" />
+                    <CardTitle className="text-amber-100 text-xl">Private Forums</CardTitle>
                   </CardHeader>
                   <CardContent className="text-amber-100/70">
                     <ul className="space-y-2">
-                      <li>• Premium market analysis and insights</li>
-                      <li>• Early access to new NFT drops</li>
-                      <li>• Private webinars with industry experts</li>
-                      <li>• Exclusive Leonardo collection previews</li>
+                      <li>• Exclusive discussion channels</li>
+                      <li>• Direct access to thought leaders</li>
+                      <li>• Member-curated content</li>
+                      <li>• Real-time collaboration spaces</li>
                     </ul>
                   </CardContent>
                 </Card>
 
                 <Card className="bg-gradient-to-br from-amber-900/30 to-slate-900/50 border-amber-600/30">
                   <CardHeader>
-                    <Zap className="w-10 h-10 text-amber-500 mb-3" />
-                    <CardTitle className="text-amber-100 text-xl">MAX Trading Bot</CardTitle>
+                    <BookOpen className="w-10 h-10 text-amber-500 mb-3" />
+                    <CardTitle className="text-amber-100 text-xl">Knowledge Library</CardTitle>
                   </CardHeader>
                   <CardContent className="text-amber-100/70">
                     <ul className="space-y-2">
-                      <li>• AI-powered trading strategies</li>
-                      <li>• Real-time market signals</li>
-                      <li>• Automated portfolio optimization</li>
-                      <li>• Risk management tools</li>
+                      <li>• Exclusive research papers</li>
+                      <li>• Industry whitepapers</li>
+                      <li>• Educational workshops</li>
+                      <li>• Expert masterclasses</li>
                     </ul>
                   </CardContent>
                 </Card>
@@ -485,14 +731,44 @@ export default function App() {
                 <Card className="bg-gradient-to-br from-amber-900/30 to-slate-900/50 border-amber-600/30">
                   <CardHeader>
                     <Users className="w-10 h-10 text-amber-500 mb-3" />
-                    <CardTitle className="text-amber-100 text-xl">Codex Collective</CardTitle>
+                    <CardTitle className="text-amber-100 text-xl">Networking Events</CardTitle>
                   </CardHeader>
                   <CardContent className="text-amber-100/70">
                     <ul className="space-y-2">
-                      <li>• Private community of elite members</li>
-                      <li>• Direct networking opportunities</li>
-                      <li>• Collaborative investment pools</li>
-                      <li>• Member-only events and meetups</li>
+                      <li>• Virtual and in-person meetups</li>
+                      <li>• Collaboration opportunities</li>
+                      <li>• Project showcases</li>
+                      <li>• Industry connections</li>
+                    </ul>
+                  </CardContent>
+                </Card>
+
+                <Card className="bg-gradient-to-br from-amber-900/30 to-slate-900/50 border-amber-600/30">
+                  <CardHeader>
+                    <Lightbulb className="w-10 h-10 text-amber-500 mb-3" />
+                    <CardTitle className="text-amber-100 text-xl">Innovation Labs</CardTitle>
+                  </CardHeader>
+                  <CardContent className="text-amber-100/70">
+                    <ul className="space-y-2">
+                      <li>• Collaborative project incubation</li>
+                      <li>• Access to development resources</li>
+                      <li>• Mentorship programs</li>
+                      <li>• Early alpha testing</li>
+                    </ul>
+                  </CardContent>
+                </Card>
+
+                <Card className="bg-gradient-to-br from-amber-900/30 to-slate-900/50 border-amber-600/30">
+                  <CardHeader>
+                    <Zap className="w-10 h-10 text-amber-500 mb-3" />
+                    <CardTitle className="text-amber-100 text-xl">Premium Tools</CardTitle>
+                  </CardHeader>
+                  <CardContent className="text-amber-100/70">
+                    <ul className="space-y-2">
+                      <li>• MAX Trading Bot access</li>
+                      <li>• Advanced analytics dashboard</li>
+                      <li>• Portfolio management tools</li>
+                      <li>• Market insights & signals</li>
                     </ul>
                   </CardContent>
                 </Card>
@@ -500,35 +776,43 @@ export default function App() {
                 <Card className="bg-gradient-to-br from-amber-900/30 to-slate-900/50 border-amber-600/30">
                   <CardHeader>
                     <Trophy className="w-10 h-10 text-amber-500 mb-3" />
-                    <CardTitle className="text-amber-100 text-xl">Premium Perks</CardTitle>
+                    <CardTitle className="text-amber-100 text-xl">Exclusive Perks</CardTitle>
                   </CardHeader>
                   <CardContent className="text-amber-100/70">
                     <ul className="space-y-2">
-                      <li>• Priority customer support</li>
+                      <li>• Early NFT drop access</li>
                       <li>• Enhanced staking rewards (2x)</li>
-                      <li>• Reduced trading fees</li>
-                      <li>• Exclusive airdrops and bonuses</li>
+                      <li>• Reduced platform fees</li>
+                      <li>• Priority support</li>
                     </ul>
                   </CardContent>
                 </Card>
               </div>
 
-              {/* CTA */}
+              {/* Join CTA */}
               <Card className="bg-gradient-to-r from-amber-600/20 to-amber-900/20 border-amber-600/50">
                 <CardContent className="py-12 text-center">
-                  <h3 className="text-3xl font-bold text-amber-100 mb-4">Ready to Join the Elite?</h3>
+                  <h3 className="text-3xl font-bold text-amber-100 mb-4">Ready to Join the Collective?</h3>
                   <p className="text-amber-100/70 mb-6 max-w-2xl mx-auto">
-                    G Lounge membership unlocks the full potential of GenesisHQ. Experience premium features, exclusive access, and join a community of visionaries.
+                    The Codex Collective is launching soon. Be among the first to experience this revolutionary community.
                   </p>
-                  <Button 
-                    size="lg" 
-                    className="bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 px-8"
-                    disabled
-                  >
-                    <Crown className="w-5 h-5 mr-2" />
-                    Join G Lounge - Coming Soon
-                  </Button>
-                  <p className="text-sm text-amber-100/50 mt-4">Stripe integration in progress</p>
+                  {user ? (
+                    <div>
+                      <Badge className="bg-emerald-600/20 text-emerald-300 px-6 py-3 text-lg border border-emerald-500/30 mb-4">
+                        ✓ You'll be notified when we launch
+                      </Badge>
+                      <p className="text-sm text-amber-100/60">Membership benefits coming soon</p>
+                    </div>
+                  ) : (
+                    <Button 
+                      size="lg" 
+                      onClick={() => { setAuthMode('register'); setShowAuthModal(true) }}
+                      className="bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 px-8"
+                    >
+                      <Users className="w-5 h-5 mr-2" />
+                      Join Waitlist
+                    </Button>
+                  )}
                 </CardContent>
               </Card>
             </div>
@@ -536,31 +820,7 @@ export default function App() {
         )}
 
         {activeTab === 'game' && (
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto text-center">
-              <h2 className="text-4xl font-bold text-amber-100 mb-6">Genesis Caviar Game</h2>
-              <p className="text-xl text-amber-100/70 mb-8">
-                Agar.io-style multiplayer game with $CAX wagering (Coming Soon)
-              </p>
-              
-              <Card className="bg-slate-900/50 border-amber-900/30">
-                <CardContent className="py-16">
-                  <Trophy className="w-24 h-24 text-amber-500 mx-auto mb-6" />
-                  <h3 className="text-2xl font-bold text-amber-100 mb-4">Game Features</h3>
-                  <div className="text-left max-w-md mx-auto space-y-3 text-amber-100/70">
-                    <p>• Real-time multiplayer gameplay</p>
-                    <p>• Wager $CAX tokens to compete</p>
-                    <p>• Eat caviar to grow and dominate</p>
-                    <p>• Global leaderboards</p>
-                    <p>• Winner takes the pot</p>
-                  </div>
-                  <Button className="mt-8 bg-amber-600 hover:bg-amber-700" size="lg" disabled>
-                    Play Game - Coming Soon
-                  </Button>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
+          <GameComponent user={user} />
         )}
       </main>
 
@@ -579,6 +839,373 @@ export default function App() {
           </div>
         </div>
       </footer>
+    </div>
+  )
+}
+
+// Game Component
+function GameComponent({ user }) {
+  const canvasRef = React.useRef(null)
+  const [gameState, setGameState] = React.useState('menu') // 'menu', 'playing', 'gameover'
+  const [score, setScore] = React.useState(0)
+  const [playerName, setPlayerName] = React.useState('')
+  const gameLoopRef = React.useRef(null)
+  const playerRef = React.useRef(null)
+  const caviarRef = React.useRef([])
+  const enemiesRef = React.useRef([])
+  const keysRef = React.useRef({})
+
+  React.useEffect(() => {
+    if (user) {
+      setPlayerName(user.username)
+    }
+  }, [user])
+
+  const startGame = () => {
+    if (!playerName) {
+      alert('Please enter your name')
+      return
+    }
+    
+    setScore(0)
+    setGameState('playing')
+    initGame()
+  }
+
+  const initGame = () => {
+    const canvas = canvasRef.current
+    if (!canvas) return
+
+    // Initialize player
+    playerRef.current = {
+      x: canvas.width / 2,
+      y: canvas.height / 2,
+      radius: 15,
+      speed: 3,
+      color: '#F59E0B' // Amber color
+    }
+
+    // Initialize caviar (food)
+    caviarRef.current = []
+    for (let i = 0; i < 50; i++) {
+      caviarRef.current.push(createCaviar(canvas))
+    }
+
+    // Initialize enemies
+    enemiesRef.current = []
+    for (let i = 0; i < 5; i++) {
+      enemiesRef.current.push(createEnemy(canvas))
+    }
+
+    // Start game loop
+    if (gameLoopRef.current) cancelAnimationFrame(gameLoopRef.current)
+    gameLoop()
+  }
+
+  const createCaviar = (canvas) => {
+    return {
+      x: Math.random() * (canvas.width - 20) + 10,
+      y: Math.random() * (canvas.height - 20) + 10,
+      radius: 4 + Math.random() * 3,
+      color: `hsl(${30 + Math.random() * 30}, 70%, ${50 + Math.random() * 20}%)` // Orange/amber tones
+    }
+  }
+
+  const createEnemy = (canvas) => {
+    const edge = Math.floor(Math.random() * 4)
+    let x, y
+    
+    switch(edge) {
+      case 0: x = Math.random() * canvas.width; y = -30; break
+      case 1: x = canvas.width + 30; y = Math.random() * canvas.height; break
+      case 2: x = Math.random() * canvas.width; y = canvas.height + 30; break
+      case 3: x = -30; y = Math.random() * canvas.height; break
+    }
+
+    return {
+      x, y,
+      radius: 12 + Math.random() * 8,
+      speed: 1 + Math.random() * 1.5,
+      color: `hsl(${Math.random() * 360}, 60%, 50%)`,
+      vx: 0, vy: 0
+    }
+  }
+
+  const gameLoop = () => {
+    const canvas = canvasRef.current
+    if (!canvas || gameState !== 'playing') return
+
+    const ctx = canvas.getContext('2d')
+    const player = playerRef.current
+
+    // Clear canvas with background
+    ctx.fillStyle = '#0f172a'
+    ctx.fillRect(0, 0, canvas.width, canvas.height)
+
+    // Draw grid
+    ctx.strokeStyle = '#1e293b'
+    ctx.lineWidth = 1
+    for (let i = 0; i < canvas.width; i += 30) {
+      ctx.beginPath()
+      ctx.moveTo(i, 0)
+      ctx.lineTo(i, canvas.height)
+      ctx.stroke()
+    }
+    for (let i = 0; i < canvas.height; i += 30) {
+      ctx.beginPath()
+      ctx.moveTo(0, i)
+      ctx.lineTo(canvas.width, i)
+      ctx.stroke()
+    }
+
+    // Move player
+    if (keysRef.current['w'] || keysRef.current['ArrowUp']) player.y -= player.speed
+    if (keysRef.current['s'] || keysRef.current['ArrowDown']) player.y += player.speed
+    if (keysRef.current['a'] || keysRef.current['ArrowLeft']) player.x -= player.speed
+    if (keysRef.current['d'] || keysRef.current['ArrowRight']) player.x += player.speed
+
+    // Keep player in bounds
+    player.x = Math.max(player.radius, Math.min(canvas.width - player.radius, player.x))
+    player.y = Math.max(player.radius, Math.min(canvas.height - player.radius, player.y))
+
+    // Draw and check caviar collision
+    caviarRef.current = caviarRef.current.filter(caviar => {
+      const dx = player.x - caviar.x
+      const dy = player.y - caviar.y
+      const distance = Math.sqrt(dx * dx + dy * dy)
+
+      if (distance < player.radius + caviar.radius) {
+        // Eat caviar
+        player.radius += 0.5
+        setScore(s => s + 1)
+        return false // Remove this caviar
+      }
+
+      // Draw caviar as shiny sphere
+      const gradient = ctx.createRadialGradient(caviar.x - caviar.radius/3, caviar.y - caviar.radius/3, 0, caviar.x, caviar.y, caviar.radius)
+      gradient.addColorStop(0, '#FFF')
+      gradient.addColorStop(0.3, caviar.color)
+      gradient.addColorStop(1, '#000')
+      ctx.fillStyle = gradient
+      ctx.beginPath()
+      ctx.arc(caviar.x, caviar.y, caviar.radius, 0, Math.PI * 2)
+      ctx.fill()
+
+      return true
+    })
+
+    // Add new caviar if needed
+    while (caviarRef.current.length < 50) {
+      caviarRef.current.push(createCaviar(canvas))
+    }
+
+    // Move and draw enemies
+    enemiesRef.current.forEach(enemy => {
+      // AI: Move toward player
+      const dx = player.x - enemy.x
+      const dy = player.y - enemy.y
+      const distance = Math.sqrt(dx * dx + dy * dy)
+      
+      if (distance > 0) {
+        enemy.vx = (dx / distance) * enemy.speed
+        enemy.vy = (dy / distance) * enemy.speed
+      }
+
+      enemy.x += enemy.vx
+      enemy.y += enemy.vy
+
+      // Check collision with player
+      const collisionDist = Math.sqrt(
+        Math.pow(player.x - enemy.x, 2) + Math.pow(player.y - enemy.y, 2)
+      )
+
+      if (collisionDist < player.radius + enemy.radius) {
+        if (player.radius > enemy.radius * 1.2) {
+          // Player eats enemy
+          enemy.x = Math.random() * canvas.width
+          enemy.y = Math.random() * canvas.height
+          enemy.radius = 12 + Math.random() * 8
+          player.radius += 2
+          setScore(s => s + 10)
+        } else if (enemy.radius > player.radius * 1.2) {
+          // Enemy eats player - game over
+          setGameState('gameover')
+          submitScore()
+          return
+        }
+      }
+
+      // Draw enemy as glossy caviar sphere
+      const gradient = ctx.createRadialGradient(enemy.x - enemy.radius/3, enemy.y - enemy.radius/3, 0, enemy.x, enemy.y, enemy.radius)
+      gradient.addColorStop(0, '#FFF')
+      gradient.addColorStop(0.4, enemy.color)
+      gradient.addColorStop(1, '#000')
+      ctx.fillStyle = gradient
+      ctx.beginPath()
+      ctx.arc(enemy.x, enemy.y, enemy.radius, 0, Math.PI * 2)
+      ctx.fill()
+      
+      // Outline
+      ctx.strokeStyle = 'rgba(255,255,255,0.3)'
+      ctx.lineWidth = 2
+      ctx.stroke()
+    })
+
+    // Draw player as golden caviar
+    const playerGradient = ctx.createRadialGradient(
+      player.x - player.radius/3, player.y - player.radius/3, 0,
+      player.x, player.y, player.radius
+    )
+    playerGradient.addColorStop(0, '#FDE68A')
+    playerGradient.addColorStop(0.3, '#F59E0B')
+    playerGradient.addColorStop(0.7, '#D97706')
+    playerGradient.addColorStop(1, '#92400E')
+    ctx.fillStyle = playerGradient
+    ctx.beginPath()
+    ctx.arc(player.x, player.y, player.radius, 0, Math.PI * 2)
+    ctx.fill()
+    
+    // Player outline
+    ctx.strokeStyle = '#FCD34D'
+    ctx.lineWidth = 3
+    ctx.stroke()
+
+    // Draw player name
+    ctx.fillStyle = '#FFF'
+    ctx.font = 'bold 14px Inter'
+    ctx.textAlign = 'center'
+    ctx.fillText(playerName, player.x, player.y - player.radius - 10)
+
+    gameLoopRef.current = requestAnimationFrame(gameLoop)
+  }
+
+  const submitScore = async () => {
+    if (user) {
+      try {
+        await fetch('/api/game/score', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            walletAddress: user.walletAddress,
+            score: score,
+            username: playerName
+          })
+        })
+      } catch (error) {
+        console.error('Error submitting score:', error)
+      }
+    }
+  }
+
+  React.useEffect(() => {
+    const handleKeyDown = (e) => {
+      keysRef.current[e.key] = true
+    }
+    const handleKeyUp = (e) => {
+      keysRef.current[e.key] = false
+    }
+
+    window.addEventListener('keydown', handleKeyDown)
+    window.addEventListener('keyup', handleKeyUp)
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown)
+      window.removeEventListener('keyup', handleKeyUp)
+      if (gameLoopRef.current) cancelAnimationFrame(gameLoopRef.current)
+    }
+  }, [])
+
+  React.useEffect(() => {
+    if (gameState === 'playing') {
+      gameLoop()
+    }
+  }, [gameState])
+
+  return (
+    <div className="container mx-auto px-4">
+      <div className="max-w-5xl mx-auto">
+        <div className="text-center mb-8">
+          <h2 className="text-4xl font-bold text-amber-100 mb-4">Genesis Caviar Game</h2>
+          <p className="text-xl text-amber-100/70">
+            Grow your caviar by consuming smaller ones. Avoid larger caviar!
+          </p>
+        </div>
+
+        {gameState === 'menu' && (
+          <Card className="bg-slate-900/50 border-amber-900/30 max-w-md mx-auto">
+            <CardContent className="py-12 text-center">
+              <Trophy className="w-24 h-24 text-amber-500 mx-auto mb-6" />
+              <h3 className="text-2xl font-bold text-amber-100 mb-4">Ready to Play?</h3>
+              <div className="space-y-4 mb-6">
+                <div>
+                  <Label className="text-amber-100 text-left block mb-2">Your Name</Label>
+                  <Input
+                    value={playerName}
+                    onChange={(e) => setPlayerName(e.target.value)}
+                    placeholder="Enter your name"
+                    className="bg-slate-800 border-amber-900/30 text-amber-100"
+                    maxLength={15}
+                  />
+                </div>
+              </div>
+              <Button onClick={startGame} size="lg" className="bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 w-full">
+                <Play className="w-5 h-5 mr-2" />
+                Start Game
+              </Button>
+              <div className="mt-6 text-left text-amber-100/60 text-sm">
+                <p className="font-semibold mb-2">How to Play:</p>
+                <ul className="space-y-1">
+                  <li>• Use WASD or Arrow Keys to move</li>
+                  <li>• Eat smaller caviar to grow</li>
+                  <li>• Avoid larger caviar</li>
+                  <li>• Grow as big as you can!</li>
+                </ul>
+              </div>
+            </CardContent>
+          </Card>
+        )}
+
+        {gameState === 'playing' && (
+          <div>
+            <div className="flex justify-between items-center mb-4">
+              <div className="text-2xl font-bold text-amber-100">
+                Score: <span className="text-amber-400">{score}</span>
+              </div>
+              <div className="text-amber-100/70">
+                Size: <span className="text-amber-400">{Math.round(playerRef.current?.radius || 0)}</span>
+              </div>
+            </div>
+            <div className="border-4 border-amber-900/30 rounded-lg overflow-hidden">
+              <canvas
+                ref={canvasRef}
+                width={800}
+                height={600}
+                className="w-full bg-slate-950"
+              />
+            </div>
+            <p className="text-center text-amber-100/60 text-sm mt-4">
+              Use WASD or Arrow Keys to move
+            </p>
+          </div>
+        )}
+
+        {gameState === 'gameover' && (
+          <Card className="bg-slate-900/50 border-amber-900/30 max-w-md mx-auto">
+            <CardContent className="py-12 text-center">
+              <Trophy className="w-24 h-24 text-amber-500 mx-auto mb-6" />
+              <h3 className="text-3xl font-bold text-amber-100 mb-4">Game Over!</h3>
+              <div className="text-5xl font-bold text-amber-400 mb-2">{score}</div>
+              <div className="text-amber-100/60 mb-8">Final Score</div>
+              <Button onClick={() => setGameState('menu')} size="lg" className="bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 w-full mb-3">
+                Play Again
+              </Button>
+              {user && (
+                <p className="text-sm text-amber-100/60">Score saved to leaderboard</p>
+              )}
+            </CardContent>
+          </Card>
+        )}
+      </div>
     </div>
   )
 }

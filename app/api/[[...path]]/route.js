@@ -28,7 +28,9 @@ export async function GET(request) {
         '/api/prices - Get crypto prices',
         '/api/nft/mint - Mint NFT',
         '/api/whitelist - Join whitelist',
-        '/api/game/leaderboard - Game leaderboard'
+        '/api/game/leaderboard - Game leaderboard',
+        '/api/auth/register - Register user',
+        '/api/auth/login - Login user'
       ]
     })
   }
@@ -65,7 +67,6 @@ export async function GET(request) {
         { 
           success: false, 
           error: error.message,
-          // Return mock data as fallback
           data: [
             { id: 'bitcoin', symbol: 'btc', name: 'Bitcoin', current_price: 45000, price_change_percentage_24h: 2.5, price_change_24h: 1125 },
             { id: 'ethereum', symbol: 'eth', name: 'Ethereum', current_price: 3200, price_change_percentage_24h: -1.2, price_change_24h: -38.4 },
@@ -113,9 +114,76 @@ export async function POST(request) {
   try {
     const body = await request.json()
 
-    // NFT Minting (Mock for testnet)
+    // User Registration
+    if (path === '/auth/register') {
+      const { email, password, username } = body
+      
+      if (!email || !password || !username) {
+        return NextResponse.json(
+          { success: false, error: 'Email, password, and username required' },
+          { status: 400 }
+        )
+      }
+
+      const database = await connectDB()
+      
+      // Check if user exists
+      const existingUser = await database.collection('users').findOne({ email })
+      if (existingUser) {
+        return NextResponse.json(
+          { success: false, error: 'User already exists' },
+          { status: 400 }
+        )
+      }
+
+      const userId = uuidv4()
+      const user = {
+        id: userId,
+        email,
+        username,
+        password, // In production, hash this!
+        createdAt: new Date(),
+        walletAddress: null
+      }
+      
+      await database.collection('users').insertOne(user)
+
+      return NextResponse.json({
+        success: true,
+        user: { id: userId, email, username }
+      })
+    }
+
+    // User Login
+    if (path === '/auth/login') {
+      const { email, password } = body
+      
+      if (!email || !password) {
+        return NextResponse.json(
+          { success: false, error: 'Email and password required' },
+          { status: 400 }
+        )
+      }
+
+      const database = await connectDB()
+      const user = await database.collection('users').findOne({ email, password })
+      
+      if (!user) {
+        return NextResponse.json(
+          { success: false, error: 'Invalid credentials' },
+          { status: 401 }
+        )
+      }
+
+      return NextResponse.json({
+        success: true,
+        user: { id: user.id, email: user.email, username: user.username }
+      })
+    }
+
+    // NFT Minting
     if (path === '/nft/mint') {
-      const { walletAddress } = body
+      const { walletAddress, userId } = body
       
       if (!walletAddress) {
         return NextResponse.json(
@@ -124,12 +192,12 @@ export async function POST(request) {
         )
       }
 
-      // Mock minting process
       const mintId = uuidv4()
       const database = await connectDB()
       
       await database.collection('nft_mints').insertOne({
         id: mintId,
+        userId: userId || null,
         walletAddress,
         collection: 'Leonardo da Vinci',
         tokenId: Math.floor(Math.random() * 10000) + 1,
