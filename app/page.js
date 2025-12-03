@@ -33,6 +33,23 @@ export default function App() {
   const [authError, setAuthError] = useState('')
   const [resendSuccess, setResendSuccess] = useState(false)
   const [resetEmailSent, setResetEmailSent] = useState(false)
+  const [showVerificationSuccess, setShowVerificationSuccess] = useState(false)
+
+  // Check for verification success in URL
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search)
+      if (params.get('verified') === 'true') {
+        setShowVerificationSuccess(true)
+        setShowAuthModal(true)
+        setAuthMode('login')
+        // Clean URL
+        window.history.replaceState({}, '', window.location.pathname)
+        // Auto-hide success message after 10 seconds
+        setTimeout(() => setShowVerificationSuccess(false), 10000)
+      }
+    }
+  }, [])
 
   useEffect(() => {
     if (activeTab === 'investments') {
