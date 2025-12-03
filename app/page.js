@@ -263,7 +263,7 @@ export default function App() {
                 Home
               </Button>
               <Button variant="ghost" onClick={() => { setActiveTab('investments'); setMobileMenuOpen(false) }} className="w-full text-amber-100">
-                Investments
+                Home Banking
               </Button>
               <Button variant="ghost" onClick={() => { setActiveTab('nft'); setMobileMenuOpen(false) }} className="w-full text-amber-100">
                 Leonardo NFT
