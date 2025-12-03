@@ -419,7 +419,7 @@ export default function App() {
                       </Button>
                       {connected && (
                         <p className="text-xs text-amber-100/60 text-center">
-                          Wallet: {publicKey?.toString().slice(0, 8)}...
+                          Wallet: {walletAddress?.slice(0, 12)}...
                         </p>
                       )}
                     </form>
