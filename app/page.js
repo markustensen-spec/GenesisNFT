@@ -101,12 +101,21 @@ export default function App() {
           }
         })
 
-        if (error) throw error
+        if (error) {
+          console.error('Supabase signup error:', error)
+          throw error
+        }
 
         if (data.user) {
           setShowAuthModal(false)
           setAuthForm({ email: '', password: '', username: '' })
-          alert('✓ Registration successful! Please check your email to verify your account.')
+          
+          // Check if email confirmation is required
+          if (data.user.identities && data.user.identities.length === 0) {
+            alert('⚠️ This email is already registered. Please try logging in instead.')
+          } else {
+            alert('✓ Registrering vellykket!\n\nSJEKK DIN EMAIL for verifiserings-link.\n\nDu må verifisere emailen før du kan logge inn.')
+          }
         }
       } else {
         // Login
@@ -115,21 +124,38 @@ export default function App() {
           password: authForm.password
         })
 
-        if (error) throw error
+        if (error) {
+          console.error('Supabase login error:', error)
+          throw error
+        }
 
         if (data.user) {
           if (!data.user.email_confirmed_at) {
-            alert('⚠️ Please verify your email address before logging in. Check your inbox!')
+            alert('⚠️ Du må verifisere din email først!\n\nSjekk din inbox for verifiserings-link.')
             await supabase.auth.signOut()
             return
           }
           setShowAuthModal(false)
           setAuthForm({ email: '', password: '', username: '' })
-          alert('✓ Welcome back to GenesisHQ!')
+          alert('✓ Velkommen tilbake til GenesisHQ!')
         }
       }
     } catch (error) {
-      alert('❌ ' + (error.message || 'Authentication failed'))
+      console.error('Auth error:', error)
+      
+      // Better error messages
+      let errorMessage = 'Authentication failed'
+      if (error.message.includes('email')) {
+        errorMessage = 'Ugyldig email-format'
+      } else if (error.message.includes('password')) {
+        errorMessage = 'Passord må være minst 6 tegn'
+      } else if (error.message.includes('Invalid')) {
+        errorMessage = 'Ugyldig email eller passord'
+      } else {
+        errorMessage = error.message
+      }
+      
+      alert('❌ Feil: ' + errorMessage)
     } finally {
       setLoading(false)
     }
