@@ -97,6 +97,10 @@ export default function App() {
     setAuthError('')
     
     try {
+      if (!supabase) {
+        throw new Error('Authentication service is not available')
+      }
+
       // Security: Validate email format
       if (!validateEmail(authForm.email)) {
         throw new Error('Please enter a valid email address')
