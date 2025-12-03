@@ -1297,10 +1297,10 @@ export default function App() {
                 <CardContent className="p-8">
                   <h3 className="text-3xl font-bold text-amber-100 mb-4">G Lounge: Home of the Codex Collective</h3>
                   <p className="text-amber-100/80 text-lg leading-relaxed mb-4">
-                    The G Lounge is GenesisHQ's exclusive members club, housing the prestigious Codex Collective. Inspired by Leonardo da Vinci's codices—his notebooks of revolutionary ideas—this is a modern-day gathering of elite minds where Renaissance thinking meets Web3 innovation.
+                    The G Lounge is GenesisHQ&apos;s exclusive members club, housing the prestigious Codex Collective. Inspired by Leonardo da Vinci&apos;s codices—his notebooks of revolutionary ideas—this is a modern-day gathering of elite minds where Renaissance thinking meets Web3 innovation.
                   </p>
                   <p className="text-amber-100/80 text-lg leading-relaxed">
-                    Here, members share knowledge, collaborate on groundbreaking projects, and push the boundaries of what's possible in blockchain, art, and technology. This isn't just a community—it's a movement of visionaries shaping the future.
+                    Here, members share knowledge, collaborate on groundbreaking projects, and push the boundaries of what&apos;s possible in blockchain, art, and technology. This isn&apos;t just a community—it&apos;s a movement of visionaries shaping the future.
                   </p>
                 </CardContent>
               </Card>
