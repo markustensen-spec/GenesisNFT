@@ -2,13 +2,17 @@ import { NextResponse } from 'next/server'
 import { MongoClient } from 'mongodb'
 import { v4 as uuidv4 } from 'uuid'
 
-const client = new MongoClient(process.env.MONGO_URL)
+// Force dynamic rendering
+export const dynamic = 'force-dynamic'
+export const runtime = 'nodejs'
+
+const client = new MongoClient(process.env.MONGO_URL || 'mongodb://localhost:27017')
 let db
 
 async function connectDB() {
   if (!db) {
     await client.connect()
-    db = client.db(process.env.DB_NAME)
+    db = client.db(process.env.DB_NAME || 'genesishq_db')
   }
   return db
 }
