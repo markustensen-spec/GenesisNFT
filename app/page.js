@@ -1167,15 +1167,11 @@ export default function App() {
                         </div>
                         <div className="flex justify-between">
                           <span className="text-amber-100/60">Codex Sketches</span>
-                          <span className="text-amber-100 font-semibold">9,999</span>
+                          <span className="text-amber-100 font-semibold">9,990</span>
                         </div>
                         <div className="flex justify-between">
-                          <span className="text-amber-100/60">Leonardo Selfie</span>
-                          <span className="text-amber-100 font-semibold">1 (Ultra-Rare)</span>
-                        </div>
-                        <div className="flex justify-between">
-                          <span className="text-amber-100/60">Prize Pool</span>
-                          <span className="text-emerald-400 font-semibold">&#36;50,000 USD</span>
+                          <span className="text-amber-100/60">Leonardo Exclusives</span>
+                          <span className="text-amber-400 font-semibold">10 (Ultra-Rare)</span>
                         </div>
                         <div className="flex justify-between">
                           <span className="text-amber-100/60">Network</span>
