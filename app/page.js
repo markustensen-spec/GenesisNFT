@@ -432,7 +432,7 @@ export default function App() {
                     type="button"
                     onClick={async () => {
                       if (!authForm.email) {
-                        alert('⚠️ Skriv inn din email først')
+                        alert('⚠️ Please enter your email first')
                         return
                       }
                       try {
@@ -441,14 +441,14 @@ export default function App() {
                           email: authForm.email
                         })
                         if (error) throw error
-                        alert('✓ Verifiserings-email sendt!\n\nSjekk din inbox (og spam-mappen).')
+                        alert('✓ Verification email sent!\n\nCheck your inbox (and spam folder).')
                       } catch (error) {
-                        alert('❌ Kunne ikke sende email: ' + error.message)
+                        alert('❌ Could not send email: ' + error.message)
                       }
                     }}
                     className="w-full text-xs text-amber-400/70 hover:text-amber-300 mt-2"
                   >
-                    📧 Ikke mottatt verifiserings-email? Klikk her
+                    📧 Didn't receive verification email? Click here
                   </button>
                 )}
               </form>
