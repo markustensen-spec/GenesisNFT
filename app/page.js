@@ -137,31 +137,16 @@ export default function App() {
 
         if (error) {
           console.error('Supabase login error:', error)
-          
-          // Check if it's email not confirmed
-          if (error.message.includes('Email not confirmed')) {
-            alert('⚠️ EMAIL IKKE VERIFISERT!\n\n✉️ Du må verifisere din email først.\n\nSjekk din inbox (og spam-mappen) for verifiserings-link fra GenesisHQ.\n\nEtter verifisering, prøv å logge inn igjen.')
-            return
-          }
-          
-          // Check if invalid login
-          if (error.message.includes('Invalid login credentials')) {
-            alert('❌ FEIL EMAIL ELLER PASSORD\n\nTips:\n• Sjekk at du skriver riktig email\n• Sjekk at du skriver riktig passord\n• Hvis du ikke har registrert deg, klikk "Register" først\n• Hvis du har registrert deg, MÅ du verifisere emailen før login')
-            return
-          }
-          
           throw error
         }
 
         if (data.user) {
           if (!data.user.email_confirmed_at) {
-            alert('⚠️ EMAIL IKKE VERIFISERT!\n\n✉️ Du må verifisere din email først.\n\nSjekk din inbox (og spam-mappen) for verifiserings-link.\n\nEtter verifisering, prøv å logge inn igjen.')
             await supabase.auth.signOut()
-            return
+            throw new Error('Email not verified. Please check your inbox and verify your email before logging in.')
           }
           setShowAuthModal(false)
           setAuthForm({ email: '', password: '', username: '' })
-          alert('✓ Velkommen tilbake til GenesisHQ!')
         }
       }
     } catch (error) {
