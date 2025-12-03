@@ -183,7 +183,6 @@ export default function App() {
     await supabase.auth.signOut()
     setUser(null)
     setActiveTab('home')
-    alert('✓ Logged out successfully')
   }
 
   const handleMint = async () => {
