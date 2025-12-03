@@ -1039,21 +1039,28 @@ export default function App() {
         {activeTab === 'lounge' && (
           <div className="container mx-auto px-4">
             <div className="max-w-6xl mx-auto">
-              {/* Hero */}
-              <div className="text-center mb-16 relative">
-                <div className="absolute inset-0 bg-gradient-to-r from-amber-600/20 to-amber-900/20 blur-3xl"></div>
-                <div className="relative">
-                  <Crown className="w-20 h-20 text-amber-500 mx-auto mb-6" />
-                  <h2 className="text-5xl md:text-6xl font-bold text-amber-100 mb-4">
+              {/* Hero with Background */}
+              <div 
+                className="relative mb-16 rounded-2xl overflow-hidden"
+                style={{
+                  backgroundImage: `url('https://customer-assets.emergentagent.com/job_genesishq/artifacts/12zic6xd_grok_image_xwwjcmi.jpg')`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center'
+                }}
+              >
+                <div className="absolute inset-0 bg-gradient-to-b from-slate-950/70 via-slate-950/85 to-slate-950"></div>
+                <div className="relative text-center py-20 px-4">
+                  <Crown className="w-20 h-20 text-amber-500 mx-auto mb-6 drop-shadow-xl" />
+                  <h2 className="text-5xl md:text-6xl font-bold text-amber-100 mb-4 drop-shadow-lg">
                     Welcome to G Lounge
                   </h2>
-                  <p className="text-2xl md:text-3xl text-amber-400 mb-6">
+                  <p className="text-2xl md:text-3xl text-amber-400 mb-6 drop-shadow-lg">
                     Home of the Codex Collective
                   </p>
-                  <p className="text-xl md:text-2xl text-amber-100/80 max-w-3xl mx-auto mb-8">
+                  <p className="text-xl md:text-2xl text-amber-100 max-w-3xl mx-auto mb-8 drop-shadow-lg">
                     An exclusive community where Renaissance thinking meets modern innovation. Join elite visionaries, creators, and collectors in the ultimate members club.
                   </p>
-                  <Badge className="bg-amber-600/30 text-amber-200 px-6 py-3 text-lg border border-amber-500/30">
+                  <Badge className="bg-amber-600/40 text-amber-200 px-6 py-3 text-lg border border-amber-500/50 backdrop-blur-sm">
                     Premium Membership - Coming Soon
                   </Badge>
                 </div>
