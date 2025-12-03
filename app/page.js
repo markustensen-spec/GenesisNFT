@@ -320,16 +320,37 @@ export default function App() {
 
   const handleWhitelistSubmit = async (e) => {
     e.preventDefault()
+    
+    // Security: Validate email
+    if (!validateEmail(whitelistEmail)) {
+      setWhitelistStatus('Please enter a valid email address')
+      return
+    }
+    
+    // Security: Rate limiting (3 whitelist joins per hour per email)
+    if (!rateLimit(`whitelist_${whitelistEmail}`, 3, 3600000)) {
+      setWhitelistStatus('Too many attempts. Please try again later.')
+      return
+    }
+    
     try {
-      await fetch('/api/whitelist', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, walletAddress: user?.walletAddress })
-      })
-      alert('Successfully joined the whitelist!')
-      setEmail('')
+      const { data, error } = await supabase
+        .from('whitelist')
+        .insert([{ email: whitelistEmail, verified: false }])
+      
+      if (error) {
+        if (error.code === '23505') {
+          setWhitelistStatus('Email already on whitelist')
+        } else {
+          throw error
+        }
+      } else {
+        setWhitelistStatus('✓ Successfully joined the whitelist!')
+        setWhitelistEmail('')
+      }
     } catch (error) {
-      alert('Error joining whitelist')
+      console.error('Whitelist error:', error)
+      setWhitelistStatus('Error joining whitelist. Please try again.')
     }
   }
 
