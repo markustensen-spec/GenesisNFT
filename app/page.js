@@ -1350,7 +1350,14 @@ export default function App() {
               </Card>
             </div>
           </div>
-          </>
+        )}
+
+        {activeTab === 'crypto' && (
+          <div className="container mx-auto px-4 mt-16">
+            <div className="max-w-6xl mx-auto">
+              {/* Caviar Token Section continues here */}
+            </div>
+          </div>
         )}
 
         {activeTab === 'lounge' && (
