@@ -2,7 +2,16 @@
 
 ![GenesisHQ](https://customer-assets.emergentagent.com/job_genesishq/artifacts/q195yjzo_grok_image_x1mlhza.jpg)
 
-A cutting-edge blockchain platform combining Leonardo da Vinci's timeless genius with modern Web3 innovation. GenesisHQ features an exclusive NFT collection, live investment tracking, premium G Lounge membership, and the Genesis Caviar multiplayer game.
+A revolutionary blockchain platform combining Leonardo da Vinci's timeless genius with modern Web3 innovation. GenesisHQ features an exclusive NFT collection, live investment tracking, the Codex Collective community, and the Genesis Caviar multiplayer game.
+
+## 🆕 Latest Updates
+
+### Version 2.0 - Enhanced Platform
+- **Full User Authentication System**: Complete registration and login flow with MongoDB backend
+- **Revamped Landing Page**: Comprehensive, informative homepage showcasing all platform features
+- **Codex Collective Focus**: Rebranded G Lounge to emphasize the exclusive community aspect
+- **Fully Playable Game**: Original caviar-themed multiplayer game with real-time gameplay
+- **Subscription Coming Soon**: Premium membership marked as upcoming feature
 
 ## 🌟 Features
 
