@@ -1,28 +1,10 @@
 import { NextResponse } from 'next/server'
-import { MongoClient } from 'mongodb'
-import { v4 as uuidv4 } from 'uuid'
 
 // Force dynamic rendering
 export const dynamic = 'force-dynamic'
 export const runtime = 'nodejs'
 
-let client
-let db
-
-async function connectDB() {
-  if (!db) {
-    // Only create client when actually needed (runtime)
-    if (!client) {
-      const mongoUrl = process.env.MONGO_URL || 'mongodb://localhost:27017'
-      client = new MongoClient(mongoUrl)
-    }
-    await client.connect()
-    db = client.db(process.env.DB_NAME || 'genesishq_db')
-  }
-  return db
-}
-
-// Root endpoint
+// Root API endpoint
 export async function GET(request) {
   const url = new URL(request.url)
   const path = url.pathname.replace('/api', '') || '/'
@@ -36,7 +18,7 @@ export async function GET(request) {
       endpoints: [
         '/api/prices - Get crypto prices',
         '/api/nft/mint - Mint NFT',
-        '/api/whitelist - Join whitelist',
+        '/api/nft/stats - NFT statistics',
         '/api/game/leaderboard - Game leaderboard',
         '/api/auth/register - Register user',
         '/api/auth/login - Login user'
