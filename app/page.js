@@ -11,6 +11,7 @@ import { Crown, TrendingUp, Wallet, Sparkles, Lock, Zap, Trophy, Users, Gem, Che
 import WhitepaperSection from './whitepaper-section'
 import { supabase } from '@/lib/supabase'
 import { validateEmail, validatePassword, validateUsername, rateLimit, sanitizeInput } from '@/lib/security'
+import LazyMintNFT from '@/components/LazyMintNFT'
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('home')
