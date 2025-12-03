@@ -1173,6 +1173,10 @@ export default function App() {
                           <span className="text-amber-100/60">Network</span>
                           <span className="text-amber-100 font-semibold">Solana Devnet</span>
                         </div>
+                        <div className="flex justify-between">
+                          <span className="text-amber-100/60">Trading Royalty</span>
+                          <span className="text-emerald-400 font-semibold">15%</span>
+                        </div>
                       </div>
 
                       <Card className="bg-emerald-900/10 border-emerald-600/20 mb-4">
