@@ -402,89 +402,119 @@ export default function App() {
             </CardHeader>
             <CardContent>
               {showVerificationMessage ? (
-                <div className="space-y-6 py-4">
+                <div className="space-y-6 py-6">
                   <div className="text-center">
-                    <div className="w-20 h-20 bg-emerald-600/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <svg className="w-10 h-10 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    <div className="w-24 h-24 bg-gradient-to-br from-emerald-600/20 to-emerald-500/10 rounded-full flex items-center justify-center mx-auto mb-6 animate-pulse">
+                      <svg className="w-12 h-12 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 19v-8.93a2 2 0 01.89-1.664l7-4.666a2 2 0 012.22 0l7 4.666A2 2 0 0121 10.07V19M3 19a2 2 0 002 2h14a2 2 0 002-2M3 19l6.75-4.5M21 19l-6.75-4.5M3 10l6.75 4.5M21 10l-6.75 4.5m0 0l-1.14.76a2 2 0 01-2.22 0l-1.14-.76" />
                       </svg>
                     </div>
-                    <h3 className="text-2xl font-bold text-amber-100 mb-3">✓ Account Created!</h3>
-                    <p className="text-amber-100/80 mb-4">
-                      We've sent a verification email to:
+                    <h3 className="text-3xl font-bold text-emerald-400 mb-4">Welcome to GenesisHQ!</h3>
+                    <p className="text-xl text-amber-100 mb-2">
+                      Your account has been created successfully
                     </p>
-                    <p className="text-amber-400 font-semibold mb-6">
-                      {verificationEmail}
+                    <p className="text-amber-100/70 mb-4 text-sm">
+                      Please verify your email address to complete registration
                     </p>
-                  </div>
-
-                  <div className="bg-slate-950/50 border border-amber-900/30 rounded-lg p-4 space-y-3">
-                    <div className="flex items-start space-x-3">
-                      <span className="text-2xl">📧</span>
-                      <div>
-                        <h4 className="text-amber-100 font-semibold mb-1">Check your inbox</h4>
-                        <p className="text-amber-100/70 text-sm">
-                          Open the email from Supabase and click the verification link
-                        </p>
-                      </div>
-                    </div>
-                    <div className="flex items-start space-x-3">
-                      <span className="text-2xl">⚠️</span>
-                      <div>
-                        <h4 className="text-amber-100 font-semibold mb-1">Check spam folder</h4>
-                        <p className="text-amber-100/70 text-sm">
-                          The email might end up in spam/junk
-                        </p>
-                      </div>
-                    </div>
-                    <div className="flex items-start space-x-3">
-                      <span className="text-2xl">🔐</span>
-                      <div>
-                        <h4 className="text-amber-100 font-semibold mb-1">Login after verification</h4>
-                        <p className="text-amber-100/70 text-sm">
-                          After clicking the link, you can log in
-                        </p>
-                      </div>
+                    <div className="bg-slate-950/50 border border-emerald-500/30 rounded-lg p-4 mb-6">
+                      <p className="text-amber-100/60 text-xs mb-1">Verification email sent to:</p>
+                      <p className="text-emerald-400 font-semibold text-lg break-all">
+                        {verificationEmail}
+                      </p>
                     </div>
                   </div>
 
-                  <Button 
-                    onClick={() => {
-                      setShowVerificationMessage(false)
-                      setAuthMode('login')
-                    }}
-                    className="w-full bg-amber-600 hover:bg-amber-700"
-                  >
-                    Got it!
-                  </Button>
+                  <div className="bg-gradient-to-br from-slate-900/80 to-slate-950/80 border border-amber-600/20 rounded-xl p-5 space-y-4">
+                    <h4 className="text-amber-100 font-bold text-center mb-4 text-lg">📋 Next Steps</h4>
+                    
+                    <div className="flex items-start space-x-4 bg-slate-950/50 rounded-lg p-4 border border-amber-900/20">
+                      <div className="flex-shrink-0 w-8 h-8 bg-amber-600/20 rounded-full flex items-center justify-center">
+                        <span className="text-amber-400 font-bold text-sm">1</span>
+                      </div>
+                      <div>
+                        <h5 className="text-amber-100 font-semibold mb-1">Check Your Email</h5>
+                        <p className="text-amber-100/60 text-sm">
+                          Open your inbox and look for an email from GenesisHQ/Supabase
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start space-x-4 bg-slate-950/50 rounded-lg p-4 border border-amber-900/20">
+                      <div className="flex-shrink-0 w-8 h-8 bg-amber-600/20 rounded-full flex items-center justify-center">
+                        <span className="text-amber-400 font-bold text-sm">2</span>
+                      </div>
+                      <div>
+                        <h5 className="text-amber-100 font-semibold mb-1">Click Verification Link</h5>
+                        <p className="text-amber-100/60 text-sm">
+                          Click the "Confirm your email" button in the email
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start space-x-4 bg-slate-950/50 rounded-lg p-4 border border-amber-900/20">
+                      <div className="flex-shrink-0 w-8 h-8 bg-amber-600/20 rounded-full flex items-center justify-center">
+                        <span className="text-amber-400 font-bold text-sm">3</span>
+                      </div>
+                      <div>
+                        <h5 className="text-amber-100 font-semibold mb-1">Return and Login</h5>
+                        <p className="text-amber-100/60 text-sm">
+                          After verification, come back and log in to access your account
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="bg-amber-900/10 border border-amber-600/30 rounded-lg p-4 flex items-start space-x-3">
+                    <span className="text-xl">💡</span>
+                    <div>
+                      <h5 className="text-amber-300 font-semibold mb-1 text-sm">Can't find the email?</h5>
+                      <p className="text-amber-100/60 text-xs mb-2">
+                        Check your spam/junk folder. If you still don't see it, click the button below to resend.
+                      </p>
+                    </div>
+                  </div>
 
                   {resendSuccess && (
-                    <div className="bg-emerald-900/20 border border-emerald-500/50 rounded-lg p-3 text-emerald-400 text-sm text-center">
-                      ✓ Email sent! Check your inbox.
+                    <div className="bg-emerald-900/20 border border-emerald-500/50 rounded-lg p-4 text-emerald-400 text-sm text-center animate-fade-in">
+                      <span className="font-semibold">✓ Verification email resent successfully!</span>
+                      <p className="text-xs text-emerald-400/70 mt-1">Check your inbox and spam folder</p>
                     </div>
                   )}
-                  <button
-                    onClick={async () => {
-                      try {
-                        if (!supabase) {
-                          throw new Error('Authentication service is not available')
+
+                  <div className="flex flex-col gap-3">
+                    <button
+                      onClick={async () => {
+                        try {
+                          if (!supabase) {
+                            throw new Error('Authentication service is not available')
+                          }
+                          setResendSuccess(false)
+                          const { error } = await supabase.auth.resend({
+                            type: 'signup',
+                            email: verificationEmail
+                          })
+                          if (error) throw error
+                          setResendSuccess(true)
+                          setTimeout(() => setResendSuccess(false), 5000)
+                        } catch (error) {
+                          console.error('Resend error:', error)
                         }
-                        setResendSuccess(false)
-                        const { error } = await supabase.auth.resend({
-                          type: 'signup',
-                          email: verificationEmail
-                        })
-                        if (error) throw error
-                        setResendSuccess(true)
-                        setTimeout(() => setResendSuccess(false), 5000)
-                      } catch (error) {
-                        console.error('Resend error:', error)
-                      }
-                    }}
-                    className="w-full text-sm text-amber-400 hover:text-amber-300"
-                  >
-                    Resend verification email
-                  </button>
+                      }}
+                      className="w-full py-3 px-4 bg-slate-800 hover:bg-slate-700 text-amber-400 hover:text-amber-300 rounded-lg font-medium text-sm transition-all border border-amber-600/20 hover:border-amber-600/40"
+                    >
+                      📧 Resend Verification Email
+                    </button>
+                    
+                    <Button 
+                      onClick={() => {
+                        setShowVerificationMessage(false)
+                        setAuthMode('login')
+                      }}
+                      className="w-full bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 text-white font-semibold py-6"
+                    >
+                      I've Verified My Email - Go to Login
+                    </Button>
+                  </div>
                 </div>
               ) : resetEmailSent ? (
                 <div className="space-y-6 py-4">
