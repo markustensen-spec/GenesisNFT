@@ -1587,7 +1587,7 @@ export default function App() {
                       
                       {/* Buy Solana */}
                       <div className="flex flex-col sm:flex-row items-center justify-center gap-4 p-6 bg-purple-900/30 rounded-2xl border border-purple-500/50">
-                        <p className="text-white font-semibold text-lg">Need Solana to Mint?</p>
+                        <p className="text-white font-semibold text-lg">Need 0.5 SOL to Mint?</p>
                         <Button 
                           onClick={() => window.open('https://phantom.app/buy', '_blank')}
                           size="lg"
