@@ -937,6 +937,26 @@ export default function App() {
                 </p>
               </div>
 
+              {/* NFT Gallery Preview */}
+              <div className="mb-8">
+                <h3 className="text-2xl font-bold text-amber-100 mb-6 text-center">Collection Preview</h3>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+                  {[1, 2, 3, 4, 5, 6, 7, 8].map((num) => (
+                    <Card key={num} className="bg-slate-900/50 border-amber-900/30 hover:border-amber-600/50 transition-all cursor-pointer">
+                      <CardContent className="p-3">
+                        <img 
+                          src={process.env.NEXT_PUBLIC_NFT_IMAGE_URL || '/api/placeholder/300/300'} 
+                          alt={`Leonardo #${num}`}
+                          className="w-full h-48 object-cover rounded-lg mb-2"
+                        />
+                        <p className="text-amber-100 font-semibold text-sm">Genesis #{String(num).padStart(4, '0')}</p>
+                        <p className="text-amber-100/60 text-xs">Leonardo Collection</p>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
+              </div>
+
               {/* Featured NFT */}
               <Card className="bg-slate-900/50 border-amber-900/30 mb-8 overflow-hidden">
                 <CardContent className="p-0">
@@ -984,6 +1004,20 @@ export default function App() {
                           <span className="text-amber-100 font-semibold">Solana Devnet</span>
                         </div>
                       </div>
+
+                      <Card className="bg-amber-900/10 border-amber-600/20 mb-4">
+                        <CardContent className="p-4">
+                          <p className="text-amber-300 font-semibold mb-2 text-sm flex items-center">
+                            <Sparkles className="w-4 h-4 mr-2" />
+                            How to Add Your NFT Images:
+                          </p>
+                          <ol className="text-xs text-amber-100/70 space-y-1 list-decimal list-inside">
+                            <li>Upload images to IPFS, GitHub, or ImgBB</li>
+                            <li>Update NEXT_PUBLIC_NFT_IMAGE_URL in .env</li>
+                            <li>Or provide image URLs to developer</li>
+                          </ol>
+                        </CardContent>
+                      </Card>
 
                       <Button 
                         disabled
