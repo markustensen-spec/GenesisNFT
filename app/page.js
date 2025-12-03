@@ -962,11 +962,12 @@ export default function App() {
                       </div>
 
                       <Button 
-                        onClick={handleMint} 
-                        className="w-full bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 mb-3"
+                        disabled
+                        className="w-full bg-gradient-to-r from-slate-600 to-slate-700 cursor-not-allowed mb-3"
                         size="lg"
                       >
-                        {user ? 'Mint NFT (Testnet)' : 'Login to Mint'}
+                        <Lock className="w-5 h-5 mr-2" />
+                        Mint Coming Soon
                       </Button>
                       
                       {mintStatus && (
