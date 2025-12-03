@@ -1105,7 +1105,6 @@ export default function App() {
                   </CardContent>
                 </Card>
               </div>
-              </div>
 
               {/* Featured NFT */}
               <Card className="bg-slate-900/50 border-amber-900/30 mb-8 overflow-hidden">
