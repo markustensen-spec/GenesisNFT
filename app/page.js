@@ -202,8 +202,12 @@ export default function App() {
       <nav className="fixed top-0 w-full z-40 bg-slate-950/80 backdrop-blur-xl border-b border-amber-900/20">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-2">
-              <Crown className="w-8 h-8 text-amber-500" />
+            <div className="flex items-center space-x-3">
+              <img 
+                src="https://customer-assets.emergentagent.com/job_genesishq/artifacts/5jizxuuc_grok_image_x9t9op.jpg" 
+                alt="GenesisHQ Logo" 
+                className="w-10 h-10 object-contain"
+              />
               <span className="text-2xl font-bold bg-gradient-to-r from-amber-400 to-amber-600 bg-clip-text text-transparent">
                 GenesisHQ
               </span>
