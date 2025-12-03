@@ -635,12 +635,15 @@ export default function App() {
               <div className="text-center mb-16 relative">
                 <div className="absolute inset-0 bg-gradient-to-r from-amber-600/20 to-amber-900/20 blur-3xl"></div>
                 <div className="relative">
-                  <Users className="w-20 h-20 text-amber-500 mx-auto mb-6" />
-                  <h2 className="text-5xl md:text-6xl font-bold text-amber-100 mb-6">
-                    The Codex Collective
+                  <Crown className="w-20 h-20 text-amber-500 mx-auto mb-6" />
+                  <h2 className="text-5xl md:text-6xl font-bold text-amber-100 mb-4">
+                    Welcome to G Lounge
                   </h2>
+                  <p className="text-2xl md:text-3xl text-amber-400 mb-6">
+                    Home of the Codex Collective
+                  </p>
                   <p className="text-xl md:text-2xl text-amber-100/80 max-w-3xl mx-auto mb-8">
-                    An exclusive community where Renaissance thinking meets modern innovation. Join elite visionaries, creators, and collectors.
+                    An exclusive community where Renaissance thinking meets modern innovation. Join elite visionaries, creators, and collectors in the ultimate members club.
                   </p>
                   <Badge className="bg-amber-600/30 text-amber-200 px-6 py-3 text-lg border border-amber-500/30">
                     Premium Membership - Coming Soon
