@@ -1179,18 +1179,6 @@ export default function App() {
                         </div>
                       </div>
 
-                      <Card className="bg-yellow-900/10 border-yellow-600/30 mb-4">
-                        <CardContent className="p-4">
-                          <p className="text-yellow-300 font-semibold mb-2 text-sm flex items-center">
-                            <Trophy className="w-4 h-4 mr-2" />
-                            Every Mint = Chance to Win &#36;50K!
-                          </p>
-                          <p className="text-xs text-amber-100/70 mb-3">
-                            Each mint has a chance to reveal the ultra-rare Leonardo Selfie. Winner receives &#36;50,000 USD when collection sells out!
-                          </p>
-                        </CardContent>
-                      </Card>
-
                       <Card className="bg-emerald-900/10 border-emerald-600/20 mb-4">
                         <CardContent className="p-4">
                           <p className="text-emerald-300 font-semibold mb-2 text-sm flex items-center">
