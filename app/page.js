@@ -18,6 +18,9 @@ export default function App() {
   const [email, setEmail] = useState('')
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [mintStatus, setMintStatus] = useState('')
+  const [showEmailPopup, setShowEmailPopup] = useState(false)
+  const [whitelistEmail, setWhitelistEmail] = useState('')
+  const [whitelistStatus, setWhitelistStatus] = useState('')
   
   // Auth states
   const [showAuthModal, setShowAuthModal] = useState(false)
