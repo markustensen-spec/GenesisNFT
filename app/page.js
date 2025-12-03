@@ -133,6 +133,10 @@ export default function App() {
     setAuthError('')
     
     try {
+      if (!supabase) {
+        throw new Error('Authentication service is not available')
+      }
+
       if (authMode === 'reset') {
         return handlePasswordReset(e)
       }
