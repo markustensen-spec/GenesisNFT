@@ -452,7 +452,7 @@ export default function App() {
                 <Card className="bg-slate-900/50 border-emerald-900/30 backdrop-blur-sm hover:border-emerald-600/50 transition-all cursor-pointer" onClick={playGame}>
                   <CardHeader>
                     <Trophy className="w-16 h-16 text-emerald-500 mb-4" />
-                    <CardTitle className="text-amber-100 text-2xl">Play-to-Earn Arena</CardTitle>
+                    <CardTitle className="text-amber-100 text-2xl">Minigames</CardTitle>
                     <CardDescription className="text-amber-100/60 text-base">
                       Genesis Caviar game
                     </CardDescription>
