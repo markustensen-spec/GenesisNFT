@@ -1723,6 +1723,140 @@ export default function App() {
                 </div>
               </div>
 
+              {/* NFT Minting Section */}
+              <div className="mb-12">
+                <Card className="bg-gradient-to-br from-amber-900/20 via-slate-900/50 to-purple-900/20 border-2 border-amber-600/50">
+                  <CardHeader className="text-center pb-4">
+                    <CardTitle className="text-3xl font-bold text-amber-100 mb-2">
+                      🎨 Mint Your Leonardo da Vinci NFT
+                    </CardTitle>
+                    <CardDescription className="text-amber-100/70 text-lg">
+                      Secure your piece of Renaissance history on the blockchain
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className="space-y-6">
+                    {/* Minting Stats */}
+                    <div className="grid grid-cols-3 gap-4 p-4 bg-slate-950/50 rounded-lg border border-amber-900/30">
+                      <div className="text-center">
+                        <p className="text-amber-400 text-sm mb-1">Total Supply</p>
+                        <p className="text-2xl font-bold text-amber-100">10,000</p>
+                      </div>
+                      <div className="text-center">
+                        <p className="text-emerald-400 text-sm mb-1">Available</p>
+                        <p className="text-2xl font-bold text-emerald-400">{stats.remaining || 10000}</p>
+                      </div>
+                      <div className="text-center">
+                        <p className="text-purple-400 text-sm mb-1">Price</p>
+                        <p className="text-2xl font-bold text-purple-400">$85</p>
+                      </div>
+                    </div>
+
+                    {/* Important Instructions */}
+                    <div className="bg-blue-900/20 border border-blue-500/30 rounded-lg p-5">
+                      <div className="flex items-start gap-3 mb-4">
+                        <div className="w-8 h-8 bg-blue-600/30 rounded-full flex items-center justify-center flex-shrink-0">
+                          <span className="text-blue-400 text-xl">ℹ️</span>
+                        </div>
+                        <div>
+                          <h4 className="text-blue-300 font-bold mb-2">Important: Wallet Setup Required</h4>
+                          <p className="text-blue-200/80 text-sm mb-3">
+                            To mint NFTs, you need a Solana wallet. We recommend using Phantom Wallet.
+                          </p>
+                        </div>
+                      </div>
+                      
+                      <div className="space-y-3 text-sm text-blue-100/70">
+                        <div className="flex items-start gap-2">
+                          <span className="text-blue-400 font-bold">1.</span>
+                          <p><strong className="text-blue-200">Install Phantom Wallet:</strong> Download from <a href="https://phantom.app" target="_blank" rel="noopener noreferrer" className="text-blue-400 underline hover:text-blue-300">phantom.app</a></p>
+                        </div>
+                        <div className="flex items-start gap-2">
+                          <span className="text-blue-400 font-bold">2.</span>
+                          <p><strong className="text-blue-200">Open in Wallet Browser:</strong> For mobile, open this website directly in your Phantom wallet's built-in browser for best experience</p>
+                        </div>
+                        <div className="flex items-start gap-2">
+                          <span className="text-blue-400 font-bold">3.</span>
+                          <p><strong className="text-blue-200">Connect & Mint:</strong> Click "Connect Wallet" below, approve the connection, then mint your NFT!</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Minting Benefits */}
+                    <div className="grid md:grid-cols-2 gap-4">
+                      <div className="bg-slate-950/50 rounded-lg p-4 border border-amber-900/20">
+                        <h4 className="text-amber-300 font-semibold mb-2 flex items-center gap-2">
+                          <Trophy className="w-4 h-4" />
+                          What You Get:
+                        </h4>
+                        <ul className="space-y-2 text-amber-100/70 text-sm">
+                          <li>✓ 1 Random Leonardo da Vinci NFT</li>
+                          <li>✓ Chance for $5,000 Epic Selfie!</li>
+                          <li>✓ ~1% Mystery Blank Pages</li>
+                          <li>✓ Legendary Exclusives (10 total)</li>
+                        </ul>
+                      </div>
+                      <div className="bg-slate-950/50 rounded-lg p-4 border border-purple-900/20">
+                        <h4 className="text-purple-300 font-semibold mb-2 flex items-center gap-2">
+                          <Crown className="w-4 h-4" />
+                          Benefits:
+                        </h4>
+                        <ul className="space-y-2 text-purple-100/70 text-sm">
+                          <li>✓ Codex Collective voting rights</li>
+                          <li>✓ Enhanced $CAX staking rewards</li>
+                          <li>✓ Exclusive community access</li>
+                          <li>✓ Priority for future drops</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    {/* Minting Buttons */}
+                    {user ? (
+                      <div className="space-y-4">
+                        <Button 
+                          size="lg" 
+                          className="w-full bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 text-white font-bold py-6 text-lg shadow-xl"
+                          onClick={() => window.open('https://phantom.app', '_blank')}
+                        >
+                          <Wallet className="w-5 h-5 mr-2" />
+                          Open in Phantom Wallet to Mint
+                        </Button>
+                        <p className="text-center text-amber-100/60 text-xs">
+                          Copy this URL and paste it in your Phantom wallet browser: <br/>
+                          <code className="bg-slate-950/50 px-2 py-1 rounded text-amber-400">
+                            {typeof window !== 'undefined' ? window.location.href : 'genesishq.io'}
+                          </code>
+                        </p>
+                      </div>
+                    ) : (
+                      <div className="text-center p-6 bg-slate-950/50 rounded-lg border border-amber-900/20">
+                        <p className="text-amber-100/70 mb-4">Please login to mint NFTs</p>
+                        <Button 
+                          onClick={() => { setAuthMode('login'); setShowAuthModal(true) }}
+                          className="bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600"
+                        >
+                          <LogIn className="w-4 h-4 mr-2" />
+                          Login to Mint
+                        </Button>
+                      </div>
+                    )}
+
+                    {/* Payment Info */}
+                    <div className="bg-emerald-900/10 border border-emerald-600/20 rounded-lg p-4">
+                      <div className="flex items-center gap-2 mb-2">
+                        <CheckCircle className="w-5 h-5 text-emerald-400" />
+                        <h4 className="text-emerald-300 font-semibold">Payment Details</h4>
+                      </div>
+                      <ul className="space-y-1 text-emerald-100/70 text-sm">
+                        <li>• Price: $85 USD (paid in SOL)</li>
+                        <li>• Payment goes directly to collection wallet</li>
+                        <li>• Gas fees included in the $85 price</li>
+                        <li>• Instant NFT delivery after payment</li>
+                      </ul>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+
               {/* Tokenomics */}
               <div className="grid md:grid-cols-2 gap-6 mb-8">
                 <Card className="bg-slate-900/50 border-amber-900/30">
