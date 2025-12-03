@@ -302,8 +302,15 @@ export default function App() {
                     required
                   />
                 </div>
-                <Button type="submit" className="w-full bg-amber-600 hover:bg-amber-700">
-                  {authMode === 'login' ? 'Login' : 'Create Account'}
+                <Button type="submit" className="w-full bg-amber-600 hover:bg-amber-700" disabled={loading}>
+                  {loading ? (
+                    <span className="flex items-center justify-center">
+                      <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                      {authMode === 'login' ? 'Logger inn...' : 'Oppretter konto...'}
+                    </span>
+                  ) : (
+                    authMode === 'login' ? 'Login' : 'Create Account'
+                  )}
                 </Button>
                 <button
                   type="button"
