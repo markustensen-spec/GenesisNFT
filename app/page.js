@@ -34,12 +34,37 @@ export default function App() {
     }
   }, [activeTab])
 
-  // Check if user is logged in
+  // Check for Supabase session
   useEffect(() => {
-    const savedUser = localStorage.getItem('genesishq_user')
-    if (savedUser) {
-      setUser(JSON.parse(savedUser))
-    }
+    // Get initial session
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      if (session?.user) {
+        setUser({
+          id: session.user.id,
+          email: session.user.email,
+          username: session.user.user_metadata?.username || session.user.email?.split('@')[0],
+          walletAddress: session.user.user_metadata?.wallet_address || 'GeN' + Math.random().toString(36).substring(2, 15),
+          emailVerified: session.user.email_confirmed_at !== null
+        })
+      }
+    })
+
+    // Listen for auth changes
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      if (session?.user) {
+        setUser({
+          id: session.user.id,
+          email: session.user.email,
+          username: session.user.user_metadata?.username || session.user.email?.split('@')[0],
+          walletAddress: session.user.user_metadata?.wallet_address || 'GeN' + Math.random().toString(36).substring(2, 15),
+          emailVerified: session.user.email_confirmed_at !== null
+        })
+      } else {
+        setUser(null)
+      }
+    })
+
+    return () => subscription.unsubscribe()
   }, [])
 
   const fetchCryptoPrices = async () => {
