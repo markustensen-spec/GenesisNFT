@@ -18,6 +18,18 @@ export default function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [mintStatus, setMintStatus] = useState('')
 
+  const connectWallet = () => {
+    if (!connected) {
+      // Simulate wallet connection
+      const mockAddress = 'GeN' + Math.random().toString(36).substring(2, 15) + 'HQ'
+      setWalletAddress(mockAddress)
+      setConnected(true)
+    } else {
+      setWalletAddress(null)
+      setConnected(false)
+    }
+  }
+
   useEffect(() => {
     if (activeTab === 'investments') {
       fetchCryptoPrices()
