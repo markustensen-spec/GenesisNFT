@@ -9,8 +9,11 @@ Du får "Registrering vellykket!" men ingen email kommer.
 
 ## STEG 1: Kjør SQL (MÅ GJØRES!)
 
-1. **Åpne denne lenken:** 
-   https://kpdwzbxanqrslupyslkw.supabase.co/project/_/sql/new
+1. **Åpne Supabase SQL Editor:**
+   - Go to https://supabase.com/dashboard
+   - Select your project: **kpdwzbxanqrslupyslkw**
+   - Click on **SQL Editor** in the left sidebar
+   - Click **New query**
 
 2. **Kopier HELE denne SQL-koden:**
 
