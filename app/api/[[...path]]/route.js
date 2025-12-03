@@ -6,11 +6,16 @@ import { v4 as uuidv4 } from 'uuid'
 export const dynamic = 'force-dynamic'
 export const runtime = 'nodejs'
 
-const client = new MongoClient(process.env.MONGO_URL || 'mongodb://localhost:27017')
+let client
 let db
 
 async function connectDB() {
   if (!db) {
+    // Only create client when actually needed (runtime)
+    if (!client) {
+      const mongoUrl = process.env.MONGO_URL || 'mongodb://localhost:27017'
+      client = new MongoClient(mongoUrl)
+    }
     await client.connect()
     db = client.db(process.env.DB_NAME || 'genesishq_db')
   }
