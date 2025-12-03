@@ -335,6 +335,31 @@ export default function App() {
                 >
                   {authMode === 'login' ? "Don't have an account? Register" : 'Already have an account? Login'}
                 </button>
+                
+                {authMode === 'login' && (
+                  <button
+                    type="button"
+                    onClick={async () => {
+                      if (!authForm.email) {
+                        alert('⚠️ Skriv inn din email først')
+                        return
+                      }
+                      try {
+                        const { error } = await supabase.auth.resend({
+                          type: 'signup',
+                          email: authForm.email
+                        })
+                        if (error) throw error
+                        alert('✓ Verifiserings-email sendt!\n\nSjekk din inbox (og spam-mappen).')
+                      } catch (error) {
+                        alert('❌ Kunne ikke sende email: ' + error.message)
+                      }
+                    }}
+                    className="w-full text-xs text-amber-400/70 hover:text-amber-300 mt-2"
+                  >
+                    📧 Ikke mottatt verifiserings-email? Klikk her
+                  </button>
+                )}
               </form>
             </CardContent>
           </Card>
