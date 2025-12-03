@@ -1539,27 +1539,84 @@ export default function App() {
         {activeTab === 'crypto' && (
           <div className="container mx-auto px-4">
             <div className="max-w-6xl mx-auto">
-              {/* Hero with Background */}
-              <div 
-                className="relative mb-16 rounded-2xl overflow-hidden"
-                style={{
-                  backgroundImage: `url('https://customer-assets.emergentagent.com/job_genesishq-web3/artifacts/nu4vi62t_images%20%281%29.jpeg')`,
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center'
-                }}
-              >
-                <div className="absolute inset-0 bg-gradient-to-b from-slate-950/70 via-slate-950/85 to-slate-950"></div>
-                <div className="relative text-center py-20 px-4">
-                  <Badge className="mb-4 bg-amber-600/40 text-amber-300 border-amber-600/50 px-4 py-2 backdrop-blur-sm">
-                    <Gem className="w-4 h-4 mr-2 inline" />
-                    Exclusive Collection
+              {/* MAIN MINTING HERO SECTION */}
+              <div className="relative mb-12 rounded-3xl overflow-hidden border-4 border-amber-600/60 shadow-2xl">
+                <div 
+                  className="absolute inset-0"
+                  style={{
+                    backgroundImage: `url('https://customer-assets.emergentagent.com/job_genesishq-web3/artifacts/nu4vi62t_images%20%281%29.jpeg')`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    filter: 'brightness(0.25)'
+                  }}
+                />
+                <div className="relative text-center py-16 px-6">
+                  <Badge className="mb-6 bg-amber-600 text-white border-amber-600 px-8 py-3 text-lg font-bold animate-pulse">
+                    <Sparkles className="w-5 h-5 mr-2 inline" />
+                    LIVE MINTING NOW - Solana Only
                   </Badge>
-                  <h2 className="text-5xl md:text-6xl font-bold text-amber-100 mb-4 drop-shadow-lg">
-                    Leonardo da Vinci NFT Collection
-                  </h2>
-                  <p className="text-xl md:text-2xl text-amber-100 max-w-3xl mx-auto drop-shadow-lg">
-                    9,990 unique Codex Sketches + 10 ultra-rare Leonardo da Vinci Exclusives. Renaissance genius meets blockchain innovation.
+                  
+                  <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-amber-200 via-amber-400 to-amber-200 bg-clip-text text-transparent drop-shadow-2xl">
+                    Leonardo da Vinci<br/>NFT Collection
+                  </h1>
+                  
+                  <p className="text-2xl md:text-3xl text-amber-100 mb-10 font-bold drop-shadow-lg">
+                    10,000 Renaissance Masterpieces
                   </p>
+
+                  {/* Price & Stats */}
+                  <div className="flex flex-wrap justify-center gap-6 mb-12">
+                    <div className="bg-gradient-to-br from-amber-900/90 to-amber-950/90 backdrop-blur-xl px-10 py-6 rounded-2xl border-3 border-amber-500/70 shadow-2xl">
+                      <div className="text-amber-300 text-lg font-bold mb-1">MINT PRICE</div>
+                      <div className="text-5xl font-bold text-white mb-1">$85</div>
+                      <div className="text-emerald-400 text-sm font-semibold">≈ 0.35 SOL</div>
+                    </div>
+                    <div className="bg-gradient-to-br from-purple-900/90 to-purple-950/90 backdrop-blur-xl px-10 py-6 rounded-2xl border-3 border-purple-500/70 shadow-2xl">
+                      <div className="text-purple-300 text-lg font-bold mb-1">AVAILABLE</div>
+                      <div className="text-5xl font-bold text-white mb-1">10,000</div>
+                      <div className="text-purple-300 text-sm font-semibold">NFTs Ready</div>
+                    </div>
+                  </div>
+
+                  {/* MAIN MINTING SECTION */}
+                  {user ? (
+                    <div className="space-y-6 max-w-3xl mx-auto">
+                      <div className="bg-slate-950/95 backdrop-blur-xl rounded-3xl p-10 border-3 border-amber-600/50 shadow-2xl">
+                        <LazyMintNFT user={user} />
+                      </div>
+                      
+                      {/* Buy Solana */}
+                      <div className="flex flex-col sm:flex-row items-center justify-center gap-4 p-6 bg-purple-900/30 rounded-2xl border border-purple-500/50">
+                        <p className="text-white font-semibold text-lg">Need Solana to Mint?</p>
+                        <Button 
+                          onClick={() => window.open('https://phantom.app/buy', '_blank')}
+                          size="lg"
+                          className="bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-500 hover:to-purple-600 text-white font-bold px-8 py-6 text-lg shadow-xl"
+                        >
+                          <Coins className="w-6 h-6 mr-2" />
+                          Buy SOL Instantly
+                        </Button>
+                      </div>
+
+                      <p className="text-amber-100/80 text-sm">
+                        💡 <strong>Mobile Users:</strong> Open genesishq.io in your Phantom wallet's built-in browser
+                      </p>
+                    </div>
+                  ) : (
+                    <div className="max-w-xl mx-auto">
+                      <Button 
+                        onClick={() => { setAuthMode('login'); setShowAuthModal(true) }}
+                        size="lg"
+                        className="w-full bg-gradient-to-r from-amber-600 via-amber-500 to-amber-600 hover:from-amber-500 hover:via-amber-400 hover:to-amber-500 text-white font-black py-10 text-3xl shadow-2xl rounded-2xl border-4 border-amber-400/50 transform hover:scale-105 transition-all"
+                      >
+                        <Wallet className="w-10 h-10 mr-4" />
+                        MINT YOUR NFT NOW
+                      </Button>
+                      <p className="text-amber-100 mt-6 text-lg font-semibold">
+                        Login required • Solana wallet needed • $85 per mint
+                      </p>
+                    </div>
+                  )}
                 </div>
               </div>
 
