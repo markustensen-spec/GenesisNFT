@@ -13,9 +13,9 @@ Du får "Registrering vellykket!" men ingen email kommer.
    - Go to https://supabase.com/dashboard
    - Select your project: **kpdwzbxanqrslupyslkw**
    - Click on **SQL Editor** in the left sidebar
-   - Click **New query**
+   - A code editor will appear
 
-2. **Kopier HELE denne SQL-koden:**
+2. **Kopier og lim inn HELE denne SQL-koden i editoren:**
 
 ```sql
 -- Enable UUID extension
