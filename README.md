@@ -15,19 +15,32 @@ A revolutionary blockchain platform combining Leonardo da Vinci's timeless geniu
 
 ## 🌟 Features
 
-### 1. **Leonardo da Vinci NFT Collection**
+### 1. **User Authentication System** 🔐
+Complete user management with secure registration and login:
+- Email and password authentication
+- Username customization
+- Auto-generated wallet addresses
+- Persistent sessions with localStorage
+- MongoDB backend storage
+- User profiles and account management
+
+### 2. **Leonardo da Vinci NFT Collection** 🎨
 - 10 original masterpieces + 9,989 generative variations
 - Renaissance engineering meets holographic technology
 - Minting on Solana Devnet (testnet ready)
 - Whitelist registration for early access
 - $CAX token integration
+- Requires user login to mint
 
-### 2. **G Lounge - Exclusive Members Club ($55/month)**
-The ultimate destination for elite traders and collectors:
-- 🔒 **Exclusive Content**: Premium market analysis, early NFT drops, private webinars
-- ⚡ **MAX Trading Bot**: AI-powered trading strategies and portfolio optimization
-- 👥 **Codex Collective**: Private community with networking and investment pools
-- 🏆 **Premium Perks**: 2x staking rewards, reduced fees, priority support
+### 3. **The Codex Collective - Exclusive Community** 👥
+The ultimate destination for Renaissance thinkers and Web3 innovators:
+- 💬 **Private Forums**: Exclusive discussion channels with thought leaders
+- 📚 **Knowledge Library**: Research papers, whitepapers, and masterclasses
+- 🤝 **Networking Events**: Virtual and in-person meetups for collaboration
+- 💡 **Innovation Labs**: Project incubation and mentorship programs
+- ⚡ **Premium Tools**: MAX Trading Bot and advanced analytics
+- 🏆 **Exclusive Perks**: Early NFT access, 2x staking rewards, reduced fees
+- **Status**: Premium membership coming soon
 
 ### 3. **Live Investments**
 - Real-time cryptocurrency prices via CoinGecko API
