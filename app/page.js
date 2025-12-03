@@ -226,6 +226,9 @@ export default function App() {
               <Button variant="ghost" onClick={playGame} className="text-amber-100 hover:text-amber-400">
                 Play Arena
               </Button>
+              <Button variant="ghost" onClick={() => setActiveTab('whitepaper')} className="text-amber-100 hover:text-amber-400">
+                Whitepaper
+              </Button>
             </div>
 
             <div className="flex items-center space-x-4">
