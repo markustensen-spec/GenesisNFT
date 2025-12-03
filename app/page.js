@@ -110,8 +110,6 @@ export default function App() {
 
         if (data.user) {
           console.log('Registration data:', data)
-          setShowAuthModal(false)
-          setAuthForm({ email: '', password: '', username: '' })
           
           // Check if email confirmation is required
           if (data.user.identities && data.user.identities.length === 0) {
@@ -120,8 +118,13 @@ export default function App() {
             // Check if user needs to confirm email
             if (data.user.email_confirmed_at) {
               alert('✓ Registrering vellykket!\n\nDu kan nå logge inn.')
+              setShowAuthModal(false)
+              setAuthForm({ email: '', password: '', username: '' })
             } else {
-              alert('✓ Registrering vellykket!\n\n📧 VIKTIG: Sjekk din email!\n\nDu har fått en verifiserings-email fra Supabase.\n\n⚠️ Sjekk også SPAM-mappen!\n\nKlikk på linken i emailen for å aktivere kontoen.\n\nDeretter kan du logge inn.')
+              // Show verification message instead of closing modal
+              setVerificationEmail(authForm.email)
+              setShowVerificationMessage(true)
+              setAuthForm({ email: '', password: '', username: '' })
             }
           }
         }
