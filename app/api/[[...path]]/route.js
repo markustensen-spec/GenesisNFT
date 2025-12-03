@@ -270,7 +270,14 @@ export async function POST(request) {
         )
       }
 
-      const database = await connectDB()
+      const database = await initMongoDB()
+      if (!database) {
+        return NextResponse.json({
+          success: false,
+          error: 'Database not available - MongoDB not configured'
+        }, { status: 503 })
+      }
+      
       const whitelistId = uuidv4()
       
       await database.collection('whitelist').insertOne({
