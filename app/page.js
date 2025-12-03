@@ -1146,7 +1146,7 @@ export default function App() {
                       <div className="space-y-3 mb-6">
                         <div className="flex justify-between">
                           <span className="text-amber-100/60">Mint Price</span>
-                          <span className="text-amber-100 font-semibold text-lg">$100 USD</span>
+                          <span className="text-amber-100 font-semibold text-lg">&#36;100 USD</span>
                         </div>
                         <div className="flex justify-between">
                           <span className="text-amber-100/60">Collection Size</span>
