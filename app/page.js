@@ -466,6 +466,9 @@ export default function App() {
                   <button
                     onClick={async () => {
                       try {
+                        if (!supabase) {
+                          throw new Error('Authentication service is not available')
+                        }
                         setResendSuccess(false)
                         const { error } = await supabase.auth.resend({
                           type: 'signup',
