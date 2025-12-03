@@ -42,19 +42,24 @@ The ultimate destination for Renaissance thinkers and Web3 innovators:
 - 🏆 **Exclusive Perks**: Early NFT access, 2x staking rewards, reduced fees
 - **Status**: Premium membership coming soon
 
-### 3. **Live Investments**
+### 4. **Live Investments** 📈
 - Real-time cryptocurrency prices via CoinGecko API
 - Track Bitcoin, Ethereum, Solana, Cardano, Polkadot, Avalanche
 - Interactive price charts (coming soon: TradingView integration)
 - $CAX token allocation system
 - Stock market integration (planned)
 
-### 4. **Genesis Caviar Game**
-- Agar.io-style multiplayer gameplay
-- Wager $CAX tokens to compete
-- Real-time WebSocket server
-- Global leaderboards
-- Winner-takes-all prize pools
+### 5. **Genesis Caviar Game** 🎮
+**FULLY PLAYABLE** original game with beautiful caviar-themed graphics:
+- **Gameplay**: Grow your golden caviar by consuming smaller ones
+- **Controls**: WASD or Arrow Keys for smooth movement
+- **Graphics**: Stunning glossy caviar spheres with gradients and lighting
+- **AI Opponents**: Smart enemies that chase you
+- **Score System**: Real-time score tracking saved to leaderboard
+- **User Integration**: Requires login, scores tied to user accounts
+- **Leaderboard**: Global rankings with player usernames
+- **Original Code**: Built from scratch with HTML5 Canvas
+- **60 FPS**: Smooth, responsive gameplay with RequestAnimationFrame
 
 ### 5. **$CAX Token Economy**
 - Total Supply: 1,000,000,000 $CAX
