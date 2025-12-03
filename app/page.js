@@ -308,117 +308,83 @@ export default function App() {
             {/* Main Features Grid */}
             <div className="mb-16">
               <h2 className="text-3xl font-bold text-amber-100 text-center mb-8">Platform Features</h2>
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <Card className="bg-slate-900/50 border-amber-900/30 backdrop-blur-sm hover:border-amber-600/50 transition-all cursor-pointer" onClick={() => setActiveTab('lounge')}>
-                  <CardHeader>
-                    <Users className="w-12 h-12 text-amber-500 mb-4" />
-                    <CardTitle className="text-amber-100">Codex Collective</CardTitle>
-                    <CardDescription className="text-amber-100/60">
-                      Elite community of visionaries
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent className="text-amber-100/70">
-                    <p className="mb-3">Join an exclusive community where Renaissance thinking meets modern innovation.</p>
-                    <ul className="space-y-1 text-sm">
-                      <li>• Private forums & discussions</li>
-                      <li>• Expert webinars & workshops</li>
-                      <li>• Collaborative projects</li>
-                      <li>• Networking opportunities</li>
-                    </ul>
-                  </CardContent>
-                </Card>
-
+              <div className="grid md:grid-cols-2 gap-6">
                 <Card className="bg-slate-900/50 border-amber-900/30 backdrop-blur-sm hover:border-amber-600/50 transition-all cursor-pointer" onClick={() => setActiveTab('nft')}>
                   <CardHeader>
-                    <Gem className="w-12 h-12 text-amber-500 mb-4" />
-                    <CardTitle className="text-amber-100">Leonardo da Vinci NFTs</CardTitle>
-                    <CardDescription className="text-amber-100/60">
-                      10,000 unique digital masterpieces
+                    <Gem className="w-16 h-16 text-amber-500 mb-4" />
+                    <CardTitle className="text-amber-100 text-2xl">Leonardo da Vinci Sketch NFT</CardTitle>
+                    <CardDescription className="text-amber-100/60 text-base">
+                      10,000 unique Renaissance masterpieces
                     </CardDescription>
                   </CardHeader>
                   <CardContent className="text-amber-100/70">
-                    <p className="mb-3">Own a piece of Renaissance genius reimagined for the blockchain era.</p>
-                    <ul className="space-y-1 text-sm">
-                      <li>• 10 original artworks</li>
-                      <li>• 9,990 generative pieces</li>
-                      <li>• Exclusive holder benefits</li>
-                      <li>• $CAX token bonuses</li>
-                    </ul>
-                  </CardContent>
-                </Card>
-
-                <Card className="bg-slate-900/50 border-amber-900/30 backdrop-blur-sm hover:border-amber-600/50 transition-all cursor-pointer" onClick={() => setActiveTab('investments')}>
-                  <CardHeader>
-                    <TrendingUp className="w-12 h-12 text-amber-500 mb-4" />
-                    <CardTitle className="text-amber-100">Live Investments</CardTitle>
-                    <CardDescription className="text-amber-100/60">
-                      Real-time market tracking
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent className="text-amber-100/70">
-                    <p className="mb-3">Track and allocate $CAX across crypto and traditional markets.</p>
-                    <ul className="space-y-1 text-sm">
-                      <li>• Live cryptocurrency prices</li>
-                      <li>• Portfolio management</li>
-                      <li>• Market analytics</li>
-                      <li>• Investment strategies</li>
-                    </ul>
-                  </CardContent>
-                </Card>
-
-                <Card className="bg-slate-900/50 border-amber-900/30 backdrop-blur-sm hover:border-emerald-600/50 transition-all cursor-pointer" onClick={playGame}>
-                  <CardHeader>
-                    <Trophy className="w-12 h-12 text-emerald-500 mb-4" />
-                    <CardTitle className="text-amber-100">Genesis Caviar Game</CardTitle>
-                    <CardDescription className="text-amber-100/60">
-                      Compete, grow, and win
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent className="text-amber-100/70">
-                    <p className="mb-3">Real-time multiplayer game where you grow by consuming caviar.</p>
-                    <ul className="space-y-1 text-sm">
-                      <li>• Real-time multiplayer</li>
-                      <li>• Compete for top scores</li>
-                      <li>• Global leaderboards</li>
-                      <li>• Skill-based gameplay</li>
+                    <p className="mb-4 text-base">Own a piece of history reimagined. Each NFT combines Leonardo's original sketches with modern blockchain technology, creating collectible digital art that bridges centuries.</p>
+                    <ul className="space-y-2">
+                      <li>✓ 10 rare original artworks</li>
+                      <li>✓ 9,990 generative masterpieces</li>
+                      <li>✓ Renaissance engineering meets Web3</li>
+                      <li>✓ Exclusive holder benefits & airdrops</li>
+                      <li>✓ $CAX token bonuses for NFT holders</li>
                     </ul>
                   </CardContent>
                 </Card>
 
                 <Card className="bg-slate-900/50 border-amber-900/30 backdrop-blur-sm hover:border-amber-600/50 transition-all">
                   <CardHeader>
-                    <Zap className="w-12 h-12 text-amber-500 mb-4" />
-                    <CardTitle className="text-amber-100">$CAX Token</CardTitle>
-                    <CardDescription className="text-amber-100/60">
-                      Platform utility token
+                    <Zap className="w-16 h-16 text-amber-500 mb-4" />
+                    <CardTitle className="text-amber-100 text-2xl">Caviar Governance Token</CardTitle>
+                    <CardDescription className="text-amber-100/60 text-base">
+                      $CAX - The power of the ecosystem
                     </CardDescription>
                   </CardHeader>
                   <CardContent className="text-amber-100/70">
-                    <p className="mb-3">The heartbeat of the GenesisHQ ecosystem.</p>
-                    <ul className="space-y-1 text-sm">
-                      <li>• 1B total supply</li>
-                      <li>• Governance rights</li>
-                      <li>• Staking rewards</li>
-                      <li>• Platform benefits</li>
+                    <p className="mb-4 text-base">The $CAX token is your key to governance, staking rewards, and platform participation. Hold $CAX to shape the future of GenesisHQ and earn passive income.</p>
+                    <ul className="space-y-2">
+                      <li>✓ 1 Billion total supply</li>
+                      <li>✓ Governance voting rights</li>
+                      <li>✓ Staking rewards up to 2x for G Lounge members</li>
+                      <li>✓ Required for P2E game entry</li>
+                      <li>✓ Reduced platform fees for holders</li>
                     </ul>
                   </CardContent>
                 </Card>
 
-                <Card className="bg-slate-900/50 border-amber-900/30 backdrop-blur-sm hover:border-amber-600/50 transition-all">
+                <Card className="bg-slate-900/50 border-emerald-900/30 backdrop-blur-sm hover:border-emerald-600/50 transition-all cursor-pointer" onClick={playGame}>
                   <CardHeader>
-                    <Lock className="w-12 h-12 text-amber-500 mb-4" />
-                    <CardTitle className="text-amber-100">Secure & Audited</CardTitle>
-                    <CardDescription className="text-amber-100/60">
-                      Built with security first
+                    <Trophy className="w-16 h-16 text-emerald-500 mb-4" />
+                    <CardTitle className="text-amber-100 text-2xl">Play-to-Earn Arena</CardTitle>
+                    <CardDescription className="text-amber-100/60 text-base">
+                      Genesis Caviar - Compete & earn
                     </CardDescription>
                   </CardHeader>
                   <CardContent className="text-amber-100/70">
-                    <p className="mb-3">Your assets and data protected with industry-leading security.</p>
-                    <ul className="space-y-1 text-sm">
-                      <li>• Smart contract audits</li>
-                      <li>• Secure authentication</li>
-                      <li>• Encrypted data</li>
-                      <li>• Regular security updates</li>
+                    <p className="mb-4 text-base">Enter the Arena and compete in real-time multiplayer action. Grow your caviar, defeat opponents, and earn $CAX tokens based on your performance and ranking.</p>
+                    <ul className="space-y-2">
+                      <li>✓ Real-time multiplayer gameplay</li>
+                      <li>✓ Earn $CAX tokens by playing</li>
+                      <li>✓ Global leaderboard rankings</li>
+                      <li>✓ Skill-based competitive matches</li>
+                      <li>✓ Daily and weekly tournaments</li>
+                    </ul>
+                  </CardContent>
+                </Card>
+
+                <Card className="bg-slate-900/50 border-amber-900/30 backdrop-blur-sm hover:border-amber-600/50 transition-all cursor-pointer" onClick={() => setActiveTab('lounge')}>
+                  <CardHeader>
+                    <Crown className="w-16 h-16 text-amber-500 mb-4" />
+                    <CardTitle className="text-amber-100 text-2xl">G Lounge</CardTitle>
+                    <CardDescription className="text-amber-100/60 text-base">
+                      Home of the Codex Collective
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className="text-amber-100/70">
+                    <p className="mb-4 text-base">The exclusive G Lounge is where elite members access the Codex Collective - a Renaissance-inspired community of visionaries, builders, and innovators.</p>
+                    <ul className="space-y-2">
+                      <li>✓ Codex Collective private community</li>
+                      <li>✓ Expert webinars & masterclasses</li>
+                      <li>✓ MAX Trading Bot premium access</li>
+                      <li>✓ 2x staking rewards & reduced fees</li>
+                      <li>✓ Early access to new features & NFT drops</li>
                     </ul>
                   </CardContent>
                 </Card>
