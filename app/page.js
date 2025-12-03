@@ -115,11 +115,10 @@ export default function App() {
           
           // Check if email confirmation is required
           if (data.user.identities && data.user.identities.length === 0) {
-            alert('⚠️ Denne emailen er allerede registrert!\n\nPrøv å logge inn i stedet.\n\nHvis du ikke husker passordet, kontakt support.')
+            setAuthError('This email is already registered. Please try logging in instead.')
           } else {
             // Check if user needs to confirm email
             if (data.user.email_confirmed_at) {
-              alert('✓ Registrering vellykket!\n\nDu kan nå logge inn.')
               setShowAuthModal(false)
               setAuthForm({ email: '', password: '', username: '' })
             } else {
