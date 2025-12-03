@@ -477,26 +477,6 @@ export default function App() {
               </div>
             </div>
 
-            {/* Stats */}
-            <div className="grid md:grid-cols-4 gap-6 mb-16">
-              <div className="text-center p-6 bg-slate-900/30 rounded-lg border border-amber-900/20">
-                <div className="text-3xl font-bold text-amber-400 mb-2">10,000</div>
-                <div className="text-amber-100/60">NFT Collection</div>
-              </div>
-              <div className="text-center p-6 bg-slate-900/30 rounded-lg border border-amber-900/20">
-                <div className="text-3xl font-bold text-amber-400 mb-2">$CAX</div>
-                <div className="text-amber-100/60">Caviar Token</div>
-              </div>
-              <div className="text-center p-6 bg-slate-900/30 rounded-lg border border-amber-900/20">
-                <div className="text-3xl font-bold text-amber-400 mb-2">Live</div>
-                <div className="text-amber-100/60">Market Data</div>
-              </div>
-              <div className="text-center p-6 bg-slate-900/30 rounded-lg border border-amber-900/20">
-                <div className="text-3xl font-bold text-amber-400 mb-2">Play</div>
-                <div className="text-amber-100/60">Genesis Caviar</div>
-              </div>
-            </div>
-
             {/* How It Works */}
             <div className="max-w-4xl mx-auto">
               <h2 className="text-3xl font-bold text-amber-100 text-center mb-8">Getting Started</h2>
