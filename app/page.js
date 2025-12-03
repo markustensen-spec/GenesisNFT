@@ -107,14 +107,20 @@ export default function App() {
         }
 
         if (data.user) {
+          console.log('Registration data:', data)
           setShowAuthModal(false)
           setAuthForm({ email: '', password: '', username: '' })
           
           // Check if email confirmation is required
           if (data.user.identities && data.user.identities.length === 0) {
-            alert('⚠️ This email is already registered. Please try logging in instead.')
+            alert('⚠️ Denne emailen er allerede registrert!\n\nPrøv å logge inn i stedet.\n\nHvis du ikke husker passordet, kontakt support.')
           } else {
-            alert('✓ Registrering vellykket!\n\nSJEKK DIN EMAIL for verifiserings-link.\n\nDu må verifisere emailen før du kan logge inn.')
+            // Check if user needs to confirm email
+            if (data.user.email_confirmed_at) {
+              alert('✓ Registrering vellykket!\n\nDu kan nå logge inn.')
+            } else {
+              alert('✓ Registrering vellykket!\n\n📧 VIKTIG: Sjekk din email!\n\nDu har fått en verifiserings-email fra Supabase.\n\n⚠️ Sjekk også SPAM-mappen!\n\nKlikk på linken i emailen for å aktivere kontoen.\n\nDeretter kan du logge inn.')
+            }
           }
         }
       } else {
