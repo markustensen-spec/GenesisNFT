@@ -937,6 +937,7 @@ function GameComponent({ user }) {
 
     const ctx = canvas.getContext('2d')
     const player = playerRef.current
+    if (!player) return
 
     // Clear canvas with background
     ctx.fillStyle = '#0f172a'
