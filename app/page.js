@@ -570,26 +570,3 @@ export default function App() {
     </div>
   )
 }
-
-export default function App() {
-  const network = WalletAdapterNetwork.Devnet
-  const endpoint = useMemo(() => process.env.NEXT_PUBLIC_SOLANA_RPC_URL || clusterApiUrl(network), [network])
-  
-  const wallets = useMemo(
-    () => [
-      new PhantomWalletAdapter(),
-      new SolflareWalletAdapter(),
-    ],
-    []
-  )
-
-  return (
-    <ConnectionProvider endpoint={endpoint}>
-      <WalletProvider wallets={wallets} autoConnect>
-        <WalletModalProvider>
-          <GenesisHQContent />
-        </WalletModalProvider>
-      </WalletProvider>
-    </ConnectionProvider>
-  )
-}
