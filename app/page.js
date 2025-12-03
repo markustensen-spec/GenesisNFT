@@ -1334,7 +1334,7 @@ export default function App() {
               {/* What is Codex Collective */}
               <Card className="bg-gradient-to-br from-amber-900/20 to-slate-900/50 border-amber-600/30 mb-12">
                 <CardContent className="p-8">
-                  <h3 className="text-3xl font-bold text-amber-100 mb-4">G Lounge: Home of the Codex Collective</h3>
+                  <h3 className="text-3xl font-bold text-amber-100 mb-4">Codex Collective</h3>
                   <p className="text-amber-100/80 text-lg leading-relaxed mb-4">
                     The G Lounge is GenesisHQ&apos;s exclusive members club, housing the prestigious Codex Collective. Inspired by Leonardo da Vinci&apos;s codices—his notebooks of revolutionary ideas—this is a modern-day gathering of elite minds where Renaissance thinking meets Web3 innovation.
                   </p>
@@ -1343,6 +1343,58 @@ export default function App() {
                   </p>
                 </CardContent>
               </Card>
+
+              {/* New Features Section */}
+              <h3 className="text-3xl font-bold text-amber-100 text-center mb-8">Exclusive Features</h3>
+              <div className="grid md:grid-cols-3 gap-6 mb-12">
+                <Card className="bg-gradient-to-br from-emerald-900/30 to-slate-900/50 border-emerald-600/30">
+                  <CardHeader>
+                    <Zap className="w-12 h-12 text-emerald-500 mb-3" />
+                    <CardTitle className="text-amber-100 text-xl">Trading Bot MAX</CardTitle>
+                  </CardHeader>
+                  <CardContent className="text-amber-100/70">
+                    <p className="mb-4">AI-powered trading bot for automated cryptocurrency trading with advanced algorithms.</p>
+                    <ul className="space-y-2 text-sm">
+                      <li>✓ 24/7 automated trading</li>
+                      <li>✓ Advanced risk management</li>
+                      <li>✓ Multi-exchange support</li>
+                      <li>✓ Real-time portfolio optimization</li>
+                    </ul>
+                  </CardContent>
+                </Card>
+
+                <Card className="bg-gradient-to-br from-purple-900/30 to-slate-900/50 border-purple-600/30">
+                  <CardHeader>
+                    <Users className="w-12 h-12 text-purple-500 mb-3" />
+                    <CardTitle className="text-amber-100 text-xl">Inner Circle</CardTitle>
+                  </CardHeader>
+                  <CardContent className="text-amber-100/70">
+                    <p className="mb-4">Elite networking group for high-level collaborations and exclusive opportunities.</p>
+                    <ul className="space-y-2 text-sm">
+                      <li>✓ Private networking events</li>
+                      <li>✓ Direct access to founders</li>
+                      <li>✓ Early investment opportunities</li>
+                      <li>✓ Strategic partnerships</li>
+                    </ul>
+                  </CardContent>
+                </Card>
+
+                <Card className="bg-gradient-to-br from-amber-900/30 to-slate-900/50 border-amber-600/30">
+                  <CardHeader>
+                    <Play className="w-12 h-12 text-amber-500 mb-3" />
+                    <CardTitle className="text-amber-100 text-xl">Minigames</CardTitle>
+                  </CardHeader>
+                  <CardContent className="text-amber-100/70">
+                    <p className="mb-4">Collection of engaging minigames with crypto rewards and competitive leaderboards.</p>
+                    <ul className="space-y-2 text-sm">
+                      <li>✓ Play-to-earn mechanics</li>
+                      <li>✓ Daily challenges & tournaments</li>
+                      <li>✓ NFT rewards for winners</li>
+                      <li>✓ Global leaderboards</li>
+                    </ul>
+                  </CardContent>
+                </Card>
+              </div>
 
               {/* Benefits Grid */}
               <h3 className="text-3xl font-bold text-amber-100 text-center mb-8">Member Benefits</h3>
