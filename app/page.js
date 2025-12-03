@@ -1214,7 +1214,7 @@ function GameComponent({ user }) {
                 width={800}
                 height={600}
                 className="w-full h-auto max-w-full"
-                style={{ touchAction: 'none' }}
+                style={{ touchAction: 'none', minHeight: '300px', display: 'block' }}
               />
             </div>
             <p className="text-center text-amber-100/60 text-sm mt-4">
