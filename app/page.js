@@ -309,9 +309,9 @@ export default function App() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                       </svg>
                     </div>
-                    <h3 className="text-2xl font-bold text-amber-100 mb-3">✓ Konto Opprettet!</h3>
+                    <h3 className="text-2xl font-bold text-amber-100 mb-3">✓ Account Created!</h3>
                     <p className="text-amber-100/80 mb-4">
-                      Vi har sendt en verifiserings-email til:
+                      We've sent a verification email to:
                     </p>
                     <p className="text-amber-400 font-semibold mb-6">
                       {verificationEmail}
@@ -322,27 +322,27 @@ export default function App() {
                     <div className="flex items-start space-x-3">
                       <span className="text-2xl">📧</span>
                       <div>
-                        <h4 className="text-amber-100 font-semibold mb-1">Sjekk din innboks</h4>
+                        <h4 className="text-amber-100 font-semibold mb-1">Check your inbox</h4>
                         <p className="text-amber-100/70 text-sm">
-                          Åpne emailen fra Supabase og klikk på verifiserings-linken
+                          Open the email from Supabase and click the verification link
                         </p>
                       </div>
                     </div>
                     <div className="flex items-start space-x-3">
                       <span className="text-2xl">⚠️</span>
                       <div>
-                        <h4 className="text-amber-100 font-semibold mb-1">Sjekk spam-mappen</h4>
+                        <h4 className="text-amber-100 font-semibold mb-1">Check spam folder</h4>
                         <p className="text-amber-100/70 text-sm">
-                          Emailen kan havne i spam/søppelpost
+                          The email might end up in spam/junk
                         </p>
                       </div>
                     </div>
                     <div className="flex items-start space-x-3">
                       <span className="text-2xl">🔐</span>
                       <div>
-                        <h4 className="text-amber-100 font-semibold mb-1">Logg inn etter verifisering</h4>
+                        <h4 className="text-amber-100 font-semibold mb-1">Login after verification</h4>
                         <p className="text-amber-100/70 text-sm">
-                          Etter du har klikket på linken, kan du logge inn
+                          After clicking the link, you can log in
                         </p>
                       </div>
                     </div>
@@ -355,7 +355,7 @@ export default function App() {
                     }}
                     className="w-full bg-amber-600 hover:bg-amber-700"
                   >
-                    OK, jeg forstår
+                    Got it!
                   </Button>
 
                   <button
@@ -366,14 +366,14 @@ export default function App() {
                           email: verificationEmail
                         })
                         if (error) throw error
-                        alert('✓ Email sendt på nytt! Sjekk din innboks.')
+                        alert('✓ Email sent again! Check your inbox.')
                       } catch (error) {
-                        alert('❌ Kunne ikke sende email: ' + error.message)
+                        alert('❌ Could not send email: ' + error.message)
                       }
                     }}
                     className="w-full text-sm text-amber-400 hover:text-amber-300"
                   >
-                    Send email på nytt
+                    Resend verification email
                   </button>
                 </div>
               ) : (
