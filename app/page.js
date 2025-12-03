@@ -1174,10 +1174,10 @@ export default function App() {
                         <CardContent className="p-4">
                           <p className="text-yellow-300 font-semibold mb-2 text-sm flex items-center">
                             <Trophy className="w-4 h-4 mr-2" />
-                            Every Mint = Chance to Win $50K!
+                            Every Mint = Chance to Win &#36;50K!
                           </p>
                           <p className="text-xs text-amber-100/70 mb-3">
-                            Each mint has a chance to reveal the ultra-rare Leonardo Selfie. Winner receives $50,000 USD when collection sells out!
+                            Each mint has a chance to reveal the ultra-rare Leonardo Selfie. Winner receives &#36;50,000 USD when collection sells out!
                           </p>
                         </CardContent>
                       </Card>
