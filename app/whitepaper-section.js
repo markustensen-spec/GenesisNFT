@@ -38,10 +38,22 @@ export default function WhitepaperSection() {
           </CardHeader>
           <CardContent className="text-amber-100/80 space-y-4">
             <p className="text-lg">
-              GenesisHQ is a revolutionary platform combining Leonardo da Vinci's timeless genius with cutting-edge blockchain technology. We're building a complete ecosystem from a viral P2E game to a fully licensed neo-bank.
+              GenesisHQ is Leonardo da Vinci's genius on steroids — fused with blockchain fire.
             </p>
             <p>
-              Our journey begins with Genesis Caviar, an addictive agar.io-style game on Solana, and culminates in a licensed financial institution offering banking, investments, and community governance through our $CAX token.
+              We explode onto Solana with Genesis Caviar: a brutally addictive P2E banger (agar.io on crack) that sucks in millions to reward G Lounge members.
+            </p>
+            <p>
+              From there we rocket straight into a fully licensed neo-bank — banking, investing, crypto-fiat rails — all governed and owned by the $CAX token.
+            </p>
+            <p>
+              Bootstrapped by premium NFTs, P2E rewards, and the ultra-exclusive G Lounge for the real ones.
+            </p>
+            <p className="text-lg font-semibold text-amber-400">
+              GenesisHQ isn't GameFi. It's the world's first player-owned, regulated digital bank.
+            </p>
+            <p className="text-xl font-bold text-amber-300">
+              Play → Earn → Own → Get Rich.
             </p>
           </CardContent>
         </Card>
