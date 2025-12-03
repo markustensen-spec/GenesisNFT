@@ -126,12 +126,25 @@ export default function App() {
 
         if (error) {
           console.error('Supabase login error:', error)
+          
+          // Check if it's email not confirmed
+          if (error.message.includes('Email not confirmed')) {
+            alert('⚠️ EMAIL IKKE VERIFISERT!\n\n✉️ Du må verifisere din email først.\n\nSjekk din inbox (og spam-mappen) for verifiserings-link fra GenesisHQ.\n\nEtter verifisering, prøv å logge inn igjen.')
+            return
+          }
+          
+          // Check if invalid login
+          if (error.message.includes('Invalid login credentials')) {
+            alert('❌ FEIL EMAIL ELLER PASSORD\n\nTips:\n• Sjekk at du skriver riktig email\n• Sjekk at du skriver riktig passord\n• Hvis du ikke har registrert deg, klikk "Register" først\n• Hvis du har registrert deg, MÅ du verifisere emailen før login')
+            return
+          }
+          
           throw error
         }
 
         if (data.user) {
           if (!data.user.email_confirmed_at) {
-            alert('⚠️ Du må verifisere din email først!\n\nSjekk din inbox for verifiserings-link.')
+            alert('⚠️ EMAIL IKKE VERIFISERT!\n\n✉️ Du må verifisere din email først.\n\nSjekk din inbox (og spam-mappen) for verifiserings-link.\n\nEtter verifisering, prøv å logge inn igjen.')
             await supabase.auth.signOut()
             return
           }
@@ -144,18 +157,21 @@ export default function App() {
       console.error('Auth error:', error)
       
       // Better error messages
-      let errorMessage = 'Authentication failed'
+      let errorMessage = 'Noe gikk galt. Prøv igjen.'
+      
       if (error.message.includes('email')) {
-        errorMessage = 'Ugyldig email-format'
-      } else if (error.message.includes('password')) {
-        errorMessage = 'Passord må være minst 6 tegn'
-      } else if (error.message.includes('Invalid')) {
-        errorMessage = 'Ugyldig email eller passord'
+        errorMessage = '❌ Ugyldig email-format\n\nSjekk at du skriver en gyldig email-adresse.'
+      } else if (error.message.includes('password') && error.message.includes('6')) {
+        errorMessage = '❌ Passord for kort\n\nPassordet må være minst 6 tegn langt.'
+      } else if (error.message.includes('User already registered')) {
+        errorMessage = '⚠️ Email allerede registrert\n\nDenne emailen er allerede i bruk. Prøv å logge inn i stedet.'
+      } else if (error.message.includes('network')) {
+        errorMessage = '🌐 Nettverksfeil\n\nSjekk internett-tilkoblingen din og prøv igjen.'
       } else {
-        errorMessage = error.message
+        errorMessage = '❌ Feil: ' + error.message
       }
       
-      alert('❌ Feil: ' + errorMessage)
+      alert(errorMessage)
     } finally {
       setLoading(false)
     }
