@@ -4,6 +4,7 @@
 
 import { NextResponse } from 'next/server'
 import { supabase } from '@/lib/supabase'
+import { MINT_PRICE_USD, COLLECTION_INFO } from '@/lib/nft-data'
 
 // Force dynamic rendering
 export const dynamic = 'force-dynamic'
@@ -27,13 +28,31 @@ export async function GET() {
     
     const uniqueOwners = owners ? new Set(owners.map(o => o.owner_wallet)).size : 0
     
+    // Get recent mints
+    const { data: recentMints } = await supabase
+      .from('minted_nfts')
+      .select('nft_number, minted_at')
+      .order('minted_at', { ascending: false })
+      .limit(5)
+    
     return NextResponse.json({
       success: true,
       stats: {
+        totalSupply: 10000,
         totalMinted,
         remaining,
         uniqueOwners,
-        progress: (totalMinted / 10000) * 100
+        progress: ((totalMinted / 10000) * 100).toFixed(2),
+        mintPriceUSD: MINT_PRICE_USD,
+        network: process.env.NEXT_PUBLIC_SOLANA_NETWORK || 'devnet',
+        recentMints: recentMints || []
+      },
+      collection: {
+        name: COLLECTION_INFO.name,
+        codexSketches: COLLECTION_INFO.codexSketches,
+        leonardoSelfie: COLLECTION_INFO.leonardoSelfie,
+        leonardoExclusives: COLLECTION_INFO.leonardoExclusives,
+        prize: COLLECTION_INFO.prize
       }
     })
   } catch (error) {
