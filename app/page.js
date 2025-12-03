@@ -972,11 +972,9 @@ export default function App() {
                     <CardContent className="p-3">
                       <img 
                         src="https://customer-assets.emergentagent.com/job_genesishq/artifacts/e8vx47cp_grok_image_sidn9a.jpg" 
-                        alt="Anatomia del Corpo"
-                        className="w-full h-48 object-cover rounded-lg mb-2"
+                        alt="Leonardo da Vinci Codex Sketch"
+                        className="w-full h-48 object-cover rounded-lg"
                       />
-                      <p className="text-amber-100 font-semibold text-sm">Anatomia del Corpo #0001</p>
-                      <p className="text-amber-100/60 text-xs">Original Piece</p>
                     </CardContent>
                   </Card>
                   
@@ -984,11 +982,9 @@ export default function App() {
                     <CardContent className="p-3">
                       <img 
                         src="https://customer-assets.emergentagent.com/job_genesishq/artifacts/8bolikx2_grok_image_xwwjcmi-1.jpg" 
-                        alt="Studio delle Membra"
-                        className="w-full h-48 object-cover rounded-lg mb-2"
+                        alt="Leonardo da Vinci Codex Sketch"
+                        className="w-full h-48 object-cover rounded-lg"
                       />
-                      <p className="text-amber-100 font-semibold text-sm">Studio delle Membra #0002</p>
-                      <p className="text-amber-100/60 text-xs">Original Piece</p>
                     </CardContent>
                   </Card>
                   
@@ -996,11 +992,9 @@ export default function App() {
                     <CardContent className="p-3">
                       <img 
                         src="https://customer-assets.emergentagent.com/job_genesishq/artifacts/dsa5mpph_grok_image_srmrao.jpg" 
-                        alt="Codice Muscolare"
-                        className="w-full h-48 object-cover rounded-lg mb-2"
+                        alt="Leonardo da Vinci Codex Sketch"
+                        className="w-full h-48 object-cover rounded-lg"
                       />
-                      <p className="text-amber-100 font-semibold text-sm">Codice Muscolare #0003</p>
-                      <p className="text-amber-100/60 text-xs">Original Piece</p>
                     </CardContent>
                   </Card>
                   
@@ -1008,23 +1002,9 @@ export default function App() {
                     <CardContent className="p-3">
                       <img 
                         src="https://customer-assets.emergentagent.com/job_genesishq/artifacts/z8mdzpxa_grok_image_7l8qdo.jpg" 
-                        alt="Disegno Anatomico"
-                        className="w-full h-48 object-cover rounded-lg mb-2"
+                        alt="Leonardo da Vinci Codex Sketch"
+                        className="w-full h-48 object-cover rounded-lg"
                       />
-                      <p className="text-amber-100 font-semibold text-sm">Disegno Anatomico #0004</p>
-                      <p className="text-amber-100/60 text-xs">Original Piece</p>
-                    </CardContent>
-                  </Card>
-                  
-                  <Card className="bg-slate-900/50 border-amber-900/30 hover:border-amber-600/50 transition-all cursor-pointer">
-                    <CardContent className="p-3">
-                      <img 
-                        src="https://customer-assets.emergentagent.com/job_genesishq/artifacts/rqwrdsfj_grok_image_srmrao-1.jpg" 
-                        alt="Corpo Umano"
-                        className="w-full h-48 object-cover rounded-lg mb-2"
-                      />
-                      <p className="text-amber-100 font-semibold text-sm">Corpo Umano #0005</p>
-                      <p className="text-amber-100/60 text-xs">Codex Sketch</p>
                     </CardContent>
                   </Card>
                 </div>
