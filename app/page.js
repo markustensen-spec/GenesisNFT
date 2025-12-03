@@ -221,10 +221,10 @@ export default function App() {
               </Button>
               <Button variant="ghost" onClick={() => setActiveTab('lounge')} className="text-amber-100 hover:text-amber-400 flex items-center">
                 <Crown className="w-4 h-4 mr-1" />
-                Codex Collective
+                G Lounge
               </Button>
               <Button variant="ghost" onClick={playGame} className="text-amber-100 hover:text-amber-400">
-                Play Game
+                Play Arena
               </Button>
             </div>
 
