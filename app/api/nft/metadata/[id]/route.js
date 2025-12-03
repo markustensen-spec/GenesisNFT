@@ -6,6 +6,9 @@
 import { NextResponse } from 'next/server'
 import { SOLANA_CONFIG, getNFTTier, generateAttributes } from '@/lib/solana-config'
 
+// Force dynamic rendering
+export const dynamic = 'force-dynamic'
+
 export async function GET(request, { params }) {
   try {
     const nftId = parseInt(params.id)
