@@ -241,7 +241,7 @@ export default function App() {
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
               <img 
-                src="https://customer-assets.emergentagent.com/job_genesishq-web3/artifacts/71jos0yu_grok_image_xv3shms.jpg" 
+                src="https://customer-assets.emergentagent.com/job_genesishq-web3/artifacts/wtztw3gp_1000004278.jpg.png" 
                 alt="GenesisHQ Logo" 
                 className="w-10 h-10 object-contain"
               />
