@@ -7,6 +7,9 @@ import { NextResponse } from 'next/server'
 import { Connection, PublicKey, LAMPORTS_PER_SOL } from '@solana/web3.js'
 import { SOLANA_CONFIG } from '@/lib/solana-config'
 
+// Force dynamic rendering
+export const dynamic = 'force-dynamic'
+
 export async function POST(request) {
   try {
     const { signature, userWallet } = await request.json()
