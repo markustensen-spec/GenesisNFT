@@ -27,7 +27,7 @@ export async function GET(request) {
   const url = new URL(request.url)
   const path = url.pathname.replace('/api', '') || '/'
 
-  // Root API endpoint
+  // Root API endpoint - no DB needed
   if (path === '/') {
     return NextResponse.json({
       success: true,
