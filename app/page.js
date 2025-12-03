@@ -1233,7 +1233,6 @@ export default function App() {
               </div>
             </div>
           </div>
-          </div>
 
           {/* Caviar Section */}
           <div className="container mx-auto px-4 mt-16">
