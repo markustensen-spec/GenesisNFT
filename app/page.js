@@ -1029,6 +1029,76 @@ export default function App() {
                   </Card>
                 </div>
                 
+                {/* Leonardo da Vinci Selfie - EPIC with $5,000 Prize */}
+                <div className="mb-12">
+                  <Card className="bg-gradient-to-br from-purple-900/40 via-yellow-900/40 to-purple-900/40 border-4 border-yellow-500/70 overflow-hidden">
+                    <CardContent className="p-0">
+                      <div className="grid md:grid-cols-2 gap-0">
+                        <div className="relative h-96 md:h-auto">
+                          <img 
+                            src="https://customer-assets.emergentagent.com/job_genesishq-web3/artifacts/6wmd6e2c_1000004282.jpg.png" 
+                            alt="Leonardo da Vinci Selfie - EPIC 1 of 1" 
+                            className="w-full h-full object-cover"
+                          />
+                          <div className="absolute top-4 left-4 right-4 text-center">
+                            <div className="bg-gradient-to-r from-purple-600 via-yellow-600 to-purple-600 text-white px-6 py-3 rounded-full font-bold text-xl inline-flex items-center gap-3 shadow-2xl">
+                              <Trophy className="w-6 h-6 animate-pulse" />
+                              EPIC - 1 OF 1
+                              <Trophy className="w-6 h-6 animate-pulse" />
+                            </div>
+                          </div>
+                        </div>
+                        <div className="p-8 bg-gradient-to-br from-slate-900/95 to-slate-950/95">
+                          <h3 className="text-4xl font-bold text-yellow-300 mb-3">Leonardo da Vinci Selfie</h3>
+                          <div className="flex items-center space-x-2 mb-6">
+                            <Badge className="bg-purple-600/40 text-purple-200 border-purple-500/60 text-base px-3 py-1">EPIC</Badge>
+                            <Badge className="bg-yellow-600/40 text-yellow-200 border-yellow-500/60 text-base px-3 py-1">1 of 1</Badge>
+                          </div>
+                          
+                          <div className="bg-gradient-to-r from-yellow-900/40 via-amber-900/40 to-yellow-900/40 border-3 border-yellow-500/70 rounded-xl p-6 mb-6 shadow-xl">
+                            <div className="flex items-center justify-center gap-3 mb-3">
+                              <Trophy className="w-10 h-10 text-yellow-400" />
+                              <h4 className="text-4xl font-bold text-yellow-300">&#36;5,000 USD</h4>
+                              <Trophy className="w-10 h-10 text-yellow-400" />
+                            </div>
+                            <p className="text-amber-100 text-center font-bold text-lg">
+                              Prize awarded to the winner!
+                            </p>
+                          </div>
+                          
+                          <p className="text-amber-100/90 mb-6 text-base leading-relaxed">
+                            The ultimate crown jewel of the entire collection! This legendary 1-of-1 EPIC NFT features Leonardo da Vinci himself. 
+                            The lucky minter receives <span className="text-yellow-400 font-bold">&#36;5,000 USD</span>, plus ultimate status and lifetime privileges 
+                            in the Codex Collective. This is a once-in-a-lifetime opportunity to own a piece of history!
+                          </p>
+                          
+                          <div className="bg-purple-900/30 border-2 border-purple-600/50 rounded-lg p-5">
+                            <h5 className="text-amber-300 font-bold mb-3 text-base">EPIC Benefits:</h5>
+                            <ul className="text-sm text-amber-100/80 space-y-2">
+                              <li className="flex items-start">
+                                <Trophy className="w-4 h-4 mr-2 mt-0.5 text-yellow-400" />
+                                <span><strong>&#36;5,000 USD</strong> prize immediately upon minting</span>
+                              </li>
+                              <li className="flex items-start">
+                                <Crown className="w-4 h-4 mr-2 mt-0.5 text-yellow-400" />
+                                <span>Supreme voting power in Codex Collective</span>
+                              </li>
+                              <li className="flex items-start">
+                                <Sparkles className="w-4 h-4 mr-2 mt-0.5 text-yellow-400" />
+                                <span>Legendary status & ultimate recognition</span>
+                              </li>
+                              <li className="flex items-start">
+                                <Gem className="w-4 h-4 mr-2 mt-0.5 text-yellow-400" />
+                                <span>All standard NFT benefits + exclusive perks</span>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </div>
+                
                 {/* Ultra-Rare Leonardo da Vinci Exclusives Showcase */}
                 <div className="mb-8">
                   <h3 className="text-2xl font-bold text-amber-100 mb-6 text-center">Leonardo da Vinci Exclusives - Only 10 Available</h3>
