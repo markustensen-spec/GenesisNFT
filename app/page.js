@@ -595,6 +595,10 @@ export default function App() {
                           setAuthError('Please enter your email first')
                           return
                         }
+                        if (!supabase) {
+                          setAuthError('Authentication service is not available')
+                          return
+                        }
                         try {
                           setResendSuccess(false)
                           const { error } = await supabase.auth.resend({
