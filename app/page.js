@@ -969,9 +969,19 @@ export default function App() {
                 <h2 className="text-4xl md:text-5xl font-bold text-amber-100 mb-4">
                   Leonardo da Vinci NFT Collection
                 </h2>
-                <p className="text-xl text-amber-100/70 max-w-2xl mx-auto">
-                  10 original masterpieces + 9,989 generative variations. Renaissance engineering meets blockchain innovation.
+                <p className="text-xl text-amber-100/70 max-w-2xl mx-auto mb-4">
+                  9,999 unique Codex Sketches + 1 legendary Leonardo Selfie. Renaissance genius meets blockchain innovation.
                 </p>
+                <div className="bg-gradient-to-r from-amber-600/20 via-yellow-600/20 to-amber-600/20 border border-amber-500/50 rounded-xl px-6 py-4 max-w-3xl mx-auto">
+                  <div className="flex items-center justify-center gap-3 mb-2">
+                    <Trophy className="w-6 h-6 text-yellow-400" />
+                    <h3 className="text-2xl font-bold text-yellow-300">$50,000 USD PRIZE</h3>
+                    <Trophy className="w-6 h-6 text-yellow-400" />
+                  </div>
+                  <p className="text-amber-100 text-sm">
+                    Mint the ultra-rare Leonardo Selfie (1 of 10,000) and win $50,000 when the collection sells out!
+                  </p>
+                </div>
               </div>
 
               {/* NFT Gallery Preview */}
