@@ -1568,8 +1568,8 @@ export default function App() {
                   <div className="flex flex-wrap justify-center gap-6 mb-12">
                     <div className="bg-gradient-to-br from-amber-900/90 to-amber-950/90 backdrop-blur-xl px-10 py-6 rounded-2xl border-3 border-amber-500/70 shadow-2xl">
                       <div className="text-amber-300 text-lg font-bold mb-1">MINT PRICE</div>
-                      <div className="text-5xl font-bold text-white mb-1">$85</div>
-                      <div className="text-emerald-400 text-sm font-semibold">≈ 0.35 SOL</div>
+                      <div className="text-5xl font-bold text-white mb-1">0.5 SOL</div>
+                      <div className="text-emerald-400 text-sm font-semibold">≈ $125 USD</div>
                     </div>
                     <div className="bg-gradient-to-br from-purple-900/90 to-purple-950/90 backdrop-blur-xl px-10 py-6 rounded-2xl border-3 border-purple-500/70 shadow-2xl">
                       <div className="text-purple-300 text-lg font-bold mb-1">AVAILABLE</div>
