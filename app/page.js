@@ -1077,7 +1077,7 @@ export default function App() {
                         <div className="bg-yellow-900/30 border-2 border-yellow-500/50 rounded-lg p-5 mb-6">
                           <div className="flex items-center justify-center gap-2 mb-3">
                             <Trophy className="w-8 h-8 text-yellow-400" />
-                            <h4 className="text-3xl font-bold text-yellow-300">$50,000 USD</h4>
+                            <h4 className="text-3xl font-bold text-yellow-300">&#36;50,000 USD</h4>
                             <Trophy className="w-8 h-8 text-yellow-400" />
                           </div>
                           <p className="text-amber-100 text-center font-semibold">
@@ -1087,14 +1087,14 @@ export default function App() {
                         
                         <p className="text-amber-100/80 mb-4 text-sm">
                           The crown jewel of the entire Codex Collection. This legendary 1-of-1 NFT represents Leonardo da Vinci himself. 
-                          The lucky minter receives $50,000 USD once all 10,000 NFTs are sold, plus ultimate status and lifetime privileges 
+                          The lucky minter receives &#36;50,000 USD once all 10,000 NFTs are sold, plus ultimate status and lifetime privileges 
                           in the Codex Collective.
                         </p>
                         
                         <div className="bg-amber-900/20 border border-amber-600/30 rounded-lg p-4">
                           <h5 className="text-amber-300 font-bold mb-2 text-sm">Ultimate Benefits:</h5>
                           <ul className="text-xs text-amber-100/70 space-y-1">
-                            <li>✓ $50,000 USD prize on sellout</li>
+                            <li>✓ &#36;50,000 USD prize on sellout</li>
                             <li>✓ Supreme voting power in Codex Collective</li>
                             <li>✓ Legendary status & recognition</li>
                             <li>✓ All standard NFT benefits included</li>
