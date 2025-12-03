@@ -468,6 +468,26 @@ export default function App() {
                     </ul>
                   </CardContent>
                 </Card>
+
+                <Card className="bg-slate-900/50 border-blue-900/30 backdrop-blur-sm hover:border-blue-600/50 transition-all cursor-pointer" onClick={() => setActiveTab('lounge')}>
+                  <CardHeader>
+                    <Zap className="w-16 h-16 text-blue-500 mb-4" />
+                    <CardTitle className="text-amber-100 text-2xl">MAX Trading Bot</CardTitle>
+                    <CardDescription className="text-amber-100/60 text-base">
+                      AI-powered automated trading
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className="text-amber-100/70">
+                    <p className="mb-4 text-base">Advanced AI trading bot that executes 24/7 automated cryptocurrency trading with sophisticated algorithms and risk management.</p>
+                    <ul className="space-y-2">
+                      <li>✓ 24/7 automated trading operations</li>
+                      <li>✓ Advanced risk management systems</li>
+                      <li>✓ Multi-exchange support & arbitrage</li>
+                      <li>✓ Real-time portfolio optimization</li>
+                      <li>✓ Customizable trading strategies</li>
+                    </ul>
+                  </CardContent>
+                </Card>
               </div>
             </div>
 
