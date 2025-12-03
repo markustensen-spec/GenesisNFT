@@ -961,25 +961,26 @@ export default function App() {
         {activeTab === 'nft' && (
           <div className="container mx-auto px-4">
             <div className="max-w-6xl mx-auto">
-              <div className="text-center mb-12">
-                <Badge className="mb-4 bg-amber-600/20 text-amber-400 border-amber-600/30 px-4 py-2">
-                  <Gem className="w-4 h-4 mr-2 inline" />
-                  Exclusive Collection
-                </Badge>
-                <h2 className="text-4xl md:text-5xl font-bold text-amber-100 mb-4">
-                  Leonardo da Vinci NFT Collection
-                </h2>
-                <p className="text-xl text-amber-100/70 max-w-2xl mx-auto mb-4">
-                  9,999 unique Codex Sketches + 1 legendary Leonardo Selfie. Renaissance genius meets blockchain innovation.
-                </p>
-                <div className="bg-gradient-to-r from-amber-600/20 via-yellow-600/20 to-amber-600/20 border border-amber-500/50 rounded-xl px-6 py-4 max-w-3xl mx-auto">
-                  <div className="flex items-center justify-center gap-3 mb-2">
-                    <Trophy className="w-6 h-6 text-yellow-400" />
-                    <h3 className="text-2xl font-bold text-yellow-300">&#36;50,000 USD PRIZE</h3>
-                    <Trophy className="w-6 h-6 text-yellow-400" />
-                  </div>
-                  <p className="text-amber-100 text-sm">
-                    Mint the ultra-rare Leonardo Selfie (1 of 10,000) and win &#36;50,000 when the collection sells out!
+              {/* Hero with Background */}
+              <div 
+                className="relative mb-16 rounded-2xl overflow-hidden"
+                style={{
+                  backgroundImage: `url('https://customer-assets.emergentagent.com/job_genesishq/artifacts/12zic6xd_grok_image_xwwjcmi.jpg')`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center'
+                }}
+              >
+                <div className="absolute inset-0 bg-gradient-to-b from-slate-950/70 via-slate-950/85 to-slate-950"></div>
+                <div className="relative text-center py-20 px-4">
+                  <Badge className="mb-4 bg-amber-600/40 text-amber-300 border-amber-600/50 px-4 py-2 backdrop-blur-sm">
+                    <Gem className="w-4 h-4 mr-2 inline" />
+                    Exclusive Collection
+                  </Badge>
+                  <h2 className="text-5xl md:text-6xl font-bold text-amber-100 mb-4 drop-shadow-lg">
+                    Leonardo da Vinci NFT Collection
+                  </h2>
+                  <p className="text-xl md:text-2xl text-amber-100 max-w-3xl mx-auto drop-shadow-lg">
+                    9,990 unique Codex Sketches + 10 ultra-rare Leonardo da Vinci Exclusives. Renaissance genius meets blockchain innovation.
                   </p>
                 </div>
               </div>
