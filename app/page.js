@@ -413,7 +413,7 @@ export default function App() {
                   {loading ? (
                     <span className="flex items-center justify-center">
                       <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                      {authMode === 'login' ? 'Logger inn...' : 'Oppretter konto...'}
+                      {authMode === 'login' ? 'Logging in...' : 'Creating account...'}
                     </span>
                   ) : (
                     authMode === 'login' ? 'Login' : 'Create Account'
