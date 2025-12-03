@@ -5,7 +5,7 @@
 
 import { NextResponse } from 'next/server'
 import { Connection, PublicKey, Keypair, Transaction } from '@solana/web3.js'
-import { Metaplex, keypairIdentity, bundlrStorage } from '@metaplex-foundation/js'
+import { Metaplex, keypairIdentity } from '@metaplex-foundation/js'
 import { SOLANA_CONFIG } from '@/lib/solana-config'
 import { rateLimit, validateEmail } from '@/lib/security'
 import { supabase } from '@/lib/supabase'
