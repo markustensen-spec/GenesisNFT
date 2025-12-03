@@ -131,13 +131,37 @@ export default function App() {
       }
       
       if (authMode === 'register') {
+        // Security: Validate email
+        if (!validateEmail(authForm.email)) {
+          throw new Error('Please enter a valid email address')
+        }
+        
+        // Security: Validate password strength
+        const passwordValidation = validatePassword(authForm.password)
+        if (!passwordValidation.valid) {
+          throw new Error(passwordValidation.message)
+        }
+        
+        // Security: Validate username
+        if (!validateUsername(authForm.username)) {
+          throw new Error('Username must be 3-20 characters (letters, numbers, underscores only)')
+        }
+        
+        // Security: Rate limiting (3 registrations per hour per IP)
+        if (!rateLimit(`register_${authForm.email}`, 3, 3600000)) {
+          throw new Error('Too many registration attempts. Please try again later.')
+        }
+        
+        // Security: Sanitize username
+        const cleanUsername = sanitizeInput(authForm.username)
+        
         // Sign up with email verification
         const { data, error } = await supabase.auth.signUp({
           email: authForm.email,
           password: authForm.password,
           options: {
             data: {
-              username: authForm.username,
+              username: cleanUsername,
               wallet_address: 'GeN' + Math.random().toString(36).substring(2, 15)
             },
             emailRedirectTo: `${window.location.origin}?verified=true`
