@@ -49,7 +49,7 @@ export default function App() {
       const response = await fetch('/api/nft/mint', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ walletAddress: publicKey.toString() })
+        body: JSON.stringify({ walletAddress: walletAddress })
       })
       const data = await response.json()
       if (data.success) {
