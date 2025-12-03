@@ -695,7 +695,7 @@ export default function App() {
           </div>
         )}
 
-        {activeTab === 'caviar' && (
+        {false && activeTab === 'caviar' && (
           <div className="container mx-auto px-4">
             <div className="max-w-6xl mx-auto">
               {/* Hero with Background */}
