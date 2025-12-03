@@ -743,6 +743,8 @@ export default function App() {
                   </Card>
                 </div>
               </div>
+            </div>
+          </div>
         )}
 
         {activeTab === 'investments' && (
