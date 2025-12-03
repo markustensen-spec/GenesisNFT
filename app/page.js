@@ -1231,7 +1231,11 @@ export default function App() {
       <footer className="bg-slate-950 border-t border-amber-900/20 py-8">
         <div className="container mx-auto px-4 text-center">
           <div className="flex items-center justify-center space-x-2 mb-4">
-            <Crown className="w-6 h-6 text-amber-500" />
+            <img 
+              src="https://customer-assets.emergentagent.com/job_genesishq/artifacts/5jizxuuc_grok_image_x9t9op.jpg" 
+              alt="GenesisHQ Logo" 
+              className="w-8 h-8 object-contain"
+            />
             <span className="text-xl font-bold text-amber-100">GenesisHQ</span>
           </div>
           <p className="text-amber-100/60 mb-4">Where Renaissance Meets Revolution</p>
