@@ -377,7 +377,7 @@ export default function App() {
                   </button>
                 </div>
               ) : (
-              <form onSubmit={handleAuth} className="space-y-4">
+                <form onSubmit={handleAuth} className="space-y-4">
                 {authMode === 'register' && (
                   <div>
                     <Label className="text-amber-100">Username</Label>
