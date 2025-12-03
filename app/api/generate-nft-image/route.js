@@ -94,8 +94,11 @@ export async function POST(request) {
 // GET endpoint to test
 export async function GET() {
   return NextResponse.json({
-    message: 'AI NFT Image Generator',
-    usage: 'POST with optional { "index": 0-19 } to generate specific anatomical study',
-    subjects: anatomicalSubjects.length
+    message: 'AI NFT Image Generator - Leonardo da Vinci Style',
+    usage: 'POST with optional { "index": 0-24 } to generate specific study or invention',
+    totalSubjects: leonardoSubjects.length,
+    anatomicalStudies: leonardoSubjects.filter(s => s.type === 'anatomy').length,
+    inventions: leonardoSubjects.filter(s => s.type === 'invention').length,
+    subjects: leonardoSubjects.map(s => ({ subject: s.subject, italian: s.italian, type: s.type }))
   })
 }
