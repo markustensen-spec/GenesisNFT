@@ -1239,7 +1239,7 @@ export default function App() {
 
               {/* New Features Section */}
               <h3 className="text-3xl font-bold text-amber-100 text-center mb-8">Exclusive Features</h3>
-              <div className="grid md:grid-cols-3 gap-6 mb-12">
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
                 <Card className="bg-gradient-to-br from-emerald-900/30 to-slate-900/50 border-emerald-600/30">
                   <CardHeader>
                     <Zap className="w-12 h-12 text-emerald-500 mb-3" />
