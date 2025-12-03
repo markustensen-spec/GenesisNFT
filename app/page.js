@@ -42,6 +42,9 @@ export default function App() {
 
   // Check for Supabase session
   useEffect(() => {
+    // Only run if supabase client is available (client-side)
+    if (!supabase) return
+
     // Get initial session
     supabase.auth.getSession().then(({ data: { session } }) => {
       if (session?.user) {
