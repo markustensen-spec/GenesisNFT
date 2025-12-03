@@ -699,48 +699,49 @@ export default function App() {
                     </ul>
                   </CardContent>
                 </Card>
+                </div>
               </div>
-            </div>
 
-            {/* How It Works */}
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-3xl font-bold text-amber-100 text-center mb-8">Getting Started</h2>
-              <div className="space-y-6">
-                <Card className="bg-slate-900/30 border-amber-900/20">
-                  <CardContent className="pt-6">
-                    <div className="flex items-start space-x-4">
-                      <div className="bg-amber-600 rounded-full w-8 h-8 flex items-center justify-center text-white font-bold flex-shrink-0">1</div>
-                      <div>
-                        <h3 className="text-xl font-bold text-amber-100 mb-2">Create Your Account</h3>
-                        <p className="text-amber-100/70">Sign up to join the GenesisHQ community. Get instant access to the platform and receive your unique wallet address.</p>
+              {/* How It Works */}
+              <div className="max-w-4xl mx-auto">
+                <h2 className="text-3xl font-bold text-amber-100 text-center mb-8">Getting Started</h2>
+                <div className="space-y-6">
+                  <Card className="bg-slate-900/30 border-amber-900/20">
+                    <CardContent className="pt-6">
+                      <div className="flex items-start space-x-4">
+                        <div className="bg-amber-600 rounded-full w-8 h-8 flex items-center justify-center text-white font-bold flex-shrink-0">1</div>
+                        <div>
+                          <h3 className="text-xl font-bold text-amber-100 mb-2">Create Your Account</h3>
+                          <p className="text-amber-100/70">Sign up to join the GenesisHQ community. Get instant access to the platform and receive your unique wallet address.</p>
+                        </div>
                       </div>
-                    </div>
-                  </CardContent>
-                </Card>
+                    </CardContent>
+                  </Card>
 
-                <Card className="bg-slate-900/30 border-amber-900/20">
-                  <CardContent className="pt-6">
-                    <div className="flex items-start space-x-4">
-                      <div className="bg-amber-600 rounded-full w-8 h-8 flex items-center justify-center text-white font-bold flex-shrink-0">2</div>
-                      <div>
-                        <h3 className="text-xl font-bold text-amber-100 mb-2">Explore & Engage</h3>
-                        <p className="text-amber-100/70">Browse Leonardo NFTs, track live investments, join the Codex Collective community, and play Genesis Caviar game.</p>
+                  <Card className="bg-slate-900/30 border-amber-900/20">
+                    <CardContent className="pt-6">
+                      <div className="flex items-start space-x-4">
+                        <div className="bg-amber-600 rounded-full w-8 h-8 flex items-center justify-center text-white font-bold flex-shrink-0">2</div>
+                        <div>
+                          <h3 className="text-xl font-bold text-amber-100 mb-2">Explore & Engage</h3>
+                          <p className="text-amber-100/70">Browse Leonardo NFTs, track live investments, join the Codex Collective community, and play Genesis Caviar game.</p>
+                        </div>
                       </div>
-                    </div>
-                  </CardContent>
-                </Card>
+                    </CardContent>
+                  </Card>
 
-                <Card className="bg-slate-900/30 border-amber-900/20">
-                  <CardContent className="pt-6">
-                    <div className="flex items-start space-x-4">
-                      <div className="bg-amber-600 rounded-full w-8 h-8 flex items-center justify-center text-white font-bold flex-shrink-0">3</div>
-                      <div>
-                        <h3 className="text-xl font-bold text-amber-100 mb-2">Mint & Collect</h3>
-                        <p className="text-amber-100/70">Mint your Leonardo da Vinci NFT, accumulate $CAX tokens, and unlock exclusive community benefits.</p>
+                  <Card className="bg-slate-900/30 border-amber-900/20">
+                    <CardContent className="pt-6">
+                      <div className="flex items-start space-x-4">
+                        <div className="bg-amber-600 rounded-full w-8 h-8 flex items-center justify-center text-white font-bold flex-shrink-0">3</div>
+                        <div>
+                          <h3 className="text-xl font-bold text-amber-100 mb-2">Mint & Collect</h3>
+                          <p className="text-amber-100/70">Mint your Leonardo da Vinci NFT, accumulate $CAX tokens, and unlock exclusive community benefits.</p>
+                        </div>
                       </div>
-                    </div>
-                  </CardContent>
-                </Card>
+                    </CardContent>
+                  </Card>
+                </div>
               </div>
             </div>
           </div>
