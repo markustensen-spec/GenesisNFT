@@ -576,6 +576,15 @@ export default function App() {
                   </CardContent>
                 </Card>
               </div>
+
+              {/* Banking Certification Notice */}
+              <Card className="bg-gradient-to-r from-amber-900/20 to-emerald-900/20 border-amber-600/30 mb-12">
+                <CardContent className="p-6">
+                  <p className="text-amber-100 text-center text-lg leading-relaxed">
+                    With funding in place, the next step is the seamless acquisition of full banking and operational certifications to launch regulated services.
+                  </p>
+                </CardContent>
+              </Card>
               
               {/* Live Crypto Prices */}
               <Tabs defaultValue="crypto" className="w-full">
