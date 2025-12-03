@@ -1358,9 +1358,54 @@ export default function App() {
                   <p className="text-xl md:text-2xl text-amber-100 max-w-3xl mx-auto mb-8 drop-shadow-lg">
                     An exclusive community where Renaissance thinking meets modern innovation. Join elite visionaries, creators, and collectors in the ultimate members club.
                   </p>
-                  <Badge className="bg-amber-600/40 text-amber-200 px-6 py-3 text-lg border border-amber-500/50 backdrop-blur-sm">
-                    Premium Membership - Coming Soon
-                  </Badge>
+                  
+                  {/* G Lounge Features - Vertical List */}
+                  <div className="max-w-2xl mx-auto space-y-4 mb-8">
+                    <div className="bg-slate-900/50 border border-amber-600/30 rounded-lg p-4 backdrop-blur-sm">
+                      <div className="flex items-center mb-2">
+                        <Users className="w-6 h-6 text-amber-500 mr-3" />
+                        <h4 className="text-amber-100 font-bold text-lg">Social HUB</h4>
+                      </div>
+                      <p className="text-amber-100/80 text-sm">
+                        Connect with elite members, share insights, and collaborate on innovative projects in our exclusive social network.
+                      </p>
+                    </div>
+                    
+                    <div className="bg-slate-900/50 border border-emerald-600/30 rounded-lg p-4 backdrop-blur-sm">
+                      <div className="flex items-center mb-2">
+                        <Zap className="w-6 h-6 text-emerald-500 mr-3" />
+                        <h4 className="text-amber-100 font-bold text-lg">Max Trading Bot</h4>
+                      </div>
+                      <p className="text-amber-100/80 text-sm">
+                        Access our AI-powered trading bot with premium strategies and priority execution for maximized returns.
+                      </p>
+                    </div>
+                    
+                    <div className="bg-slate-900/50 border border-purple-600/30 rounded-lg p-4 backdrop-blur-sm">
+                      <div className="flex items-center mb-2">
+                        <Play className="w-6 h-6 text-purple-500 mr-3" />
+                        <h4 className="text-amber-100 font-bold text-lg">Minigames</h4>
+                      </div>
+                      <p className="text-amber-100/80 text-sm">
+                        Exclusive access to premium minigames with enhanced rewards, special tournaments, and VIP-only challenges.
+                      </p>
+                    </div>
+                    
+                    <div className="bg-slate-900/50 border border-yellow-600/30 rounded-lg p-4 backdrop-blur-sm">
+                      <div className="flex items-center mb-2">
+                        <Crown className="w-6 h-6 text-yellow-500 mr-3" />
+                        <h4 className="text-amber-100 font-bold text-lg">VIP Features</h4>
+                      </div>
+                      <p className="text-amber-100/80 text-sm">
+                        Unlock ultimate privileges: priority support, exclusive NFT drops, early access to features, and personalized benefits.
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <Button size="lg" className="bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 shadow-xl">
+                    <Crown className="w-5 h-5 mr-2" />
+                    Join G Lounge
+                  </Button>
                 </div>
               </div>
 
