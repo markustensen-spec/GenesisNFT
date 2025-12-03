@@ -1,104 +1,214 @@
+import { NextResponse } from 'next/server'
 import { MongoClient } from 'mongodb'
 import { v4 as uuidv4 } from 'uuid'
-import { NextResponse } from 'next/server'
 
-// MongoDB connection
-let client
+const client = new MongoClient(process.env.MONGO_URL)
 let db
 
-async function connectToMongo() {
-  if (!client) {
-    client = new MongoClient(process.env.MONGO_URL)
+async function connectDB() {
+  if (!db) {
     await client.connect()
     db = client.db(process.env.DB_NAME)
   }
   return db
 }
 
-// Helper function to handle CORS
-function handleCORS(response) {
-  response.headers.set('Access-Control-Allow-Origin', process.env.CORS_ORIGINS || '*')
-  response.headers.set('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS')
-  response.headers.set('Access-Control-Allow-Headers', 'Content-Type, Authorization')
-  response.headers.set('Access-Control-Allow-Credentials', 'true')
-  return response
-}
+// Root endpoint
+export async function GET(request) {
+  const url = new URL(request.url)
+  const path = url.pathname.replace('/api', '') || '/'
 
-// OPTIONS handler for CORS
-export async function OPTIONS() {
-  return handleCORS(new NextResponse(null, { status: 200 }))
-}
+  // Root API endpoint
+  if (path === '/') {
+    return NextResponse.json({
+      success: true,
+      message: 'GenesisHQ API - Where Renaissance Meets Revolution',
+      version: '1.0.0',
+      endpoints: [
+        '/api/prices - Get crypto prices',
+        '/api/nft/mint - Mint NFT',
+        '/api/whitelist - Join whitelist',
+        '/api/game/leaderboard - Game leaderboard'
+      ]
+    })
+  }
 
-// Route handler function
-async function handleRoute(request, { params }) {
-  const { path = [] } = params
-  const route = `/${path.join('/')}`
-  const method = request.method
-
-  try {
-    const db = await connectToMongo()
-
-    // Root endpoint - GET /api/root (since /api/ is not accessible with catch-all)
-    if (route === '/root' && method === 'GET') {
-      return handleCORS(NextResponse.json({ message: "Hello World" }))
-    }
-    // Root endpoint - GET /api/root (since /api/ is not accessible with catch-all)
-    if (route === '/' && method === 'GET') {
-      return handleCORS(NextResponse.json({ message: "Hello World" }))
-    }
-
-    // Status endpoints - POST /api/status
-    if (route === '/status' && method === 'POST') {
-      const body = await request.json()
+  // Get crypto prices from CoinGecko
+  if (path === '/prices') {
+    try {
+      const coins = ['bitcoin', 'ethereum', 'solana', 'cardano', 'polkadot', 'avalanche-2']
+      const coinsParam = coins.join(',')
       
-      if (!body.client_name) {
-        return handleCORS(NextResponse.json(
-          { error: "client_name is required" }, 
-          { status: 400 }
-        ))
+      const response = await fetch(
+        `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${coinsParam}&order=market_cap_desc&sparkline=false`,
+        {
+          headers: {
+            'Accept': 'application/json'
+          }
+        }
+      )
+
+      if (!response.ok) {
+        throw new Error(`CoinGecko API error: ${response.status}`)
       }
 
-      const statusObj = {
-        id: uuidv4(),
-        client_name: body.client_name,
-        timestamp: new Date()
-      }
-
-      await db.collection('status_checks').insertOne(statusObj)
-      return handleCORS(NextResponse.json(statusObj))
+      const data = await response.json()
+      
+      return NextResponse.json({
+        success: true,
+        data: data,
+        timestamp: new Date().toISOString()
+      })
+    } catch (error) {
+      console.error('Error fetching prices:', error)
+      return NextResponse.json(
+        { 
+          success: false, 
+          error: error.message,
+          // Return mock data as fallback
+          data: [
+            { id: 'bitcoin', symbol: 'btc', name: 'Bitcoin', current_price: 45000, price_change_percentage_24h: 2.5, price_change_24h: 1125 },
+            { id: 'ethereum', symbol: 'eth', name: 'Ethereum', current_price: 3200, price_change_percentage_24h: -1.2, price_change_24h: -38.4 },
+            { id: 'solana', symbol: 'sol', name: 'Solana', current_price: 98, price_change_percentage_24h: 5.7, price_change_24h: 5.58 },
+          ]
+        },
+        { status: 200 }
+      )
     }
+  }
 
-    // Status endpoints - GET /api/status
-    if (route === '/status' && method === 'GET') {
-      const statusChecks = await db.collection('status_checks')
+  // Game leaderboard
+  if (path === '/game/leaderboard') {
+    try {
+      const database = await connectDB()
+      const leaderboard = await database
+        .collection('leaderboard')
         .find({})
-        .limit(1000)
+        .sort({ score: -1 })
+        .limit(10)
         .toArray()
 
-      // Remove MongoDB's _id field from response
-      const cleanedStatusChecks = statusChecks.map(({ _id, ...rest }) => rest)
-      
-      return handleCORS(NextResponse.json(cleanedStatusChecks))
+      return NextResponse.json({
+        success: true,
+        data: leaderboard
+      })
+    } catch (error) {
+      return NextResponse.json(
+        { success: false, error: error.message },
+        { status: 500 }
+      )
     }
-
-    // Route not found
-    return handleCORS(NextResponse.json(
-      { error: `Route ${route} not found` }, 
-      { status: 404 }
-    ))
-
-  } catch (error) {
-    console.error('API Error:', error)
-    return handleCORS(NextResponse.json(
-      { error: "Internal server error" }, 
-      { status: 500 }
-    ))
   }
+
+  return NextResponse.json(
+    { success: false, error: 'Endpoint not found' },
+    { status: 404 }
+  )
 }
 
-// Export all HTTP methods
-export const GET = handleRoute
-export const POST = handleRoute
-export const PUT = handleRoute
-export const DELETE = handleRoute
-export const PATCH = handleRoute
+export async function POST(request) {
+  const url = new URL(request.url)
+  const path = url.pathname.replace('/api', '')
+  
+  try {
+    const body = await request.json()
+
+    // NFT Minting (Mock for testnet)
+    if (path === '/nft/mint') {
+      const { walletAddress } = body
+      
+      if (!walletAddress) {
+        return NextResponse.json(
+          { success: false, error: 'Wallet address required' },
+          { status: 400 }
+        )
+      }
+
+      // Mock minting process
+      const mintId = uuidv4()
+      const database = await connectDB()
+      
+      await database.collection('nft_mints').insertOne({
+        id: mintId,
+        walletAddress,
+        collection: 'Leonardo da Vinci',
+        tokenId: Math.floor(Math.random() * 10000) + 1,
+        timestamp: new Date(),
+        network: 'devnet',
+        status: 'mocked'
+      })
+
+      return NextResponse.json({
+        success: true,
+        mintId,
+        message: 'NFT minted successfully (mock)',
+        note: 'This is a testnet simulation. Real minting requires Solana program deployment.'
+      })
+    }
+
+    // Whitelist registration
+    if (path === '/whitelist') {
+      const { email, walletAddress } = body
+      
+      if (!email) {
+        return NextResponse.json(
+          { success: false, error: 'Email required' },
+          { status: 400 }
+        )
+      }
+
+      const database = await connectDB()
+      const whitelistId = uuidv4()
+      
+      await database.collection('whitelist').insertOne({
+        id: whitelistId,
+        email,
+        walletAddress: walletAddress || null,
+        timestamp: new Date(),
+        status: 'active'
+      })
+
+      return NextResponse.json({
+        success: true,
+        id: whitelistId,
+        message: 'Successfully added to whitelist'
+      })
+    }
+
+    // Game score submission
+    if (path === '/game/score') {
+      const { walletAddress, score, username } = body
+      
+      const database = await connectDB()
+      
+      await database.collection('leaderboard').updateOne(
+        { walletAddress },
+        { 
+          $set: { 
+            walletAddress,
+            username: username || 'Anonymous',
+            score,
+            lastUpdated: new Date()
+          }
+        },
+        { upsert: true }
+      )
+
+      return NextResponse.json({
+        success: true,
+        message: 'Score updated'
+      })
+    }
+
+    return NextResponse.json(
+      { success: false, error: 'Endpoint not found' },
+      { status: 404 }
+    )
+  } catch (error) {
+    console.error('API Error:', error)
+    return NextResponse.json(
+      { success: false, error: error.message },
+      { status: 500 }
+    )
+  }
+}

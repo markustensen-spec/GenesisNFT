@@ -1,16 +1,17 @@
 import './globals.css'
+import { Inter } from 'next/font/google'
+
+const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  title: 'Next.js MongoDB Template',
-  description: 'A simple template with App Router, MongoDB, and shadcn/ui',
+  title: 'GenesisHQ - Where Renaissance Meets Revolution',
+  description: 'Exclusive platform featuring Leonardo da Vinci NFT Collection, G Lounge membership, and cutting-edge investments',
 }
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body>
-        {children}
-      </body>
+    <html lang="en" className="dark">
+      <body className={inter.className}>{children}</body>
     </html>
   )
 }
