@@ -129,7 +129,7 @@ CREATE TRIGGER on_profile_updated
 
 2. **Legg til i "Redirect URLs":**
 ```
-https://genesis-crypto.preview.emergentagent.com
+https://next-web3-platform.preview.emergentagent.com
 http://localhost:3000
 ```
 
