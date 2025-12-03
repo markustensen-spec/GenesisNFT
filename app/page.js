@@ -1806,7 +1806,7 @@ export default function App() {
 
 
               {/* Tokenomics */}
-              <div className="grid md:grid-cols-2 gap-6 mb-8">
+              <div className="max-w-2xl mx-auto mb-8">
                 <Card className="bg-slate-900/50 border-amber-900/30">
                   <CardHeader>
                     <CardTitle className="text-amber-100">$CAX Token</CardTitle>
@@ -1821,7 +1821,6 @@ export default function App() {
                     </ul>
                   </CardContent>
                 </Card>
-
               </div>
             </div>
           </div>
