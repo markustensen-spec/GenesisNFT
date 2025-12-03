@@ -215,7 +215,7 @@ export default function App() {
                 Home
               </Button>
               <Button variant="ghost" onClick={() => setActiveTab('investments')} className="text-amber-100 hover:text-amber-400">
-                Investments
+                Home Banking
               </Button>
               <Button variant="ghost" onClick={() => setActiveTab('nft')} className="text-amber-100 hover:text-amber-400">
                 Leonardo NFT
