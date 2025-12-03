@@ -1464,7 +1464,7 @@ export default function App() {
         <div className="container mx-auto px-4 text-center">
           <div className="flex items-center justify-center space-x-2 mb-4">
             <img 
-              src="https://customer-assets.emergentagent.com/job_genesishq/artifacts/5jizxuuc_grok_image_x9t9op.jpg" 
+              src="https://customer-assets.emergentagent.com/job_genesishq-web3/artifacts/wtztw3gp_1000004278.jpg.png" 
               alt="GenesisHQ Logo" 
               className="w-8 h-8 object-contain"
             />
