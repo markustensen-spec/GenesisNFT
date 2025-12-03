@@ -404,6 +404,29 @@ export default function App() {
                     Resend verification email
                   </button>
                 </div>
+              ) : resetEmailSent ? (
+                <div className="space-y-6 py-4">
+                  <div className="text-center">
+                    <div className="w-20 h-20 bg-emerald-600/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <svg className="w-10 h-10 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                      </svg>
+                    </div>
+                    <h3 className="text-2xl font-bold text-amber-100 mb-3">✓ Reset Email Sent!</h3>
+                    <p className="text-amber-100/80 mb-6">
+                      We've sent a password reset link to your email. Check your inbox and click the link to set a new password.
+                    </p>
+                  </div>
+                  <Button 
+                    onClick={() => {
+                      setResetEmailSent(false)
+                      setAuthMode('login')
+                    }}
+                    className="w-full bg-amber-600 hover:bg-amber-700"
+                  >
+                    Back to Login
+                  </Button>
+                </div>
               ) : (
                 <form onSubmit={handleAuth} className="space-y-4">
                 {authMode === 'register' && (
@@ -427,16 +450,18 @@ export default function App() {
                     required
                   />
                 </div>
-                <div>
-                  <Label className="text-amber-100">Password</Label>
-                  <Input
-                    type="password"
-                    value={authForm.password}
-                    onChange={(e) => setAuthForm({...authForm, password: e.target.value})}
-                    className="bg-slate-800 border-amber-900/30 text-amber-100"
-                    required
-                  />
-                </div>
+                {authMode !== 'reset' && (
+                  <div>
+                    <Label className="text-amber-100">Password</Label>
+                    <Input
+                      type="password"
+                      value={authForm.password}
+                      onChange={(e) => setAuthForm({...authForm, password: e.target.value})}
+                      className="bg-slate-800 border-amber-900/30 text-amber-100"
+                      required
+                    />
+                  </div>
+                )}
                 {authError && (
                   <div className="bg-red-900/20 border border-red-500/50 rounded-lg p-3 text-red-400 text-sm">
                     {authError}
