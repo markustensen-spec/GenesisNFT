@@ -1320,7 +1320,7 @@ export default function App() {
                     Welcome to G Lounge
                   </h2>
                   <p className="text-2xl md:text-3xl text-amber-400 mb-6 drop-shadow-lg">
-                    Home of the Codex Collective
+                    Codex Collective
                   </p>
                   <p className="text-xl md:text-2xl text-amber-100 max-w-3xl mx-auto mb-8 drop-shadow-lg">
                     An exclusive community where Renaissance thinking meets modern innovation. Join elite visionaries, creators, and collectors in the ultimate members club.
