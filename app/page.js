@@ -928,7 +928,10 @@ export default function App() {
           </div>
         )}
 
-        {activeTab === 'nft' && (
+        {activeTab === 'crypto' && (
+          <>
+          {/* NFT Section */}
+          <div>
           <div className="container mx-auto px-4">
             <div className="max-w-6xl mx-auto">
               {/* Hero with Background */}
