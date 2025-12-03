@@ -94,9 +94,19 @@ export default function GenerateNFTsPage() {
               />
             </div>
             
-            <div className="space-y-2">
+            <div className="space-y-3">
+              <div className="flex items-center gap-3">
+                <span className={`px-3 py-1 rounded-full text-xs font-bold ${
+                  currentImage.type === 'anatomy' 
+                    ? 'bg-red-900/30 text-red-400 border border-red-600/30' 
+                    : 'bg-blue-900/30 text-blue-400 border border-blue-600/30'
+                }`}>
+                  {currentImage.type === 'anatomy' ? '🫀 Anatomy' : '⚙️ Invention'}
+                </span>
+                <p className="text-amber-400 font-semibold italic">"{currentImage.italian}"</p>
+              </div>
               <p className="text-amber-100 font-semibold">Subject: {currentImage.subject}</p>
-              <p className="text-amber-100/60 text-sm">Prompt: {currentImage.prompt}</p>
+              <p className="text-amber-100/60 text-sm">Features: Italian annotations, mirror writing, Renaissance style</p>
             </div>
           </div>
         )}
