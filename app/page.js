@@ -654,12 +654,12 @@ export default function App() {
               {/* What is Codex Collective */}
               <Card className="bg-gradient-to-br from-amber-900/20 to-slate-900/50 border-amber-600/30 mb-12">
                 <CardContent className="p-8">
-                  <h3 className="text-3xl font-bold text-amber-100 mb-4">What is the Codex Collective?</h3>
+                  <h3 className="text-3xl font-bold text-amber-100 mb-4">G Lounge: Home of the Codex Collective</h3>
                   <p className="text-amber-100/80 text-lg leading-relaxed mb-4">
-                    Inspired by Leonardo da Vinci's codices—his notebooks of revolutionary ideas—the Codex Collective is a modern-day gathering of minds. Here, members share knowledge, collaborate on groundbreaking projects, and push the boundaries of what's possible in blockchain, art, and technology.
+                    The G Lounge is GenesisHQ's exclusive members club, housing the prestigious Codex Collective. Inspired by Leonardo da Vinci's codices—his notebooks of revolutionary ideas—this is a modern-day gathering of elite minds where Renaissance thinking meets Web3 innovation.
                   </p>
                   <p className="text-amber-100/80 text-lg leading-relaxed">
-                    This isn't just a community—it's a movement. A place where the curiosity of the Renaissance meets the innovation of Web3.
+                    Here, members share knowledge, collaborate on groundbreaking projects, and push the boundaries of what's possible in blockchain, art, and technology. This isn't just a community—it's a movement of visionaries shaping the future.
                   </p>
                 </CardContent>
               </Card>
