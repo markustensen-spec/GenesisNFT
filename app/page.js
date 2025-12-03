@@ -471,12 +471,26 @@ export default function App() {
                   {loading ? (
                     <span className="flex items-center justify-center">
                       <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                      {authMode === 'login' ? 'Logging in...' : 'Creating account...'}
+                      {authMode === 'login' ? 'Logging in...' : authMode === 'reset' ? 'Sending...' : 'Creating account...'}
                     </span>
                   ) : (
-                    authMode === 'login' ? 'Login' : 'Create Account'
+                    authMode === 'login' ? 'Login' : authMode === 'reset' ? 'Send Reset Link' : 'Create Account'
                   )}
                 </Button>
+                
+                {authMode === 'login' && (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setAuthMode('reset')
+                      setAuthError('')
+                      setAuthForm({ email: '', password: '', username: '' })
+                    }}
+                    className="w-full text-sm text-amber-400/70 hover:text-amber-300"
+                  >
+                    Forgot password?
+                  </button>
+                )}
                 <button
                   type="button"
                   onClick={() => setAuthMode(authMode === 'login' ? 'register' : 'login')}
