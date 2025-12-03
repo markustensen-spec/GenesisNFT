@@ -314,14 +314,31 @@ export default function App() {
               <form onSubmit={async (e) => {
                 e.preventDefault()
                 setWhitelistStatus('Joining whitelist...')
-                // Simulate API call
-                await new Promise(resolve => setTimeout(resolve, 1000))
-                setWhitelistStatus('✓ Successfully joined the whitelist! Check your email for confirmation.')
-                setWhitelistEmail('')
-                setTimeout(() => {
-                  setShowEmailPopup(false)
-                  setWhitelistStatus('')
-                }, 3000)
+                
+                try {
+                  const { data, error } = await supabase
+                    .from('whitelist')
+                    .insert([{ email: whitelistEmail }])
+                    .select()
+                  
+                  if (error) {
+                    if (error.code === '23505') {
+                      setWhitelistStatus('✓ You are already on the whitelist!')
+                    } else {
+                      throw error
+                    }
+                  } else {
+                    setWhitelistStatus('✓ Successfully joined the whitelist! Check your email for confirmation.')
+                  }
+                  
+                  setWhitelistEmail('')
+                  setTimeout(() => {
+                    setShowEmailPopup(false)
+                    setWhitelistStatus('')
+                  }, 3000)
+                } catch (error) {
+                  setWhitelistStatus('❌ Error: ' + error.message)
+                }
               }} className="space-y-4">
                 <div>
                   <Label className="text-amber-100">Email Address</Label>
