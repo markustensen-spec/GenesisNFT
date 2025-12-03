@@ -1,10 +1,10 @@
 /**
  * NFT Metadata API - Dynamic generation for lazy minting
- * Returns Metaplex-compatible metadata
+ * Returns Metaplex-compatible metadata using nft-data.js
  */
 
 import { NextResponse } from 'next/server'
-import { SOLANA_CONFIG, getNFTTier, generateAttributes } from '@/lib/solana-config'
+import { generateNFTMetadata } from '@/lib/nft-data'
 
 // Force dynamic rendering
 export const dynamic = 'force-dynamic'
@@ -13,7 +13,7 @@ export async function GET(request, { params }) {
   try {
     const nftId = parseInt(params.id)
     
-    // Validate NFT ID
+    // Validate NFT ID (0-based internally, but API accepts 1-10000)
     if (isNaN(nftId) || nftId < 1 || nftId > 10000) {
       return NextResponse.json(
         { error: 'Invalid NFT ID. Must be between 1 and 10000' },
@@ -21,48 +21,19 @@ export async function GET(request, { params }) {
       )
     }
     
-    // Get tier and generate metadata
-    const tier = getNFTTier(nftId)
-    const attributes = generateAttributes(tier, nftId)
+    // Convert to 0-based index for internal use
+    const tokenId = nftId - 1
     
-    // Generate image URL (you'll need to host actual images)
-    const imageUrl = `${process.env.NEXT_PUBLIC_BASE_URL}/images/nft/${tier.rarity.toLowerCase()}/${nftId}.png`
+    // Generate complete metadata using our nft-data.js
+    const metadata = generateNFTMetadata(tokenId)
     
-    // Metaplex-compatible metadata
-    const metadata = {
-      name: `${tier.name} #${nftId}`,
-      symbol: SOLANA_CONFIG.COLLECTION.symbol,
-      description: `${SOLANA_CONFIG.COLLECTION.description} This is ${tier.name} #${nftId} with ${tier.rarity} rarity.`,
-      image: imageUrl,
-      external_url: `https://genesishq.io/nft/${nftId}`,
-      attributes,
-      properties: {
-        files: [
-          {
-            uri: imageUrl,
-            type: 'image/png'
-          }
-        ],
-        category: 'image',
-        creators: [
-          {
-            address: SOLANA_CONFIG.COLLECTION_WALLET,
-            share: 100
-          }
-        ]
-      },
-      seller_fee_basis_points: SOLANA_CONFIG.COLLECTION.royaltyBasisPoints,
-      collection: {
-        name: SOLANA_CONFIG.COLLECTION.name,
-        family: 'GenesisHQ'
-      }
-    }
-    
-    // Return with proper CORS headers
+    // Return with proper CORS headers for Solana/Metaplex compatibility
     return NextResponse.json(metadata, {
       headers: {
         'Cache-Control': 'public, max-age=31536000, immutable',
-        'Access-Control-Allow-Origin': '*'
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'GET, OPTIONS',
+        'Access-Control-Allow-Headers': 'Content-Type'
       }
     })
   } catch (error) {
@@ -72,4 +43,16 @@ export async function GET(request, { params }) {
       { status: 500 }
     )
   }
+}
+
+// Handle OPTIONS for CORS preflight
+export async function OPTIONS() {
+  return new NextResponse(null, {
+    status: 200,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET, OPTIONS',
+      'Access-Control-Allow-Headers': 'Content-Type',
+    }
+  })
 }
