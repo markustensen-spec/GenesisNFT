@@ -135,10 +135,11 @@ export default function App() {
     }
   }
 
-  const handleLogout = () => {
+  const handleLogout = async () => {
+    await supabase.auth.signOut()
     setUser(null)
-    localStorage.removeItem('genesishq_user')
     setActiveTab('home')
+    alert('✓ Logged out successfully')
   }
 
   const handleMint = async () => {
