@@ -196,7 +196,14 @@ export async function POST(request) {
         )
       }
 
-      const database = await connectDB()
+      const database = await initMongoDB()
+      if (!database) {
+        return NextResponse.json({
+          success: false,
+          error: 'Database not available - MongoDB not configured'
+        }, { status: 503 })
+      }
+      
       const user = await database.collection('users').findOne({ email, password })
       
       if (!user) {
