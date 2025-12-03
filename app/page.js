@@ -175,7 +175,7 @@ export default function App() {
               username: cleanUsername,
               wallet_address: 'GeN' + Math.random().toString(36).substring(2, 15)
             },
-            emailRedirectTo: `${window.location.origin}?verified=true`
+            emailRedirectTo: `${window.location.origin}/auth/callback?verified=true`
           }
         })
 
