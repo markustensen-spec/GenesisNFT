@@ -4,6 +4,33 @@ import { NextResponse } from 'next/server'
 export const dynamic = 'force-dynamic'
 export const runtime = 'nodejs'
 
+// MongoDB imports - only used if MONGO_URL is available
+let MongoClient, uuidv4
+let client, db
+
+// Conditionally import MongoDB dependencies
+async function initMongoDB() {
+  if (!process.env.MONGO_URL) {
+    return null
+  }
+  
+  if (!MongoClient) {
+    const mongodb = await import('mongodb')
+    const uuid = await import('uuid')
+    MongoClient = mongodb.MongoClient
+    uuidv4 = uuid.v4
+  }
+  
+  if (!db) {
+    if (!client) {
+      client = new MongoClient(process.env.MONGO_URL)
+    }
+    await client.connect()
+    db = client.db(process.env.DB_NAME || 'genesishq_db')
+  }
+  return db
+}
+
 // Root API endpoint
 export async function GET(request) {
   const url = new URL(request.url)
