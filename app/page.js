@@ -318,66 +318,52 @@ export default function App() {
               </div>
             </div>
 
+            {/* Leonardo NFT Teaser */}
+            <div className="mb-16">
+              <Card className="bg-gradient-to-br from-amber-900/30 to-slate-900/50 border-amber-600/40 overflow-hidden">
+                <div className="grid md:grid-cols-2 gap-0">
+                  <div className="relative h-64 md:h-auto">
+                    <img 
+                      src={process.env.NEXT_PUBLIC_NFT_IMAGE_URL || '/api/placeholder/600/400'} 
+                      alt="Leonardo da Vinci NFT" 
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="p-8 flex flex-col justify-center">
+                    <Gem className="w-12 h-12 text-amber-500 mb-4" />
+                    <h3 className="text-3xl font-bold text-amber-100 mb-3">Leonardo da Vinci NFT Collection</h3>
+                    <p className="text-amber-100/80 mb-4">
+                      10 original masterpieces + 9,990 generative pieces. Own a piece of Renaissance genius on the blockchain with lifetime benefits and Codex Collective voting rights.
+                    </p>
+                    <Button onClick={() => setActiveTab('nft')} size="lg" className="bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 w-fit">
+                      <Gem className="w-5 h-5 mr-2" />
+                      Explore Collection
+                    </Button>
+                  </div>
+                </div>
+              </Card>
+            </div>
+
             {/* Main Features Grid */}
             <div className="mb-16">
               <h2 className="text-3xl font-bold text-amber-100 text-center mb-8">Platform Features</h2>
               <div className="grid md:grid-cols-2 gap-6">
-                <Card className="bg-slate-900/50 border-amber-900/30 backdrop-blur-sm hover:border-amber-600/50 transition-all cursor-pointer" onClick={() => setActiveTab('nft')}>
+                <Card className="bg-slate-900/50 border-amber-900/30 backdrop-blur-sm hover:border-amber-600/50 transition-all cursor-pointer" onClick={() => setActiveTab('investments')}>
                   <CardHeader>
-                    <Gem className="w-16 h-16 text-amber-500 mb-4" />
-                    <CardTitle className="text-amber-100 text-2xl">Leonardo da Vinci Sketch NFT</CardTitle>
+                    <Wallet className="w-16 h-16 text-amber-500 mb-4" />
+                    <CardTitle className="text-amber-100 text-2xl">HUB - Banking Ecosystem</CardTitle>
                     <CardDescription className="text-amber-100/60 text-base">
-                      10,000 unique Renaissance masterpieces
+                      Complete neo-banking solution
                     </CardDescription>
                   </CardHeader>
                   <CardContent className="text-amber-100/70">
-                    <p className="mb-4 text-base">Own a piece of history reimagined. Each NFT combines Leonardo's original sketches with modern blockchain technology, creating collectible digital art that bridges centuries.</p>
+                    <p className="mb-4 text-base">A fully licensed banking platform combining traditional finance with Web3. Multi-currency wallet, debit cards, and investment tools.</p>
                     <ul className="space-y-2">
-                      <li>✓ 10 rare original artworks</li>
-                      <li>✓ 9,990 generative masterpieces</li>
-                      <li>✓ Renaissance engineering meets Web3</li>
-                      <li>✓ Exclusive holder benefits & airdrops</li>
-                      <li>✓ $CAX token bonuses for NFT holders</li>
-                    </ul>
-                  </CardContent>
-                </Card>
-
-                <Card className="bg-slate-900/50 border-amber-900/30 backdrop-blur-sm hover:border-amber-600/50 transition-all">
-                  <CardHeader>
-                    <Zap className="w-16 h-16 text-amber-500 mb-4" />
-                    <CardTitle className="text-amber-100 text-2xl">Caviar Governance Token</CardTitle>
-                    <CardDescription className="text-amber-100/60 text-base">
-                      $CAX - The power of the ecosystem
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent className="text-amber-100/70">
-                    <p className="mb-4 text-base">The $CAX token is your key to governance, staking rewards, and platform participation. Hold $CAX to shape the future of GenesisHQ and earn passive income.</p>
-                    <ul className="space-y-2">
-                      <li>✓ 1 Billion total supply</li>
-                      <li>✓ Governance voting rights</li>
-                      <li>✓ Staking rewards up to 2x for G Lounge members</li>
-                      <li>✓ Required for P2E game entry</li>
-                      <li>✓ Reduced platform fees for holders</li>
-                    </ul>
-                  </CardContent>
-                </Card>
-
-                <Card className="bg-slate-900/50 border-emerald-900/30 backdrop-blur-sm hover:border-emerald-600/50 transition-all cursor-pointer" onClick={playGame}>
-                  <CardHeader>
-                    <Trophy className="w-16 h-16 text-emerald-500 mb-4" />
-                    <CardTitle className="text-amber-100 text-2xl">Play-to-Earn Arena</CardTitle>
-                    <CardDescription className="text-amber-100/60 text-base">
-                      Genesis Caviar - Compete & earn
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent className="text-amber-100/70">
-                    <p className="mb-4 text-base">Enter the Arena and compete in real-time multiplayer action. Grow your caviar, defeat opponents, and earn $CAX tokens based on your performance and ranking.</p>
-                    <ul className="space-y-2">
-                      <li>✓ Real-time multiplayer gameplay</li>
-                      <li>✓ Earn $CAX tokens by playing</li>
-                      <li>✓ Global leaderboard rankings</li>
-                      <li>✓ Skill-based competitive matches</li>
-                      <li>✓ Daily and weekly tournaments</li>
+                      <li>✓ Multi-currency wallet (AED, USD, EUR, NOK)</li>
+                      <li>✓ Licensed banking operations (VARA, UAE)</li>
+                      <li>✓ Debit cards with cashback rewards</li>
+                      <li>✓ Fiat on/off-ramps & IBANs</li>
+                      <li>✓ Live crypto & stock tracking</li>
                     </ul>
                   </CardContent>
                 </Card>
@@ -391,13 +377,53 @@ export default function App() {
                     </CardDescription>
                   </CardHeader>
                   <CardContent className="text-amber-100/70">
-                    <p className="mb-4 text-base">The exclusive G Lounge is where elite members access the Codex Collective - a Renaissance-inspired community of visionaries, builders, and innovators.</p>
+                    <p className="mb-4 text-base">The exclusive members club housing the Codex Collective - a Renaissance-inspired community of elite visionaries and innovators.</p>
                     <ul className="space-y-2">
                       <li>✓ Codex Collective private community</li>
                       <li>✓ Expert webinars & masterclasses</li>
                       <li>✓ MAX Trading Bot premium access</li>
                       <li>✓ 2x staking rewards & reduced fees</li>
-                      <li>✓ Early access to new features & NFT drops</li>
+                      <li>✓ Early access to features & NFT drops</li>
+                    </ul>
+                  </CardContent>
+                </Card>
+
+                <Card className="bg-slate-900/50 border-amber-900/30 backdrop-blur-sm hover:border-amber-600/50 transition-all cursor-pointer" onClick={() => setActiveTab('caviar')}>
+                  <CardHeader>
+                    <Zap className="w-16 h-16 text-amber-500 mb-4" />
+                    <CardTitle className="text-amber-100 text-2xl">Caviar Token ($CAX)</CardTitle>
+                    <CardDescription className="text-amber-100/60 text-base">
+                      Governance & utility token
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className="text-amber-100/70">
+                    <p className="mb-4 text-base">The $CAX token powers the entire ecosystem with governance rights, staking rewards, and platform access for all GenesisHQ features.</p>
+                    <ul className="space-y-2">
+                      <li>✓ 1 Billion total supply</li>
+                      <li>✓ Governance voting rights</li>
+                      <li>✓ 20% base APY staking rewards</li>
+                      <li>✓ Required for P2E game entry</li>
+                      <li>✓ Deflationary (1% burn per transaction)</li>
+                    </ul>
+                  </CardContent>
+                </Card>
+
+                <Card className="bg-slate-900/50 border-emerald-900/30 backdrop-blur-sm hover:border-emerald-600/50 transition-all cursor-pointer" onClick={playGame}>
+                  <CardHeader>
+                    <Trophy className="w-16 h-16 text-emerald-500 mb-4" />
+                    <CardTitle className="text-amber-100 text-2xl">Play-to-Earn Arena</CardTitle>
+                    <CardDescription className="text-amber-100/60 text-base">
+                      Genesis Caviar game
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className="text-amber-100/70">
+                    <p className="mb-4 text-base">Compete in real-time multiplayer action. Grow your caviar, defeat opponents, and earn $CAX tokens based on your performance and ranking.</p>
+                    <ul className="space-y-2">
+                      <li>✓ Real-time multiplayer gameplay</li>
+                      <li>✓ Earn $CAX tokens by playing</li>
+                      <li>✓ Global leaderboard rankings</li>
+                      <li>✓ Skill-based competitive matches</li>
+                      <li>✓ Daily and weekly tournaments</li>
                     </ul>
                   </CardContent>
                 </Card>
