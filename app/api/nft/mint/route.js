@@ -90,7 +90,6 @@ export async function POST(request) {
     // Initialize Metaplex
     const metaplex = Metaplex.make(connection)
       .use(keypairIdentity(payerKeypair))
-      .use(bundlrStorage())
     
     // Get metadata URI
     const metadataUri = `${SOLANA_CONFIG.BASE_URI}/${mintNumber}`
