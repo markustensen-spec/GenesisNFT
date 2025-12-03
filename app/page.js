@@ -88,6 +88,7 @@ export default function App() {
   const handleAuth = async (e) => {
     e.preventDefault()
     setLoading(true)
+    setAuthError('')
     
     try {
       if (authMode === 'register') {
