@@ -1159,12 +1159,13 @@ function GameComponent({ user }) {
                 Size: <span className="text-amber-400">{Math.round(playerRef.current?.radius || 0)}</span>
               </div>
             </div>
-            <div className="border-4 border-amber-900/30 rounded-lg overflow-hidden">
+            <div className="border-4 border-amber-900/30 rounded-lg overflow-hidden bg-slate-950">
               <canvas
                 ref={canvasRef}
                 width={800}
                 height={600}
-                className="w-full bg-slate-950"
+                className="w-full h-auto max-w-full"
+                style={{ touchAction: 'none' }}
               />
             </div>
             <p className="text-center text-amber-100/60 text-sm mt-4">
