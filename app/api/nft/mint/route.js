@@ -41,29 +41,37 @@ export async function POST(request) {
       )
     }
     
-    // Validate NFT number if provided (or generate random)
-    const mintNumber = nftNumber || Math.floor(Math.random() * 10000) + 1
-    
-    if (mintNumber < 1 || mintNumber > 10000) {
-      return NextResponse.json(
-        { error: 'Invalid NFT number' },
-        { status: 400 }
-      )
-    }
-    
-    // Check if NFT already minted
-    const { data: existingMint } = await supabase
+    // Get list of already minted NFTs
+    const { data: mintedNFTs, error: queryError } = await supabase
       .from('minted_nfts')
-      .select('*')
-      .eq('nft_number', mintNumber)
-      .single()
+      .select('nft_number')
     
-    if (existingMint) {
+    if (queryError) {
+      console.error('Database query error:', queryError)
+    }
+    
+    const mintedNumbers = new Set((mintedNFTs || []).map(m => m.nft_number))
+    
+    // Get available NFT numbers
+    const availableNumbers = []
+    for (let i = 1; i <= 10000; i++) {
+      if (!mintedNumbers.has(i)) {
+        availableNumbers.push(i)
+      }
+    }
+    
+    if (availableNumbers.length === 0) {
       return NextResponse.json(
-        { error: 'This NFT has already been minted' },
+        { error: 'All NFTs have been minted! Collection sold out.' },
         { status: 400 }
       )
     }
+    
+    // Randomly select an available NFT
+    const randomIndex = Math.floor(Math.random() * availableNumbers.length)
+    const mintNumber = availableNumbers[randomIndex]
+    
+    console.log(`Randomly selected NFT #${mintNumber} from ${availableNumbers.length} available NFTs`)
     
     // TODO: Verify payment before minting
     // This would integrate with Solana payment verification
