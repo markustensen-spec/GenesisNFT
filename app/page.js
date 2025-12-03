@@ -1318,12 +1318,55 @@ export default function App() {
               <Card className="bg-gradient-to-br from-amber-900/20 to-slate-900/50 border-amber-600/30 mb-12">
                 <CardContent className="p-8">
                   <h3 className="text-3xl font-bold text-amber-100 mb-4">Codex Collective</h3>
-                  <p className="text-amber-100/80 text-lg leading-relaxed mb-4">
+                  <p className="text-amber-100/80 text-lg leading-relaxed mb-6">
                     The G Lounge is GenesisHQ&apos;s exclusive members club, housing the prestigious Codex Collective. Inspired by Leonardo da Vinci&apos;s codices—his notebooks of revolutionary ideas—this is a modern-day gathering of elite minds where Renaissance thinking meets Web3 innovation.
                   </p>
-                  <p className="text-amber-100/80 text-lg leading-relaxed">
+                  <p className="text-amber-100/80 text-lg leading-relaxed mb-8">
                     Here, members share knowledge, collaborate on groundbreaking projects, and push the boundaries of what&apos;s possible in blockchain, art, and technology. This isn&apos;t just a community—it&apos;s a movement of visionaries shaping the future.
                   </p>
+                  
+                  {/* Codex Collective Features Grid */}
+                  <div className="grid md:grid-cols-2 gap-4 mt-6">
+                    <div className="bg-slate-900/40 border border-amber-600/20 rounded-lg p-4">
+                      <div className="flex items-center mb-3">
+                        <Users className="w-6 h-6 text-amber-500 mr-3" />
+                        <h4 className="text-amber-100 font-bold text-lg">Social HUB</h4>
+                      </div>
+                      <p className="text-amber-100/70 text-sm">
+                        Connect with elite members, share insights, and collaborate on innovative projects in our exclusive social network.
+                      </p>
+                    </div>
+                    
+                    <div className="bg-slate-900/40 border border-emerald-600/20 rounded-lg p-4">
+                      <div className="flex items-center mb-3">
+                        <Zap className="w-6 h-6 text-emerald-500 mr-3" />
+                        <h4 className="text-amber-100 font-bold text-lg">Max Trading Bot</h4>
+                      </div>
+                      <p className="text-amber-100/70 text-sm">
+                        Access our AI-powered trading bot with premium strategies and priority execution for maximized returns.
+                      </p>
+                    </div>
+                    
+                    <div className="bg-slate-900/40 border border-purple-600/20 rounded-lg p-4">
+                      <div className="flex items-center mb-3">
+                        <Play className="w-6 h-6 text-purple-500 mr-3" />
+                        <h4 className="text-amber-100 font-bold text-lg">Minigames</h4>
+                      </div>
+                      <p className="text-amber-100/70 text-sm">
+                        Exclusive access to premium minigames with enhanced rewards, special tournaments, and VIP-only challenges.
+                      </p>
+                    </div>
+                    
+                    <div className="bg-slate-900/40 border border-yellow-600/20 rounded-lg p-4">
+                      <div className="flex items-center mb-3">
+                        <Crown className="w-6 h-6 text-yellow-500 mr-3" />
+                        <h4 className="text-amber-100 font-bold text-lg">VIP Features</h4>
+                      </div>
+                      <p className="text-amber-100/70 text-sm">
+                        Unlock ultimate privileges: priority support, exclusive NFT drops, early access to features, and personalized benefits.
+                      </p>
+                    </div>
+                  </div>
                 </CardContent>
               </Card>
 
