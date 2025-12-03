@@ -155,21 +155,25 @@ export default function App() {
       console.error('Auth error:', error)
       
       // Better error messages
-      let errorMessage = 'Noe gikk galt. Prøv igjen.'
+      let errorMessage = 'Something went wrong. Please try again.'
       
-      if (error.message.includes('email')) {
-        errorMessage = '❌ Ugyldig email-format\n\nSjekk at du skriver en gyldig email-adresse.'
+      if (error.message.includes('Invalid login credentials')) {
+        errorMessage = 'Invalid email or password. Please check your credentials and try again.'
+      } else if (error.message.includes('Email not verified')) {
+        errorMessage = 'Email not verified. Please check your inbox and verify your email before logging in.'
+      } else if (error.message.includes('email') && error.message.includes('invalid')) {
+        errorMessage = 'Invalid email format. Please enter a valid email address.'
       } else if (error.message.includes('password') && error.message.includes('6')) {
-        errorMessage = '❌ Passord for kort\n\nPassordet må være minst 6 tegn langt.'
+        errorMessage = 'Password too short. Password must be at least 6 characters long.'
       } else if (error.message.includes('User already registered')) {
-        errorMessage = '⚠️ Email allerede registrert\n\nDenne emailen er allerede i bruk. Prøv å logge inn i stedet.'
+        errorMessage = 'Email already registered. Please try logging in instead.'
       } else if (error.message.includes('network')) {
-        errorMessage = '🌐 Nettverksfeil\n\nSjekk internett-tilkoblingen din og prøv igjen.'
-      } else {
-        errorMessage = '❌ Feil: ' + error.message
+        errorMessage = 'Network error. Please check your internet connection and try again.'
+      } else if (error.message) {
+        errorMessage = error.message
       }
       
-      alert(errorMessage)
+      setAuthError(errorMessage)
     } finally {
       setLoading(false)
     }
