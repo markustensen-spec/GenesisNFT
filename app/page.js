@@ -1203,7 +1203,7 @@ export default function App() {
                         size="lg"
                       >
                         <Gem className="w-5 h-5 mr-2" />
-                        Mint NFT - $100 USD
+                        Mint NFT - &#36;100 USD
                       </Button>
                       
                       {mintStatus && (
