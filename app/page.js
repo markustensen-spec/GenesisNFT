@@ -800,6 +800,10 @@ export default function App() {
         )}
 
         {activeTab === 'whitepaper' && (
+          <WhitepaperSection />
+        )}
+
+        {activeTab === 'whitepaper' && (
           <div className="container mx-auto px-4">
             <div className="max-w-6xl mx-auto">
               {/* Hero with Background */}
