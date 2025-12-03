@@ -1236,7 +1236,67 @@ export default function App() {
         {activeTab === 'crypto' && (
           <div className="container mx-auto px-4 mt-16">
             <div className="max-w-6xl mx-auto">
-              {/* Caviar Token Section continues here */}
+              {/* Caviar Token Section */}
+              <div 
+                className="relative mb-16 rounded-2xl overflow-hidden"
+                style={{
+                  backgroundImage: `url('https://customer-assets.emergentagent.com/job_genesishq/artifacts/kum9el5i_grok_image_39m5w5.jpg')`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center'
+                }}
+              >
+                <div className="absolute inset-0 bg-gradient-to-b from-slate-950/70 via-slate-950/85 to-slate-950"></div>
+                <div className="relative text-center py-20 px-4">
+                  <Badge className="mb-4 bg-amber-600/40 text-amber-300 border-amber-600/50 px-4 py-2 backdrop-blur-sm">
+                    <Zap className="w-4 h-4 mr-2 inline" />
+                    The Power of the Ecosystem
+                  </Badge>
+                  <h2 className="text-4xl md:text-6xl font-bold text-amber-100 mb-4 drop-shadow-lg">
+                    Caviar Token (&#36;CAX)
+                  </h2>
+                  <p className="text-xl md:text-2xl text-amber-100 max-w-3xl mx-auto mb-8 drop-shadow-lg">
+                    Your key to governance, staking rewards, and platform participation. Shape the future of GenesisHQ.
+                  </p>
+                  <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                    <Button size="lg" className="bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 shadow-xl">
+                      <Zap className="w-5 h-5 mr-2" />
+                      Buy &#36;CAX
+                    </Button>
+                    <Button size="lg" variant="outline" className="border-amber-600 text-amber-400 hover:bg-amber-600/10 backdrop-blur-sm">
+                      <Trophy className="w-5 h-5 mr-2" />
+                      Stake Now
+                    </Button>
+                  </div>
+                </div>
+              </div>
+
+              {/* Token Stats */}
+              <div className="grid md:grid-cols-4 gap-6 mb-16">
+                <Card className="bg-slate-900/50 border-amber-900/30 text-center">
+                  <CardContent className="pt-6">
+                    <div className="text-3xl font-bold text-amber-400 mb-2">1B</div>
+                    <div className="text-amber-100/60 text-sm">Total Supply</div>
+                  </CardContent>
+                </Card>
+                <Card className="bg-slate-900/50 border-amber-900/30 text-center">
+                  <CardContent className="pt-6">
+                    <div className="text-3xl font-bold text-amber-400 mb-2">20%</div>
+                    <div className="text-amber-100/60 text-sm">Base APY</div>
+                  </CardContent>
+                </Card>
+                <Card className="bg-slate-900/50 border-amber-900/30 text-center">
+                  <CardContent className="pt-6">
+                    <div className="text-3xl font-bold text-amber-400 mb-2">2x</div>
+                    <div className="text-amber-100/60 text-sm">G Lounge Boost</div>
+                  </CardContent>
+                </Card>
+                <Card className="bg-slate-900/50 border-amber-900/30 text-center">
+                  <CardContent className="pt-6">
+                    <div className="text-3xl font-bold text-amber-400 mb-2">1%</div>
+                    <div className="text-amber-100/60 text-sm">Burn Rate</div>
+                  </CardContent>
+                </Card>
+              </div>
             </div>
           </div>
         )}
