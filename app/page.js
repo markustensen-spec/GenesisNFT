@@ -1141,8 +1141,11 @@ function GameComponent({ user }) {
   }, [])
 
   React.useEffect(() => {
-    if (gameState === 'playing' && canvasRef.current) {
-      gameLoop()
+    if (gameState === 'playing' && canvasRef.current && playerRef.current) {
+      // Small delay to ensure canvas is fully rendered
+      setTimeout(() => {
+        gameLoop()
+      }, 100)
     }
     return () => {
       if (gameLoopRef.current) {
