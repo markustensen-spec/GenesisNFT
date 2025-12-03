@@ -11,28 +11,34 @@ export const dynamic = 'force-dynamic'
 
 const hf = new HfInference(process.env.HF_TOKEN)
 
-// Predefined prompts for variety
-const anatomicalSubjects = [
-  'human arm muscles and tendons',
-  'human leg bone structure',
-  'human spine and vertebrae',
-  'human rib cage and sternum',
-  'human hand bones and joints',
-  'human foot skeletal structure',
-  'human skull and jaw',
-  'human shoulder joint',
-  'human hip bone structure',
-  'human knee joint anatomy',
-  'human heart anatomical study',
-  'human brain cross section',
-  'human eye anatomical detail',
-  'human ear structure',
-  'human teeth and jaw',
-  'human pelvis structure',
-  'human elbow joint',
-  'human wrist bones',
-  'human ankle structure',
-  'human neck muscles'
+// Leonardo's subjects: anatomical studies + inventions
+const leonardoSubjects = [
+  // Anatomical Studies
+  { subject: 'human arm muscles and tendons', type: 'anatomy', italian: 'muscoli del braccio' },
+  { subject: 'human leg bone structure', type: 'anatomy', italian: 'ossa della gamba' },
+  { subject: 'human spine and vertebrae', type: 'anatomy', italian: 'colonna vertebrale' },
+  { subject: 'human heart anatomical study', type: 'anatomy', italian: 'cuore umano' },
+  { subject: 'human brain cross section', type: 'anatomy', italian: 'cervello' },
+  { subject: 'human skull and jaw', type: 'anatomy', italian: 'cranio' },
+  { subject: 'human hand bones and joints', type: 'anatomy', italian: 'ossa della mano' },
+  { subject: 'human eye anatomical detail', type: 'anatomy', italian: 'occhio' },
+  
+  // Leonardo's Famous Inventions
+  { subject: 'flying machine with wings', type: 'invention', italian: 'macchina volante' },
+  { subject: 'ornithopter aerial screw helicopter', type: 'invention', italian: 'elicottero' },
+  { subject: 'armored war tank with cannons', type: 'invention', italian: 'carro armato' },
+  { subject: 'crossbow giant ballista weapon', type: 'invention', italian: 'balestra gigante' },
+  { subject: 'parachute pyramid design', type: 'invention', italian: 'paracadute' },
+  { subject: 'diving suit underwater apparatus', type: 'invention', italian: 'scafandro' },
+  { subject: 'mechanical lion automaton', type: 'invention', italian: 'leone meccanico' },
+  { subject: 'bridge self-supporting design', type: 'invention', italian: 'ponte' },
+  { subject: 'war chariot with rotating blades', type: 'invention', italian: 'carro da guerra' },
+  { subject: 'trebuchet catapult machine', type: 'invention', italian: 'catapulta' },
+  { subject: 'water lifting archimedes screw', type: 'invention', italian: 'vite d\'acqua' },
+  { subject: 'mechanical clock gears', type: 'invention', italian: 'orologio meccanico' },
+  { subject: 'ball bearing mechanism', type: 'invention', italian: 'cuscinetto a sfere' },
+  { subject: 'double hull ship design', type: 'invention', italian: 'nave a doppio scafo' },
+  { subject: 'musical instruments viola organista', type: 'invention', italian: 'viola organista' }
 ]
 
 export async function POST(request) {
