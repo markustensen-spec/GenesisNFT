@@ -5,15 +5,13 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Badge } from '@/components/ui/badge'
-import { Separator } from '@/components/ui/separator'
 import { Input } from '@/components/ui/input'
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog'
 import { Crown, TrendingUp, Wallet, Sparkles, Lock, Zap, Trophy, Users, Gem, ChevronRight, Menu, X } from 'lucide-react'
-import '@solana/wallet-adapter-react-ui/styles.css'
 
-function GenesisHQContent() {
-  const { publicKey, connected } = useWallet()
+export default function App() {
   const [activeTab, setActiveTab] = useState('home')
+  const [connected, setConnected] = useState(false)
+  const [walletAddress, setWalletAddress] = useState(null)
   const [cryptoPrices, setCryptoPrices] = useState([])
   const [loading, setLoading] = useState(false)
   const [email, setEmail] = useState('')
