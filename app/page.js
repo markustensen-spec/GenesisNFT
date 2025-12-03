@@ -289,7 +289,7 @@ export default function App() {
             <CardHeader>
               <div className="flex justify-between items-center">
                 <CardTitle className="text-amber-100">
-                  {showVerificationMessage ? 'Verifiser din Email' : (authMode === 'login' ? 'Login to GenesisHQ' : 'Create Account')}
+                  {showVerificationMessage ? 'Verify Your Email' : (authMode === 'login' ? 'Login to GenesisHQ' : 'Create Account')}
                 </CardTitle>
                 <button onClick={() => {
                   setShowAuthModal(false)
