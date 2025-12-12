@@ -1,5 +1,5 @@
 /**
- * NFT Minting Component for GenesisHQ
+ * NFT Minting Component for Genesis Nexus7
  * Integrates with Solana blockchain and Metaplex Candy Machine
  */
 
