@@ -836,7 +836,7 @@ export default function App() {
                 HUB
               </Button>
               <Button variant="ghost" onClick={() => setActiveTab('crypto')} className="text-amber-100 hover:text-amber-400">
-                Crypto
+                NFT
               </Button>
               <Button variant="ghost" onClick={playGame} className="text-amber-100 hover:text-amber-400">
                 Minigames
