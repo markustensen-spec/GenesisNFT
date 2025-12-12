@@ -1590,48 +1590,32 @@ export default function App() {
                     </div>
                   </div>
 
-                  {/* MAIN MINTING SECTION */}
-                  {user ? (
-                    <div className="space-y-6 max-w-3xl mx-auto">
-                      <div className="bg-slate-950/95 backdrop-blur-xl rounded-3xl p-10 border-3 border-amber-600/50 shadow-2xl">
-                        <LazyMintNFT user={user} />
+                  {/* MAIN MINTING SECTION - No login required */}
+                  <div className="space-y-6 max-w-3xl mx-auto">
+                    <div className="bg-slate-950/95 backdrop-blur-xl rounded-3xl p-8 border-3 border-amber-600/50 shadow-2xl">
+                      <LazyMintNFT user={user} />
+                    </div>
+                    
+                    {/* NFT Tier Info */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div className="bg-gradient-to-br from-amber-900/40 to-yellow-900/40 rounded-xl p-4 border border-amber-500/50">
+                        <p className="text-amber-300 font-bold text-sm mb-2">🌟 Founder NFTs (First 500)</p>
+                        <ul className="text-amber-100/70 text-xs space-y-1">
+                          <li>✨ LIFETIME ACCESS</li>
+                          <li>📈 8% BONUS APY</li>
+                          <li>🎁 Exclusive AIRDROPS</li>
+                        </ul>
                       </div>
-                      
-                      {/* NFT Tier Info */}
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div className="bg-gradient-to-br from-amber-900/40 to-yellow-900/40 rounded-xl p-4 border border-amber-500/50">
-                          <p className="text-amber-300 font-bold text-sm mb-2">🌟 Founder NFTs (First 500)</p>
-                          <ul className="text-amber-100/70 text-xs space-y-1">
-                            <li>✨ LIFETIME ACCESS</li>
-                            <li>📈 8% BONUS APY</li>
-                            <li>🎁 Exclusive AIRDROPS</li>
-                          </ul>
-                        </div>
-                        <div className="bg-gradient-to-br from-slate-800/60 to-slate-900/60 rounded-xl p-4 border border-slate-600/50">
-                          <p className="text-slate-300 font-bold text-sm mb-2">📜 Sketch NFTs (9,500)</p>
-                          <ul className="text-slate-100/70 text-xs space-y-1">
-                            <li>✓ Utility NFT</li>
-                            <li>✓ Voting Rights</li>
-                            <li>✓ Staking Rewards</li>
-                          </ul>
-                        </div>
+                      <div className="bg-gradient-to-br from-slate-800/60 to-slate-900/60 rounded-xl p-4 border border-slate-600/50">
+                        <p className="text-slate-300 font-bold text-sm mb-2">📜 Sketch NFTs (9,500)</p>
+                        <ul className="text-slate-100/70 text-xs space-y-1">
+                          <li>✓ Utility NFT</li>
+                          <li>✓ Voting Rights</li>
+                          <li>✓ Staking Rewards</li>
+                        </ul>
                       </div>
                     </div>
-                  ) : (
-                    <div className="max-w-xl mx-auto">
-                      <Button 
-                        onClick={() => { setAuthMode('login'); setShowAuthModal(true) }}
-                        size="lg"
-                        className="w-full bg-gradient-to-r from-amber-600 via-amber-500 to-amber-600 hover:from-amber-500 hover:via-amber-400 hover:to-amber-500 text-white font-black py-10 text-3xl shadow-2xl rounded-2xl border-4 border-amber-400/50 transform hover:scale-105 transition-all"
-                      >
-                        <Wallet className="w-10 h-10 mr-4" />
-                        MINT YOUR NFT NOW
-                      </Button>
-                      <p className="text-amber-100 mt-6 text-lg font-semibold">
-                        Login required • Solana wallet needed • 0.5 SOL per mint
-                      </p>
-                    </div>
-                  )}
+                  </div>
                 </div>
               </div>
 
