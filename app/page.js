@@ -1838,6 +1838,25 @@ export default function App() {
                   
                   {/* G Lounge Features - Vertical List */}
                   <div className="max-w-2xl mx-auto space-y-4 mb-8">
+                    {/* Caviar Token Link */}
+                    <a 
+                      href="https://pump.fun" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="block bg-gradient-to-r from-amber-900/60 to-yellow-900/60 border-2 border-amber-500/50 rounded-lg p-4 backdrop-blur-sm hover:border-amber-400 transition-all"
+                    >
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center">
+                          <Gem className="w-8 h-8 text-amber-400 mr-3" />
+                          <div>
+                            <h4 className="text-amber-100 font-bold text-lg">$CAX - Caviar Token</h4>
+                            <p className="text-amber-100/70 text-sm">Get the official GenesisHQ token</p>
+                          </div>
+                        </div>
+                        <ExternalLink className="w-5 h-5 text-amber-400" />
+                      </div>
+                    </a>
+
                     <div className="bg-slate-900/50 border border-amber-600/30 rounded-lg p-4 backdrop-blur-sm">
                       <div className="flex items-center mb-2">
                         <Users className="w-6 h-6 text-amber-500 mr-3" />
