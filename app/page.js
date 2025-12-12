@@ -1810,68 +1810,192 @@ export default function App() {
                 <div className="absolute inset-0 bg-gradient-to-b from-slate-950/70 via-slate-950/85 to-slate-950"></div>
                 <div className="relative text-center py-20 px-4">
                   <h2 className="text-5xl md:text-6xl font-bold text-amber-100 mb-4 drop-shadow-lg">
-                    Caviar
+                    Caviar Token ($CAX)
                   </h2>
                   <p className="text-xl md:text-2xl text-amber-100 max-w-3xl mx-auto mb-8 drop-shadow-lg">
-                    An exclusive community where Renaissance thinking meets modern innovation. Join elite visionaries, creators, and collectors in the ultimate members club.
+                    The governance and utility token powering the Genesis Nexus7 ecosystem
                   </p>
                   
-                  {/* Caviar Features - Vertical List */}
-                  <div className="max-w-2xl mx-auto space-y-4 mb-8">
-                    <div className="bg-slate-900/50 border border-amber-600/30 rounded-lg p-4 backdrop-blur-sm">
-                      <div className="flex items-center mb-2">
-                        <Users className="w-6 h-6 text-amber-500 mr-3" />
-                        <h4 className="text-amber-100 font-bold text-lg">Social HUB</h4>
-                      </div>
-                      <p className="text-amber-100/80 text-sm">
-                        Connect with elite members, share insights, and collaborate on innovative projects in our exclusive social network.
-                      </p>
+                  {/* Token Stats */}
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mb-8">
+                    <div className="bg-slate-900/70 backdrop-blur-sm rounded-xl p-4 border border-amber-500/30">
+                      <div className="text-3xl font-bold text-amber-400">1B</div>
+                      <div className="text-amber-100/70 text-sm">Total Supply</div>
                     </div>
-                    
-                    <div className="bg-slate-900/50 border border-emerald-600/30 rounded-lg p-4 backdrop-blur-sm">
-                      <div className="flex items-center mb-2">
-                        <Zap className="w-6 h-6 text-emerald-500 mr-3" />
-                        <h4 className="text-amber-100 font-bold text-lg">Max Trading Bot</h4>
-                      </div>
-                      <p className="text-amber-100/80 text-sm">
-                        Access our AI-powered trading bot with premium strategies and priority execution for maximized returns.
-                      </p>
+                    <div className="bg-slate-900/70 backdrop-blur-sm rounded-xl p-4 border border-emerald-500/30">
+                      <div className="text-3xl font-bold text-emerald-400">20%</div>
+                      <div className="text-amber-100/70 text-sm">Base APY</div>
                     </div>
-                    
-                    <div className="bg-slate-900/50 border border-purple-600/30 rounded-lg p-4 backdrop-blur-sm">
-                      <div className="flex items-center mb-2">
-                        <Play className="w-6 h-6 text-purple-500 mr-3" />
-                        <h4 className="text-amber-100 font-bold text-lg">Minigames</h4>
-                      </div>
-                      <p className="text-amber-100/80 text-sm">
-                        Exclusive access to premium minigames with enhanced rewards, special tournaments, and VIP-only challenges.
-                      </p>
+                    <div className="bg-slate-900/70 backdrop-blur-sm rounded-xl p-4 border border-purple-500/30">
+                      <div className="text-3xl font-bold text-purple-400">1%</div>
+                      <div className="text-amber-100/70 text-sm">Burn Rate</div>
                     </div>
-                    
-                    <div className="bg-slate-900/50 border border-yellow-600/30 rounded-lg p-4 backdrop-blur-sm">
-                      <div className="flex items-center mb-2">
-                        <Crown className="w-6 h-6 text-yellow-500 mr-3" />
-                        <h4 className="text-amber-100 font-bold text-lg">VIP Features</h4>
-                      </div>
-                      <p className="text-amber-100/80 text-sm">
-                        Unlock ultimate privileges: priority support, exclusive NFT drops, early access to features, and personalized benefits.
-                      </p>
+                    <div className="bg-slate-900/70 backdrop-blur-sm rounded-xl p-4 border border-yellow-500/30">
+                      <div className="text-3xl font-bold text-yellow-400">SOL</div>
+                      <div className="text-amber-100/70 text-sm">Network</div>
                     </div>
                   </div>
                   
-                  <Button size="lg" className="bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 shadow-xl">
-                    <Crown className="w-5 h-5 mr-2" />
-                    Join Caviar
+                  <Button 
+                    size="lg" 
+                    className="bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 shadow-xl"
+                    onClick={() => window.open('https://pump.fun', '_blank')}
+                  >
+                    <Gem className="w-5 h-5 mr-2" />
+                    Buy $CAX on Pump.fun
                   </Button>
                 </div>
               </div>
 
-              {/* What is Codex Collective */}
+              {/* Token Utility */}
+              <Card className="bg-gradient-to-br from-amber-900/20 to-slate-900/50 border-amber-600/30 mb-12">
+                <CardContent className="p-8">
+                  <h3 className="text-3xl font-bold text-amber-100 mb-6">$CAX Token Utility</h3>
+                  <div className="grid md:grid-cols-3 gap-6">
+                    <div className="text-center">
+                      <div className="w-16 h-16 bg-amber-600/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <Crown className="w-8 h-8 text-amber-500" />
+                      </div>
+                      <h4 className="text-xl font-bold text-amber-100 mb-2">Governance</h4>
+                      <p className="text-amber-100/70">Vote on platform decisions, feature proposals, and community initiatives</p>
+                    </div>
+                    <div className="text-center">
+                      <div className="w-16 h-16 bg-emerald-600/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <TrendingUp className="w-8 h-8 text-emerald-500" />
+                      </div>
+                      <h4 className="text-xl font-bold text-amber-100 mb-2">Staking Rewards</h4>
+                      <p className="text-amber-100/70">Earn up to 20% APY by staking your $CAX tokens in our pools</p>
+                    </div>
+                    <div className="text-center">
+                      <div className="w-16 h-16 bg-purple-600/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <Sparkles className="w-8 h-8 text-purple-500" />
+                      </div>
+                      <h4 className="text-xl font-bold text-amber-100 mb-2">Platform Access</h4>
+                      <p className="text-amber-100/70">Unlock premium features, NFT drops, and exclusive member benefits</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Tokenomics */}
+              <h3 className="text-3xl font-bold text-amber-100 text-center mb-8">Tokenomics</h3>
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                <Card className="bg-gradient-to-br from-amber-900/30 to-slate-900/50 border-amber-600/30">
+                  <CardHeader>
+                    <TrendingUp className="w-12 h-12 text-amber-500 mb-3" />
+                    <CardTitle className="text-amber-100 text-xl">Staking Pool</CardTitle>
+                  </CardHeader>
+                  <CardContent className="text-amber-100/70">
+                    <p className="mb-3">Earn passive income by staking your $CAX tokens</p>
+                    <ul className="space-y-2 text-sm">
+                      <li>✓ 20% base APY rewards</li>
+                      <li>✓ NFT holder bonuses (+8%)</li>
+                      <li>✓ No lock-up period</li>
+                      <li>✓ Auto-compounding available</li>
+                    </ul>
+                  </CardContent>
+                </Card>
+
+                <Card className="bg-gradient-to-br from-emerald-900/30 to-slate-900/50 border-emerald-600/30">
+                  <CardHeader>
+                    <Lock className="w-12 h-12 text-emerald-500 mb-3" />
+                    <CardTitle className="text-amber-100 text-xl">Platform Access</CardTitle>
+                  </CardHeader>
+                  <CardContent className="text-amber-100/70">
+                    <p className="mb-3">$CAX unlocks exclusive platform features</p>
+                    <ul className="space-y-2 text-sm">
+                      <li>✓ Trading bot access</li>
+                      <li>✓ Premium minigames</li>
+                      <li>✓ Exclusive NFT drops</li>
+                      <li>✓ VIP community access</li>
+                    </ul>
+                  </CardContent>
+                </Card>
+
+                <Card className="bg-gradient-to-br from-purple-900/30 to-slate-900/50 border-purple-600/30">
+                  <CardHeader>
+                    <Gem className="w-12 h-12 text-purple-500 mb-3" />
+                    <CardTitle className="text-amber-100 text-xl">NFT Integration</CardTitle>
+                  </CardHeader>
+                  <CardContent className="text-amber-100/70">
+                    <p className="mb-3">NFT holders receive enhanced $CAX rewards</p>
+                    <ul className="space-y-2 text-sm">
+                      <li>✓ Founder NFT: +8% APY</li>
+                      <li>✓ Sketch NFT: +2% APY</li>
+                      <li>✓ Exclusive airdrops</li>
+                      <li>✓ Governance multiplier</li>
+                    </ul>
+                  </CardContent>
+                </Card>
+
+                <Card className="bg-gradient-to-br from-red-900/30 to-slate-900/50 border-red-600/30">
+                  <CardHeader>
+                    <Zap className="w-12 h-12 text-red-500 mb-3" />
+                    <CardTitle className="text-amber-100 text-xl">Deflationary</CardTitle>
+                  </CardHeader>
+                  <CardContent className="text-amber-100/70">
+                    <p className="mb-3">1% burn on every transaction</p>
+                    <ul className="space-y-2 text-sm">
+                      <li>✓ Reduces supply over time</li>
+                      <li>✓ Increases scarcity</li>
+                      <li>✓ Benefits long-term holders</li>
+                      <li>✓ Automatic burn mechanism</li>
+                    </ul>
+                  </CardContent>
+                </Card>
+              </div>
+
+              {/* Launch Timeline */}
+              <Card className="bg-slate-900/50 border-amber-600/30 mb-12">
+                <CardContent className="p-8">
+                  <CardTitle className="text-amber-100 text-2xl text-center mb-8">$CAX Launch Timeline</CardTitle>
+                  <div className="space-y-6">
+                    <div className="flex items-start space-x-4">
+                      <div className="w-12 h-12 bg-emerald-600 rounded-full flex items-center justify-center flex-shrink-0">
+                        <CheckCircle className="w-6 h-6 text-white" />
+                      </div>
+                      <div>
+                        <h4 className="text-xl font-bold text-emerald-400">Phase 1: Foundation ✓</h4>
+                        <p className="text-amber-100/70">NFT collection launch, community building, smart contract development</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start space-x-4">
+                      <div className="w-12 h-12 bg-amber-600 rounded-full flex items-center justify-center flex-shrink-0">
+                        <Loader2 className="w-6 h-6 text-white" />
+                      </div>
+                      <div>
+                        <h4 className="text-xl font-bold text-amber-400">Phase 2: Token Launch (Current)</h4>
+                        <p className="text-amber-100/70">$CAX launch on Pump.fun, initial DEX listings, staking pools activation</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start space-x-4">
+                      <div className="w-12 h-12 bg-slate-600 rounded-full flex items-center justify-center flex-shrink-0">
+                        <span className="text-white font-bold">3</span>
+                      </div>
+                      <div>
+                        <h4 className="text-xl font-bold text-slate-400">Phase 3: Ecosystem Expansion</h4>
+                        <p className="text-amber-100/70">Trading bot launch, minigames integration, CEX listings</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start space-x-4">
+                      <div className="w-12 h-12 bg-slate-600 rounded-full flex items-center justify-center flex-shrink-0">
+                        <span className="text-white font-bold">4</span>
+                      </div>
+                      <div>
+                        <h4 className="text-xl font-bold text-slate-400">Phase 4: Full Platform</h4>
+                        <p className="text-amber-100/70">Banking features, global expansion, mobile app launch</p>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Codex Collective */}
               <Card className="bg-gradient-to-br from-amber-900/20 to-slate-900/50 border-amber-600/30 mb-12">
                 <CardContent className="p-8">
                   <h3 className="text-3xl font-bold text-amber-100 mb-4">Codex Collective</h3>
                   <p className="text-amber-100/80 text-lg leading-relaxed mb-4">
-                    The Caviar is Genesis Nexus7&apos;s exclusive members club, housing the prestigious Codex Collective. Inspired by Leonardo da Vinci&apos;s codices—his notebooks of revolutionary ideas—this is a modern-day gathering of elite minds where Renaissance thinking meets Web3 innovation.
+                    The Caviar community is Genesis Nexus7&apos;s exclusive members club, housing the prestigious Codex Collective. Inspired by Leonardo da Vinci&apos;s codices—his notebooks of revolutionary ideas—this is a modern-day gathering of elite minds where Renaissance thinking meets Web3 innovation.
                   </p>
                   <p className="text-amber-100/80 text-lg leading-relaxed">
                     Here, members share knowledge, collaborate on groundbreaking projects, and push the boundaries of what&apos;s possible in blockchain, art, and technology. This isn&apos;t just a community—it&apos;s a movement of visionaries shaping the future.
