@@ -1261,7 +1261,7 @@ export default function App() {
                         <p className="mb-4">Earn passive income on your holdings</p>
                         <ul className="space-y-2 text-sm">
                           <li>✓ Up to 8% APY on stablecoins</li>
-                          <li>✓ $CAX staking rewards</li>
+                          <li>✓ Staking rewards</li>
                           <li>✓ Auto-compound options</li>
                           <li>✓ Flexible withdrawals</li>
                         </ul>
