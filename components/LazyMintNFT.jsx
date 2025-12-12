@@ -54,7 +54,7 @@ export default function LazyMintNFT({ user }) {
       if (data.success) {
         setStats({
           ...data.stats,
-          foundersRemaining: Math.max(0, FOUNDER_NFT_COUNT - (data.stats.totalMinted || 0))
+          foundersRemaining: data.stats.foundersRemaining
         })
       }
     } catch (err) {
