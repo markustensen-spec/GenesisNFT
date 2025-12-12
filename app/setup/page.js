@@ -53,11 +53,11 @@ export default function SetupPage() {
           <div className="flex items-center justify-center mb-4">
             <img 
               src="https://raw.githubusercontent.com/markustensen-spec/Logo/refs/heads/main/1000004278.jpg.png" 
-              alt="GenesisHQ Logo" 
+              alt="Genesis Nexus7 Logo" 
               className="w-20 h-20 object-contain"
             />
           </div>
-          <CardTitle className="text-amber-100 text-3xl text-center">GenesisHQ Supabase Setup</CardTitle>
+          <CardTitle className="text-amber-100 text-3xl text-center">Genesis Nexus7 Supabase Setup</CardTitle>
           <CardDescription className="text-amber-100/60 text-center">
             Automatisk oppsett av database og email-verifisering
           </CardDescription>
@@ -129,7 +129,7 @@ export default function SetupPage() {
                 <ul className="text-amber-100/70 text-sm space-y-2">
                   <li>1. Gå til Supabase Dashboard → Authentication → Email Templates</li>
                   <li>2. Rediger "Confirm signup" template med logoen din</li>
-                  <li>3. Test registrering på GenesisHQ.io</li>
+                  <li>3. Test registrering på Genesis Nexus7.io</li>
                 </ul>
               </div>
 
@@ -137,7 +137,7 @@ export default function SetupPage() {
                 onClick={() => window.location.href = '/'}
                 className="w-full bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600"
               >
-                Gå til GenesisHQ
+                Gå til Genesis Nexus7
               </Button>
             </div>
           )}

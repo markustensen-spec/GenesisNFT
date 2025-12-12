@@ -23,7 +23,7 @@ export default function WhitepaperSection() {
               Full MVP Roadmap 2026 → 2028
             </Badge>
             <h2 className="text-5xl md:text-6xl font-bold text-amber-100 mb-4">
-              GenesisHQ Whitepaper
+              Genesis Nexus7 Whitepaper
             </h2>
             <p className="text-xl text-amber-100/80 max-w-3xl mx-auto">
               Building the future of decentralized finance - From viral P2E game to licensed neo-bank
@@ -38,7 +38,7 @@ export default function WhitepaperSection() {
           </CardHeader>
           <CardContent className="text-amber-100/80 space-y-4">
             <p className="text-lg">
-              GenesisHQ is Leonardo da Vinci's genius on steroids — fused with blockchain fire.
+              Genesis Nexus7 is Leonardo da Vinci's genius on steroids — fused with blockchain fire.
             </p>
             <p>
               We explode onto Solana with Genesis Caviar: a brutally addictive P2E banger (agar.io on crack) that sucks in millions to reward G Lounge members.
@@ -50,7 +50,7 @@ export default function WhitepaperSection() {
               Bootstrapped by premium NFTs, P2E rewards, and the ultra-exclusive G Lounge for the real ones.
             </p>
             <p className="text-lg font-semibold text-amber-400">
-              GenesisHQ isn't GameFi. It's the world's first player-owned, regulated digital bank.
+              Genesis Nexus7 isn't GameFi. It's the world's first player-owned, regulated digital bank.
             </p>
             <p className="text-xl font-bold text-amber-300">
               Play → Earn → Own → Get Rich.
@@ -152,7 +152,7 @@ export default function WhitepaperSection() {
                 <div className="flex items-center space-x-4">
                   <div className="bg-purple-600 rounded-full w-12 h-12 flex items-center justify-center text-white font-bold text-xl">3</div>
                   <div>
-                    <CardTitle className="text-amber-100 text-2xl">GenesisHQ Bank</CardTitle>
+                    <CardTitle className="text-amber-100 text-2xl">Genesis Nexus7 Bank</CardTitle>
                     <CardDescription className="text-amber-100/60 text-base">2028+</CardDescription>
                   </div>
                 </div>
@@ -211,7 +211,7 @@ export default function WhitepaperSection() {
               </CardHeader>
               <CardContent>
                 <p className="text-4xl font-bold text-amber-500 mb-4">7% Equity</p>
-                <p className="text-amber-100/70">Early supporter stake in GenesisHQ with significant equity position</p>
+                <p className="text-amber-100/70">Early supporter stake in Genesis Nexus7 with significant equity position</p>
               </CardContent>
             </Card>
 
@@ -274,7 +274,7 @@ export default function WhitepaperSection() {
             </div>
             <div className="mt-8">
               <Button 
-                onClick={() => window.open('https://customer-assets.emergentagent.com/job_genesishq/artifacts/3ry0vxfv_GenesisHQ%20%E2%80%93%20WHITEPAPER%2C%20RM%20%26%20ANGEL%20DEALS.docx.pdf', '_blank')}
+                onClick={() => window.open('https://customer-assets.emergentagent.com/job_genesishq/artifacts/3ry0vxfv_Genesis Nexus7%20%E2%80%93%20WHITEPAPER%2C%20RM%20%26%20ANGEL%20DEALS.docx.pdf', '_blank')}
                 size="lg" 
                 className="bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600"
               >
