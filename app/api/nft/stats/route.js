@@ -53,9 +53,6 @@ export async function GET() {
         name: COLLECTION_INFO.name,
         founderNFTs: COLLECTION_INFO.founderNFTs,
         codexSketches: COLLECTION_INFO.codexSketches,
-        leonardoSelfie: COLLECTION_INFO.leonardoSelfie,
-        leonardoExclusives: COLLECTION_INFO.leonardoExclusives,
-        prize: COLLECTION_INFO.prize,
         founderBenefits: COLLECTION_INFO.founderBenefits,
         sketchBenefits: COLLECTION_INFO.sketchBenefits
       }
