@@ -14,7 +14,7 @@ import { validateEmail, validatePassword, validateUsername, rateLimit, sanitizeI
 import LazyMintNFT from '@/components/LazyMintNFT'
 
 export default function App() {
-  const [activeTab, setActiveTab] = useState('home')
+  const [activeTab, setActiveTab] = useState('crypto') // NFT page as landing
   const [user, setUser] = useState(null)
   const [cryptoPrices, setCryptoPrices] = useState([])
   const [loading, setLoading] = useState(false)
