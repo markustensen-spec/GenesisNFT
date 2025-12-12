@@ -1007,39 +1007,19 @@ export default function App() {
                   </CardContent>
                 </Card>
 
-                <Card className="bg-slate-900/50 border-amber-900/30 backdrop-blur-sm hover:border-amber-600/50 transition-all cursor-pointer" onClick={() => setActiveTab('caviar')}>
-                  <CardHeader>
-                    <Zap className="w-16 h-16 text-amber-500 mb-4" />
-                    <CardTitle className="text-amber-100 text-2xl">Caviar Token ($CAX)</CardTitle>
-                    <CardDescription className="text-amber-100/60 text-base">
-                      Governance & utility token
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent className="text-amber-100/70">
-                    <p className="mb-4 text-base">The $CAX token powers the entire ecosystem with governance rights, staking rewards, and platform access for all Genesis Nexus7 features.</p>
-                    <ul className="space-y-2">
-                      <li>✓ 1 Billion total supply</li>
-                      <li>✓ Governance voting rights</li>
-                      <li>✓ 20% base APY staking rewards</li>
-                      <li>✓ Required for P2E game entry</li>
-                      <li>✓ Deflationary (1% burn per transaction)</li>
-                    </ul>
-                  </CardContent>
-                </Card>
-
                 <Card className="bg-slate-900/50 border-emerald-900/30 backdrop-blur-sm hover:border-emerald-600/50 transition-all cursor-pointer" onClick={playGame}>
                   <CardHeader>
                     <Trophy className="w-16 h-16 text-emerald-500 mb-4" />
                     <CardTitle className="text-amber-100 text-2xl">Minigames</CardTitle>
                     <CardDescription className="text-amber-100/60 text-base">
-                      MVP Caviar Arena
+                      Play & Earn
                     </CardDescription>
                   </CardHeader>
                   <CardContent className="text-amber-100/70">
-                    <p className="mb-4 text-base">Grow your caviar by consuming smaller ones. Avoid larger caviar!</p>
+                    <p className="mb-4 text-base">Compete in exciting minigames and climb the leaderboard!</p>
                     <ul className="space-y-2">
                       <li>✓ Real-time multiplayer gameplay</li>
-                      <li>✓ Earn $CAX tokens by playing</li>
+                      <li>✓ Earn rewards by playing</li>
                       <li>✓ Global leaderboard rankings</li>
                       <li>✓ Skill-based competitive matches</li>
                       <li>✓ Daily and weekly tournaments</li>
