@@ -1560,21 +1560,33 @@ export default function App() {
                     Leonardo da Vinci<br/>NFT Collection
                   </h1>
                   
-                  <p className="text-2xl md:text-3xl text-amber-100 mb-10 font-bold drop-shadow-lg">
-                    10,000 Renaissance Masterpieces
+                  <p className="text-2xl md:text-3xl text-amber-100 mb-6 font-bold drop-shadow-lg">
+                    500 Founders + 9,500 Sketches
                   </p>
+                  
+                  {/* Founder NFT Highlight */}
+                  <div className="bg-gradient-to-r from-amber-900/60 via-yellow-900/60 to-amber-900/60 backdrop-blur-xl px-6 py-3 rounded-xl mb-8 border border-amber-500/50 inline-block">
+                    <p className="text-amber-200 font-semibold">
+                      🌟 First 500 NFTs = <span className="text-yellow-300">Lifetime Access</span> + <span className="text-emerald-300">8% Bonus APY</span> + <span className="text-purple-300">Airdrops</span>
+                    </p>
+                  </div>
 
                   {/* Price & Stats */}
                   <div className="flex flex-wrap justify-center gap-6 mb-12">
                     <div className="bg-gradient-to-br from-amber-900/90 to-amber-950/90 backdrop-blur-xl px-10 py-6 rounded-2xl border-3 border-amber-500/70 shadow-2xl">
                       <div className="text-amber-300 text-lg font-bold mb-1">MINT PRICE</div>
                       <div className="text-5xl font-bold text-white mb-1">0.5 SOL</div>
-                      <div className="text-emerald-400 text-sm font-semibold">≈ $125 USD</div>
+                      <div className="text-emerald-400 text-sm font-semibold">≈ $85 USD</div>
                     </div>
-                    <div className="bg-gradient-to-br from-purple-900/90 to-purple-950/90 backdrop-blur-xl px-10 py-6 rounded-2xl border-3 border-purple-500/70 shadow-2xl">
-                      <div className="text-purple-300 text-lg font-bold mb-1">AVAILABLE</div>
-                      <div className="text-5xl font-bold text-white mb-1">10,000</div>
-                      <div className="text-purple-300 text-sm font-semibold">NFTs Ready</div>
+                    <div className="bg-gradient-to-br from-yellow-900/90 to-amber-950/90 backdrop-blur-xl px-10 py-6 rounded-2xl border-3 border-yellow-500/70 shadow-2xl">
+                      <div className="text-yellow-300 text-lg font-bold mb-1">🌟 FOUNDERS</div>
+                      <div className="text-5xl font-bold text-white mb-1">500</div>
+                      <div className="text-yellow-300 text-sm font-semibold">Special NFTs</div>
+                    </div>
+                    <div className="bg-gradient-to-br from-slate-800/90 to-slate-900/90 backdrop-blur-xl px-10 py-6 rounded-2xl border-3 border-slate-600/70 shadow-2xl">
+                      <div className="text-slate-300 text-lg font-bold mb-1">📜 SKETCHES</div>
+                      <div className="text-5xl font-bold text-white mb-1">9,500</div>
+                      <div className="text-slate-300 text-sm font-semibold">Utility NFTs</div>
                     </div>
                   </div>
 
