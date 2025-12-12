@@ -4,7 +4,7 @@
 
 import { NextResponse } from 'next/server'
 import { supabase } from '@/lib/supabase'
-import { MINT_PRICE_USD, COLLECTION_INFO } from '@/lib/nft-data'
+import { MINT_PRICE_SOL, COLLECTION_INFO, FOUNDER_NFT_COUNT } from '@/lib/nft-data'
 
 // Force dynamic rendering
 export const dynamic = 'force-dynamic'
@@ -20,6 +20,7 @@ export async function GET() {
     
     const totalMinted = data ? data.length : 0
     const remaining = 10000 - totalMinted
+    const foundersRemaining = Math.max(0, FOUNDER_NFT_COUNT - totalMinted)
     
     // Get unique owners
     const { data: owners } = await supabase
@@ -41,18 +42,22 @@ export async function GET() {
         totalSupply: 10000,
         totalMinted,
         remaining,
+        foundersRemaining,
         uniqueOwners,
         progress: ((totalMinted / 10000) * 100).toFixed(2),
-        mintPriceUSD: MINT_PRICE_USD,
-        network: process.env.NEXT_PUBLIC_SOLANA_NETWORK || 'devnet',
+        mintPriceSOL: MINT_PRICE_SOL,
+        network: process.env.NEXT_PUBLIC_SOLANA_NETWORK || 'mainnet-beta',
         recentMints: recentMints || []
       },
       collection: {
         name: COLLECTION_INFO.name,
+        founderNFTs: COLLECTION_INFO.founderNFTs,
         codexSketches: COLLECTION_INFO.codexSketches,
         leonardoSelfie: COLLECTION_INFO.leonardoSelfie,
         leonardoExclusives: COLLECTION_INFO.leonardoExclusives,
-        prize: COLLECTION_INFO.prize
+        prize: COLLECTION_INFO.prize,
+        founderBenefits: COLLECTION_INFO.founderBenefits,
+        sketchBenefits: COLLECTION_INFO.sketchBenefits
       }
     })
   } catch (error) {
