@@ -1083,7 +1083,7 @@ export default function App() {
                         <div className="bg-amber-600 rounded-full w-8 h-8 flex items-center justify-center text-white font-bold flex-shrink-0">3</div>
                         <div>
                           <h3 className="text-xl font-bold text-amber-100 mb-2">Mint & Collect</h3>
-                          <p className="text-amber-100/70">Mint your Leonardo da Vinci NFT, accumulate $CAX tokens, and unlock exclusive community benefits.</p>
+                          <p className="text-amber-100/70">Mint your Leonardo da Vinci NFT and unlock exclusive community benefits.</p>
                         </div>
                       </div>
                     </CardContent>
