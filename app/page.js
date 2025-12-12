@@ -1585,22 +1585,25 @@ export default function App() {
                         <LazyMintNFT user={user} />
                       </div>
                       
-                      {/* Buy Solana */}
-                      <div className="flex flex-col sm:flex-row items-center justify-center gap-4 p-6 bg-purple-900/30 rounded-2xl border border-purple-500/50">
-                        <p className="text-white font-semibold text-lg">Need 0.5 SOL to Mint?</p>
-                        <Button 
-                          onClick={() => window.open('https://phantom.app/buy', '_blank')}
-                          size="lg"
-                          className="bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-500 hover:to-purple-600 text-white font-bold px-8 py-6 text-lg shadow-xl"
-                        >
-                          <Coins className="w-6 h-6 mr-2" />
-                          Buy SOL Instantly
-                        </Button>
+                      {/* NFT Tier Info */}
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div className="bg-gradient-to-br from-amber-900/40 to-yellow-900/40 rounded-xl p-4 border border-amber-500/50">
+                          <p className="text-amber-300 font-bold text-sm mb-2">🌟 Founder NFTs (First 500)</p>
+                          <ul className="text-amber-100/70 text-xs space-y-1">
+                            <li>✨ LIFETIME ACCESS</li>
+                            <li>📈 8% BONUS APY</li>
+                            <li>🎁 Exclusive AIRDROPS</li>
+                          </ul>
+                        </div>
+                        <div className="bg-gradient-to-br from-slate-800/60 to-slate-900/60 rounded-xl p-4 border border-slate-600/50">
+                          <p className="text-slate-300 font-bold text-sm mb-2">📜 Sketch NFTs (9,500)</p>
+                          <ul className="text-slate-100/70 text-xs space-y-1">
+                            <li>✓ Utility NFT</li>
+                            <li>✓ Voting Rights</li>
+                            <li>✓ Staking Rewards</li>
+                          </ul>
+                        </div>
                       </div>
-
-                      <p className="text-amber-100/80 text-sm">
-                        💡 <strong>Mobile Users:</strong> Open genesishq.io in your Phantom wallet's built-in browser
-                      </p>
                     </div>
                   ) : (
                     <div className="max-w-xl mx-auto">
