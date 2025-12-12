@@ -1842,15 +1842,6 @@ export default function App() {
                       <div className="text-amber-100/70 text-sm">Network</div>
                     </div>
                   </div>
-                  
-                  <Button 
-                    size="lg" 
-                    className="bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 shadow-xl"
-                    onClick={() => window.open('https://pump.fun', '_blank')}
-                  >
-                    <Gem className="w-5 h-5 mr-2" />
-                    Buy $CAX on Pump.fun
-                  </Button>
                 </div>
               </div>
 
