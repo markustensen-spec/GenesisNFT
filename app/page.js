@@ -843,7 +843,7 @@ export default function App() {
               </Button>
               <Button variant="ghost" onClick={() => setActiveTab('lounge')} className="text-amber-100 hover:text-amber-400 flex items-center">
                 <Crown className="w-4 h-4 mr-1" />
-                G Lounge
+                Caviar
               </Button>
               <Button variant="ghost" onClick={() => setActiveTab('whitepaper')} className="text-amber-100 hover:text-amber-400">
                 Whitepaper
@@ -890,7 +890,7 @@ export default function App() {
                 Minigames
               </Button>
               <Button variant="ghost" onClick={() => { setActiveTab('lounge'); setMobileMenuOpen(false) }} className="w-full text-amber-100">
-                G Lounge
+                Caviar
               </Button>
               <Button variant="ghost" onClick={() => { setActiveTab('whitepaper'); setMobileMenuOpen(false) }} className="w-full text-amber-100">
                 Whitepaper
@@ -990,7 +990,7 @@ export default function App() {
                 <Card className="bg-slate-900/50 border-amber-900/30 backdrop-blur-sm hover:border-amber-600/50 transition-all cursor-pointer" onClick={() => setActiveTab('lounge')}>
                   <CardHeader>
                     <Crown className="w-16 h-16 text-amber-500 mb-4" />
-                    <CardTitle className="text-amber-100 text-2xl">G Lounge</CardTitle>
+                    <CardTitle className="text-amber-100 text-2xl">Caviar</CardTitle>
                     <CardDescription className="text-amber-100/60 text-base">
                       Home of the Codex Collective
                     </CardDescription>
@@ -1337,7 +1337,7 @@ export default function App() {
                 <Card className="bg-slate-900/50 border-amber-900/30 text-center">
                   <CardContent className="pt-6">
                     <div className="text-3xl font-bold text-amber-400 mb-2">2x</div>
-                    <div className="text-amber-100/60 text-sm">G Lounge Boost</div>
+                    <div className="text-amber-100/60 text-sm">Caviar Boost</div>
                   </CardContent>
                 </Card>
                 <Card className="bg-slate-900/50 border-amber-900/30 text-center">
@@ -1379,7 +1379,7 @@ export default function App() {
                         <li>✓ 20% base APY</li>
                         <li>✓ +10% with NFT holder bonus</li>
                         <li>✓ +10% for 6-month lock</li>
-                        <li>✓ 2x boost for G Lounge members</li>
+                        <li>✓ 2x boost for Caviar members</li>
                       </ul>
                     </CardContent>
                   </Card>
@@ -1781,7 +1781,7 @@ export default function App() {
                 <Card className="bg-slate-900/50 border-amber-900/30 text-center">
                   <CardContent className="pt-6">
                     <div className="text-3xl font-bold text-amber-400 mb-2">2x</div>
-                    <div className="text-amber-100/60 text-sm">G Lounge Boost</div>
+                    <div className="text-amber-100/60 text-sm">Caviar Boost</div>
                   </CardContent>
                 </Card>
                 <Card className="bg-slate-900/50 border-amber-900/30 text-center">
@@ -1810,13 +1810,13 @@ export default function App() {
                 <div className="absolute inset-0 bg-gradient-to-b from-slate-950/70 via-slate-950/85 to-slate-950"></div>
                 <div className="relative text-center py-20 px-4">
                   <h2 className="text-5xl md:text-6xl font-bold text-amber-100 mb-4 drop-shadow-lg">
-                    G Lounge
+                    Caviar
                   </h2>
                   <p className="text-xl md:text-2xl text-amber-100 max-w-3xl mx-auto mb-8 drop-shadow-lg">
                     An exclusive community where Renaissance thinking meets modern innovation. Join elite visionaries, creators, and collectors in the ultimate members club.
                   </p>
                   
-                  {/* G Lounge Features - Vertical List */}
+                  {/* Caviar Features - Vertical List */}
                   <div className="max-w-2xl mx-auto space-y-4 mb-8">
                     <div className="bg-slate-900/50 border border-amber-600/30 rounded-lg p-4 backdrop-blur-sm">
                       <div className="flex items-center mb-2">
@@ -1861,7 +1861,7 @@ export default function App() {
                   
                   <Button size="lg" className="bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 shadow-xl">
                     <Crown className="w-5 h-5 mr-2" />
-                    Join G Lounge
+                    Join Caviar
                   </Button>
                 </div>
               </div>
@@ -1871,7 +1871,7 @@ export default function App() {
                 <CardContent className="p-8">
                   <h3 className="text-3xl font-bold text-amber-100 mb-4">Codex Collective</h3>
                   <p className="text-amber-100/80 text-lg leading-relaxed mb-4">
-                    The G Lounge is Genesis Nexus7&apos;s exclusive members club, housing the prestigious Codex Collective. Inspired by Leonardo da Vinci&apos;s codices—his notebooks of revolutionary ideas—this is a modern-day gathering of elite minds where Renaissance thinking meets Web3 innovation.
+                    The Caviar is Genesis Nexus7&apos;s exclusive members club, housing the prestigious Codex Collective. Inspired by Leonardo da Vinci&apos;s codices—his notebooks of revolutionary ideas—this is a modern-day gathering of elite minds where Renaissance thinking meets Web3 innovation.
                   </p>
                   <p className="text-amber-100/80 text-lg leading-relaxed">
                     Here, members share knowledge, collaborate on groundbreaking projects, and push the boundaries of what&apos;s possible in blockchain, art, and technology. This isn&apos;t just a community—it&apos;s a movement of visionaries shaping the future.
