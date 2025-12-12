@@ -896,6 +896,9 @@ export default function App() {
               <Button variant="ghost" onClick={() => { setActiveTab('lounge'); setMobileMenuOpen(false) }} className="w-full text-amber-100">
                 Caviar
               </Button>
+              <Button variant="ghost" onClick={() => { setActiveTab('codexcats'); setMobileMenuOpen(false) }} className="w-full text-amber-100">
+                Codex Cats
+              </Button>
               <Button variant="ghost" onClick={() => { setActiveTab('whitepaper'); setMobileMenuOpen(false) }} className="w-full text-amber-100">
                 Whitepaper
               </Button>
