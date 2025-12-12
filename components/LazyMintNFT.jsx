@@ -3,18 +3,21 @@
 import React, { useState, useEffect } from 'react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Loader2, CheckCircle, ExternalLink, Wallet as WalletIcon } from 'lucide-react'
+import { Loader2, CheckCircle, ExternalLink, Wallet as WalletIcon, Smartphone, AlertCircle } from 'lucide-react'
 import { Connection, PublicKey, Transaction, SystemProgram, LAMPORTS_PER_SOL } from '@solana/web3.js'
 import { SOLANA_CONFIG } from '@/lib/solana-config'
+import { COLLECTION_INFO, isFounderNFT, FOUNDER_NFT_COUNT } from '@/lib/nft-data'
 
 export default function LazyMintNFT({ user }) {
   const [minting, setMinting] = useState(false)
   const [mintedNFT, setMintedNFT] = useState(null)
   const [error, setError] = useState('')
   const [walletConnected, setWalletConnected] = useState(false)
+  const [walletAddress, setWalletAddress] = useState('')
   const [stats, setStats] = useState({
     totalMinted: 0,
-    remaining: 10000
+    remaining: 10000,
+    foundersRemaining: FOUNDER_NFT_COUNT
   })
 
   useEffect(() => {
@@ -23,12 +26,19 @@ export default function LazyMintNFT({ user }) {
   }, [])
 
   const checkWalletConnection = async () => {
-    if (typeof window !== 'undefined' && window.solana) {
-      try {
-        const response = await window.solana.connect({ onlyIfTrusted: true })
-        setWalletConnected(!!response.publicKey)
-      } catch (err) {
-        setWalletConnected(false)
+    if (typeof window !== 'undefined') {
+      // Check for any Solana wallet (Phantom, Solflare, etc)
+      const provider = window.solana || window.phantom?.solana
+      if (provider) {
+        try {
+          const response = await provider.connect({ onlyIfTrusted: true })
+          if (response.publicKey) {
+            setWalletConnected(true)
+            setWalletAddress(response.publicKey.toString())
+          }
+        } catch (err) {
+          setWalletConnected(false)
+        }
       }
     }
   }
@@ -38,7 +48,10 @@ export default function LazyMintNFT({ user }) {
       const response = await fetch('/api/nft/stats')
       const data = await response.json()
       if (data.success) {
-        setStats(data.stats)
+        setStats({
+          ...data.stats,
+          foundersRemaining: Math.max(0, FOUNDER_NFT_COUNT - (data.stats.totalMinted || 0))
+        })
       }
     } catch (err) {
       console.error('Failed to fetch stats:', err)
@@ -46,17 +59,27 @@ export default function LazyMintNFT({ user }) {
   }
 
   const connectWallet = async () => {
-    if (!window.solana) {
-      setError('Please install Phantom wallet from phantom.app')
+    // Check for any Solana wallet provider
+    const provider = window.solana || window.phantom?.solana
+    
+    if (!provider) {
+      setError('No Solana wallet found. Please install Phantom, Solflare, or another Solana wallet.')
       return
     }
 
     try {
-      await window.solana.connect()
-      setWalletConnected(true)
-      setError('')
+      const response = await provider.connect()
+      if (response.publicKey) {
+        setWalletConnected(true)
+        setWalletAddress(response.publicKey.toString())
+        setError('')
+      }
     } catch (err) {
-      setError('Failed to connect wallet')
+      if (err.code === 4001) {
+        setError('Connection rejected. Please approve the connection in your wallet.')
+      } else {
+        setError('Failed to connect wallet. Please try again.')
+      }
     }
   }
 
@@ -66,8 +89,9 @@ export default function LazyMintNFT({ user }) {
       return
     }
 
-    if (!walletConnected || !window.solana) {
-      setError('Please connect your Phantom wallet first')
+    const provider = window.solana || window.phantom?.solana
+    if (!walletConnected || !provider) {
+      setError('Please connect your Solana wallet first')
       return
     }
 
@@ -75,7 +99,7 @@ export default function LazyMintNFT({ user }) {
     setError('')
 
     try {
-      const userWallet = window.solana.publicKey.toString()
+      const userWallet = provider.publicKey.toString()
 
       // Step 1: Create payment transaction
       const connection = new Connection(SOLANA_CONFIG.RPC_URL, 'confirmed')
@@ -95,7 +119,7 @@ export default function LazyMintNFT({ user }) {
       transaction.feePayer = fromPubkey
 
       // Step 2: Sign and send payment
-      const signed = await window.solana.signTransaction(transaction)
+      const signed = await provider.signTransaction(transaction)
       const signature = await connection.sendRawTransaction(signed.serialize())
       
       // Wait for confirmation
@@ -146,6 +170,7 @@ export default function LazyMintNFT({ user }) {
   }
 
   const progress = (stats.totalMinted / 10000) * 100
+  const foundersProgress = ((FOUNDER_NFT_COUNT - stats.foundersRemaining) / FOUNDER_NFT_COUNT) * 100
 
   return (
     <div className="space-y-6">
@@ -155,10 +180,24 @@ export default function LazyMintNFT({ user }) {
           <CardTitle className="text-amber-100">Leonardo da Vinci Collection</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
-          {/* Progress Bar */}
+          {/* Founders Progress - Special highlight */}
+          <div className="bg-gradient-to-r from-amber-900/40 to-yellow-900/40 rounded-xl p-4 border border-amber-500/50">
+            <div className="flex justify-between text-sm text-amber-100 mb-2">
+              <span className="font-bold">🌟 Founder NFTs (Lifetime Access + 8% APY)</span>
+              <span className="text-amber-400 font-bold">{stats.foundersRemaining} / 500 left</span>
+            </div>
+            <div className="w-full bg-slate-800 rounded-full h-3">
+              <div 
+                className="bg-gradient-to-r from-yellow-500 to-amber-500 h-3 rounded-full transition-all duration-500"
+                style={{ width: `${foundersProgress}%` }}
+              />
+            </div>
+          </div>
+
+          {/* Total Progress */}
           <div>
             <div className="flex justify-between text-sm text-amber-100/70 mb-2">
-              <span>Minted</span>
+              <span>Total Minted</span>
               <span>{stats.totalMinted} / 10,000</span>
             </div>
             <div className="w-full bg-slate-800 rounded-full h-3">
@@ -179,24 +218,38 @@ export default function LazyMintNFT({ user }) {
 
           {/* Benefits */}
           <div className="text-sm text-amber-100/60 space-y-1">
-            <p>✓ 15% royalties on secondary sales</p>
-            <p>✓ G Lounge membership included</p>
+            <p className="text-amber-300 font-semibold">Founder NFT Benefits (First 500):</p>
+            <p>✨ LIFETIME ACCESS to all features</p>
+            <p>📈 8% BONUS APY on staking</p>
+            <p>🎁 Exclusive AIRDROPS</p>
+            <p className="text-amber-100/40 mt-2">Standard benefits for all NFTs:</p>
+            <p>✓ G Lounge membership</p>
             <p>✓ Voting rights in Codex Collective</p>
             <p>✓ Chance to win $5,000 Epic NFT</p>
           </div>
 
-          {/* Wallet Connection */}
+          {/* Wallet Connection - Single Button */}
           {!walletConnected ? (
-            <Button 
-              onClick={connectWallet}
-              className="w-full bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-500 hover:to-purple-600 h-12"
-            >
-              <WalletIcon className="w-5 h-5 mr-2" />
-              Connect Phantom Wallet
-            </Button>
+            <div className="space-y-3">
+              <Button 
+                onClick={connectWallet}
+                className="w-full bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 h-14 text-lg font-bold"
+              >
+                <WalletIcon className="w-6 h-6 mr-2" />
+                Connect Solana Wallet
+              </Button>
+              <p className="text-center text-amber-100/50 text-xs">
+                Works with Phantom, Solflare, Backpack, and other Solana wallets
+              </p>
+            </div>
           ) : (
-            <div className="text-center text-emerald-400 text-sm">
-              ✓ Wallet Connected
+            <div className="text-center space-y-2">
+              <div className="text-emerald-400 text-sm font-semibold">
+                ✓ Wallet Connected
+              </div>
+              <div className="text-amber-100/50 text-xs truncate">
+                {walletAddress.slice(0, 8)}...{walletAddress.slice(-6)}
+              </div>
             </div>
           )}
 
@@ -205,7 +258,7 @@ export default function LazyMintNFT({ user }) {
             <Button 
               onClick={handleMint}
               disabled={minting || stats.totalMinted >= 10000}
-              className="w-full bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 h-12 text-lg"
+              className="w-full bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 h-14 text-lg font-bold"
             >
               {minting ? (
                 <>
@@ -224,10 +277,26 @@ export default function LazyMintNFT({ user }) {
             </div>
           ) : null}
 
+          {/* Mobile User Notice */}
+          <div className="bg-blue-900/20 border border-blue-500/30 rounded-lg p-4">
+            <div className="flex items-start space-x-3">
+              <Smartphone className="w-5 h-5 text-blue-400 mt-0.5 flex-shrink-0" />
+              <div>
+                <p className="text-blue-300 font-semibold text-sm mb-1">Mobil bruker?</p>
+                <p className="text-blue-200/70 text-xs">
+                  Åpne denne siden i din Solana wallet sin innebygde nettleser (f.eks. Phantom browser) for best opplevelse.
+                </p>
+              </div>
+            </div>
+          </div>
+
           {/* Error Message */}
           {error && (
-            <div className="bg-red-900/20 border border-red-500/50 rounded-lg p-3 text-red-400 text-sm">
-              {error}
+            <div className="bg-red-900/20 border border-red-500/50 rounded-lg p-3">
+              <div className="flex items-start space-x-2">
+                <AlertCircle className="w-5 h-5 text-red-400 mt-0.5 flex-shrink-0" />
+                <p className="text-red-400 text-sm">{error}</p>
+              </div>
             </div>
           )}
         </CardContent>
@@ -243,6 +312,15 @@ export default function LazyMintNFT({ user }) {
               <p className="text-emerald-100/80">
                 Congratulations! Your Leonardo da Vinci NFT #{mintedNFT.nftNumber} has been minted.
               </p>
+              
+              {isFounderNFT(mintedNFT.nftNumber - 1) && (
+                <div className="bg-gradient-to-r from-amber-900/40 to-yellow-900/40 rounded-lg p-4 border border-amber-500/50">
+                  <p className="text-amber-300 font-bold">🌟 You got a FOUNDER NFT!</p>
+                  <p className="text-amber-100/70 text-sm mt-1">
+                    Lifetime Access + 8% Bonus APY + Exclusive Airdrops
+                  </p>
+                </div>
+              )}
               
               <div className="space-y-2">
                 <a 
@@ -263,30 +341,6 @@ export default function LazyMintNFT({ user }) {
                 Mint Another
               </Button>
             </div>
-          </CardContent>
-        </Card>
-      )}
-
-      {/* Install Phantom */}
-      {!window.solana && (
-        <Card className="bg-purple-900/20 border-purple-500/30">
-          <CardContent className="pt-6 text-center">
-            <WalletIcon className="w-12 h-12 mx-auto mb-3 text-purple-400" />
-            <h3 className="text-lg font-semibold text-amber-100 mb-2">
-              Phantom Wallet Required
-            </h3>
-            <p className="text-amber-100/70 mb-4">
-              Install Phantom wallet to mint NFTs
-            </p>
-            <a 
-              href="https://phantom.app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Button className="bg-purple-600 hover:bg-purple-700">
-                Install Phantom
-              </Button>
-            </a>
           </CardContent>
         </Card>
       )}
