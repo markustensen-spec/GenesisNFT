@@ -1936,7 +1936,7 @@ export default function App() {
                     <CardTitle className="text-amber-100 text-xl">Codex Collective</CardTitle>
                   </CardHeader>
                   <CardContent className="text-amber-100/70">
-                    <p className="mb-4">Where CAX holders vote for project or crazy idea to fund.</p>
+                    <p className="mb-4">Where members vote for projects or ideas to fund.</p>
                     <ul className="space-y-2 text-sm">
                       <li>✓ Community-driven funding decisions</li>
                       <li>✓ Vote on innovative projects</li>
