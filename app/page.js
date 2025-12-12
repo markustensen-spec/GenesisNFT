@@ -1664,142 +1664,64 @@ export default function App() {
                   </Card>
                 </div>
                 
-                {/* Leonardo da Vinci Selfie - EPIC with $5,000 Prize */}
-                <div className="mb-12">
-                  <Card className="bg-gradient-to-br from-purple-900/40 via-yellow-900/40 to-purple-900/40 border-4 border-yellow-500/70 overflow-hidden">
+                {/* Vitruvian Founder NFTs Showcase - 500 Available */}
+                <div className="mb-8">
+                  <h3 className="text-2xl font-bold text-amber-100 mb-6 text-center">🌟 Vitruvian Founder NFTs - 500 Available</h3>
+                  <Card className="bg-gradient-to-br from-yellow-900/30 via-amber-900/30 to-yellow-900/30 border-2 border-amber-500/50 overflow-hidden">
                     <CardContent className="p-0">
                       <div className="grid md:grid-cols-2 gap-0">
-                        <div className="relative h-96 md:h-auto">
+                        <div className="relative h-80 md:h-auto">
                           <img 
-                            src="https://customer-assets.emergentagent.com/job_genesishq-web3/artifacts/6wmd6e2c_1000004282.jpg.png" 
-                            alt="Leonardo da Vinci Selfie - EPIC 1 of 1" 
+                            src="https://customer-assets.emergentagent.com/job_d276f0f7-c89d-485a-afe5-73673e9f3f01/artifacts/19jx9ydj_Snapchat-2040080020.jpg" 
+                            alt="Vitruvian Founder NFT" 
                             className="w-full h-full object-cover"
                           />
                           <div className="absolute top-4 left-4 right-4 text-center">
-                            <div className="bg-gradient-to-r from-purple-600 via-yellow-600 to-purple-600 text-white px-6 py-3 rounded-full font-bold text-xl inline-flex items-center gap-3 shadow-2xl">
-                              <Trophy className="w-6 h-6 animate-pulse" />
-                              EPIC - 1 OF 1
-                              <Trophy className="w-6 h-6 animate-pulse" />
+                            <div className="bg-gradient-to-r from-amber-600 to-yellow-600 text-white px-6 py-3 rounded-full font-bold text-lg inline-flex items-center gap-2">
+                              <Crown className="w-5 h-5" />
+                              FOUNDER - 500 TOTAL
+                              <Crown className="w-5 h-5" />
                             </div>
                           </div>
                         </div>
-                        <div className="p-8 bg-gradient-to-br from-slate-900/95 to-slate-950/95">
-                          <h3 className="text-4xl font-bold text-yellow-300 mb-3">Leonardo da Vinci Selfie</h3>
-                          <div className="flex items-center space-x-2 mb-6">
-                            <Badge className="bg-purple-600/40 text-purple-200 border-purple-500/60 text-base px-3 py-1">EPIC</Badge>
-                            <Badge className="bg-yellow-600/40 text-yellow-200 border-yellow-500/60 text-base px-3 py-1">1 of 1</Badge>
+                        <div className="p-8 bg-gradient-to-br from-slate-900/90 to-slate-950/90">
+                          <h4 className="text-3xl font-bold text-amber-200 mb-4">Vitruvian Founder NFT</h4>
+                          <p className="text-amber-100/70 text-base mb-4">Leonardo da Vinci's iconic Vitruvian Man - First 500 minters only</p>
+                          <div className="flex gap-2 mb-6">
+                            <Badge className="bg-amber-600/30 text-amber-200 border-amber-500/50">Rare</Badge>
+                            <Badge className="bg-yellow-600/30 text-yellow-200 border-yellow-500/50">Founder</Badge>
+                            <Badge className="bg-emerald-600/30 text-emerald-200 border-emerald-500/50">500 of 10,000</Badge>
                           </div>
                           
-                          <div className="bg-gradient-to-r from-yellow-900/40 via-amber-900/40 to-yellow-900/40 border-3 border-yellow-500/70 rounded-xl p-6 mb-6 shadow-xl">
-                            <div className="flex items-center justify-center gap-3 mb-3">
-                              <Trophy className="w-10 h-10 text-yellow-400" />
-                              <h4 className="text-4xl font-bold text-yellow-300">&#36;5,000 USD</h4>
-                              <Trophy className="w-10 h-10 text-yellow-400" />
-                            </div>
-                            <p className="text-amber-100 text-center font-bold text-lg">
-                              Prize awarded to the winner!
-                            </p>
-                          </div>
-                          
-                          <p className="text-amber-100/90 mb-6 text-base leading-relaxed">
-                            The ultimate crown jewel of the entire collection! This legendary 1-of-1 EPIC NFT features Leonardo da Vinci himself. 
-                            The lucky minter receives <span className="text-yellow-400 font-bold">&#36;5,000 USD</span>, plus ultimate status and lifetime privileges 
-                            in the Codex Collective. This is a once-in-a-lifetime opportunity to own a piece of history!
-                          </p>
-                          
-                          <div className="bg-purple-900/30 border-2 border-purple-600/50 rounded-lg p-5">
-                            <h5 className="text-amber-300 font-bold mb-3 text-base">EPIC Benefits:</h5>
+                          <div className="bg-amber-900/30 border border-amber-600/50 rounded-lg p-5 mb-4">
+                            <h5 className="text-amber-300 font-bold mb-3">Founder Benefits:</h5>
                             <ul className="text-sm text-amber-100/80 space-y-2">
                               <li className="flex items-start">
-                                <Trophy className="w-4 h-4 mr-2 mt-0.5 text-yellow-400" />
-                                <span><strong>&#36;5,000 USD</strong> prize immediately upon minting</span>
-                              </li>
-                              <li className="flex items-start">
-                                <Crown className="w-4 h-4 mr-2 mt-0.5 text-yellow-400" />
-                                <span>Supreme voting power in Codex Collective</span>
-                              </li>
-                              <li className="flex items-start">
                                 <Sparkles className="w-4 h-4 mr-2 mt-0.5 text-yellow-400" />
-                                <span>Legendary status & ultimate recognition</span>
+                                <span><strong>LIFETIME ACCESS</strong> to all GenesisHQ features</span>
                               </li>
                               <li className="flex items-start">
-                                <Gem className="w-4 h-4 mr-2 mt-0.5 text-yellow-400" />
-                                <span>All standard NFT benefits + exclusive perks</span>
+                                <TrendingUp className="w-4 h-4 mr-2 mt-0.5 text-emerald-400" />
+                                <span><strong>8% BONUS APY</strong> on staking rewards</span>
+                              </li>
+                              <li className="flex items-start">
+                                <Gem className="w-4 h-4 mr-2 mt-0.5 text-purple-400" />
+                                <span><strong>Exclusive AIRDROPS</strong> for all future drops</span>
+                              </li>
+                              <li className="flex items-start">
+                                <Crown className="w-4 h-4 mr-2 mt-0.5 text-amber-400" />
+                                <span><strong>VIP Status</strong> in Codex Collective</span>
                               </li>
                             </ul>
                           </div>
+                          
+                          <p className="text-amber-100/60 text-sm">
+                            The first 500 NFTs minted will receive this exclusive Vitruvian Man artwork with premium benefits. Don't miss your chance to become a Founder!
+                          </p>
                         </div>
                       </div>
                     </CardContent>
                   </Card>
-                </div>
-                
-                {/* Ultra-Rare Leonardo da Vinci Exclusives Showcase */}
-                <div className="mb-8">
-                  <h3 className="text-2xl font-bold text-amber-100 mb-6 text-center">Leonardo da Vinci Exclusives - Only 10 Available</h3>
-                  <div className="grid md:grid-cols-2 gap-6">
-                    {/* Exclusive Design 1 */}
-                    <Card className="bg-gradient-to-br from-yellow-900/30 via-amber-900/30 to-yellow-900/30 border-2 border-amber-500/50 overflow-hidden">
-                      <CardContent className="p-0">
-                        <div className="relative h-80">
-                          <img 
-                            src="https://customer-assets.emergentagent.com/job_genesishq-web3/artifacts/xz22jrcq_Leonardo_da_Vinci_-_presumed_self-portrait_-_WGA12798.jpg" 
-                            alt="Leonardo da Vinci Exclusive - Classic Portrait" 
-                            className="w-full h-full object-cover"
-                          />
-                          <div className="absolute top-4 left-4 right-4 text-center">
-                            <div className="bg-gradient-to-r from-amber-600 to-yellow-600 text-white px-4 py-2 rounded-full font-bold text-sm inline-flex items-center gap-2">
-                              <Crown className="w-4 h-4" />
-                              ULTRA-RARE - 5 of 10
-                              <Crown className="w-4 h-4" />
-                            </div>
-                          </div>
-                        </div>
-                        <div className="p-6 bg-gradient-to-br from-slate-900/90 to-slate-950/90">
-                          <h4 className="text-xl font-bold text-amber-200 mb-2">Leonardo da Vinci Exclusive</h4>
-                          <p className="text-amber-100/70 text-sm mb-3">Classic Portrait Series - Edition 1-5 of 10</p>
-                          <div className="flex gap-2 mb-3">
-                            <Badge className="bg-amber-600/30 text-amber-200 border-amber-500/50 text-xs">Legendary</Badge>
-                            <Badge className="bg-purple-600/30 text-purple-200 border-purple-500/50 text-xs">Ultra-Rare</Badge>
-                          </div>
-                          <p className="text-amber-100/60 text-xs">
-                            One of only 10 Leonardo da Vinci Exclusive NFTs. Ultimate status and lifetime privileges in the Codex Collective.
-                          </p>
-                        </div>
-                      </CardContent>
-                    </Card>
-
-                    {/* Exclusive Design 2 */}
-                    <Card className="bg-gradient-to-br from-yellow-900/30 via-amber-900/30 to-yellow-900/30 border-2 border-amber-500/50 overflow-hidden">
-                      <CardContent className="p-0">
-                        <div className="relative h-80">
-                          <img 
-                            src="https://customer-assets.emergentagent.com/job_genesishq-web3/artifacts/gy866af7_images%20%281%29.jpeg" 
-                            alt="Leonardo da Vinci Exclusive - Renaissance Master" 
-                            className="w-full h-full object-cover"
-                          />
-                          <div className="absolute top-4 left-4 right-4 text-center">
-                            <div className="bg-gradient-to-r from-amber-600 to-yellow-600 text-white px-4 py-2 rounded-full font-bold text-sm inline-flex items-center gap-2">
-                              <Crown className="w-4 h-4" />
-                              ULTRA-RARE - 5 of 10
-                              <Crown className="w-4 h-4" />
-                            </div>
-                          </div>
-                        </div>
-                        <div className="p-6 bg-gradient-to-br from-slate-900/90 to-slate-950/90">
-                          <h4 className="text-xl font-bold text-amber-200 mb-2">Leonardo da Vinci Exclusive</h4>
-                          <p className="text-amber-100/70 text-sm mb-3">Renaissance Master Series - Edition 6-10 of 10</p>
-                          <div className="flex gap-2 mb-3">
-                            <Badge className="bg-amber-600/30 text-amber-200 border-amber-500/50 text-xs">Legendary</Badge>
-                            <Badge className="bg-purple-600/30 text-purple-200 border-purple-500/50 text-xs">Ultra-Rare</Badge>
-                          </div>
-                          <p className="text-amber-100/60 text-xs">
-                            One of only 10 Leonardo da Vinci Exclusive NFTs. Ultimate status and lifetime privileges in the Codex Collective.
-                          </p>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  </div>
                 </div>
               </div>
 
