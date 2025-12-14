@@ -1544,7 +1544,7 @@ export default function App() {
                   </Badge>
                   
                   <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-amber-200 via-amber-400 to-amber-200 bg-clip-text text-transparent drop-shadow-2xl">
-                    Leonardo da Vinci<br/>NFT Collection
+                    Leonardo Codex Atlanticus<br/>Collection
                   </h1>
                   
                   <p className="text-2xl md:text-3xl text-amber-100 mb-6 font-bold drop-shadow-lg">
