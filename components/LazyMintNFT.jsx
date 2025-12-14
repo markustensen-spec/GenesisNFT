@@ -6,7 +6,7 @@ import { Card, CardContent } from '@/components/ui/card'
 import { Loader2, CheckCircle, ExternalLink, Wallet as WalletIcon, Smartphone, AlertCircle, Plus, Minus, Gift } from 'lucide-react'
 import { Connection, PublicKey, Transaction, SystemProgram, LAMPORTS_PER_SOL } from '@solana/web3.js'
 import { SOLANA_CONFIG } from '@/lib/solana-config'
-import { ILLUMINATI_NFT_COUNT } from '@/lib/nft-data'
+import { FOUNDER_NFT_COUNT } from '@/lib/nft-data'
 
 export default function LazyMintNFT({ user }) {
   const [minting, setMinting] = useState(false)
