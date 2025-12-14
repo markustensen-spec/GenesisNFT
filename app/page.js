@@ -1540,7 +1540,7 @@ export default function App() {
                 <div className="relative text-center py-16 px-6">
                   <Badge className="mb-6 bg-amber-600 text-white border-amber-600 px-8 py-3 text-lg font-bold animate-pulse">
                     <Sparkles className="w-5 h-5 mr-2 inline" />
-                    LIVE MINTING NOW - Solana Only
+                    Live minting on Solana
                   </Badge>
                   
                   <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-amber-200 via-amber-400 to-amber-200 bg-clip-text text-transparent drop-shadow-2xl">
