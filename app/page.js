@@ -1548,7 +1548,7 @@ export default function App() {
                   </h1>
                   
                   <p className="text-2xl md:text-3xl text-amber-100 mb-6 font-bold drop-shadow-lg">
-                    500 Founders + 9,500 Sketches
+                    500 Illuminati Atlanticus + 9,500 Codex
                   </p>
                   
                   {/* Founder NFT Highlight */}
