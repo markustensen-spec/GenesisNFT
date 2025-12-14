@@ -1571,7 +1571,7 @@ export default function App() {
                       <div className="text-yellow-300 text-sm font-semibold">Special NFTs</div>
                     </div>
                     <div className="bg-gradient-to-br from-slate-800/90 to-slate-900/90 backdrop-blur-xl px-10 py-6 rounded-2xl border-3 border-slate-600/70 shadow-2xl">
-                      <div className="text-slate-300 text-lg font-bold mb-1">📜 SKETCHES</div>
+                      <div className="text-slate-300 text-lg font-bold mb-1">📜 CODEX</div>
                       <div className="text-5xl font-bold text-white mb-1">9,500</div>
                       <div className="text-slate-300 text-sm font-semibold">Utility NFTs</div>
                     </div>
