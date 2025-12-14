@@ -1554,7 +1554,7 @@ export default function App() {
                   {/* Founder NFT Highlight */}
                   <div className="bg-gradient-to-r from-amber-900/60 via-yellow-900/60 to-amber-900/60 backdrop-blur-xl px-6 py-3 rounded-xl mb-8 border border-amber-500/50 inline-block">
                     <p className="text-amber-200 font-semibold">
-                      🌟 Mint a Founder = <span className="text-yellow-300">Lifetime Access</span> + <span className="text-emerald-300">8% Bonus APY</span> + <span className="text-purple-300">Airdrops</span>
+                      🌟 Mint an Illuminati Atlanticus = <span className="text-yellow-300">Lifetime Access</span> + <span className="text-emerald-300">8% Bonus APY</span> + <span className="text-purple-300">Airdrops</span>
                     </p>
                   </div>
 
