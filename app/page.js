@@ -1676,7 +1676,7 @@ export default function App() {
                           <p className="text-amber-100/70 text-base mb-4">Leonardo da Vinci's iconic Vitruvian Man - First 500 minters only</p>
                           <div className="flex gap-2 mb-6">
                             <Badge className="bg-amber-600/30 text-amber-200 border-amber-500/50">Rare</Badge>
-                            <Badge className="bg-yellow-600/30 text-yellow-200 border-yellow-500/50">Founder</Badge>
+                            <Badge className="bg-yellow-600/30 text-yellow-200 border-yellow-500/50">Illuminati Atlanticus</Badge>
                             <Badge className="bg-emerald-600/30 text-emerald-200 border-emerald-500/50">500 of 10,000</Badge>
                           </div>
                           
