@@ -1703,7 +1703,7 @@ export default function App() {
                           </div>
                           
                           <p className="text-amber-100/60 text-sm">
-                            The first 500 NFTs minted will receive this exclusive Vitruvian Man artwork with premium benefits. Don't miss your chance to become a Founder!
+                            Minting is completely random! Every mint has a chance to receive this exclusive Vitruvian Founder NFT with premium benefits. Only 500 exist in the collection.
                           </p>
                         </div>
                       </div>
