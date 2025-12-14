@@ -6,7 +6,7 @@ import { Card, CardContent } from '@/components/ui/card'
 import { Loader2, CheckCircle, ExternalLink, Wallet as WalletIcon, Smartphone, AlertCircle, Plus, Minus, Gift } from 'lucide-react'
 import { Connection, PublicKey, Transaction, SystemProgram, LAMPORTS_PER_SOL } from '@solana/web3.js'
 import { SOLANA_CONFIG } from '@/lib/solana-config'
-import { FOUNDER_NFT_COUNT } from '@/lib/nft-data'
+import { ILLUMINATI_NFT_COUNT } from '@/lib/nft-data'
 
 export default function LazyMintNFT({ user }) {
   const [minting, setMinting] = useState(false)
@@ -19,7 +19,7 @@ export default function LazyMintNFT({ user }) {
   const [stats, setStats] = useState({
     totalMinted: 0,
     remaining: 10000,
-    foundersRemaining: FOUNDER_NFT_COUNT
+    foundersRemaining: ILLUMINATI_NFT_COUNT
   })
 
   useEffect(() => {
@@ -170,12 +170,12 @@ export default function LazyMintNFT({ user }) {
 
   const totalPrice = (SOLANA_CONFIG.COLLECTION.price * quantity).toFixed(2)
   const progress = (stats.totalMinted / 10000) * 100
-  const foundersProgress = ((FOUNDER_NFT_COUNT - stats.foundersRemaining) / FOUNDER_NFT_COUNT) * 100
+  const foundersProgress = ((ILLUMINATI_NFT_COUNT - stats.foundersRemaining) / ILLUMINATI_NFT_COUNT) * 100
   const maxQuantity = Math.min(10, stats.remaining)
 
   // Show minted NFTs
   if (mintedNFTs.length > 0) {
-    const founderCount = mintedNFTs.filter(n => n.type === 'FOUNDER').length
+    const founderCount = mintedNFTs.filter(n => n.type === 'ILLUMINATI').length
     const sketchCount = mintedNFTs.filter(n => n.type === 'SKETCH').length
     
     return (
@@ -187,7 +187,7 @@ export default function LazyMintNFT({ user }) {
           </h3>
           {founderCount > 0 && (
             <p className="text-amber-400 font-bold mt-2">
-              🌟 {founderCount} Founder NFT{founderCount > 1 ? 's' : ''}!
+              🌟 {founderCount} Illuminati Atlanticus{founderCount > 1 ? 's' : ''}!
             </p>
           )}
         </div>
@@ -195,23 +195,23 @@ export default function LazyMintNFT({ user }) {
         {/* NFT Cards */}
         <div className={`grid gap-4 ${mintedNFTs.length === 1 ? 'grid-cols-1' : 'grid-cols-2'}`}>
           {mintedNFTs.map((nft, idx) => (
-            <Card key={idx} className={`overflow-hidden ${nft.type === 'FOUNDER' ? 'border-2 border-amber-500' : 'border border-slate-600'}`}>
+            <Card key={idx} className={`overflow-hidden ${nft.type === 'ILLUMINATI' ? 'border-2 border-amber-500' : 'border border-slate-600'}`}>
               <div className="relative">
                 <img 
                   src={nft.image} 
                   alt={nft.name}
                   className="w-full h-48 object-cover"
                 />
-                {nft.type === 'FOUNDER' && (
+                {nft.type === 'ILLUMINATI' && (
                   <div className="absolute top-2 right-2 bg-amber-500 text-black px-2 py-1 rounded-full text-xs font-bold">
-                    🌟 FOUNDER
+                    🌟 ILLUMINATI
                   </div>
                 )}
               </div>
               <CardContent className="p-4 bg-slate-900">
                 <h4 className="font-bold text-amber-100 text-sm truncate">{nft.name}</h4>
                 <p className="text-xs text-slate-400 mt-1">#{nft.nftNumber}</p>
-                {nft.type === 'FOUNDER' && (
+                {nft.type === 'ILLUMINATI' && (
                   <div className="mt-2 text-xs text-amber-300">
                     ✨ Lifetime + 8% APY + Airdrops
                   </div>
@@ -245,7 +245,7 @@ export default function LazyMintNFT({ user }) {
       {/* Founders Progress */}
       <div className="bg-gradient-to-r from-amber-900/40 to-yellow-900/40 rounded-xl p-4 border border-amber-500/50">
         <div className="flex justify-between text-sm text-amber-100 mb-2">
-          <span className="font-bold">🌟 Founder NFTs</span>
+          <span className="font-bold">🌟 Illuminati Atlanticus</span>
           <span className="text-amber-400 font-bold">{stats.foundersRemaining} / 500 igjen</span>
         </div>
         <div className="w-full bg-slate-800 rounded-full h-3">
