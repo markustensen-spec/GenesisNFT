@@ -1681,7 +1681,7 @@ export default function App() {
                           </div>
                           
                           <div className="bg-amber-900/30 border border-amber-600/50 rounded-lg p-5 mb-4">
-                            <h5 className="text-amber-300 font-bold mb-3">Founder Benefits:</h5>
+                            <h5 className="text-amber-300 font-bold mb-3">Illuminati Atlanticus Benefits:</h5>
                             <ul className="text-sm text-amber-100/80 space-y-2">
                               <li className="flex items-start">
                                 <Sparkles className="w-4 h-4 mr-2 mt-0.5 text-yellow-400" />
