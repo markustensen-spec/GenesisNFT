@@ -1594,7 +1594,7 @@ export default function App() {
                         </ul>
                       </div>
                       <div className="bg-gradient-to-br from-slate-800/60 to-slate-900/60 rounded-xl p-4 border border-slate-600/50">
-                        <p className="text-slate-300 font-bold text-sm mb-2">📜 Sketch NFTs (9,500)</p>
+                        <p className="text-slate-300 font-bold text-sm mb-2">📜 Codex NFTs (9,500)</p>
                         <ul className="text-slate-100/70 text-xs space-y-1">
                           <li>✓ Utility NFT</li>
                           <li>✓ Voting Rights</li>
