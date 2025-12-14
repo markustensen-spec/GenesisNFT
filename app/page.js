@@ -1672,7 +1672,7 @@ export default function App() {
                           </div>
                         </div>
                         <div className="p-8 bg-gradient-to-br from-slate-900/90 to-slate-950/90">
-                          <h4 className="text-3xl font-bold text-amber-200 mb-4">Vitruvian Founder NFT</h4>
+                          <h4 className="text-3xl font-bold text-amber-200 mb-4">Illuminati Atlanticus NFT</h4>
                           <p className="text-amber-100/70 text-base mb-4">Leonardo da Vinci's iconic Vitruvian Man - First 500 minters only</p>
                           <div className="flex gap-2 mb-6">
                             <Badge className="bg-amber-600/30 text-amber-200 border-amber-500/50">Rare</Badge>
