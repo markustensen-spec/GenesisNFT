@@ -1713,23 +1713,6 @@ export default function App() {
               </div>
 
 
-              {/* Tokenomics */}
-              <div className="max-w-2xl mx-auto mb-8">
-                <Card className="bg-slate-900/50 border-amber-900/30">
-                  <CardHeader>
-                    <CardTitle className="text-amber-100">$CAX Token</CardTitle>
-                    <CardDescription className="text-amber-100/60">Caviar Token Economy</CardDescription>
-                  </CardHeader>
-                  <CardContent className="text-amber-100/70">
-                    <ul className="space-y-2">
-                      <li>• Total Supply: 1,000,000,000 $CAX</li>
-                      <li>• Utility: Staking, gaming, governance</li>
-                      <li>• NFT holders receive bonus allocation</li>
-                      <li>• Community members get premium rates</li>
-                    </ul>
-                  </CardContent>
-                </Card>
-              </div>
             </div>
           </div>
         )}
