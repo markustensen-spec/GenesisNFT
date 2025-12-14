@@ -1309,7 +1309,7 @@ export default function App() {
                     The Power of the Ecosystem
                   </Badge>
                   <h2 className="text-4xl md:text-6xl font-bold text-amber-100 mb-4 drop-shadow-lg">
-                    Caviar Token ($CAX)
+                    Caviar Token ($CAX) - Dropping February 14
                   </h2>
                   <p className="text-xl md:text-2xl text-amber-100 max-w-3xl mx-auto mb-8 drop-shadow-lg">
                     Your key to governance, staking rewards, and platform participation. Shape the future of Genesis Nexus7.
@@ -1817,7 +1817,7 @@ export default function App() {
                 <div className="absolute inset-0 bg-gradient-to-b from-slate-950/70 via-slate-950/85 to-slate-950"></div>
                 <div className="relative text-center py-20 px-4">
                   <h2 className="text-5xl md:text-6xl font-bold text-amber-100 mb-4 drop-shadow-lg">
-                    Caviar Token ($CAX)
+                    Caviar Token ($CAX) - Dropping February 14
                   </h2>
                   <p className="text-xl md:text-2xl text-amber-100 max-w-3xl mx-auto mb-8 drop-shadow-lg">
                     The governance and utility token powering the Genesis Nexus7 ecosystem
