@@ -19,7 +19,7 @@ export default function LazyMintNFT({ user }) {
   const [stats, setStats] = useState({
     totalMinted: 0,
     remaining: 10000,
-    foundersRemaining: ILLUMINATI_NFT_COUNT
+    foundersRemaining: FOUNDER_NFT_COUNT
   })
 
   useEffect(() => {
@@ -170,7 +170,7 @@ export default function LazyMintNFT({ user }) {
 
   const totalPrice = (SOLANA_CONFIG.COLLECTION.price * quantity).toFixed(2)
   const progress = (stats.totalMinted / 10000) * 100
-  const foundersProgress = ((ILLUMINATI_NFT_COUNT - stats.foundersRemaining) / ILLUMINATI_NFT_COUNT) * 100
+  const foundersProgress = ((FOUNDER_NFT_COUNT - stats.foundersRemaining) / FOUNDER_NFT_COUNT) * 100
   const maxQuantity = Math.min(10, stats.remaining)
 
   // Show minted NFTs
