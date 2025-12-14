@@ -1566,7 +1566,7 @@ export default function App() {
                       <div className="text-emerald-400 text-sm font-semibold">Solana Mainnet</div>
                     </div>
                     <div className="bg-gradient-to-br from-yellow-900/90 to-amber-950/90 backdrop-blur-xl px-10 py-6 rounded-2xl border-3 border-yellow-500/70 shadow-2xl">
-                      <div className="text-yellow-300 text-lg font-bold mb-1">🌟 FOUNDERS</div>
+                      <div className="text-yellow-300 text-lg font-bold mb-1">🌟 ILLUMINATI</div>
                       <div className="text-5xl font-bold text-white mb-1">500</div>
                       <div className="text-yellow-300 text-sm font-semibold">Special NFTs</div>
                     </div>
