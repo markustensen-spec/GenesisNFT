@@ -1315,13 +1315,13 @@ export default function App() {
                     Your key to governance, staking rewards, and platform participation. Shape the future of Genesis Nexus7.
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                    <Button size="lg" className="bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 shadow-xl">
+                    <Button size="lg" className="bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 shadow-xl" disabled>
                       <Zap className="w-5 h-5 mr-2" />
-                      Buy $CAX
+                      Live February 14
                     </Button>
-                    <Button size="lg" variant="outline" className="border-amber-600 text-amber-400 hover:bg-amber-600/10 backdrop-blur-sm">
+                    <Button size="lg" variant="outline" className="border-amber-600 text-amber-400 hover:bg-amber-600/10 backdrop-blur-sm" disabled>
                       <Trophy className="w-5 h-5 mr-2" />
-                      Stake Now
+                      Live February 14
                     </Button>
                   </div>
                 </div>
