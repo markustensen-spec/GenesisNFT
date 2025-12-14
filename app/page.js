@@ -1586,7 +1586,7 @@ export default function App() {
                     {/* NFT Tier Info */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div className="bg-gradient-to-br from-amber-900/40 to-yellow-900/40 rounded-xl p-4 border border-amber-500/50">
-                        <p className="text-amber-300 font-bold text-sm mb-2">🌟 Founder NFTs (First 500)</p>
+                        <p className="text-amber-300 font-bold text-sm mb-2">🌟 Illuminati Atlanticus (500)</p>
                         <ul className="text-amber-100/70 text-xs space-y-1">
                           <li>✨ LIFETIME ACCESS</li>
                           <li>📈 8% BONUS APY</li>
