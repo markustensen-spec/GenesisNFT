@@ -348,7 +348,7 @@ export default function LazyMintNFT({ user }) {
         <div className="flex items-start space-x-2">
           <Smartphone className="w-4 h-4 text-blue-400 mt-0.5" />
           <p className="text-blue-200/70 text-xs">
-            <span className="text-blue-300 font-semibold">Mobil?</span> Åpne i Phantom/Solflare app browser
+            <span className="text-blue-300 font-semibold">Mobile?</span> Open in Phantom/Solflare app browser
           </p>
         </div>
       </div>
