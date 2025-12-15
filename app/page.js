@@ -2714,8 +2714,11 @@ function GLoungeComponent({ user }) {
                 <p className="text-xl text-amber-100/80 max-w-3xl mx-auto mb-4">
                   Web3 golf club – Premium virtual hub driven by the community, for the community.
                 </p>
-                <p className="text-amber-100/70">Caviar integrates through the ecosystem</p>
-                <p className="text-amber-400 font-semibold">$CAX release date is February 14th</p>
+                <p className="text-amber-100/70">Caviar integrates throughout the ecosystem</p>
+                <p className="text-amber-400 font-semibold mb-2">$CAX going live February 14th</p>
+                <p className="text-amber-100/60">
+                  Caviar governance token – <button onClick={() => setActiveSection('tokenomics')} className="text-amber-400 underline hover:text-amber-300">More info here</button>
+                </p>
               </div>
 
               {/* Subtle 7 Rules Link */}
