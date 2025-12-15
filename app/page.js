@@ -409,11 +409,6 @@ export default function App() {
   }
 
   const playGame = () => {
-    if (!user) {
-      alert('Please login to play the game')
-      setShowAuthModal(true)
-      return
-    }
     setActiveTab('game')
   }
 
