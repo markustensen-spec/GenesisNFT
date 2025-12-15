@@ -1017,19 +1017,19 @@ export default function App() {
                 <Card className="bg-slate-900/50 border-emerald-900/30 backdrop-blur-sm hover:border-emerald-600/50 transition-all cursor-pointer" onClick={playGame}>
                   <CardHeader>
                     <Trophy className="w-16 h-16 text-emerald-500 mb-4" />
-                    <CardTitle className="text-amber-100 text-2xl">Minigames</CardTitle>
+                    <CardTitle className="text-amber-100 text-2xl">G Lounge</CardTitle>
                     <CardDescription className="text-amber-100/60 text-base">
-                      Play & Earn
+                      All-in-One Crypto Platform
                     </CardDescription>
                   </CardHeader>
                   <CardContent className="text-amber-100/70">
-                    <p className="mb-4 text-base">Compete in exciting minigames and climb the leaderboard!</p>
+                    <p className="mb-4 text-base">Premium crypto tools, trading automation, and Play-to-Earn gaming experiences!</p>
                     <ul className="space-y-2">
-                      <li>✓ Real-time multiplayer gameplay</li>
-                      <li>✓ Earn rewards by playing</li>
-                      <li>✓ Global leaderboard rankings</li>
-                      <li>✓ Skill-based competitive matches</li>
-                      <li>✓ Daily and weekly tournaments</li>
+                      <li>✓ Codex Collective community insights</li>
+                      <li>✓ Trading Bot MAX automation</li>
+                      <li>✓ Play-to-Earn games with crypto rewards</li>
+                      <li>✓ Caviar Golf Hub (Powered by CAX)</li>
+                      <li>✓ Global leaderboards & tournaments</li>
                     </ul>
                   </CardContent>
                 </Card>
