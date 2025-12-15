@@ -2787,7 +2787,7 @@ function GLoungeComponent({ user }) {
                 <CardContent className="py-8">
                   {!showSignup ? (
                     <div className="text-center">
-                      <h3 className="text-2xl font-bold text-amber-100 mb-2">Join G Lounge</h3>
+                      <h3 className="text-2xl font-bold text-amber-100 mb-2">Join N97</h3>
                       <p className="text-amber-100/70 mb-6">Create an account to access exclusive features</p>
                       <Button 
                         onClick={() => setShowSignup(true)}
