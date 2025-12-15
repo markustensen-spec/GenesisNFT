@@ -2417,7 +2417,7 @@ function GLoungeComponent({ user }) {
               className="w-full bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 text-white font-bold py-6 text-lg"
             >
               <CheckCircle className="w-5 h-5 mr-2" />
-              I Accept the Codex 7 Rules
+              Accept
             </Button>
           </div>
         </Card>
