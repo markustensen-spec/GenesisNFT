@@ -2737,30 +2737,15 @@ function GLoungeComponent({ user }) {
                 </p>
               </div>
 
-              {/* Exclusive Club Banner */}
-              <Card className="mb-12 bg-gradient-to-r from-amber-900/40 via-slate-900/60 to-amber-900/40 border-2 border-amber-500/50 overflow-hidden">
-                <CardContent className="py-8">
-                  <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-                    <div className="flex items-center gap-4">
-                      <div className="w-16 h-16 rounded-full bg-gradient-to-br from-amber-500 to-amber-700 flex items-center justify-center border-4 border-amber-400/50">
-                        <Crown className="w-8 h-8 text-white" />
-                      </div>
-                      <div>
-                        <h3 className="text-xl font-bold text-amber-100">Welcome to the Inner Circle</h3>
-                        <p className="text-amber-300">You've accepted The Codex 7 – you are now a gentleman of G Lounge</p>
-                      </div>
-                    </div>
-                    <Button 
-                      variant="outline" 
-                      onClick={() => setShowRules(true)}
-                      className="border-amber-500/50 text-amber-300 hover:bg-amber-900/30"
-                    >
-                      <Star className="w-4 h-4 mr-2" />
-                      View Our Code
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
+              {/* Subtle 7 Rules Link */}
+              <div className="mb-8 text-center">
+                <button 
+                  onClick={() => setShowRules(true)}
+                  className="text-amber-100/40 hover:text-amber-300 text-sm underline underline-offset-4 transition-colors"
+                >
+                  View 7 Rules Gentlemen Codex
+                </button>
+              </div>
 
               <p className="text-center text-xl text-amber-200 mb-12 font-semibold">Explore our core pillars:</p>
 
@@ -2780,25 +2765,6 @@ function GLoungeComponent({ user }) {
                       <div>
                         <CardTitle className="text-2xl text-amber-100">1. Codex Collective</CardTitle>
                         <CardDescription className="text-amber-300">Community DAO, memes or business - backing the most voted on ideas</CardDescription>
-                      </div>
-                      <ChevronRight className="w-8 h-8 text-amber-400 ml-auto" />
-                    </div>
-                  </CardHeader>
-                </Card>
-
-                {/* CAX Governance Card */}
-                <Card 
-                  className="bg-gradient-to-br from-amber-900/30 to-slate-900/60 border-2 border-amber-500/50 overflow-hidden cursor-pointer hover:border-amber-400 transition-all"
-                  onClick={() => setActiveSection('governance')}
-                >
-                  <CardHeader>
-                    <div className="flex items-center gap-4">
-                      <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-amber-500 to-yellow-700 flex items-center justify-center">
-                        <Coins className="w-8 h-8 text-white" />
-                      </div>
-                      <div>
-                        <CardTitle className="text-2xl text-amber-100">$CAX Governance</CardTitle>
-                        <CardDescription className="text-amber-300">Caviar Token – The governance power behind G Lounge</CardDescription>
                       </div>
                       <ChevronRight className="w-8 h-8 text-amber-400 ml-auto" />
                     </div>
@@ -2847,23 +2813,79 @@ function GLoungeComponent({ user }) {
                 </Card>
               </div>
 
-              {/* CTA Section */}
-              <Card className="mt-12 bg-gradient-to-r from-amber-600/20 via-emerald-600/20 to-blue-600/20 border-2 border-amber-500/50">
-                <CardContent className="py-12 text-center">
-                  <h3 className="text-3xl font-bold text-amber-100 mb-4">Join the club – hold $CAX and tee off with us!</h3>
-                  <p className="text-xl text-amber-100/80 mb-6">
-                    Connect your wallet, grab CAX, and start exploring today!
-                  </p>
-                  {user ? (
-                    <Badge className="bg-emerald-600/30 text-emerald-300 px-6 py-3 text-lg border border-emerald-500/50">
-                      <CheckCircle className="w-5 h-5 mr-2 inline" />
-                      Welcome, {user.username}!
-                    </Badge>
+              {/* Sign Up Section */}
+              <Card className="mt-12 bg-gradient-to-br from-slate-900/80 to-amber-900/30 border-2 border-amber-500/30">
+                <CardContent className="py-8">
+                  {!showSignup ? (
+                    <div className="text-center">
+                      <h3 className="text-2xl font-bold text-amber-100 mb-2">Join G Lounge</h3>
+                      <p className="text-amber-100/70 mb-6">Create an account to access exclusive features</p>
+                      <Button 
+                        onClick={() => setShowSignup(true)}
+                        size="lg" 
+                        className="bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600"
+                      >
+                        <UserPlus className="w-5 h-5 mr-2" />
+                        Create Account
+                      </Button>
+                    </div>
                   ) : (
-                    <Button size="lg" className="bg-gradient-to-r from-amber-600 to-emerald-600 hover:from-amber-500 hover:to-emerald-500 text-white px-8">
-                      <Wallet className="w-5 h-5 mr-2" />
-                      Connect Wallet
-                    </Button>
+                    <div className="max-w-md mx-auto">
+                      <h3 className="text-2xl font-bold text-amber-100 mb-6 text-center">Create Account</h3>
+                      <div className="space-y-4">
+                        <div>
+                          <Label className="text-amber-100 mb-2 block">Username</Label>
+                          <Input 
+                            value={signupUsername}
+                            onChange={(e) => setSignupUsername(e.target.value)}
+                            placeholder="Choose a username"
+                            className="bg-slate-800/50 border-amber-600/30 text-amber-100"
+                          />
+                        </div>
+                        <div>
+                          <Label className="text-amber-100 mb-2 block">Email</Label>
+                          <Input 
+                            type="email"
+                            value={signupEmail}
+                            onChange={(e) => setSignupEmail(e.target.value)}
+                            placeholder="your@email.com"
+                            className="bg-slate-800/50 border-amber-600/30 text-amber-100"
+                          />
+                        </div>
+                        <div className="flex items-start gap-3 py-2">
+                          <input 
+                            type="checkbox" 
+                            id="emailOptIn"
+                            checked={emailOptIn}
+                            onChange={(e) => setEmailOptIn(e.target.checked)}
+                            className="mt-1 w-4 h-4 rounded border-amber-600/50 bg-slate-800/50 text-amber-600 focus:ring-amber-500"
+                          />
+                          <label htmlFor="emailOptIn" className="text-amber-100/70 text-sm">
+                            Join G Lounge email club for updates about $CAX release and general announcements
+                          </label>
+                        </div>
+                        {signupStatus && (
+                          <p className={`text-sm text-center ${signupStatus.includes('Welcome') ? 'text-emerald-400' : 'text-amber-400'}`}>
+                            {signupStatus}
+                          </p>
+                        )}
+                        <div className="flex gap-3 pt-2">
+                          <Button 
+                            variant="outline"
+                            onClick={() => setShowSignup(false)}
+                            className="flex-1 border-amber-600/50 text-amber-300"
+                          >
+                            Cancel
+                          </Button>
+                          <Button 
+                            onClick={handleGLoungeSignup}
+                            className="flex-1 bg-gradient-to-r from-amber-600 to-amber-700"
+                          >
+                            Create Account
+                          </Button>
+                        </div>
+                      </div>
+                    </div>
                   )}
                 </CardContent>
               </Card>
