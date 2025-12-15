@@ -2764,10 +2764,20 @@ function GLoungeComponent({ user }) {
 
                 {/* 2. Trading Bot MAX */}
                 <Card 
-                  className="bg-gradient-to-br from-blue-900/30 to-slate-900/60 border-2 border-blue-500/50 overflow-hidden cursor-pointer hover:border-blue-400 transition-all"
+                  className="bg-gradient-to-br from-blue-900/30 to-slate-900/60 border-2 border-blue-500/50 overflow-hidden cursor-pointer hover:border-blue-400 transition-all relative"
                   onClick={() => setActiveSection('tradingbot')}
                 >
-                  <CardHeader>
+                  <div 
+                    className="absolute inset-0 z-0"
+                    style={{
+                      backgroundImage: 'url(/images/trading-bot-bg.jpg)',
+                      backgroundSize: 'cover',
+                      backgroundPosition: 'center'
+                    }}
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-900/80 to-blue-900/70"></div>
+                  </div>
+                  <CardHeader className="relative z-10">
                     <div className="flex items-center gap-4">
                       <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center">
                         <Zap className="w-8 h-8 text-white" />
