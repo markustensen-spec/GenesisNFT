@@ -1543,22 +1543,22 @@ export default function App() {
                     Atlanticus <span className="text-amber-400">›</span> 500
                   </p>
 
-                  {/* Price & Stats */}
-                  <div className="flex flex-wrap justify-center gap-6 mb-12">
-                    <div className="bg-gradient-to-br from-amber-900/90 to-amber-950/90 backdrop-blur-xl px-10 py-6 rounded-2xl border-3 border-amber-500/70 shadow-2xl">
-                      <div className="text-amber-300 text-lg font-bold mb-1">MINT PRICE</div>
-                      <div className="text-5xl font-bold text-white mb-1">0.5 SOL</div>
-                      <div className="text-emerald-400 text-sm font-semibold">Solana Mainnet</div>
+                  {/* Price & Stats - Compact & Elegant */}
+                  <div className="flex flex-wrap justify-center gap-3 mb-10">
+                    <div className="bg-gradient-to-br from-amber-900/80 to-amber-950/80 backdrop-blur-xl px-6 py-4 rounded-xl border border-amber-500/50 shadow-lg">
+                      <div className="text-amber-300 text-xs font-semibold uppercase tracking-wider mb-1">Mint Price</div>
+                      <div className="text-2xl font-bold text-white">0.5 SOL</div>
+                      <div className="text-emerald-400 text-xs">Solana Mainnet</div>
                     </div>
-                    <div className="bg-gradient-to-br from-yellow-900/90 to-amber-950/90 backdrop-blur-xl px-10 py-6 rounded-2xl border-3 border-yellow-500/70 shadow-2xl">
-                      <div className="text-yellow-300 text-lg font-bold mb-1">🌟 ATLANTICUS</div>
-                      <div className="text-5xl font-bold text-white mb-1">500</div>
-                      <div className="text-yellow-300 text-sm font-semibold">Special NFTs</div>
+                    <div className="bg-gradient-to-br from-yellow-900/70 to-amber-950/70 backdrop-blur-xl px-6 py-4 rounded-xl border border-yellow-500/50 shadow-lg">
+                      <div className="text-yellow-300 text-xs font-semibold uppercase tracking-wider mb-1">🌟 Atlanticus</div>
+                      <div className="text-2xl font-bold text-white">500</div>
+                      <div className="text-yellow-300/70 text-xs">Special NFTs</div>
                     </div>
-                    <div className="bg-gradient-to-br from-slate-800/90 to-slate-900/90 backdrop-blur-xl px-10 py-6 rounded-2xl border-3 border-slate-600/70 shadow-2xl">
-                      <div className="text-slate-300 text-lg font-bold mb-1">📜 CODEX</div>
-                      <div className="text-5xl font-bold text-white mb-1">9,500</div>
-                      <div className="text-slate-300 text-sm font-semibold">Utility NFTs</div>
+                    <div className="bg-gradient-to-br from-slate-800/70 to-slate-900/70 backdrop-blur-xl px-6 py-4 rounded-xl border border-slate-500/50 shadow-lg">
+                      <div className="text-slate-300 text-xs font-semibold uppercase tracking-wider mb-1">📜 Codex</div>
+                      <div className="text-2xl font-bold text-white">9,500</div>
+                      <div className="text-slate-400 text-xs">Utility NFTs</div>
                     </div>
                   </div>
 
