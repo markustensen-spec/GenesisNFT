@@ -2722,36 +2722,7 @@ function GLoungeComponent({ user }) {
               {/* Category Cards */}
               <div className="space-y-6">
                 
-                {/* 1. Codex Collective */}
-                <Card 
-                  className="bg-gradient-to-br from-amber-900/30 to-slate-900/60 border-2 border-amber-500/50 overflow-hidden cursor-pointer hover:border-amber-400 transition-all relative"
-                  onClick={() => setActiveSection('collective')}
-                >
-                  <div 
-                    className="absolute inset-0 z-0"
-                    style={{
-                      backgroundImage: 'url(/images/codex-collective-bg.jpg)',
-                      backgroundSize: 'cover',
-                      backgroundPosition: 'center'
-                    }}
-                  >
-                    <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-900/80 to-amber-900/70"></div>
-                  </div>
-                  <CardHeader className="relative z-10">
-                    <div className="flex items-center gap-4">
-                      <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-amber-600 to-amber-800 flex items-center justify-center">
-                        <Lightbulb className="w-8 h-8 text-white" />
-                      </div>
-                      <div>
-                        <CardTitle className="text-2xl text-amber-100">1. Codex Collective</CardTitle>
-                        <CardDescription className="text-amber-300">Community DAO</CardDescription>
-                      </div>
-                      <ChevronRight className="w-8 h-8 text-amber-400 ml-auto" />
-                    </div>
-                  </CardHeader>
-                </Card>
-
-                {/* 2. Trading Bot MAX */}
+                {/* 1. Trading Bot MAX */}
                 <Card 
                   className="bg-gradient-to-br from-blue-900/30 to-slate-900/60 border-2 border-blue-500/50 overflow-hidden cursor-pointer hover:border-blue-400 transition-all relative"
                   onClick={() => setActiveSection('tradingbot')}
@@ -2773,7 +2744,7 @@ function GLoungeComponent({ user }) {
                       </div>
                       <div className="flex-1">
                         <div className="flex items-center gap-3">
-                          <CardTitle className="text-2xl text-amber-100">2. Trading Bot MAX</CardTitle>
+                          <CardTitle className="text-2xl text-amber-100">1. Trading Bot MAX</CardTitle>
                           <Badge className="bg-blue-600 text-white">Coming Soon</Badge>
                         </div>
                         <CardDescription className="text-blue-300">Automated shot caller</CardDescription>
@@ -2783,7 +2754,7 @@ function GLoungeComponent({ user }) {
                   </CardHeader>
                 </Card>
 
-                {/* 3. Games */}
+                {/* 2. Games */}
                 <Card 
                   className="bg-gradient-to-br from-emerald-900/30 to-slate-900/60 border-2 border-emerald-500/50 overflow-hidden cursor-pointer hover:border-emerald-400 transition-all relative"
                   onClick={() => setActiveSection('games')}
@@ -2804,7 +2775,7 @@ function GLoungeComponent({ user }) {
                         <Trophy className="w-8 h-8 text-white" />
                       </div>
                       <div>
-                        <CardTitle className="text-2xl text-amber-100">3. Games</CardTitle>
+                        <CardTitle className="text-2xl text-amber-100">2. Games</CardTitle>
                         <CardDescription className="text-emerald-300">Golf simulation, coin flips and other minigames</CardDescription>
                       </div>
                       <ChevronRight className="w-8 h-8 text-emerald-400 ml-auto" />
