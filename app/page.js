@@ -1541,8 +1541,11 @@ export default function App() {
                     Mint your NFT
                   </h2>
                   
+                  <p className="text-xl md:text-2xl text-amber-100 mb-2 font-bold drop-shadow-lg">
+                    Genesis Codex <span className="text-amber-400">›</span> 9500
+                  </p>
                   <p className="text-xl md:text-2xl text-amber-100 mb-8 font-bold drop-shadow-lg">
-                    9500 G Codex + 500 Illuminate Atlanticus
+                    Atlanticus <span className="text-amber-400">›</span> 500
                   </p>
 
                   {/* Price & Stats */}
