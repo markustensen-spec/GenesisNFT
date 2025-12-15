@@ -812,9 +812,13 @@ export default function App() {
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-2">
-              <Crown className="w-6 h-6 md:w-8 md:h-8 text-blue-400" />
+              <img 
+                src="/images/noir-logo.png" 
+                alt="Noir Genesis 9 Logo" 
+                className="w-8 h-8 md:w-10 md:h-10 object-contain"
+              />
               <span className="text-lg md:text-xl font-semibold">
-                <span className="text-blue-400">Genesis</span> <span className="text-amber-400">Nexus7</span>
+                <span className="text-slate-300">Noir</span> <span className="text-amber-400">Genesis</span> <span className="text-red-500">9</span>
               </span>
             </div>
             
