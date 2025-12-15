@@ -1527,6 +1527,24 @@ export default function App() {
           <div className="container mx-auto px-4">
             <div className="max-w-6xl mx-auto">
               {/* MAIN MINTING HERO SECTION */}
+              {/* New Introduction */}
+              <div className="text-center mb-12">
+                <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-amber-200 via-amber-400 to-amber-200 bg-clip-text text-transparent">
+                  Leonardo Da Vinci Codex NFT Collection
+                </h1>
+                <p className="text-2xl md:text-3xl text-amber-100 font-bold mb-4">
+                  500 ultra-exclusive Illuminati Atlanticus pieces inspired by his Codex manuscripts
+                </p>
+                <div className="max-w-3xl mx-auto">
+                  <p className="text-xl text-amber-100/80 mb-4">
+                    This isn't just a drop.
+                  </p>
+                  <p className="text-xl text-amber-100/80">
+                    This is an exclusive club — the Cax Codex, a modern secret society echoing da Vinci's inner circle of patrons, apprentices, and visionaries.
+                  </p>
+                </div>
+              </div>
+
               <div className="relative mb-12 rounded-3xl overflow-hidden border-4 border-amber-600/60 shadow-2xl">
                 <div 
                   className="absolute inset-0"
@@ -1543,18 +1561,18 @@ export default function App() {
                     Live minting on Solana
                   </Badge>
                   
-                  <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-amber-200 via-amber-400 to-amber-200 bg-clip-text text-transparent drop-shadow-2xl">
-                    Leonardo Codex Atlanticus<br/>Collection
-                  </h1>
+                  <h2 className="text-4xl md:text-5xl font-bold mb-6 text-amber-100 drop-shadow-2xl">
+                    Mint Your Codex NFT
+                  </h2>
                   
-                  <p className="text-2xl md:text-3xl text-amber-100 mb-6 font-bold drop-shadow-lg">
+                  <p className="text-xl md:text-2xl text-amber-100 mb-6 font-bold drop-shadow-lg">
                     500 Illuminati Atlanticus + 9,500 Codex
                   </p>
                   
                   {/* Founder NFT Highlight */}
                   <div className="bg-gradient-to-r from-amber-900/60 via-yellow-900/60 to-amber-900/60 backdrop-blur-xl px-6 py-3 rounded-xl mb-8 border border-amber-500/50 inline-block">
                     <p className="text-amber-200 font-semibold">
-                      🌟 Mint an Illuminati Atlanticus = <span className="text-yellow-300">Lifetime Access</span> + <span className="text-emerald-300">8% Bonus APY</span> + <span className="text-purple-300">Airdrops</span>
+                      Mint an Illuminati Atlanticus = <span className="text-yellow-300">Lifetime Access</span> + <span className="text-emerald-300">8% Bonus APY</span> + <span className="text-purple-300">Airdrops</span>
                     </p>
                   </div>
 
