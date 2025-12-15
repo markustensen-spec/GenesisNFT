@@ -2576,13 +2576,6 @@ function GLoungeComponent({ user }) {
             Codex Collective
           </button>
           <button 
-            onClick={() => setActiveSection('governance')}
-            className={`w-full text-left px-4 py-3 rounded-lg transition-all flex items-center gap-3 ${activeSection === 'governance' ? 'bg-amber-600/20 text-amber-300 border border-amber-500/30' : 'text-amber-100/70 hover:bg-slate-800/50'}`}
-          >
-            <Coins className="w-5 h-5" />
-            $CAX Governance
-          </button>
-          <button 
             onClick={() => setActiveSection('tradingbot')}
             className={`w-full text-left px-4 py-3 rounded-lg transition-all flex items-center gap-3 ${activeSection === 'tradingbot' ? 'bg-blue-600/20 text-blue-300 border border-blue-500/30' : 'text-amber-100/70 hover:bg-slate-800/50'}`}
           >
