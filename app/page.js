@@ -2732,7 +2732,7 @@ function GLoungeComponent({ user }) {
                 </button>
               </div>
 
-              <p className="text-center text-xl text-amber-200 mb-12 font-semibold">Explore our core pillars:</p>
+              <p className="text-center text-xl text-amber-200 mb-12 font-semibold">Explore:</p>
 
               {/* Category Cards */}
               <div className="space-y-6">
