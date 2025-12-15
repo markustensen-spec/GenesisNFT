@@ -1078,7 +1078,7 @@ export default function App() {
                         <div className="bg-amber-600 rounded-full w-8 h-8 flex items-center justify-center text-white font-bold flex-shrink-0">2</div>
                         <div>
                           <h3 className="text-xl font-bold text-amber-100 mb-2">Explore & Engage</h3>
-                          <p className="text-amber-100/70">Browse Leonardo NFTs, track live investments, join the Codex Collective community, and play Minigames.</p>
+                          <p className="text-amber-100/70">Browse Leonardo NFTs, track live investments, join the Codex Collective community, and explore G Lounge.</p>
                         </div>
                       </div>
                     </CardContent>
