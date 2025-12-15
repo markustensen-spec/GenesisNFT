@@ -1643,7 +1643,7 @@ export default function App() {
                 
                 {/* Vitruvian Founder NFTs Showcase - 500 Available */}
                 <div className="mb-8">
-                  <h3 className="text-2xl font-bold text-amber-100 mb-6 text-center">🌟 Illuminati Atlanticus NFTs - 500 Available</h3>
+                  <h3 className="text-2xl font-bold text-amber-100 mb-6 text-center">🌟 Atlanticus NFTs - 500 Available</h3>
                   <Card className="bg-gradient-to-br from-yellow-900/30 via-amber-900/30 to-yellow-900/30 border-2 border-amber-500/50 overflow-hidden">
                     <CardContent className="p-0">
                       <div className="grid md:grid-cols-2 gap-0">
