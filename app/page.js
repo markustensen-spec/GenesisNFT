@@ -3301,7 +3301,7 @@ function GLoungeComponent({ user }) {
                 <div className="w-20 h-20 mx-auto mb-4 rounded-xl bg-gradient-to-br from-purple-600 to-purple-800 flex items-center justify-center">
                   <Coins className="w-10 h-10 text-white" />
                 </div>
-                <h1 className="text-4xl md:text-5xl font-bold text-amber-100 mb-4">$CAX Tokenomics Overview</h1>
+                <h1 className="text-4xl md:text-5xl font-bold text-amber-100 mb-4">$Caviar Tokenomics Overview</h1>
                 <p className="text-xl text-purple-300">Powering the G Lounge Ecosystem</p>
               </div>
               
