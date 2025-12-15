@@ -2685,14 +2685,6 @@ function GLoungeComponent({ user }) {
                 Collective
               </Button>
               <Button 
-                variant={activeSection === 'governance' ? 'default' : 'outline'}
-                onClick={() => setActiveSection('governance')}
-                className={activeSection === 'governance' ? 'bg-amber-600' : 'border-amber-600/50 text-amber-400'}
-                size="sm"
-              >
-                $CAX
-              </Button>
-              <Button 
                 variant={activeSection === 'tradingbot' ? 'default' : 'outline'}
                 onClick={() => setActiveSection('tradingbot')}
                 className={activeSection === 'tradingbot' ? 'bg-blue-600' : 'border-blue-600/50 text-blue-400'}
