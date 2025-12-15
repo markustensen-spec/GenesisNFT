@@ -3233,7 +3233,7 @@ function GLoungeComponent({ user }) {
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent"></div>
                 <div className="absolute bottom-0 left-0 right-0 p-8 text-center">
                   <h1 className="text-4xl md:text-5xl font-bold text-amber-100 mb-4">Games</h1>
-                  <p className="text-xl text-emerald-300">Golf sim, minigames and coin-flip</p>
+                  <p className="text-xl text-emerald-300">Golf simulation, coin flips and other minigames</p>
                 </div>
               </div>
               
