@@ -20,7 +20,7 @@ To make email verification work correctly, you need to add the following URLs to
    
    ```
    https://genesis-production-6396.up.railway.app/auth/callback
-   https://genesis-nft.preview.emergentagent.com/auth/callback
+   https://nexus-noir.preview.emergentagent.com/auth/callback
    http://localhost:3000/auth/callback
    ```
 
@@ -47,5 +47,5 @@ To make email verification work correctly, you need to add the following URLs to
 
 - **Supabase URL:** https://kpdwzbxanqrslupyslkw.supabase.co
 - **Production URL:** https://genesis-production-6396.up.railway.app
-- **Preview URL:** https://genesis-nft.preview.emergentagent.com
+- **Preview URL:** https://nexus-noir.preview.emergentagent.com
 - **Callback Route:** `/auth/callback`

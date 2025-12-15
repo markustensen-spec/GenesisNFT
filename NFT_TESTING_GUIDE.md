@@ -70,22 +70,22 @@ Test different NFT types:
 
 ```bash
 # Regular Codex Sketch
-curl https://genesis-nft.preview.emergentagent.com/api/nft/metadata/100
+curl https://nexus-noir.preview.emergentagent.com/api/nft/metadata/100
 
 # Mystery Blank Page (if lucky!)
-curl https://genesis-nft.preview.emergentagent.com/api/nft/metadata/1
+curl https://nexus-noir.preview.emergentagent.com/api/nft/metadata/1
 
 # Epic Leonardo Selfie ($5K prize)
-curl https://genesis-nft.preview.emergentagent.com/api/nft/metadata/9990
+curl https://nexus-noir.preview.emergentagent.com/api/nft/metadata/9990
 
 # Legendary Exclusive
-curl https://genesis-nft.preview.emergentagent.com/api/nft/metadata/9995
+curl https://nexus-noir.preview.emergentagent.com/api/nft/metadata/9995
 ```
 
 ### B. Check Collection Stats
 
 ```bash
-curl https://genesis-nft.preview.emergentagent.com/api/nft/stats
+curl https://nexus-noir.preview.emergentagent.com/api/nft/stats
 ```
 
 Should show:

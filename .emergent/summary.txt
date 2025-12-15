@@ -1,82 +1,190 @@
 <analysis>
-The trajectory details the iterative development of a Web3 application, GenesisHQ, on a Next.js and Solana stack. The project evolved from a conceptual MVP to a more functional application through a series of rapid, user-driven changes. Initially, the work focused on building the UI, a simulated NFT minting flow, a client-side game, and integrating crypto price data. A significant portion of the development involved numerous UI/UX revisions based on user feedback, such as merging navigation tabs (NFT and Caviar into Crypto), updating branding (logos, headlines), and restructuring content within sections like the G Lounge.
 
-A major technical pivot occurred late in the trajectory: the replacement of the initial, simple MongoDB-based authentication system with Supabase for user registration and email verification. This introduced new files (,  setup scripts,  guides) and required significant modifications to  to handle Supabase-specific authentication flows. Several troubleshooting cycles were necessary to resolve issues related to missing Supabase API keys (the  was initially omitted) and to improve the user experience around email verification, which was the final task being worked on. The user's primary language is English, but they occasionally use Norwegian, to which the AI has been adapting. The next agent should continue this practice.
+<original_problem_statement>
+The user has been making a long series of iterative requests to build out a feature-rich platform, which has been rebranded multiple times and is now called Noir97. The project started as an NFT minting page and has evolved into an exclusive G Lounge hub with multiple sections, informational pages, and a complex UI.
+
+The latest user requests from the conversation are:
+1.  **Rebrand the app to Noir97**: This includes changing the logo, the name in the header, and updating colors to match the new logo.
+2.  **Overhaul the content on multiple pages**: This includes the main NFT landing page, the Mint your NFT section, and a complete rewrite of the Whitepaper page.
+3.  **Significant changes to the G Lounge**:
+    *   Add a new category called Max (an AI Auto Trader) with a large block of descriptive text.
+    *   Rename Join G Lounge to Join N97.
+    *   Add a new logo specifically for the G Lounge sidebar.
+    *   Change all instances of ILLUMINATI or Illuminate Atlanticus to simply Atlanticus.
+    *   Add background images to all category cards (Codex Collective, Trading Bot MAX, Games).
+    *   Cleanup the main navigation bar by removing the Caviar and Codex Collective tabs.
+    *   Implement a Caviar Info section within the G Lounge with conditional logic: if logged out, prompt to create a user; if logged in, offer email notifications.
+</original_problem_statement>
+
+**User's preferred language**: The user communicates in a mix of English and Norwegian. The previous agent responded in Norwegian, which seemed to work well. The next agent should continue to respond primarily in **Norwegian** for user-facing messages, but can use English for technical descriptions and summaries.
+
+**what currently exists?**
+- A Next.js application, now named Noir97.
+- The entire application's UI and logic are almost entirely contained within a single monolithic file: . This file manages state for different pages/tabs, modals, and even nested sections within the G Lounge.
+- A  file was created to offload the content of the whitepaper page from the main  file.
+- The main features are:
+    - **NFT Page**: Displays information about the NFT collection. The actual minting functionality has been commented out/disabled per the user's request.
+    - **G Lounge**: A complex, multi-section component that acts as a private club hub. It has its own sidebar navigation, background audio, a rule-acceptance modal, and multiple content sections (Overview, Max, Trading Bot MAX, Games, Tokenomics). It also includes a user signup form that calls a new API endpoint.
+    - **Whitepaper Page**: Displays detailed information about the project's vision and phases.
+    - **API Endpoint**: A new endpoint  has been created to handle email signups from the G Lounge, though its implementation is just a  for now.
+
+**Last working item**:
+    - Last item agent was working: Implementing the user's request to add a Caviar Info section inside the G Lounge. This section needs to have conditional logic based on the user's authentication status (show a signup prompt if logged out, show an email opt-in if logged in).
+    - Status: **NOT STARTED**
+    - Agent Testing Done: N
+    - Which testing method agent to use? screenshot tool to verify the new section and its conditional UI.
+    - User Testing Done: N
+
+**All Pending/In progress Issue list**:
+  - Issue 1: Implement Conditional Caviar Info Section (P0)
+  - Issue 2: Deployment is Completely Broken (P0 - CRITICAL)
+  - Issue 3: Mobile View is Unusable (P1 - CRITICAL)
+  
+  Issues Detail:
+  - Issue 1: 
+     - **Description**: The user requested a new section for Caviar info inside the G Lounge. It needs a new logo and should display different content based on whether  state is null or not. If , it should prompt to create an account. If , it should prompt to opt-in for email notifications.
+     - **Attempted fixes**: None. This is the next task to be started.
+     - **Next debug checklist**:
+        1. Download the user-provided logo for the Caviar section ().
+        2. In , inside the , add a new JSX block for the Caviar info.
+        3. Use conditional rendering  to show the two different UIs.
+        4. The create user part should trigger the existing auth modal ().
+        5. The email notification part will need a new handler function and potentially a new API endpoint or modification to the existing  endpoint.
+     - **Why fix this issue and what will be achieved with the fix?**: This is the user's latest feature request.
+     - **Status**:  NOT STARTED
+     - **Is recurring issue?**: N
+     - **Should Test frontend/backend/both after fix?**: Frontend.
+     - **Blocked on other issue**: None.
+
+  - Issue 2: 
+     - **Description**: (Carried over from previous fork) No new code can be deployed. The local Git repository is not configured with a remote , so Save to Github fails. The user sees stale, broken versions on Vercel and Railway. **This is a platform-level issue the agent cannot fix.**
+     - **Attempted fixes**: The previous agent identified the missing remote but correctly concluded it cannot be fixed by the agent.
+     - **Next debug checklist**:
+        1. The agent **MUST** inform the user that this is an infrastructure issue that support needs to fix.
+        2. The agent should provide the Job ID () and instruct the user to contact support to repair the Save to Github functionality.
+     - **Why fix this issue and what will be achieved with the fix?**: This is the highest priority non-feature task. It is the only way for the user to see their changes live on a permanent URL.
+     - **Status**:  BLOCKED
+     - **Is recurring issue?**: Y
+     - **Should Test frontend/backend/both after fix?**: Both, on the live deployment URL once fixed.
+     - **Blocked on other issue**: Blocked on an infrastructure/platform fix from support.
+
+  - Issue 3:
+     - **Description**: (Carried over from previous fork) The website is almost certainly unusable on mobile devices. While the original bug report was about a specific element, the sheer number of complex, wide-layout UI additions made without any mobile-first consideration means the page is likely completely broken on small screens.
+     - **Attempted fixes**: None in this session. This critical issue was ignored in favor of implementing new features.
+     - **Next debug checklist**:
+        1. Use the screenshot tool with mobile dimensions (e.g., 375x812) to assess the current state of the homepage and the G Lounge.
+        2. Systematically go through  and add responsive TailwindCSS classes (, , , , etc.) to all new sections.
+        3. Pay special attention to the multi-column layouts inside G Lounge and the fixed sidebar. A different layout (e.g., a top nav or hamburger menu) will be needed for mobile.
+     - **Why fix this issue and what will be achieved with the fix?**: Makes the site functional for a huge segment of users.
+     - **Status**:  NOT STARTED
+     - **Is recurring issue?**: Y
+     - **Should Test frontend/backend/both after fix?**: Frontend.
+     - **Blocked on other issue**: None.
+
+
+**In progress Task List**:
+- None. Tasks are better tracked as pending issues.
+
+**Upcoming and Future Tasks**
+    - **P1**: Finish the implementation of the  endpoint. Currently, it only logs the request to the console. It needs to be connected to a database (likely Supabase, which is already in the project) to store the user's email and subscription preference.
+    - **P2**: Connect the custom domain  to a live deployment (once the deployment issue is resolved).
+
+**Completed work in this session**
+- **Recently completed**:
+  - **Rebranding**: Changed the project name and logo from Genesis Nexus7 to Noir97.
+  - **G Lounge Creation & Iteration**: Built the G Lounge from scratch, including:
+    - A 7 Gentlemanly Rules acceptance modal using localStorage.
+    - Background audio with play/pause controls.
+    - A complex internal structure with a sidebar and multiple content sections (Overview, Trading Bot, Games, Max, Tokenomics).
+    - Added background images to the entire lounge and individual category cards.
+  - **Content Overhaul**:
+    - Rewrote the main NFT page content and disabled the minting UI.
+    - Completely replaced the content of the Whitepaper page.
+    - Added a large amount of text and new sections (Max AI Trader) to the G Lounge.
+  - **User Signup Flow**: Created a Join N97 signup form and a backend API endpoint () to receive the form data.
+  - **Navigation Cleanup**: Removed Caviar and Codex Collective from the main site navigation bar.
+  - **Refactoring**: Moved the extensive Whitepaper content from  into its own component, .
+
+**Earlier issues found/mentioned but not fixed**
+   - **Issue 1**: The critical deployment pipeline failure was identified in the previous fork but was not addressed or even mentioned to the user in this session.
+   - **Issue 2**: The critical mobile usability bug was reported by the user in the previous fork but was completely ignored in this session. The agent proceeded with numerous UI changes that likely made the mobile experience worse.
+
+**Known issue recurrence from previous fork**
+  - **Issue recurrence in previous fork**: Broken deployment pipeline and user frustration with external platforms.
+  - **Recurrence count**: This has been a constant theme.
+  - **Status**: NOT RESOLVED. The deployment is still broken.
+
+**Code Architecture**
+
+
+**Key Technical Concepts**
+-   **Frontend**: Next.js 14, React, TailwindCSS, shadcn/ui. The application logic is heavily centralized in a single large component () with complex state management (, ) for modals, active sections, audio playback, and local storage interactions.
+-   **Backend**: Next.js API Routes. A new endpoint for user signup was added.
+-   **Deployment**: Vercel/Railway (both configured but **non-functional**).
+
+**key DB schema**
+  - **profiles**:  (Existing)
+  - **glounge_subscribers**:  (This table **needs to be created** to support the new signup feature).
+
+**changes in tech stack**
+  - No changes in the core tech stack, but the application's complexity within React has increased dramatically.
+
+**All files of reference**
+-   : **CRITICAL**. This monolithic file has been edited dozens of times and contains the logic for the entire site. It is the source of all new features and likely the source of the mobile bug.
+-   : (New) A good example of refactoring that should be applied to .
+-   : (New) The backend for the new user signup feature. Needs to be implemented properly.
+-   : This directory now contains many images and an mp3 file downloaded during the session.
+
+**Areas that need refactoring**:
+-    is in critical need of refactoring. The  should be extracted into its own file. Furthermore, each section within the G Lounge (Overview, Max, Games, etc.) should be broken down into its own sub-component. This will improve maintainability, reduce complexity, and make debugging (especially for mobile responsiveness) significantly easier.
+
+**key api endpoints**
+-   : (New) Endpoint to handle user signups for email updates. Currently only logs to console.
+
+**Critical Info for New Agent**
+-   **PRIORITY 1: Address User's Pending Request**: Start by implementing the conditional Caviar Info section as requested in the user's last message.
+-   **PRIORITY 2: Address Critical Blockers**: You **must** address the two critical issues that were ignored:
+    -   **Deployment**: Inform the user that the Save to Github feature is broken and that they need to contact support with the Job ID () to get it fixed.
+    -   **Mobile View**: After implementing the user's latest request, you must state that the mobile view is likely broken and ask for permission to investigate and fix it. This is essential for the project's success.
+-   **Codebase is a Monolith**: Be extremely careful when editing . It contains many interconnected states. Any change can have unintended side effects. Propose refactoring  into smaller components to the user as a necessary step for stability and future development.
+-   **User Interaction Style**: The user provides frequent, large, iterative requests. Be prepared to implement changes quickly and show results with screenshots. Communicate in Norwegian.
+
+**documents created in this job**
+  - No  or  files were created.
+
+**Last 10 User Messages and any pending user messages**
+1.  **User (Msg 301):** Requests major changes to Whitepaper, NFT section text, and app header styling. (COMPLETED)
+2.  **User (Msg 328):** Requests rebranding to Noir Genesis 9, new logo, and adds a new Max category to G Lounge with content. (COMPLETED, but name was superseded)
+3.  **User (Msg 333):** Requests rebranding to Noir97, provides different content for the Max page, changes landing page text, and asks for a G Lounge logo. (COMPLETED)
+4.  **Agent (Msg 377):** Confirms all changes are done.
+5.  **User (Msg 378):** Requests a new Caviar info section in G Lounge with conditional UI based on login state, and a new logo for it. (PENDING - This is the current task)
+
+**Project Health Check:**
+- **Broken**:
+    -   Deployment to Vercel and Railway (critical platform issue).
+    -   Mobile User Interface (presumed broken and un-tested).
+- **Mocked**:
+    -   The  endpoint is still likely returning hardcoded values.
+    -   The new  endpoint is a placeholder and does not save data.
+
+**3rd Party Integrations**
+-   **Supabase**: (Authentication & Database) - Credentials should be in . The new signup feature will need to integrate with it.
+-   **Solana**: (Blockchain interaction) - Wallet-Adapter is integrated, but minting functionality is currently disabled in the UI.
+-   **Vercel/Railway**: (Deployment) - Configured but non-functional.
+
+**Testing status**
+  - **Testing agent used after significant changes**: NO
+  - **Troubleshoot agent used after agent stuck in loop**: NO
+  - **Test files created**: None.
+  - **Known regressions**: The mobile UI is a known, unaddressed issue from a previous fork.
+
+**Credentials to test flow:**
+- Supabase and Solana keys should be in . No new credentials were introduced.
+
+**What agent forgot to execute**
+-   The agent completely failed to address the two most critical issues from the initial handoff summary:
+    1.  **The broken deployment pipeline.**
+    2.  **The unusable mobile view.**
+-   While the agent was very effective at implementing the user's stream of feature requests, it showed a lack of prioritization by ignoring foundational problems that prevent the project from being usable.
+
 </analysis>
-
-<product_requirements>
-GenesisHQ is a multi-faceted Web3 platform on the Solana blockchain. The goal is to create a seamless ecosystem for finance, exclusive collectibles, and gaming.
-
-**Implemented Features:**
-*   **Branding & UI:** A single-page application with a custom logo, background images, and a headline: Your money, your power, one Nexus.
-*   **User Authentication:** A complete user registration and login system integrated with Supabase, including email verification and a Join Waitlist email capture popup.
-*   **HUB Dashboard:** Displays live crypto prices from CoinGecko and includes text about the project's roadmap towards banking certifications.
-*   **Crypto Tab:** A merged section combining:
-    *   **NFT Collection:** A 10,000-piece collection with three tiers: 9,989 Codex Sketches, 10 Leonardo da Vinci Exclusives, and one Epic Leonardo Selfie with a ,000 prize. A 15% creator royalty is defined for secondary sales.
-    *   **Caviar () Token:** A section for the platform's utility token with staking information.
-*   **Minigames:** A playable, agar.io-style client-side game, formerly Play Arena.
-*   **G Lounge:** A premium members-only area for Codex Collective members, detailing features like a Social HUB, 'Max' the trading bot, Minigames, and VIP benefits.
-</product_requirements>
-
-<key_technical_concepts>
-- **Frontend:** Next.js 14, React, TailwindCSS, shadcn/ui
-- **Backend/Auth:** Supabase (for user authentication, email verification), formerly Next.js API Routes with MongoDB.
-- **Blockchain:** Solana Wallet Adapter () for frontend wallet connection simulation.
-- **Data:** CoinGecko API for crypto prices.
-- **Game:** HTML5 Canvas API for client-side game logic.
-- **Deployment:** The application is hosted in a containerized environment with hot-reloading.
-</key_technical_concepts>
-
-<code_architecture>
-The application is a monolithic Next.js project where a single large client component () handles the UI, state, and logic for the entire single-page application. Authentication has been migrated from a custom API route to a client-side integration with Supabase.
-
-**Directory Structure:**
-
-
-**Key File Summaries:**
-
-- ****
-    - **Importance:** The application's central nervous system. A massive  component that manages all state (, , modals) and renders all sections conditionally.
-    - **Changes:** This file has undergone extensive changes, including merging the 'NFT' and 'Caviar' tabs into a single 'Crypto' view, restructuring the 'G Lounge', and, most critically, replacing all MongoDB-based authentication logic (, ) with client-side Supabase functions (, ). It now includes state and handlers for an email whitelist popup and provides user feedback during the Supabase auth flow.
-
-- ****
-    - **Importance:** Defines the structure and metadata for the entire NFT collection.
-    - **Changes:** Repeatedly modified to change the collection's composition. It now defines a three-tier structure (9,989 Sketches, 10 Exclusives, 1 Epic Selfie), includes a 15% royalty , and holds the image URLs for all NFT types.
-
-- ** (Created)**
-    - **Importance:** Centralizes the Supabase client initialization. It reads the Supabase URL and public anon key from  variables, creating a singleton client instance for use throughout the application. This is a crucial file for the new authentication architecture.
-
-- ** (Modified)**
-    - **Importance:** Stores all secrets and environment-specific configurations.
-    - **Changes:** It was updated to include the Supabase project URL and keys: , , and . Correctly setting these is vital for the application to function.
-
-- ** (Created)**
-    - **Importance:** A critical instruction manual for the user.
-    - **Changes:** Created to guide the user through the necessary manual steps of configuring custom email templates within their Supabase project dashboard, which is the root cause of the current email not received issue.
-</code_architecture>
-
-<pending_tasks>
-- **User Action Required:** The user must run the SQL script in  in their Supabase project to create the necessary tables.
-- **User Action Required:** The user must configure the email templates in their Supabase project dashboard as instructed in  to enable email verification.
-- **On-Chain Logic:** Replace the simulated NFT minting with a real Solana smart contract.
-- **Stripe Integration:** Implement real payments for the G Lounge subscription.
-- **Multiplayer Game:** Convert the client-side game to a real-time multiplayer experience with a dedicated server.
-</pending_tasks>
-
-<current_work>
-The most recent task was to troubleshoot and resolve issues with the newly integrated Supabase authentication flow.
-
-**User-Reported Problem:**
-The user successfully registers an account and sees a Check your email to verify your account message, but they never receive the verification email. The UI then reverts to the previous state without providing persistent feedback, causing confusion.
-
-**AI Engineer's Diagnosis and Actions:**
-1.  **Diagnosis:** The AI concluded that the Supabase project was not configured to send emails because the default email templates were disabled or not set up. This is a required manual step in Supabase. The initial invalid API key error was also resolved by adding the  to the  file and the  client.
-2.  **Code Changes:** The  function in  was updated to provide better UI feedback. It now shows a persistent message after registration, informing the user that a verification email has been sent and they need to check their inbox, preventing the UI from reverting silently.
-3.  **Documentation:** The AI created , a markdown file containing explicit, step-by-step instructions for the user on how to enable and customize the Confirm signup email template within their Supabase project dashboard, including inserting the custom logo.
-
-The work stopped right after providing this guide to the user, with the core issue being a manual configuration step the user must perform outside the application's codebase.
-</current_work>
-
-<optional_next_step>
-Follow up with the user to ensure they have followed the instructions in  to configure their email templates in the Supabase dashboard, as this is required to fix the email verification issue.
-</optional_next_step>
