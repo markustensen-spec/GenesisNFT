@@ -1535,7 +1535,7 @@ export default function App() {
                 </p>
                 <div className="max-w-3xl mx-auto">
                   <p className="text-xl text-amber-100/80">
-                    Modern Codex interpretation with real game utility, APY bonus, Airdrops and a community on Solana
+                    Modern Codex interpretation with real game utility, APY bonus, Airdrops' all hosted on Solana.
                   </p>
                 </div>
               </div>
