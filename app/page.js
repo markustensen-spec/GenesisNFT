@@ -2448,9 +2448,9 @@ function GLoungeComponent({ user }) {
             <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-gradient-to-br from-amber-600 to-amber-800 flex items-center justify-center">
               <Crown className="w-10 h-10 text-white" />
             </div>
-            <CardTitle className="text-3xl md:text-4xl text-amber-100 mb-2">The 7 Gentlemanly Rules of G Lounge</CardTitle>
+            <CardTitle className="text-3xl md:text-4xl text-amber-100 mb-2">7 Rules Gentlemen Codex</CardTitle>
             <CardDescription className="text-amber-300 text-lg">
-              Every member of G Lounge swears to uphold these timeless principles
+              The principles that guide every member of G Lounge
             </CardDescription>
           </CardHeader>
           <CardContent className="pt-6 space-y-4 max-h-[50vh] overflow-y-auto">
