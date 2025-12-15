@@ -2345,9 +2345,85 @@ export default function App() {
   )
 }
 
-// G Lounge Component - Welcome page with Steam-like social hub
+// G Lounge Component - Welcome page with Steam-like social hub and Codex 7 Rules
 function GLoungeComponent({ user }) {
   const [activeSection, setActiveSection] = useState('overview')
+  const [rulesAccepted, setRulesAccepted] = useState(false)
+  
+  // Check if rules were previously accepted (localStorage)
+  React.useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const accepted = localStorage.getItem('codex7_accepted')
+      if (accepted === 'true') {
+        setRulesAccepted(true)
+      }
+    }
+  }, [])
+  
+  const acceptRules = () => {
+    localStorage.setItem('codex7_accepted', 'true')
+    setRulesAccepted(true)
+  }
+  
+  // Codex 7 Rules Buffer Screen
+  if (!rulesAccepted) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-amber-950 flex items-center justify-center p-4">
+        <Card className="max-w-3xl w-full bg-slate-900/95 border-2 border-amber-600/50 shadow-2xl">
+          <CardHeader className="text-center border-b border-amber-900/30 pb-6">
+            <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-gradient-to-br from-amber-600 to-amber-800 flex items-center justify-center">
+              <Crown className="w-10 h-10 text-white" />
+            </div>
+            <CardTitle className="text-3xl md:text-4xl text-amber-100 mb-2">The 7 Gentlemanly Rules of G Lounge</CardTitle>
+            <CardDescription className="text-amber-300 text-lg">
+              Every member of G Lounge swears to uphold these timeless principles
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="pt-6 space-y-4 max-h-[50vh] overflow-y-auto">
+            <p className="text-amber-100/80 text-center mb-6 italic">
+              Fostering an environment of honor, respect, and excellence within our premier virtual golf club.
+            </p>
+            
+            {[
+              { num: 1, title: "Uncompromising Respect", desc: "Extend courtesy, dignity, and equality to every fellow member, regardless of holdings, skill, or status." },
+              { num: 2, title: "Absolute Integrity", desc: "Conduct all wagers, votes, trades, and interactions with complete honesty; deceit in any form is beneath a gentleman." },
+              { num: 3, title: "Refined Civility", desc: "Speak and write with poise and restraint; avoid profanity, personal attacks, or any discourse that diminishes the Lounge." },
+              { num: 4, title: "Generous Spirit", desc: "Share knowledge, strategies, and encouragement freely, guiding newcomers with the warmth of true camaraderie." },
+              { num: 5, title: "Relentless Pursuit of Excellence", desc: "Bring disciplined effort and sportsmanship to every game, trade, and governance decision, honoring the club through mastery." },
+              { num: 6, title: "Sacred Discretion", desc: "Guard the privacy and confidences of the Lounge and its members as an inviolable trust." },
+              { num: 7, title: "Graceful Humility", desc: "Celebrate victories modestly, accept defeats with composure, and always seek to elevate the collective above the individual." }
+            ].map((rule) => (
+              <div key={rule.num} className="flex gap-4 bg-slate-800/50 rounded-lg p-4 border border-amber-900/30">
+                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-amber-600 to-amber-700 flex items-center justify-center">
+                  <span className="text-white font-bold">{rule.num}</span>
+                </div>
+                <div>
+                  <h4 className="text-amber-200 font-bold mb-1">{rule.title}</h4>
+                  <p className="text-amber-100/70 text-sm">{rule.desc}</p>
+                </div>
+              </div>
+            ))}
+            
+            <div className="bg-gradient-to-r from-amber-900/30 to-amber-800/30 border border-amber-500/50 rounded-lg p-4 mt-6 text-center">
+              <p className="text-amber-200 italic font-semibold">
+                By these rules we stand united—gentlemen of G Lounge, bound by honor on and off the fairway
+              </p>
+            </div>
+          </CardContent>
+          <div className="p-6 border-t border-amber-900/30">
+            <Button 
+              onClick={acceptRules}
+              size="lg" 
+              className="w-full bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 text-white font-bold py-6 text-lg"
+            >
+              <CheckCircle className="w-5 h-5 mr-2" />
+              I Accept the Codex 7 Rules
+            </Button>
+          </div>
+        </Card>
+      </div>
+    )
+  }
   
   return (
     <div className="flex min-h-screen">
@@ -2355,10 +2431,10 @@ function GLoungeComponent({ user }) {
       <div className="hidden lg:flex w-72 bg-slate-950/90 border-r border-amber-900/30 flex-col">
         <div className="p-4 border-b border-amber-900/30">
           <h3 className="text-lg font-bold text-amber-100 flex items-center">
-            <Users className="w-5 h-5 mr-2 text-amber-500" />
+            <Crown className="w-5 h-5 mr-2 text-amber-500" />
             G Lounge Hub
           </h3>
-          <p className="text-xs text-amber-100/60 mt-1">Your crypto community</p>
+          <p className="text-xs text-amber-100/60 mt-1">The exclusive golf club Lounge</p>
         </div>
         
         {/* Navigation */}
@@ -2391,6 +2467,13 @@ function GLoungeComponent({ user }) {
           >
             <Trophy className="w-5 h-5" />
             Games
+          </button>
+          <button 
+            onClick={() => setActiveSection('tokenomics')}
+            className={`w-full text-left px-4 py-3 rounded-lg transition-all flex items-center gap-3 ${activeSection === 'tokenomics' ? 'bg-purple-600/20 text-purple-300 border border-purple-500/30' : 'text-amber-100/70 hover:bg-slate-800/50'}`}
+          >
+            <Coins className="w-5 h-5" />
+            $CAX Tokenomics
           </button>
         </nav>
         
@@ -2435,14 +2518,6 @@ function GLoungeComponent({ user }) {
       <div className="flex-1 overflow-auto">
         <div className="container mx-auto px-4 py-8 max-w-5xl">
           
-          {/* Welcome Header */}
-          <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl font-bold text-amber-100 mb-4">Welcome to G Lounge</h1>
-            <p className="text-xl text-amber-100/80 max-w-3xl mx-auto">
-              The all-in-one platform bringing together premium crypto tools, trading automation, and exciting Play-to-Earn gaming experiences.
-            </p>
-          </div>
-
           {/* Mobile Navigation */}
           <div className="lg:hidden mb-8 flex flex-wrap gap-2 justify-center">
             <Button 
@@ -2477,171 +2552,393 @@ function GLoungeComponent({ user }) {
             >
               Games
             </Button>
+            <Button 
+              variant={activeSection === 'tokenomics' ? 'default' : 'outline'}
+              onClick={() => setActiveSection('tokenomics')}
+              className={activeSection === 'tokenomics' ? 'bg-purple-600' : 'border-purple-600/50 text-purple-400'}
+              size="sm"
+            >
+              $CAX
+            </Button>
           </div>
 
-          <p className="text-center text-xl text-amber-200 mb-12 font-semibold">Explore our three main categories:</p>
-
-          {/* Category Cards */}
-          <div className="space-y-8">
-            
-            {/* 1. Codex Collective */}
-            <Card className="bg-gradient-to-br from-amber-900/30 to-slate-900/60 border-2 border-amber-500/50 overflow-hidden">
-              <CardHeader>
-                <div className="flex items-center gap-4">
-                  <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-amber-600 to-amber-800 flex items-center justify-center">
-                    <Lightbulb className="w-8 h-8 text-white" />
-                  </div>
-                  <div>
-                    <CardTitle className="text-2xl text-amber-100">1. Codex Collective</CardTitle>
-                    <CardDescription className="text-amber-300">The heart of G Lounge</CardDescription>
-                  </div>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <p className="text-amber-100/80 text-lg leading-relaxed">
-                  Your dedicated space for community-driven insights, advanced trading strategies, alpha calls, market analysis, and exclusive member perks.
+          {/* OVERVIEW SECTION */}
+          {activeSection === 'overview' && (
+            <>
+              {/* Welcome Header */}
+              <div className="text-center mb-12">
+                <h1 className="text-4xl md:text-5xl font-bold text-amber-100 mb-4">G Lounge – Welcome to the exclusive golf club like Lounge</h1>
+                <p className="text-xl text-amber-100/80 max-w-3xl mx-auto mb-4">
+                  G Lounge is the premier virtual hub driven by the community, for the community
                 </p>
-              </CardContent>
-            </Card>
-
-            {/* 2. Trading Bot MAX */}
-            <Card className="bg-gradient-to-br from-blue-900/30 to-slate-900/60 border-2 border-blue-500/50 overflow-hidden">
-              <CardHeader>
-                <div className="flex items-center gap-4">
-                  <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center">
-                    <Zap className="w-8 h-8 text-white" />
-                  </div>
-                  <div className="flex-1">
-                    <div className="flex items-center gap-3">
-                      <CardTitle className="text-2xl text-amber-100">2. Trading Bot MAX</CardTitle>
-                      <Badge className="bg-blue-600 text-white">Coming Soon</Badge>
-                    </div>
-                    <CardDescription className="text-blue-300">Automated Trading Solution</CardDescription>
-                  </div>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <p className="text-amber-100/80 text-lg leading-relaxed mb-6">
-                  Get ready for Trading Bot MAX – our powerful automated trading solution designed to maximize profits with minimal effort.
+                <p className="text-lg text-amber-200/70 max-w-3xl mx-auto">
+                  Hosting seamless game integration with golf simulation, MAX points, and Codex Collective's DAO.
                 </p>
-                
-                <h4 className="text-xl font-bold text-blue-300 mb-4">Features on the horizon:</h4>
-                <ul className="grid md:grid-cols-2 gap-3 text-amber-100/80">
-                  <li className="flex items-start gap-2">
-                    <TrendingUp className="w-5 h-5 text-blue-400 mt-0.5 flex-shrink-0" />
-                    <span>AI-driven strategies for spot, futures, and grid trading</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <Zap className="w-5 h-5 text-blue-400 mt-0.5 flex-shrink-0" />
-                    <span>Customizable bots with risk management tools</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <TrendingUp className="w-5 h-5 text-blue-400 mt-0.5 flex-shrink-0" />
-                    <span>Backtesting, copy trading, and multi-exchange support</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <Wallet className="w-5 h-5 text-blue-400 mt-0.5 flex-shrink-0" />
-                    <span>Seamless integration with your favorite platforms</span>
-                  </li>
-                </ul>
-                
-                <div className="mt-6 bg-blue-900/30 border border-blue-500/30 rounded-lg p-4 text-center">
-                  <p className="text-blue-200 font-semibold">Stay tuned – this game-changer launches soon!</p>
-                </div>
-              </CardContent>
-            </Card>
+              </div>
 
-            {/* 3. Games */}
-            <Card className="bg-gradient-to-br from-emerald-900/30 to-slate-900/60 border-2 border-emerald-500/50 overflow-hidden">
-              <CardHeader>
-                <div className="flex items-center gap-4">
-                  <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-emerald-600 to-emerald-800 flex items-center justify-center">
-                    <Trophy className="w-8 h-8 text-white" />
-                  </div>
-                  <div>
-                    <CardTitle className="text-2xl text-amber-100">3. Games</CardTitle>
-                    <CardDescription className="text-emerald-300">Play-to-Earn Gaming</CardDescription>
-                  </div>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <p className="text-amber-100/80 text-lg leading-relaxed mb-6">
-                  Dive into immersive Play-to-Earn gaming with real crypto rewards!
-                </p>
+              <p className="text-center text-xl text-amber-200 mb-12 font-semibold">Explore our core pillars:</p>
+
+              {/* Category Cards */}
+              <div className="space-y-8">
                 
-                {/* Caviar Golf Hub */}
-                <div className="bg-slate-800/60 rounded-xl p-6 mb-6 border border-emerald-500/30">
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center">
-                      <Trophy className="w-6 h-6 text-white" />
+                {/* 1. Codex Collective */}
+                <Card 
+                  className="bg-gradient-to-br from-amber-900/30 to-slate-900/60 border-2 border-amber-500/50 overflow-hidden cursor-pointer hover:border-amber-400 transition-all"
+                  onClick={() => setActiveSection('collective')}
+                >
+                  <CardHeader>
+                    <div className="flex items-center gap-4">
+                      <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-amber-600 to-amber-800 flex items-center justify-center">
+                        <Lightbulb className="w-8 h-8 text-white" />
+                      </div>
+                      <div>
+                        <CardTitle className="text-2xl text-amber-100">1. Codex Collective</CardTitle>
+                        <CardDescription className="text-amber-300">Community DAO, memes or business - backing the most voted on ideas</CardDescription>
+                      </div>
+                      <ChevronRight className="w-8 h-8 text-amber-400 ml-auto" />
                     </div>
-                    <div>
-                      <h4 className="text-xl font-bold text-emerald-300">Caviar Golf Hub</h4>
-                      <p className="text-amber-100/60 text-sm">Powered by CAX Token</p>
+                  </CardHeader>
+                </Card>
+
+                {/* 2. Trading Bot MAX */}
+                <Card 
+                  className="bg-gradient-to-br from-blue-900/30 to-slate-900/60 border-2 border-blue-500/50 overflow-hidden cursor-pointer hover:border-blue-400 transition-all"
+                  onClick={() => setActiveSection('tradingbot')}
+                >
+                  <CardHeader>
+                    <div className="flex items-center gap-4">
+                      <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center">
+                        <Zap className="w-8 h-8 text-white" />
+                      </div>
+                      <div className="flex-1">
+                        <div className="flex items-center gap-3">
+                          <CardTitle className="text-2xl text-amber-100">2. Trading Bot MAX</CardTitle>
+                          <Badge className="bg-blue-600 text-white">Coming Soon</Badge>
+                        </div>
+                        <CardDescription className="text-blue-300">Automated shot caller</CardDescription>
+                      </div>
+                      <ChevronRight className="w-8 h-8 text-blue-400 ml-auto" />
                     </div>
-                  </div>
-                  
-                  <p className="text-amber-100/80 mb-4">
-                    Our flagship title is a hyper-realistic golf simulation game that combines pro-level gameplay with blockchain rewards:
+                  </CardHeader>
+                </Card>
+
+                {/* 3. Games */}
+                <Card 
+                  className="bg-gradient-to-br from-emerald-900/30 to-slate-900/60 border-2 border-emerald-500/50 overflow-hidden cursor-pointer hover:border-emerald-400 transition-all"
+                  onClick={() => setActiveSection('games')}
+                >
+                  <CardHeader>
+                    <div className="flex items-center gap-4">
+                      <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-emerald-600 to-emerald-800 flex items-center justify-center">
+                        <Trophy className="w-8 h-8 text-white" />
+                      </div>
+                      <div>
+                        <CardTitle className="text-2xl text-amber-100">3. Games</CardTitle>
+                        <CardDescription className="text-emerald-300">Golf sim, minigames and coin-flip</CardDescription>
+                      </div>
+                      <ChevronRight className="w-8 h-8 text-emerald-400 ml-auto" />
+                    </div>
+                  </CardHeader>
+                </Card>
+              </div>
+
+              {/* CTA Section */}
+              <Card className="mt-12 bg-gradient-to-r from-amber-600/20 via-emerald-600/20 to-blue-600/20 border-2 border-amber-500/50">
+                <CardContent className="py-12 text-center">
+                  <h3 className="text-3xl font-bold text-amber-100 mb-4">Join the club – hold $CAX and tee off with us!</h3>
+                  <p className="text-xl text-amber-100/80 mb-6">
+                    Connect your wallet, grab CAX, and start exploring today!
+                  </p>
+                  {user ? (
+                    <Badge className="bg-emerald-600/30 text-emerald-300 px-6 py-3 text-lg border border-emerald-500/50">
+                      <CheckCircle className="w-5 h-5 mr-2 inline" />
+                      Welcome, {user.username}!
+                    </Badge>
+                  ) : (
+                    <Button size="lg" className="bg-gradient-to-r from-amber-600 to-emerald-600 hover:from-amber-500 hover:to-emerald-500 text-white px-8">
+                      <Wallet className="w-5 h-5 mr-2" />
+                      Connect Wallet
+                    </Button>
+                  )}
+                </CardContent>
+              </Card>
+            </>
+          )}
+
+          {/* CODEX COLLECTIVE SECTION */}
+          {activeSection === 'collective' && (
+            <>
+              <Button 
+                variant="ghost" 
+                onClick={() => setActiveSection('overview')}
+                className="mb-6 text-amber-400 hover:text-amber-300"
+              >
+                <ChevronRight className="w-4 h-4 mr-2 rotate-180" />
+                Back to Overview
+              </Button>
+              
+              <div className="text-center mb-12">
+                <div className="w-20 h-20 mx-auto mb-4 rounded-xl bg-gradient-to-br from-amber-600 to-amber-800 flex items-center justify-center">
+                  <Lightbulb className="w-10 h-10 text-white" />
+                </div>
+                <h1 className="text-4xl md:text-5xl font-bold text-amber-100 mb-4">Codex Collective</h1>
+                <p className="text-xl text-amber-300">Community DAO, memes or business - backing the most voted on ideas</p>
+              </div>
+              
+              <Card className="bg-gradient-to-br from-amber-900/30 to-slate-900/60 border-2 border-amber-500/50">
+                <CardContent className="p-8">
+                  <p className="text-xl text-amber-100/90 leading-relaxed mb-8">
+                    The decentralized governance DAO where <span className="text-amber-400 font-bold">$CAX</span> and <span className="text-amber-400 font-bold">NFT holders</span> propose, discuss, and vote on ecosystem decisions.
                   </p>
                   
-                  <ul className="space-y-3 text-amber-100/80 mb-6">
-                    <li className="flex items-start gap-2">
-                      <ChevronRight className="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0" />
-                      <span>Play on iconic courses with advanced physics, weather effects, and precise controls</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <ChevronRight className="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0" />
-                      <span><strong className="text-emerald-300">Global Ranking System:</strong> ELO-based leaderboards – climb ranks through skill-based matches and earn exclusive rewards</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <ChevronRight className="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0" />
-                      <span><strong className="text-emerald-300">PvP Wagering:</strong> Challenge players worldwide in head-to-head matches; wager CAX tokens on holes, rounds, or full games (provably fair, on-chain)</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <ChevronRight className="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0" />
-                      <span><strong className="text-emerald-300">Team Play:</strong> Form squads for team battles, relays, and cooperative tournaments – share strategies and split prize pools</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <ChevronRight className="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0" />
-                      <span><strong className="text-emerald-300">Quick Minigames:</strong> Closest-to-Pin, Long Drive contests, Trick Shots, and more for fast-paced fun and casual wagers</span>
-                    </li>
-                  </ul>
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div className="bg-slate-800/50 rounded-xl p-6 border border-amber-900/30">
+                      <h4 className="text-amber-200 font-bold text-lg mb-3">Propose Ideas</h4>
+                      <p className="text-amber-100/70">Submit your vision for the ecosystem - from meme campaigns to serious business ventures.</p>
+                    </div>
+                    <div className="bg-slate-800/50 rounded-xl p-6 border border-amber-900/30">
+                      <h4 className="text-amber-200 font-bold text-lg mb-3">Community Voting</h4>
+                      <p className="text-amber-100/70">Every holder gets a voice. The most supported ideas get funded and executed.</p>
+                    </div>
+                    <div className="bg-slate-800/50 rounded-xl p-6 border border-amber-900/30">
+                      <h4 className="text-amber-200 font-bold text-lg mb-3">Transparent Governance</h4>
+                      <p className="text-amber-100/70">All decisions recorded on-chain for full transparency and accountability.</p>
+                    </div>
+                    <div className="bg-slate-800/50 rounded-xl p-6 border border-amber-900/30">
+                      <h4 className="text-amber-200 font-bold text-lg mb-3">Rewards for Participation</h4>
+                      <p className="text-amber-100/70">Active voters and contributors earn bonus rewards and recognition.</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </>
+          )}
+
+          {/* TRADING BOT MAX SECTION */}
+          {activeSection === 'tradingbot' && (
+            <>
+              <Button 
+                variant="ghost" 
+                onClick={() => setActiveSection('overview')}
+                className="mb-6 text-blue-400 hover:text-blue-300"
+              >
+                <ChevronRight className="w-4 h-4 mr-2 rotate-180" />
+                Back to Overview
+              </Button>
+              
+              <div className="text-center mb-12">
+                <div className="w-20 h-20 mx-auto mb-4 rounded-xl bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center">
+                  <Zap className="w-10 h-10 text-white" />
+                </div>
+                <div className="flex items-center justify-center gap-3 mb-4">
+                  <h1 className="text-4xl md:text-5xl font-bold text-amber-100">Trading Bot MAX</h1>
+                  <Badge className="bg-blue-600 text-white text-lg px-4 py-1">Coming Soon</Badge>
+                </div>
+                <p className="text-xl text-blue-300">Automated shot caller</p>
+              </div>
+              
+              <Card className="bg-gradient-to-br from-blue-900/30 to-slate-900/60 border-2 border-blue-500/50">
+                <CardContent className="p-8">
+                  <p className="text-xl text-amber-100/90 leading-relaxed mb-8">
+                    <span className="text-blue-400 font-bold">Coming Soon</span> – Premium automated trading with MAX points for advanced features and revenue sharing.
+                  </p>
                   
-                  <div className="bg-emerald-900/30 border border-emerald-500/30 rounded-lg p-4">
-                    <p className="text-emerald-200">
+                  <h4 className="text-xl font-bold text-blue-300 mb-6">Features on the horizon:</h4>
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div className="bg-slate-800/50 rounded-xl p-6 border border-blue-900/30">
+                      <TrendingUp className="w-8 h-8 text-blue-400 mb-3" />
+                      <h4 className="text-blue-200 font-bold text-lg mb-2">AI-Driven Strategies</h4>
+                      <p className="text-amber-100/70">Spot, futures, and grid trading powered by advanced algorithms.</p>
+                    </div>
+                    <div className="bg-slate-800/50 rounded-xl p-6 border border-blue-900/30">
+                      <Zap className="w-8 h-8 text-blue-400 mb-3" />
+                      <h4 className="text-blue-200 font-bold text-lg mb-2">Customizable Bots</h4>
+                      <p className="text-amber-100/70">Risk management tools tailored to your trading style.</p>
+                    </div>
+                    <div className="bg-slate-800/50 rounded-xl p-6 border border-blue-900/30">
+                      <TrendingUp className="w-8 h-8 text-blue-400 mb-3" />
+                      <h4 className="text-blue-200 font-bold text-lg mb-2">Backtesting & Copy Trading</h4>
+                      <p className="text-amber-100/70">Test strategies historically and follow top performers.</p>
+                    </div>
+                    <div className="bg-slate-800/50 rounded-xl p-6 border border-blue-900/30">
+                      <Wallet className="w-8 h-8 text-blue-400 mb-3" />
+                      <h4 className="text-blue-200 font-bold text-lg mb-2">Multi-Exchange Support</h4>
+                      <p className="text-amber-100/70">Seamless integration with your favorite platforms.</p>
+                    </div>
+                  </div>
+                  
+                  <div className="mt-8 bg-blue-900/30 border border-blue-500/30 rounded-lg p-6 text-center">
+                    <p className="text-blue-200 font-semibold text-lg">Stay tuned – this game-changer launches soon!</p>
+                  </div>
+                </CardContent>
+              </Card>
+            </>
+          )}
+
+          {/* GAMES SECTION */}
+          {activeSection === 'games' && (
+            <>
+              <Button 
+                variant="ghost" 
+                onClick={() => setActiveSection('overview')}
+                className="mb-6 text-emerald-400 hover:text-emerald-300"
+              >
+                <ChevronRight className="w-4 h-4 mr-2 rotate-180" />
+                Back to Overview
+              </Button>
+              
+              <div className="text-center mb-12">
+                <div className="w-20 h-20 mx-auto mb-4 rounded-xl bg-gradient-to-br from-emerald-600 to-emerald-800 flex items-center justify-center">
+                  <Trophy className="w-10 h-10 text-white" />
+                </div>
+                <h1 className="text-4xl md:text-5xl font-bold text-amber-100 mb-4">Games</h1>
+                <p className="text-xl text-emerald-300">Golf sim, minigames and coin-flip</p>
+              </div>
+              
+              <Card className="bg-gradient-to-br from-emerald-900/30 to-slate-900/60 border-2 border-emerald-500/50">
+                <CardContent className="p-8">
+                  <p className="text-xl text-amber-100/90 leading-relaxed mb-8">
+                    <span className="text-emerald-400 font-bold">Golf simulation game</span> – Hyper-realistic gameplay with PvP wagers, rankings, team modes, minigames, and full <span className="text-amber-400 font-bold">$CAX</span> integration.
+                  </p>
+                  
+                  {/* Caviar Golf Hub */}
+                  <div className="bg-slate-800/60 rounded-xl p-6 mb-6 border border-emerald-500/30">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center">
+                        <Trophy className="w-6 h-6 text-white" />
+                      </div>
+                      <div>
+                        <h4 className="text-xl font-bold text-emerald-300">Caviar Golf Hub</h4>
+                        <p className="text-amber-100/60 text-sm">Powered by CAX Token</p>
+                      </div>
+                    </div>
+                    
+                    <ul className="space-y-3 text-amber-100/80">
+                      <li className="flex items-start gap-2">
+                        <ChevronRight className="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0" />
+                        <span>Play on iconic courses with advanced physics, weather effects, and precise controls</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <ChevronRight className="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0" />
+                        <span><strong className="text-emerald-300">Global Ranking System:</strong> ELO-based leaderboards – climb ranks through skill-based matches</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <ChevronRight className="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0" />
+                        <span><strong className="text-emerald-300">PvP Wagering:</strong> Challenge players worldwide; wager CAX tokens (provably fair, on-chain)</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <ChevronRight className="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0" />
+                        <span><strong className="text-emerald-300">Team Play:</strong> Form squads for team battles and split prize pools</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <ChevronRight className="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0" />
+                        <span><strong className="text-emerald-300">Quick Minigames:</strong> Closest-to-Pin, Long Drive, Trick Shots, Coin-flip and more</span>
+                      </li>
+                    </ul>
+                  </div>
+                  
+                  <div className="bg-emerald-900/30 border border-emerald-500/30 rounded-lg p-4 text-center">
+                    <p className="text-emerald-200 font-semibold">
                       Use CAX for entry fees, boosts, custom cosmetics, and instant payouts. Every swing can turn into real earnings!
                     </p>
                   </div>
-                </div>
-                
-                <p className="text-amber-100/70 text-center italic">
-                  More games in development – join now and be first on the leaderboard.
-                </p>
-              </CardContent>
-            </Card>
-          </div>
+                </CardContent>
+              </Card>
+            </>
+          )}
 
-          {/* CTA Section */}
-          <Card className="mt-12 bg-gradient-to-r from-amber-600/20 via-emerald-600/20 to-blue-600/20 border-2 border-amber-500/50">
-            <CardContent className="py-12 text-center">
-              <h3 className="text-3xl font-bold text-amber-100 mb-4">Ready to enter G Lounge?</h3>
-              <p className="text-xl text-amber-100/80 mb-6">
-                Connect your wallet, grab CAX, and start exploring today!
-              </p>
-              {user ? (
-                <Badge className="bg-emerald-600/30 text-emerald-300 px-6 py-3 text-lg border border-emerald-500/50">
-                  <CheckCircle className="w-5 h-5 mr-2 inline" />
-                  Welcome, {user.username}!
-                </Badge>
-              ) : (
-                <Button size="lg" className="bg-gradient-to-r from-amber-600 to-emerald-600 hover:from-amber-500 hover:to-emerald-500 text-white px-8">
-                  <Wallet className="w-5 h-5 mr-2" />
-                  Connect Wallet
-                </Button>
-              )}
-            </CardContent>
-          </Card>
+          {/* TOKENOMICS SECTION */}
+          {activeSection === 'tokenomics' && (
+            <>
+              <Button 
+                variant="ghost" 
+                onClick={() => setActiveSection('overview')}
+                className="mb-6 text-purple-400 hover:text-purple-300"
+              >
+                <ChevronRight className="w-4 h-4 mr-2 rotate-180" />
+                Back to Overview
+              </Button>
+              
+              <div className="text-center mb-12">
+                <div className="w-20 h-20 mx-auto mb-4 rounded-xl bg-gradient-to-br from-purple-600 to-purple-800 flex items-center justify-center">
+                  <Coins className="w-10 h-10 text-white" />
+                </div>
+                <h1 className="text-4xl md:text-5xl font-bold text-amber-100 mb-4">$CAX Tokenomics Overview</h1>
+                <p className="text-xl text-purple-300">Powering the G Lounge Ecosystem</p>
+              </div>
+              
+              <Card className="bg-gradient-to-br from-purple-900/30 to-slate-900/60 border-2 border-purple-500/50 mb-8">
+                <CardContent className="p-8">
+                  <div className="bg-purple-900/30 border border-purple-500/30 rounded-lg p-4 mb-8 text-center">
+                    <p className="text-purple-200 font-semibold text-lg">
+                      $CAX operates on the <span className="text-amber-400">Solana Network</span> for lightning-fast, low-cost transactions.
+                    </p>
+                  </div>
+                  
+                  <div className="grid md:grid-cols-2 gap-6 mb-8">
+                    <div className="bg-slate-800/50 rounded-xl p-6 border border-purple-900/30 text-center">
+                      <h4 className="text-purple-300 font-bold text-lg mb-2">Total Supply</h4>
+                      <p className="text-4xl font-bold text-amber-400">1,000,000,000</p>
+                      <p className="text-amber-100/60">(1 Billion) tokens</p>
+                    </div>
+                    <div className="bg-slate-800/50 rounded-xl p-6 border border-purple-900/30 text-center">
+                      <h4 className="text-purple-300 font-bold text-lg mb-2">Allocation Model</h4>
+                      <p className="text-4xl font-bold text-amber-400">50/50</p>
+                      <p className="text-amber-100/60">Balanced Distribution</p>
+                    </div>
+                  </div>
+                  
+                  <h4 className="text-2xl font-bold text-purple-300 mb-6">Key Mechanics:</h4>
+                  
+                  <div className="space-y-4 mb-8">
+                    <div className="bg-slate-800/50 rounded-xl p-5 border border-purple-900/30">
+                      <div className="flex items-center gap-3 mb-2">
+                        <TrendingUp className="w-6 h-6 text-emerald-400" />
+                        <h5 className="text-emerald-300 font-bold text-lg">Staking</h5>
+                      </div>
+                      <p className="text-amber-100/80">
+                        <span className="text-emerald-400 font-bold text-xl">20% Base APY</span> (funded sustainably from treasury and platform revenues)
+                      </p>
+                    </div>
+                    
+                    <div className="bg-slate-800/50 rounded-xl p-5 border border-purple-900/30">
+                      <div className="flex items-center gap-3 mb-2">
+                        <Zap className="w-6 h-6 text-amber-400" />
+                        <h5 className="text-amber-300 font-bold text-lg">Transaction Fees: 2%</h5>
+                      </div>
+                      <ul className="text-amber-100/80 space-y-2 ml-9">
+                        <li><span className="text-amber-400">1% to Treasury</span> (ecosystem growth, development, rewards)</li>
+                        <li><span className="text-red-400">1% Burned</span> (permanent supply reduction)</li>
+                      </ul>
+                    </div>
+                    
+                    <div className="bg-slate-800/50 rounded-xl p-5 border border-purple-900/30">
+                      <div className="flex items-center gap-3 mb-2">
+                        <Sparkles className="w-6 h-6 text-red-400" />
+                        <h5 className="text-red-300 font-bold text-lg">Burn Rate</h5>
+                      </div>
+                      <p className="text-amber-100/80">
+                        Ongoing deflation via transaction burns + potential manual/event burns for increasing scarcity over time
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div className="bg-gradient-to-r from-amber-900/30 to-purple-900/30 border border-amber-500/50 rounded-xl p-6 text-center">
+                    <p className="text-amber-200 text-lg leading-relaxed">
+                      This structure drives <span className="text-amber-400 font-bold">community ownership</span>, <span className="text-purple-400 font-bold">utility demand</span>, and <span className="text-emerald-400 font-bold">long-term value appreciation</span>.
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
+              
+              <Card className="bg-gradient-to-r from-amber-600/20 via-purple-600/20 to-emerald-600/20 border-2 border-amber-500/50">
+                <CardContent className="py-8 text-center">
+                  <h3 className="text-2xl font-bold text-amber-100 mb-2">Join the club – hold $CAX and tee off with us!</h3>
+                  <p className="text-3xl">⛳💎</p>
+                </CardContent>
+              </Card>
+            </>
+          )}
         </div>
       </div>
     </div>
