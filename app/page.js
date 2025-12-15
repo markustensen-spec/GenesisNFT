@@ -1551,11 +1551,6 @@ export default function App() {
                   }}
                 />
                 <div className="relative text-center py-16 px-6">
-                  <Badge className="mb-6 bg-amber-600 text-white border-amber-600 px-8 py-3 text-lg font-bold animate-pulse">
-                    <Sparkles className="w-5 h-5 mr-2 inline" />
-                    Live minting on Solana
-                  </Badge>
-                  
                   <h2 className="text-4xl md:text-5xl font-bold mb-6 text-amber-100 drop-shadow-2xl">
                     Mint your NFT
                   </h2>
