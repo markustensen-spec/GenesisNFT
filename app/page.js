@@ -811,14 +811,10 @@ export default function App() {
       <nav className="fixed top-0 w-full z-40 bg-slate-950/80 backdrop-blur-xl border-b border-amber-900/20">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-3">
-              <img 
-                src="https://customer-assets.emergentagent.com/job_genesishq-web3/artifacts/wtztw3gp_1000004278.jpg.png" 
-                alt="Genesis Nexus7 Logo" 
-                className="w-10 h-10 object-contain"
-              />
-              <span className="text-2xl font-bold bg-gradient-to-r from-amber-400 to-amber-600 bg-clip-text text-transparent">
-                Genesis Nexus7
+            <div className="flex items-center space-x-2">
+              <Crown className="w-6 h-6 md:w-8 md:h-8 text-blue-400" />
+              <span className="text-lg md:text-xl font-semibold">
+                <span className="text-blue-400">Genesis</span> <span className="text-amber-400">Nexus7</span>
               </span>
             </div>
             
