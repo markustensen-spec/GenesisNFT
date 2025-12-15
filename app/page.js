@@ -839,7 +839,7 @@ export default function App() {
                 NFT
               </Button>
               <Button variant="ghost" onClick={playGame} className="text-amber-100 hover:text-amber-400">
-                Minigames
+                G Lounge
               </Button>
               <Button variant="ghost" onClick={() => setActiveTab('lounge')} className="text-amber-100 hover:text-amber-400 flex items-center">
                 <Crown className="w-4 h-4 mr-1" />
