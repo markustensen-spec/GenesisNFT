@@ -2344,6 +2344,9 @@ export default function App() {
 function GLoungeComponent({ user }) {
   const [activeSection, setActiveSection] = useState('overview')
   const [rulesAccepted, setRulesAccepted] = useState(false)
+  const [showRules, setShowRules] = useState(false)
+  const [audioPlaying, setAudioPlaying] = useState(true)
+  const audioRef = React.useRef(null)
   
   // Check if rules were previously accepted (localStorage)
   React.useEffect(() => {
@@ -2355,10 +2358,48 @@ function GLoungeComponent({ user }) {
     }
   }, [])
   
+  // Audio player for G Lounge ambiance
+  React.useEffect(() => {
+    if (rulesAccepted && typeof window !== 'undefined') {
+      audioRef.current = new Audio('/audio/7Days.mp3')
+      audioRef.current.loop = true
+      audioRef.current.volume = 0.3
+      audioRef.current.play().catch(e => console.log('Audio autoplay prevented'))
+      
+      return () => {
+        if (audioRef.current) {
+          audioRef.current.pause()
+          audioRef.current = null
+        }
+      }
+    }
+  }, [rulesAccepted])
+  
+  const toggleAudio = () => {
+    if (audioRef.current) {
+      if (audioPlaying) {
+        audioRef.current.pause()
+      } else {
+        audioRef.current.play()
+      }
+      setAudioPlaying(!audioPlaying)
+    }
+  }
+  
   const acceptRules = () => {
     localStorage.setItem('codex7_accepted', 'true')
     setRulesAccepted(true)
   }
+  
+  const codex7Rules = [
+    { num: 1, title: "Uncompromising Respect", desc: "Extend courtesy, dignity, and equality to every fellow member, regardless of holdings, skill, or status." },
+    { num: 2, title: "Absolute Integrity", desc: "Conduct all wagers, votes, trades, and interactions with complete honesty; deceit in any form is beneath a gentleman." },
+    { num: 3, title: "Refined Civility", desc: "Speak and write with poise and restraint; avoid profanity, personal attacks, or any discourse that diminishes the Lounge." },
+    { num: 4, title: "Generous Spirit", desc: "Share knowledge, strategies, and encouragement freely, guiding newcomers with the warmth of true camaraderie." },
+    { num: 5, title: "Relentless Pursuit of Excellence", desc: "Bring disciplined effort and sportsmanship to every game, trade, and governance decision, honoring the club through mastery." },
+    { num: 6, title: "Sacred Discretion", desc: "Guard the privacy and confidences of the Lounge and its members as an inviolable trust." },
+    { num: 7, title: "Graceful Humility", desc: "Celebrate victories modestly, accept defeats with composure, and always seek to elevate the collective above the individual." }
+  ]
   
   // Codex 7 Rules Buffer Screen
   if (!rulesAccepted) {
@@ -2379,15 +2420,7 @@ function GLoungeComponent({ user }) {
               Fostering an environment of honor, respect, and excellence within our premier virtual golf club.
             </p>
             
-            {[
-              { num: 1, title: "Uncompromising Respect", desc: "Extend courtesy, dignity, and equality to every fellow member, regardless of holdings, skill, or status." },
-              { num: 2, title: "Absolute Integrity", desc: "Conduct all wagers, votes, trades, and interactions with complete honesty; deceit in any form is beneath a gentleman." },
-              { num: 3, title: "Refined Civility", desc: "Speak and write with poise and restraint; avoid profanity, personal attacks, or any discourse that diminishes the Lounge." },
-              { num: 4, title: "Generous Spirit", desc: "Share knowledge, strategies, and encouragement freely, guiding newcomers with the warmth of true camaraderie." },
-              { num: 5, title: "Relentless Pursuit of Excellence", desc: "Bring disciplined effort and sportsmanship to every game, trade, and governance decision, honoring the club through mastery." },
-              { num: 6, title: "Sacred Discretion", desc: "Guard the privacy and confidences of the Lounge and its members as an inviolable trust." },
-              { num: 7, title: "Graceful Humility", desc: "Celebrate victories modestly, accept defeats with composure, and always seek to elevate the collective above the individual." }
-            ].map((rule) => (
+            {codex7Rules.map((rule) => (
               <div key={rule.num} className="flex gap-4 bg-slate-800/50 rounded-lg p-4 border border-amber-900/30">
                 <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-amber-600 to-amber-700 flex items-center justify-center">
                   <span className="text-white font-bold">{rule.num}</span>
@@ -2421,15 +2454,58 @@ function GLoungeComponent({ user }) {
   }
   
   return (
-    <div className="flex min-h-screen">
+    <div className="flex min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-amber-950/30">
+      {/* Audio Control Button - Fixed Position */}
+      <button 
+        onClick={toggleAudio}
+        className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-gradient-to-br from-amber-600 to-amber-800 border-2 border-amber-500/50 flex items-center justify-center shadow-lg hover:scale-110 transition-transform"
+        title={audioPlaying ? 'Mute music' : 'Play music'}
+      >
+        {audioPlaying ? (
+          <Volume2 className="w-6 h-6 text-white" />
+        ) : (
+          <VolumeX className="w-6 h-6 text-white" />
+        )}
+      </button>
+      
+      {/* Codex 7 Rules Modal */}
+      {showRules && (
+        <div className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4" onClick={() => setShowRules(false)}>
+          <Card className="max-w-2xl w-full bg-slate-900/95 border-2 border-amber-600/50 max-h-[80vh] overflow-auto" onClick={e => e.stopPropagation()}>
+            <CardHeader className="text-center border-b border-amber-900/30 pb-4 sticky top-0 bg-slate-900">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <Crown className="w-8 h-8 text-amber-500" />
+                  <CardTitle className="text-2xl text-amber-100">The Codex 7</CardTitle>
+                </div>
+                <Button variant="ghost" onClick={() => setShowRules(false)} className="text-amber-100">
+                  <X className="w-6 h-6" />
+                </Button>
+              </div>
+            </CardHeader>
+            <CardContent className="pt-4 space-y-3">
+              {codex7Rules.map((rule) => (
+                <div key={rule.num} className="flex gap-3 bg-slate-800/50 rounded-lg p-3 border border-amber-900/30">
+                  <span className="w-8 h-8 rounded-full bg-amber-600 flex items-center justify-center text-white font-bold text-sm flex-shrink-0">{rule.num}</span>
+                  <div>
+                    <h4 className="text-amber-200 font-bold text-sm">{rule.title}</h4>
+                    <p className="text-amber-100/70 text-xs">{rule.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </CardContent>
+          </Card>
+        </div>
+      )}
+
       {/* Steam-like Social Hub Sidebar */}
       <div className="hidden lg:flex w-72 bg-slate-950/90 border-r border-amber-900/30 flex-col">
         <div className="p-4 border-b border-amber-900/30">
-          <h3 className="text-lg font-bold text-amber-100 flex items-center">
-            <Crown className="w-5 h-5 mr-2 text-amber-500" />
-            G Lounge Hub
-          </h3>
-          <p className="text-xs text-amber-100/60 mt-1">The exclusive golf club Lounge</p>
+          <div className="flex items-center gap-2 mb-1">
+            <Crown className="w-6 h-6 text-amber-500" />
+            <h3 className="text-lg font-bold text-amber-100">G Lounge</h3>
+          </div>
+          <p className="text-xs text-amber-400 italic">Exclusive Members Club</p>
         </div>
         
         {/* Navigation */}
@@ -2447,6 +2523,13 @@ function GLoungeComponent({ user }) {
           >
             <Lightbulb className="w-5 h-5" />
             Codex Collective
+          </button>
+          <button 
+            onClick={() => setActiveSection('governance')}
+            className={`w-full text-left px-4 py-3 rounded-lg transition-all flex items-center gap-3 ${activeSection === 'governance' ? 'bg-amber-600/20 text-amber-300 border border-amber-500/30' : 'text-amber-100/70 hover:bg-slate-800/50'}`}
+          >
+            <Coins className="w-5 h-5" />
+            $CAX Governance
           </button>
           <button 
             onClick={() => setActiveSection('tradingbot')}
@@ -2467,42 +2550,54 @@ function GLoungeComponent({ user }) {
             onClick={() => setActiveSection('tokenomics')}
             className={`w-full text-left px-4 py-3 rounded-lg transition-all flex items-center gap-3 ${activeSection === 'tokenomics' ? 'bg-purple-600/20 text-purple-300 border border-purple-500/30' : 'text-amber-100/70 hover:bg-slate-800/50'}`}
           >
-            <Coins className="w-5 h-5" />
-            $CAX Tokenomics
+            <TrendingUp className="w-5 h-5" />
+            Tokenomics
           </button>
         </nav>
+        
+        {/* Codex 7 Rules Button */}
+        <div className="p-3 border-t border-amber-900/30">
+          <button 
+            onClick={() => setShowRules(true)}
+            className="w-full px-4 py-3 rounded-lg bg-gradient-to-r from-amber-900/50 to-amber-800/50 border border-amber-600/50 text-amber-200 hover:from-amber-800/50 hover:to-amber-700/50 transition-all flex items-center justify-center gap-2"
+          >
+            <Star className="w-5 h-5 text-amber-400" />
+            <span className="font-semibold">The Codex 7</span>
+          </button>
+        </div>
         
         {/* User Status */}
         <div className="p-4 border-t border-amber-900/30">
           {user ? (
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-amber-600 to-amber-800 flex items-center justify-center">
+              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-amber-600 to-amber-800 flex items-center justify-center border-2 border-amber-500/50">
                 <span className="text-white font-bold">{user.username?.charAt(0).toUpperCase()}</span>
               </div>
               <div>
                 <p className="text-amber-100 font-semibold text-sm">{user.username}</p>
                 <p className="text-emerald-400 text-xs flex items-center">
-                  <span className="w-2 h-2 bg-emerald-400 rounded-full mr-1"></span>
-                  Online
+                  <span className="w-2 h-2 bg-emerald-400 rounded-full mr-1 animate-pulse"></span>
+                  Member
                 </p>
               </div>
             </div>
           ) : (
             <div className="text-amber-100/60 text-sm text-center">
-              Connect wallet to access features
+              Connect wallet for membership
             </div>
           )}
         </div>
         
-        {/* Quick Stats */}
-        <div className="p-4 border-t border-amber-900/30 bg-slate-900/50">
+        {/* Club Stats */}
+        <div className="p-4 border-t border-amber-900/30 bg-gradient-to-b from-slate-900/50 to-amber-950/30">
+          <p className="text-xs text-amber-400 mb-2 font-semibold text-center">CLUB STATISTICS</p>
           <div className="grid grid-cols-2 gap-3 text-center">
-            <div>
-              <p className="text-2xl font-bold text-amber-400">1.2K</p>
+            <div className="bg-slate-800/50 rounded-lg p-2">
+              <p className="text-xl font-bold text-amber-400">1,247</p>
               <p className="text-xs text-amber-100/60">Members</p>
             </div>
-            <div>
-              <p className="text-2xl font-bold text-emerald-400">847</p>
+            <div className="bg-slate-800/50 rounded-lg p-2">
+              <p className="text-xl font-bold text-emerald-400">892</p>
               <p className="text-xs text-amber-100/60">Online</p>
             </div>
           </div>
@@ -2514,54 +2609,70 @@ function GLoungeComponent({ user }) {
         <div className="container mx-auto px-4 py-8 max-w-5xl">
           
           {/* Mobile Navigation */}
-          <div className="lg:hidden mb-8 flex flex-wrap gap-2 justify-center">
-            <Button 
-              variant={activeSection === 'overview' ? 'default' : 'outline'}
-              onClick={() => setActiveSection('overview')}
-              className={activeSection === 'overview' ? 'bg-amber-600' : 'border-amber-600/50 text-amber-400'}
-              size="sm"
+          <div className="lg:hidden mb-8">
+            <div className="flex flex-wrap gap-2 justify-center mb-4">
+              <Button 
+                variant={activeSection === 'overview' ? 'default' : 'outline'}
+                onClick={() => setActiveSection('overview')}
+                className={activeSection === 'overview' ? 'bg-amber-600' : 'border-amber-600/50 text-amber-400'}
+                size="sm"
+              >
+                Overview
+              </Button>
+              <Button 
+                variant={activeSection === 'collective' ? 'default' : 'outline'}
+                onClick={() => setActiveSection('collective')}
+                className={activeSection === 'collective' ? 'bg-amber-600' : 'border-amber-600/50 text-amber-400'}
+                size="sm"
+              >
+                Collective
+              </Button>
+              <Button 
+                variant={activeSection === 'governance' ? 'default' : 'outline'}
+                onClick={() => setActiveSection('governance')}
+                className={activeSection === 'governance' ? 'bg-amber-600' : 'border-amber-600/50 text-amber-400'}
+                size="sm"
+              >
+                $CAX
+              </Button>
+              <Button 
+                variant={activeSection === 'tradingbot' ? 'default' : 'outline'}
+                onClick={() => setActiveSection('tradingbot')}
+                className={activeSection === 'tradingbot' ? 'bg-blue-600' : 'border-blue-600/50 text-blue-400'}
+                size="sm"
+              >
+                Trading Bot
+              </Button>
+              <Button 
+                variant={activeSection === 'games' ? 'default' : 'outline'}
+                onClick={() => setActiveSection('games')}
+                className={activeSection === 'games' ? 'bg-emerald-600' : 'border-emerald-600/50 text-emerald-400'}
+                size="sm"
+              >
+                Games
+              </Button>
+            </div>
+            <button 
+              onClick={() => setShowRules(true)}
+              className="w-full px-4 py-2 rounded-lg bg-amber-900/30 border border-amber-600/50 text-amber-200 text-sm flex items-center justify-center gap-2"
             >
-              Overview
-            </Button>
-            <Button 
-              variant={activeSection === 'collective' ? 'default' : 'outline'}
-              onClick={() => setActiveSection('collective')}
-              className={activeSection === 'collective' ? 'bg-amber-600' : 'border-amber-600/50 text-amber-400'}
-              size="sm"
-            >
-              Collective
-            </Button>
-            <Button 
-              variant={activeSection === 'tradingbot' ? 'default' : 'outline'}
-              onClick={() => setActiveSection('tradingbot')}
-              className={activeSection === 'tradingbot' ? 'bg-blue-600' : 'border-blue-600/50 text-blue-400'}
-              size="sm"
-            >
-              Trading Bot
-            </Button>
-            <Button 
-              variant={activeSection === 'games' ? 'default' : 'outline'}
-              onClick={() => setActiveSection('games')}
-              className={activeSection === 'games' ? 'bg-emerald-600' : 'border-emerald-600/50 text-emerald-400'}
-              size="sm"
-            >
-              Games
-            </Button>
-            <Button 
-              variant={activeSection === 'tokenomics' ? 'default' : 'outline'}
-              onClick={() => setActiveSection('tokenomics')}
-              className={activeSection === 'tokenomics' ? 'bg-purple-600' : 'border-purple-600/50 text-purple-400'}
-              size="sm"
-            >
-              $CAX
-            </Button>
+              <Star className="w-4 h-4" />
+              View The Codex 7 Rules
+            </button>
           </div>
 
           {/* OVERVIEW SECTION */}
           {activeSection === 'overview' && (
             <>
-              {/* Welcome Header */}
+              {/* Welcome Header with Exclusive Branding */}
               <div className="text-center mb-12">
+                <div className="inline-block mb-4">
+                  <div className="flex items-center justify-center gap-3 mb-2">
+                    <div className="h-px w-16 bg-gradient-to-r from-transparent to-amber-500"></div>
+                    <Crown className="w-8 h-8 text-amber-500" />
+                    <div className="h-px w-16 bg-gradient-to-l from-transparent to-amber-500"></div>
+                  </div>
+                </div>
                 <h1 className="text-4xl md:text-5xl font-bold text-amber-100 mb-2">G Lounge</h1>
                 <p className="text-2xl md:text-3xl text-amber-400 italic font-light mb-4">Exclusive</p>
                 <p className="text-xl text-amber-100/80 max-w-3xl mx-auto">
@@ -2569,10 +2680,35 @@ function GLoungeComponent({ user }) {
                 </p>
               </div>
 
+              {/* Exclusive Club Banner */}
+              <Card className="mb-12 bg-gradient-to-r from-amber-900/40 via-slate-900/60 to-amber-900/40 border-2 border-amber-500/50 overflow-hidden">
+                <CardContent className="py-8">
+                  <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+                    <div className="flex items-center gap-4">
+                      <div className="w-16 h-16 rounded-full bg-gradient-to-br from-amber-500 to-amber-700 flex items-center justify-center border-4 border-amber-400/50">
+                        <Crown className="w-8 h-8 text-white" />
+                      </div>
+                      <div>
+                        <h3 className="text-xl font-bold text-amber-100">Welcome to the Inner Circle</h3>
+                        <p className="text-amber-300">You've accepted The Codex 7 – you are now a gentleman of G Lounge</p>
+                      </div>
+                    </div>
+                    <Button 
+                      variant="outline" 
+                      onClick={() => setShowRules(true)}
+                      className="border-amber-500/50 text-amber-300 hover:bg-amber-900/30"
+                    >
+                      <Star className="w-4 h-4 mr-2" />
+                      View Our Code
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+
               <p className="text-center text-xl text-amber-200 mb-12 font-semibold">Explore our core pillars:</p>
 
               {/* Category Cards */}
-              <div className="space-y-8">
+              <div className="space-y-6">
                 
                 {/* 1. Codex Collective */}
                 <Card 
@@ -2587,6 +2723,25 @@ function GLoungeComponent({ user }) {
                       <div>
                         <CardTitle className="text-2xl text-amber-100">1. Codex Collective</CardTitle>
                         <CardDescription className="text-amber-300">Community DAO, memes or business - backing the most voted on ideas</CardDescription>
+                      </div>
+                      <ChevronRight className="w-8 h-8 text-amber-400 ml-auto" />
+                    </div>
+                  </CardHeader>
+                </Card>
+
+                {/* CAX Governance Card */}
+                <Card 
+                  className="bg-gradient-to-br from-amber-900/30 to-slate-900/60 border-2 border-amber-500/50 overflow-hidden cursor-pointer hover:border-amber-400 transition-all"
+                  onClick={() => setActiveSection('governance')}
+                >
+                  <CardHeader>
+                    <div className="flex items-center gap-4">
+                      <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-amber-500 to-yellow-700 flex items-center justify-center">
+                        <Coins className="w-8 h-8 text-white" />
+                      </div>
+                      <div>
+                        <CardTitle className="text-2xl text-amber-100">$CAX Governance</CardTitle>
+                        <CardDescription className="text-amber-300">Caviar Token – The governance power behind G Lounge</CardDescription>
                       </div>
                       <ChevronRight className="w-8 h-8 text-amber-400 ml-auto" />
                     </div>
@@ -2653,6 +2808,109 @@ function GLoungeComponent({ user }) {
                       Connect Wallet
                     </Button>
                   )}
+                </CardContent>
+              </Card>
+            </>
+          )}
+
+          {/* CAX GOVERNANCE SECTION */}
+          {activeSection === 'governance' && (
+            <>
+              <Button 
+                variant="ghost" 
+                onClick={() => setActiveSection('overview')}
+                className="mb-6 text-amber-400 hover:text-amber-300"
+              >
+                <ChevronRight className="w-4 h-4 mr-2 rotate-180" />
+                Back to Overview
+              </Button>
+              
+              <div className="text-center mb-12">
+                <div className="w-24 h-24 mx-auto mb-4 rounded-full bg-gradient-to-br from-amber-500 to-yellow-700 flex items-center justify-center border-4 border-amber-400/50">
+                  <Coins className="w-12 h-12 text-white" />
+                </div>
+                <h1 className="text-4xl md:text-5xl font-bold text-amber-100 mb-2">$CAX Governance</h1>
+                <p className="text-xl text-amber-400 font-semibold">Caviar Token</p>
+                <p className="text-lg text-amber-300 mt-2">The governance power behind G Lounge</p>
+              </div>
+              
+              <Card className="bg-gradient-to-br from-amber-900/30 to-slate-900/60 border-2 border-amber-500/50 mb-8">
+                <CardContent className="p-8">
+                  <p className="text-xl text-amber-100/90 leading-relaxed mb-8">
+                    <span className="text-amber-400 font-bold">$CAX (Caviar Token)</span> is the lifeblood of G Lounge. It powers everything from governance decisions to in-game transactions, staking rewards, and exclusive access.
+                  </p>
+                  
+                  <h4 className="text-2xl font-bold text-amber-200 mb-6">Governance Power:</h4>
+                  
+                  <div className="grid md:grid-cols-2 gap-6 mb-8">
+                    <div className="bg-slate-800/50 rounded-xl p-6 border border-amber-900/30">
+                      <div className="flex items-center gap-3 mb-3">
+                        <Lightbulb className="w-8 h-8 text-amber-400" />
+                        <h5 className="text-amber-200 font-bold text-lg">Propose & Vote</h5>
+                      </div>
+                      <p className="text-amber-100/70">$CAX holders can propose new ideas and vote on ecosystem decisions in the Codex Collective DAO.</p>
+                    </div>
+                    <div className="bg-slate-800/50 rounded-xl p-6 border border-amber-900/30">
+                      <div className="flex items-center gap-3 mb-3">
+                        <Trophy className="w-8 h-8 text-emerald-400" />
+                        <h5 className="text-amber-200 font-bold text-lg">Game Integration</h5>
+                      </div>
+                      <p className="text-amber-100/70">Use $CAX for entry fees, wagers, cosmetics, and payouts in all G Lounge games including Caviar Golf Hub.</p>
+                    </div>
+                    <div className="bg-slate-800/50 rounded-xl p-6 border border-amber-900/30">
+                      <div className="flex items-center gap-3 mb-3">
+                        <TrendingUp className="w-8 h-8 text-emerald-400" />
+                        <h5 className="text-amber-200 font-bold text-lg">Staking Rewards</h5>
+                      </div>
+                      <p className="text-amber-100/70">Stake your $CAX for 20% Base APY, funded sustainably from treasury and platform revenues.</p>
+                    </div>
+                    <div className="bg-slate-800/50 rounded-xl p-6 border border-amber-900/30">
+                      <div className="flex items-center gap-3 mb-3">
+                        <Crown className="w-8 h-8 text-amber-400" />
+                        <h5 className="text-amber-200 font-bold text-lg">Exclusive Access</h5>
+                      </div>
+                      <p className="text-amber-100/70">Unlock premium features, Trading Bot MAX benefits, and VIP club perks with $CAX holdings.</p>
+                    </div>
+                  </div>
+                  
+                  <div className="bg-gradient-to-r from-amber-900/40 to-yellow-900/40 border-2 border-amber-500/50 rounded-xl p-6">
+                    <h4 className="text-xl font-bold text-amber-200 mb-4 flex items-center gap-2">
+                      <Sparkles className="w-6 h-6" />
+                      Why Hold $CAX?
+                    </h4>
+                    <ul className="space-y-3 text-amber-100/80">
+                      <li className="flex items-start gap-2">
+                        <ChevronRight className="w-5 h-5 text-amber-400 mt-0.5 flex-shrink-0" />
+                        <span><strong className="text-amber-300">Governance:</strong> Shape the future of G Lounge through DAO voting</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <ChevronRight className="w-5 h-5 text-amber-400 mt-0.5 flex-shrink-0" />
+                        <span><strong className="text-amber-300">Utility:</strong> In-game currency for all G Lounge experiences</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <ChevronRight className="w-5 h-5 text-amber-400 mt-0.5 flex-shrink-0" />
+                        <span><strong className="text-amber-300">Rewards:</strong> Earn through staking, playing, and participating</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <ChevronRight className="w-5 h-5 text-amber-400 mt-0.5 flex-shrink-0" />
+                        <span><strong className="text-amber-300">Deflationary:</strong> 1% burn on every transaction increases scarcity</span>
+                      </li>
+                    </ul>
+                  </div>
+                </CardContent>
+              </Card>
+              
+              <Card className="bg-gradient-to-r from-amber-600/20 to-yellow-600/20 border-2 border-amber-500/50">
+                <CardContent className="py-8 text-center">
+                  <h3 className="text-2xl font-bold text-amber-100 mb-4">$CAX on Solana Network</h3>
+                  <p className="text-amber-100/80 mb-4">Lightning-fast, low-cost transactions for seamless gameplay</p>
+                  <Button 
+                    onClick={() => setActiveSection('tokenomics')}
+                    className="bg-gradient-to-r from-amber-600 to-yellow-600 hover:from-amber-500 hover:to-yellow-500"
+                  >
+                    View Full Tokenomics
+                    <ChevronRight className="w-4 h-4 ml-2" />
+                  </Button>
                 </CardContent>
               </Card>
             </>
