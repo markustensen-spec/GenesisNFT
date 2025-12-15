@@ -2721,7 +2721,7 @@ function GLoungeComponent({ user }) {
                   </CardHeader>
                 </Card>
 
-                {/* 2. Trading Bot MAX */}
+                {/* Trading Bot MAX */}
                 <Card 
                   className="bg-gradient-to-br from-blue-900/30 to-slate-900/60 border-2 border-blue-500/50 overflow-hidden cursor-pointer hover:border-blue-400 transition-all relative"
                   onClick={() => setActiveSection('tradingbot')}
@@ -2743,7 +2743,7 @@ function GLoungeComponent({ user }) {
                       </div>
                       <div className="flex-1">
                         <div className="flex items-center gap-3">
-                          <CardTitle className="text-2xl text-amber-100">2. Trading Bot MAX</CardTitle>
+                          <CardTitle className="text-2xl text-amber-100">Trading Bot MAX</CardTitle>
                           <Badge className="bg-blue-600 text-white">Coming Soon</Badge>
                         </div>
                         <CardDescription className="text-blue-300">Automated shot caller</CardDescription>
