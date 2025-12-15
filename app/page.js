@@ -2684,7 +2684,7 @@ function GLoungeComponent({ user }) {
                 <p className="text-amber-100/70">Caviar integrates throughout the ecosystem</p>
                 <p className="text-amber-400 font-semibold mb-2">$CAX going live February 14th</p>
                 <p className="text-amber-100/60">
-                  Caviar governance token – <button onClick={() => setActiveSection('tokenomics')} className="text-amber-400 underline hover:text-amber-300">More info here</button>
+                  $CAX governance info <button onClick={() => setActiveSection('tokenomics')} className="text-amber-400 underline hover:text-amber-300">here</button>
                 </p>
               </div>
 
