@@ -1513,11 +1513,11 @@ export default function App() {
                 <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-amber-200 via-amber-400 to-amber-200 bg-clip-text text-transparent">
                   Leonardo Codex NFT
                 </h1>
-                <p className="text-2xl md:text-3xl text-amber-100 font-bold mb-4">
-                  9500 Genesis Codex
+                <p className="text-2xl md:text-3xl text-amber-100 font-bold mb-2">
+                  Genesis Codex <span className="text-amber-400">›</span> 9500
                 </p>
                 <p className="text-2xl md:text-3xl text-amber-100 font-bold mb-4">
-                  500 Illuminati Atlanticus
+                  Illuminate Atlanticus <span className="text-amber-400">›</span> 500
                 </p>
                 <div className="max-w-3xl mx-auto">
                   <p className="text-xl text-amber-100/80">
