@@ -160,7 +160,7 @@ Samme design, heading: "Reset Your Password", button: "Reset Password"
 3. **Redirect URLs:**
    - Gå til: **Authentication** → **URL Configuration**
    - Legg til: `https://genesishq.io` (din produksjon URL)
-   - Legg til: `https://genesiscollection.preview.emergentagent.com` (staging)
+   - Legg til: `https://genesis-nft.preview.emergentagent.com` (staging)
    - Legg til: `http://localhost:3000` (lokal utvikling)
 
 ---

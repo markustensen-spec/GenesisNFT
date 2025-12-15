@@ -129,7 +129,7 @@ CREATE TRIGGER on_profile_updated
 
 2. **Legg til i "Redirect URLs":**
 ```
-https://genesiscollection.preview.emergentagent.com
+https://genesis-nft.preview.emergentagent.com
 http://localhost:3000
 ```
 
