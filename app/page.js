@@ -2713,8 +2713,8 @@ function GLoungeComponent({ user }) {
                         <Zap className="w-8 h-8 text-white" />
                       </div>
                       <div>
-                        <CardTitle className="text-2xl text-amber-100">1. Max</CardTitle>
-                        <CardDescription className="text-purple-300">Auto Trading AI</CardDescription>
+                        <CardTitle className="text-2xl text-amber-100">Max</CardTitle>
+                        <CardDescription className="text-purple-300">AI Auto Trader</CardDescription>
                       </div>
                       <ChevronRight className="w-8 h-8 text-purple-400 ml-auto" />
                     </div>
