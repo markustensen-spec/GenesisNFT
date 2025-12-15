@@ -2680,32 +2680,121 @@ function GLoungeComponent({ user }) {
                 <p className="text-xl text-amber-300">Community DAO, memes or business - backing the most voted on ideas</p>
               </div>
               
-              <Card className="bg-gradient-to-br from-amber-900/30 to-slate-900/60 border-2 border-amber-500/50">
-                <CardContent className="p-8">
-                  <p className="text-xl text-amber-100/90 leading-relaxed mb-8">
-                    The decentralized governance DAO where <span className="text-amber-400 font-bold">$CAX</span> and <span className="text-amber-400 font-bold">NFT holders</span> propose, discuss, and vote on ecosystem decisions.
-                  </p>
-                  
-                  <div className="grid md:grid-cols-2 gap-6">
-                    <div className="bg-slate-800/50 rounded-xl p-6 border border-amber-900/30">
-                      <h4 className="text-amber-200 font-bold text-lg mb-3">Propose Ideas</h4>
-                      <p className="text-amber-100/70">Submit your vision for the ecosystem - from meme campaigns to serious business ventures.</p>
+              <Card className="bg-gradient-to-br from-amber-900/20 to-slate-900/50 border-amber-600/30 mb-12">
+                <CardContent className="p-8 md:p-12">
+                  <div className="prose prose-lg prose-amber max-w-none">
+                    <p className="text-xl text-amber-100/90 leading-relaxed mb-6">
+                      The decentralized governance DAO where <span className="text-amber-400 font-bold">$CAX</span> and <span className="text-amber-400 font-bold">NFT holders</span> propose, discuss, and vote on ecosystem decisions.
+                    </p>
+                    
+                    <p className="text-lg text-amber-100/80 leading-relaxed mb-6">
+                      This is strictly community-focused: Only those holding a Leonardo da Vinci Codex NFT gain entry. True commitment drives everything here.
+                    </p>
+
+                    <h3 className="text-2xl font-bold text-amber-200 mt-10 mb-6">To bring a business proposal or idea to life:</h3>
+                    
+                    <div className="space-y-4 mb-8">
+                      <div className="flex items-start gap-4 bg-slate-800/50 rounded-lg p-4">
+                        <span className="text-2xl">1.</span>
+                        <p className="text-amber-100/80"><strong className="text-amber-300">Burn one NFT as your stake</strong> — proving skin in the game.</p>
+                      </div>
+                      
+                      <div className="flex items-start gap-4 bg-slate-800/50 rounded-lg p-4">
+                        <span className="text-2xl">2.</span>
+                        <p className="text-amber-100/80"><strong className="text-amber-300">Face the Sharks</strong> — our ruthless community vote where holders grill and decide your fate.</p>
+                      </div>
+                      
+                      <div className="flex items-start gap-4 bg-slate-800/50 rounded-lg p-4">
+                        <span className="text-2xl">3.</span>
+                        <p className="text-amber-100/80"><strong className="text-amber-300">If it passes</strong>, your idea is eternally inscribed in the Codex Book — immortalized on-chain for the Collective's legacy.</p>
+                      </div>
                     </div>
-                    <div className="bg-slate-800/50 rounded-xl p-6 border border-amber-900/30">
-                      <h4 className="text-amber-200 font-bold text-lg mb-3">Community Voting</h4>
-                      <p className="text-amber-100/70">Every holder gets a voice. The most supported ideas get funded and executed.</p>
+
+                    <h3 className="text-2xl font-bold text-amber-200 mt-10 mb-6">We fund the full spectrum:</h3>
+                    
+                    <div className="grid md:grid-cols-2 gap-6 mb-8">
+                      <div className="bg-purple-900/20 border border-purple-500/30 rounded-lg p-6">
+                        <h4 className="text-xl font-bold text-purple-300 mb-3">Meme-fueled chaos</h4>
+                        <p className="text-amber-100/70">Community comics based on our wild stories, viral drops, and playful da Vinci twists!</p>
+                      </div>
+                      
+                      <div className="bg-emerald-900/20 border border-emerald-500/30 rounded-lg p-6">
+                        <h4 className="text-xl font-bold text-emerald-300 mb-3">Serious impact</h4>
+                        <p className="text-amber-100/70">Museum partnerships, high-art collaborations, metaverse builds, and real-world utilities.</p>
+                      </div>
                     </div>
-                    <div className="bg-slate-800/50 rounded-xl p-6 border border-amber-900/30">
-                      <h4 className="text-amber-200 font-bold text-lg mb-3">Transparent Governance</h4>
-                      <p className="text-amber-100/70">All decisions recorded on-chain for full transparency and accountability.</p>
-                    </div>
-                    <div className="bg-slate-800/50 rounded-xl p-6 border border-amber-900/30">
-                      <h4 className="text-amber-200 font-bold text-lg mb-3">Rewards for Participation</h4>
-                      <p className="text-amber-100/70">Active voters and contributors earn bonus rewards and recognition.</p>
+
+                    <p className="text-lg text-amber-100/80 leading-relaxed mb-6">
+                      This elite Collective is mysterious, owner-driven, and unstoppable. Hold your NFT, burn for greatness, survive the Sharks — and etch your mark in history.
+                    </p>
+
+                    <div className="bg-gradient-to-r from-amber-600/20 to-amber-900/20 border border-amber-500/50 rounded-xl p-6 text-center mt-10">
+                      <p className="text-xl text-amber-200 font-semibold">
+                        Ready to propose? Secure your Codex NFT and join the inner circle.
+                      </p>
                     </div>
                   </div>
                 </CardContent>
               </Card>
+
+              {/* Three Codex Ideas */}
+              <h3 className="text-3xl font-bold text-amber-100 text-center mb-8">Current Proposals</h3>
+              <div className="grid md:grid-cols-3 gap-8 mb-16">
+                
+                {/* 1. Satellite Time Capsule */}
+                <Card className="bg-gradient-to-br from-blue-900/40 to-slate-900/60 border-2 border-blue-500/50 overflow-hidden hover:border-blue-400 transition-all">
+                  <div className="h-48 bg-gradient-to-br from-blue-600/20 to-purple-600/20 flex items-center justify-center">
+                    <Sparkles className="w-20 h-20 text-blue-400" />
+                  </div>
+                  <CardHeader>
+                    <CardTitle className="text-amber-100 text-xl">Satellite Time Capsule</CardTitle>
+                    <CardDescription className="text-blue-300">Codex Idea #1</CardDescription>
+                  </CardHeader>
+                  <CardContent className="text-amber-100/80">
+                    <p className="mb-4 text-sm">Launch a digital time capsule into space! Store messages, art, and memories on a satellite orbiting Earth.</p>
+                    <div className="flex items-center justify-between">
+                      <span className="text-blue-400 font-bold">Goal: $500K</span>
+                      <Badge className="bg-blue-600/30 text-blue-200 border-blue-500/50">Voting Soon</Badge>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                {/* 2. Get Sassy the Sasquatch Back */}
+                <Card className="bg-gradient-to-br from-green-900/40 to-slate-900/60 border-2 border-green-500/50 overflow-hidden hover:border-green-400 transition-all">
+                  <div className="h-48 bg-gradient-to-br from-green-600/20 to-emerald-600/20 flex items-center justify-center">
+                    <Trophy className="w-20 h-20 text-green-400" />
+                  </div>
+                  <CardHeader>
+                    <CardTitle className="text-amber-100 text-xl">Get Sassy the Sasquatch Back</CardTitle>
+                    <CardDescription className="text-green-300">Codex Idea #2</CardDescription>
+                  </CardHeader>
+                  <CardContent className="text-amber-100/80">
+                    <p className="mb-4 text-sm">Fund the ultimate cryptid expedition! A community-funded search party to find Sassy the legendary Sasquatch.</p>
+                    <div className="flex items-center justify-between">
+                      <span className="text-green-400 font-bold">Goal: $250K</span>
+                      <Badge className="bg-green-600/30 text-green-200 border-green-500/50">Voting Soon</Badge>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                {/* 3. Invest in the Page */}
+                <Card className="bg-gradient-to-br from-amber-900/40 to-slate-900/60 border-2 border-amber-500/50 overflow-hidden hover:border-amber-400 transition-all">
+                  <div className="h-48 bg-gradient-to-br from-amber-600/20 to-yellow-600/20 flex items-center justify-center">
+                    <TrendingUp className="w-20 h-20 text-amber-400" />
+                  </div>
+                  <CardHeader>
+                    <CardTitle className="text-amber-100 text-xl">Invest in the Page</CardTitle>
+                    <CardDescription className="text-amber-300">Codex Idea #3</CardDescription>
+                  </CardHeader>
+                  <CardContent className="text-amber-100/80">
+                    <p className="mb-4 text-sm">Become a stakeholder in Genesis Nexus7! Community members can directly invest and share in success.</p>
+                    <div className="flex items-center justify-between">
+                      <span className="text-amber-400 font-bold">Goal: $1M</span>
+                      <Badge className="bg-amber-600/30 text-amber-200 border-amber-500/50">Voting Soon</Badge>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
             </>
           )}
 
