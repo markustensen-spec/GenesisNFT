@@ -2606,14 +2606,14 @@ function GLoungeComponent({ user }) {
           </button>
         </nav>
         
-        {/* Codex 7 Rules Button */}
+        {/* Codex 7 Rules Button - Subtle */}
         <div className="p-3 border-t border-amber-900/30">
           <button 
             onClick={() => setShowRules(true)}
-            className="w-full px-4 py-3 rounded-lg bg-gradient-to-r from-amber-900/50 to-amber-800/50 border border-amber-600/50 text-amber-200 hover:from-amber-800/50 hover:to-amber-700/50 transition-all flex items-center justify-center gap-2"
+            className="w-full px-4 py-2 rounded-lg text-amber-100/50 hover:text-amber-300 hover:bg-slate-800/30 transition-all flex items-center justify-center gap-2 text-sm"
           >
-            <Star className="w-5 h-5 text-amber-400" />
-            <span className="font-semibold">The Codex 7</span>
+            <Star className="w-4 h-4" />
+            <span>7 Rules Gentlemen Codex</span>
           </button>
         </div>
         
