@@ -1535,7 +1535,7 @@ export default function App() {
                 </p>
                 <div className="max-w-3xl mx-auto">
                   <p className="text-xl text-amber-100/80">
-                    The Codex, a modern secret society echoing da Vinci's inner circle of patrons, apprentices, and visionaries
+                    Modern Codex interpretation with real game utility, APY bonus, Airdrops and a community on Solana
                   </p>
                 </div>
               </div>
