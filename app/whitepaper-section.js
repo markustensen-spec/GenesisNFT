@@ -38,10 +38,10 @@ export default function WhitepaperSection() {
           </CardHeader>
           <CardContent className="text-amber-100/80 space-y-4">
             <p className="text-lg">
-              Genesis Nexus7 is Leonardo da Vinci's genius on steroids — fused with blockchain fire.
+              Genesis version of a Leonardo Da Vinci's genius in the Codex fused with blockchain fire.
             </p>
             <p>
-              We explode onto Solana with Genesis Caviar: a brutally addictive P2E banger (agar.io on crack) that sucks in millions to reward G Lounge members.
+              Solana with Genesis Caviar: a brutally addictive P2E banger (agar.io on crack) that sucks in millions to reward G Lounge members.
             </p>
             <p>
               From there we rocket straight into a fully licensed neo-bank — banking, investing, crypto-fiat rails — all governed and owned by the $CAX token.
@@ -62,19 +62,19 @@ export default function WhitepaperSection() {
         <div className="mb-12">
           <h3 className="text-3xl font-bold text-amber-100 text-center mb-8">The Three Phases</h3>
           <div className="space-y-6">
-            {/* Phase 1 */}
+            {/* Phase 1 - Genesis */}
             <Card className="bg-gradient-to-br from-emerald-900/20 to-slate-900/50 border-emerald-600/30">
               <CardHeader>
                 <div className="flex items-center space-x-4">
                   <div className="bg-emerald-600 rounded-full w-12 h-12 flex items-center justify-center text-white font-bold text-xl">1</div>
                   <div>
-                    <CardTitle className="text-amber-100 text-2xl">Genesis Caviar</CardTitle>
+                    <CardTitle className="text-amber-100 text-2xl">Genesis</CardTitle>
                     <CardDescription className="text-amber-100/60 text-base">Months 1-6 | Jan-Jun 2026</CardDescription>
                   </div>
                 </div>
               </CardHeader>
               <CardContent className="text-amber-100/80">
-                <p className="font-semibold text-amber-300 mb-3">&quot;Web2.5 bootstrap&quot; - Prove product-market fit</p>
+                <p className="font-semibold text-amber-300 mb-3">"Web2.5 bootstrap" - Prove product-market fit</p>
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
                     <h4 className="font-bold text-amber-100 mb-2">Deliverables:</h4>
@@ -104,40 +104,21 @@ export default function WhitepaperSection() {
               </CardContent>
             </Card>
 
-            {/* Phase 2 */}
+            {/* Phase 2 - Nexus */}
             <Card className="bg-gradient-to-br from-amber-900/20 to-slate-900/50 border-amber-600/30">
               <CardHeader>
                 <div className="flex items-center space-x-4">
                   <div className="bg-amber-600 rounded-full w-12 h-12 flex items-center justify-center text-white font-bold text-xl">2</div>
                   <div>
-                    <CardTitle className="text-amber-100 text-2xl">Genesis NEXUS</CardTitle>
+                    <CardTitle className="text-amber-100 text-2xl">Nexus</CardTitle>
                     <CardDescription className="text-amber-100/60 text-base">Months 7-18 | Jul 2026 - Jun 2027</CardDescription>
                   </div>
                 </div>
               </CardHeader>
               <CardContent className="text-amber-100/80">
-                <p className="font-semibold text-amber-300 mb-3">&quot;Now we get serious&quot; - Become a real licensed entity</p>
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div>
-                    <h4 className="font-bold text-amber-100 mb-2">Technical Track:</h4>
-                    <ul className="space-y-1 text-sm">
-                      <li>✓ Full mobile app (iOS + Android)</li>
-                      <li>✓ Wall golf game creation</li>
-                      <li>✓ Fiat on/off-ramps</li>
-                      <li>✓ MAX trading bot (alpha)</li>
-                      <li>✓ Investment creators platform</li>
-                    </ul>
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-amber-100 mb-2">Compliance Track:</h4>
-                    <ul className="space-y-1 text-sm">
-                      <li>✓ VARA full VASP license</li>
-                      <li>✓ DFSA innovation license</li>
-                      <li>✓ CBUAE Stored Value Facility</li>
-                      <li>✓ PCI-DSS, SOC 2, ISO 27001</li>
-                      <li>✓ Establish legal entity in Dubai</li>
-                    </ul>
-                  </div>
+                <p className="font-semibold text-amber-300 mb-3">"Now we get serious" - Become a real licensed entity</p>
+                <div className="mb-4">
+                  <p className="text-lg font-semibold text-amber-400 mb-2">✓ VARA full VASP license</p>
                 </div>
                 <div className="mt-4 pt-4 border-t border-amber-900/20">
                   <p className="font-semibold text-amber-300">End of Month 18: Fully licensed financial institution in UAE</p>
@@ -146,27 +127,24 @@ export default function WhitepaperSection() {
               </CardContent>
             </Card>
 
-            {/* Phase 3 */}
+            {/* Phase 3 - Noir9 */}
             <Card className="bg-gradient-to-br from-purple-900/20 to-slate-900/50 border-purple-600/30">
               <CardHeader>
                 <div className="flex items-center space-x-4">
                   <div className="bg-purple-600 rounded-full w-12 h-12 flex items-center justify-center text-white font-bold text-xl">3</div>
                   <div>
-                    <CardTitle className="text-amber-100 text-2xl">Genesis Nexus7 Bank</CardTitle>
+                    <CardTitle className="text-amber-100 text-2xl">Noir9</CardTitle>
                     <CardDescription className="text-amber-100/60 text-base">2028+</CardDescription>
                   </div>
                 </div>
               </CardHeader>
               <CardContent className="text-amber-100/80">
-                <p className="font-semibold text-amber-300 mb-3">&quot;We are now a bank&quot; - Global expansion</p>
+                <p className="font-semibold text-amber-300 mb-3">"We are now a bank" - Global expansion</p>
                 <ul className="space-y-2">
-                  <li>✓ Open NUF office in Norway (tax optimization + EU passporting)</li>
                   <li>✓ Hire human account managers for high-net-worth clients</li>
                   <li>✓ Launch AI financial co-pilot integrated with MAX (24/7 real-time)</li>
                   <li>✓ Codex Collective live on mainnet - community-funded projects</li>
                   <li>✓ Investment HUB ecosystem with full social features</li>
-                  <li>✓ Global debit cards, multi-currency IBANs</li>
-                  <li>✓ Physical Genesis House locations (Dubai → Norway → Miami)</li>
                 </ul>
               </CardContent>
             </Card>
@@ -228,7 +206,7 @@ export default function WhitepaperSection() {
 
             <Card className="bg-gradient-to-br from-purple-900/30 to-slate-900/50 border-purple-600/50 hover:border-purple-500 transition-all">
               <CardHeader>
-                <CardTitle className="text-amber-100 text-2xl">Tier 3 &quot;Genesis Syndicate&quot;</CardTitle>
+                <CardTitle className="text-amber-100 text-2xl">Tier 3 "Genesis Syndicate"</CardTitle>
                 <CardDescription className="text-purple-400 text-xl font-bold">€1,000,000</CardDescription>
               </CardHeader>
               <CardContent>
@@ -245,12 +223,12 @@ export default function WhitepaperSection() {
             <div className="text-center">
               <h3 className="text-2xl font-bold text-amber-100 mb-4">The Founder</h3>
               <p className="text-xl text-amber-300 font-semibold mb-2">Markus Stensen</p>
-              <p className="text-amber-100/70 mb-4">Norwegian | 97&apos; | Ex-TikTok & Disney+</p>
+              <p className="text-amber-100/70 mb-4">Norwegian | 97' | Ex-TikTok & Disney+</p>
               <p className="text-amber-100/80 max-w-2xl mx-auto mb-6">
-                &quot;If the vision hits you the same way it hits me, let&apos;s talk numbers that work for both of us. Counter-offer, ask questions, propose a different structure — I read and answer everything myself.&quot;
+                "If the vision hits you the same way it hits me, let's talk numbers that work for both of us. Counter-offer, ask questions, propose a different structure — I read and answer everything myself."
               </p>
               <p className="text-sm text-amber-100/60 italic">
-                The longship is in the water, sails are up, and the wind is perfect. There&apos;s still room in the front rows for the right people.
+                The longship is in the water, sails are up, and the wind is perfect. There's still room in the front rows for the right people.
               </p>
             </div>
           </CardContent>
