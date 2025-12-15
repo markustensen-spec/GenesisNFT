@@ -3022,7 +3022,7 @@ function GLoungeComponent({ user }) {
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent"></div>
                 <div className="absolute bottom-0 left-0 right-0 p-8 text-center">
                   <h1 className="text-4xl md:text-5xl font-bold text-amber-100 mb-4">Codex Collective</h1>
-                  <p className="text-xl text-amber-300">Community DAO, memes or business - backing the most voted on ideas</p>
+                  <p className="text-xl text-amber-300">Community DAO</p>
                 </div>
               </div>
               
