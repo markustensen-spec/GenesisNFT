@@ -2810,7 +2810,7 @@ function GLoungeComponent({ user }) {
                       </div>
                       <div>
                         <CardTitle className="text-2xl text-amber-100">3. Games</CardTitle>
-                        <CardDescription className="text-emerald-300">Golf sim, minigames and coin-flip</CardDescription>
+                        <CardDescription className="text-emerald-300">Golf simulation, coin flips and other minigames</CardDescription>
                       </div>
                       <ChevronRight className="w-8 h-8 text-emerald-400 ml-auto" />
                     </div>
