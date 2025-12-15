@@ -847,7 +847,7 @@ export default function App() {
               </Button>
               <Button variant="ghost" onClick={() => setActiveTab('codexcats')} className="text-amber-100 hover:text-amber-400 flex items-center">
                 <Lightbulb className="w-4 h-4 mr-1" />
-                Codex Cats
+                Codex Collective
               </Button>
               <Button variant="ghost" onClick={() => setActiveTab('whitepaper')} className="text-amber-100 hover:text-amber-400">
                 Whitepaper
@@ -897,7 +897,7 @@ export default function App() {
                 Caviar
               </Button>
               <Button variant="ghost" onClick={() => { setActiveTab('codexcats'); setMobileMenuOpen(false) }} className="w-full text-amber-100">
-                Codex Cats
+                Codex Collective
               </Button>
               <Button variant="ghost" onClick={() => { setActiveTab('whitepaper'); setMobileMenuOpen(false) }} className="w-full text-amber-100">
                 Whitepaper
