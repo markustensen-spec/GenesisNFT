@@ -2182,43 +2182,87 @@ export default function App() {
 
         {activeTab === 'codexcats' && (
           <div className="container mx-auto px-4">
-            <div className="max-w-6xl mx-auto">
+            <div className="max-w-4xl mx-auto">
               {/* Hero */}
               <div className="text-center py-16">
-                <h2 className="text-5xl md:text-6xl font-bold text-amber-100 mb-4">
-                  🐱 Codex Cats
+                <h2 className="text-5xl md:text-6xl font-bold text-amber-100 mb-8">
+                  Codex Collective
                 </h2>
-                <p className="text-xl text-amber-100/80 max-w-3xl mx-auto mb-8">
-                  Community-driven ideas powered by the Codex Collective. Vote and fund the craziest, most innovative projects!
-                </p>
               </div>
 
+              {/* Main Introduction */}
+              <Card className="bg-gradient-to-br from-amber-900/20 to-slate-900/50 border-amber-600/30 mb-12">
+                <CardContent className="p-8 md:p-12">
+                  <div className="prose prose-lg prose-amber max-w-none">
+                    <p className="text-xl text-amber-100/90 leading-relaxed mb-6">
+                      The Codex Collective is an exclusive, holder-only Community DAO for the Leonardo da Vinci Codex NFT project — a tight-knit circle of visionaries channeling da Vinci's secretive brilliance into Web3 innovation.
+                    </p>
+                    
+                    <p className="text-lg text-amber-100/80 leading-relaxed mb-6">
+                      This is strictly community-focused: Only those holding a Leonardo da Vinci Codex NFT gain entry. True commitment drives everything here.
+                    </p>
+
+                    <h3 className="text-2xl font-bold text-amber-200 mt-10 mb-6">To bring a business proposal or idea to life:</h3>
+                    
+                    <div className="space-y-4 mb-8">
+                      <div className="flex items-start gap-4 bg-slate-800/50 rounded-lg p-4">
+                        <span className="text-2xl">1.</span>
+                        <p className="text-amber-100/80"><strong className="text-amber-300">Burn one NFT as your stake</strong> — proving skin in the game.</p>
+                      </div>
+                      
+                      <div className="flex items-start gap-4 bg-slate-800/50 rounded-lg p-4">
+                        <span className="text-2xl">2.</span>
+                        <p className="text-amber-100/80"><strong className="text-amber-300">Face the Sharks</strong> — our ruthless community vote where holders grill and decide your fate.</p>
+                      </div>
+                      
+                      <div className="flex items-start gap-4 bg-slate-800/50 rounded-lg p-4">
+                        <span className="text-2xl">3.</span>
+                        <p className="text-amber-100/80"><strong className="text-amber-300">If it passes</strong>, your idea is eternally inscribed in the Codex Book — immortalized on-chain for the Collective's legacy.</p>
+                      </div>
+                    </div>
+
+                    <h3 className="text-2xl font-bold text-amber-200 mt-10 mb-6">We fund the full spectrum:</h3>
+                    
+                    <div className="grid md:grid-cols-2 gap-6 mb-8">
+                      <div className="bg-purple-900/20 border border-purple-500/30 rounded-lg p-6">
+                        <h4 className="text-xl font-bold text-purple-300 mb-3">Meme-fueled chaos</h4>
+                        <p className="text-amber-100/70">Community comics based on our wild stories, viral drops, and playful da Vinci twists!</p>
+                      </div>
+                      
+                      <div className="bg-emerald-900/20 border border-emerald-500/30 rounded-lg p-6">
+                        <h4 className="text-xl font-bold text-emerald-300 mb-3">Serious impact</h4>
+                        <p className="text-amber-100/70">Museum partnerships, high-art collaborations, metaverse builds, and real-world utilities.</p>
+                      </div>
+                    </div>
+
+                    <p className="text-lg text-amber-100/80 leading-relaxed mb-6">
+                      This elite Collective is mysterious, owner-driven, and unstoppable. Hold your NFT, burn for greatness, survive the Sharks — and etch your mark in history.
+                    </p>
+
+                    <div className="bg-gradient-to-r from-amber-600/20 to-amber-900/20 border border-amber-500/50 rounded-xl p-6 text-center mt-10">
+                      <p className="text-xl text-amber-200 font-semibold">
+                        Ready to propose? Secure your Codex NFT and join the inner circle.
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
               {/* Three Codex Ideas */}
+              <h3 className="text-3xl font-bold text-amber-100 text-center mb-8">Current Proposals</h3>
               <div className="grid md:grid-cols-3 gap-8 mb-16">
                 
                 {/* 1. Satellite Time Capsule */}
                 <Card className="bg-gradient-to-br from-blue-900/40 to-slate-900/60 border-2 border-blue-500/50 overflow-hidden hover:border-blue-400 transition-all">
                   <div className="h-48 bg-gradient-to-br from-blue-600/20 to-purple-600/20 flex items-center justify-center">
-                    <span className="text-8xl">🛰️</span>
+                    <Sparkles className="w-20 h-20 text-blue-400" />
                   </div>
                   <CardHeader>
-                    <CardTitle className="text-amber-100 text-2xl flex items-center gap-2">
-                      <span>Satellite Time Capsule</span>
-                    </CardTitle>
-                    <CardDescription className="text-blue-300">
-                      Codex Idea #1
-                    </CardDescription>
+                    <CardTitle className="text-amber-100 text-xl">Satellite Time Capsule</CardTitle>
+                    <CardDescription className="text-blue-300">Codex Idea #1</CardDescription>
                   </CardHeader>
                   <CardContent className="text-amber-100/80">
-                    <p className="mb-4">
-                      Launch a digital time capsule into space! Store messages, art, and memories from our community on a satellite orbiting Earth for future generations.
-                    </p>
-                    <ul className="space-y-2 text-sm text-amber-100/70 mb-6">
-                      <li>🚀 Partner with SpaceX or similar</li>
-                      <li>💾 Store NFT art & messages forever</li>
-                      <li>🌍 Orbit Earth for 100+ years</li>
-                      <li>📡 Downloadable from space</li>
-                    </ul>
+                    <p className="mb-4 text-sm">Launch a digital time capsule into space! Store messages, art, and memories on a satellite orbiting Earth.</p>
                     <div className="flex items-center justify-between">
                       <span className="text-blue-400 font-bold">Goal: $500K</span>
                       <Badge className="bg-blue-600/30 text-blue-200 border-blue-500/50">Voting Soon</Badge>
@@ -2229,26 +2273,14 @@ export default function App() {
                 {/* 2. Get Sassy the Sasquatch Back */}
                 <Card className="bg-gradient-to-br from-green-900/40 to-slate-900/60 border-2 border-green-500/50 overflow-hidden hover:border-green-400 transition-all">
                   <div className="h-48 bg-gradient-to-br from-green-600/20 to-emerald-600/20 flex items-center justify-center">
-                    <span className="text-8xl">🦶</span>
+                    <Trophy className="w-20 h-20 text-green-400" />
                   </div>
                   <CardHeader>
-                    <CardTitle className="text-amber-100 text-2xl flex items-center gap-2">
-                      <span>Get Sassy the Sasquatch Back</span>
-                    </CardTitle>
-                    <CardDescription className="text-green-300">
-                      Codex Idea #2
-                    </CardDescription>
+                    <CardTitle className="text-amber-100 text-xl">Get Sassy the Sasquatch Back</CardTitle>
+                    <CardDescription className="text-green-300">Codex Idea #2</CardDescription>
                   </CardHeader>
                   <CardContent className="text-amber-100/80">
-                    <p className="mb-4">
-                      Fund the ultimate cryptid expedition! A community-funded search party to find and document Sassy the legendary Sasquatch once and for all.
-                    </p>
-                    <ul className="space-y-2 text-sm text-amber-100/70 mb-6">
-                      <li>🏔️ Expedition to Pacific Northwest</li>
-                      <li>📹 24/7 livestream of the hunt</li>
-                      <li>🎬 Documentary production</li>
-                      <li>🏆 $100K reward for proof</li>
-                    </ul>
+                    <p className="mb-4 text-sm">Fund the ultimate cryptid expedition! A community-funded search party to find Sassy the legendary Sasquatch.</p>
                     <div className="flex items-center justify-between">
                       <span className="text-green-400 font-bold">Goal: $250K</span>
                       <Badge className="bg-green-600/30 text-green-200 border-green-500/50">Voting Soon</Badge>
@@ -2259,26 +2291,14 @@ export default function App() {
                 {/* 3. Invest in the Page */}
                 <Card className="bg-gradient-to-br from-amber-900/40 to-slate-900/60 border-2 border-amber-500/50 overflow-hidden hover:border-amber-400 transition-all">
                   <div className="h-48 bg-gradient-to-br from-amber-600/20 to-yellow-600/20 flex items-center justify-center">
-                    <span className="text-8xl">📈</span>
+                    <TrendingUp className="w-20 h-20 text-amber-400" />
                   </div>
                   <CardHeader>
-                    <CardTitle className="text-amber-100 text-2xl flex items-center gap-2">
-                      <span>Invest in the Page</span>
-                    </CardTitle>
-                    <CardDescription className="text-amber-300">
-                      Codex Idea #3
-                    </CardDescription>
+                    <CardTitle className="text-amber-100 text-xl">Invest in the Page</CardTitle>
+                    <CardDescription className="text-amber-300">Codex Idea #3</CardDescription>
                   </CardHeader>
                   <CardContent className="text-amber-100/80">
-                    <p className="mb-4">
-                      Become a stakeholder in Genesis Nexus7! Community members can directly invest in the platform and share in its success as we grow.
-                    </p>
-                    <ul className="space-y-2 text-sm text-amber-100/70 mb-6">
-                      <li>💰 Direct equity investment</li>
-                      <li>📊 Revenue sharing for holders</li>
-                      <li>🗳️ Governance voting rights</li>
-                      <li>🎁 Exclusive investor benefits</li>
-                    </ul>
+                    <p className="mb-4 text-sm">Become a stakeholder in Genesis Nexus7! Community members can directly invest and share in success.</p>
                     <div className="flex items-center justify-between">
                       <span className="text-amber-400 font-bold">Goal: $1M</span>
                       <Badge className="bg-amber-600/30 text-amber-200 border-amber-500/50">Voting Soon</Badge>
@@ -2286,18 +2306,9 @@ export default function App() {
                   </CardContent>
                 </Card>
               </div>
-
-              {/* How it Works */}
-              <Card className="bg-slate-900/50 border-amber-600/30 mb-12">
-                <CardContent className="p-8">
-                  <h3 className="text-3xl font-bold text-amber-100 text-center mb-8">How Codex Cats Works</h3>
-                  <div className="grid md:grid-cols-4 gap-6">
-                    <div className="text-center">
-                      <div className="w-16 h-16 bg-amber-600/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <span className="text-2xl font-bold text-amber-400">1</span>
-                      </div>
-                      <h4 className="text-amber-100 font-bold mb-2">Submit Idea</h4>
-                      <p className="text-amber-100/60 text-sm">Anyone can propose a crazy idea to the community</p>
+            </div>
+          </div>
+        )}
                     </div>
                     <div className="text-center">
                       <div className="w-16 h-16 bg-amber-600/20 rounded-full flex items-center justify-center mx-auto mb-4">
