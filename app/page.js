@@ -1562,19 +1562,12 @@ export default function App() {
                   </Badge>
                   
                   <h2 className="text-4xl md:text-5xl font-bold mb-6 text-amber-100 drop-shadow-2xl">
-                    Mint Your Codex NFT
+                    Mint your NFT
                   </h2>
                   
-                  <p className="text-xl md:text-2xl text-amber-100 mb-6 font-bold drop-shadow-lg">
-                    500 Illuminati Atlanticus + 9,500 Codex
+                  <p className="text-xl md:text-2xl text-amber-100 mb-8 font-bold drop-shadow-lg">
+                    9500 G Codex + 500 Illuminated Atlanticus
                   </p>
-                  
-                  {/* Founder NFT Highlight */}
-                  <div className="bg-gradient-to-r from-amber-900/60 via-yellow-900/60 to-amber-900/60 backdrop-blur-xl px-6 py-3 rounded-xl mb-8 border border-amber-500/50 inline-block">
-                    <p className="text-amber-200 font-semibold">
-                      Mint an Illuminati Atlanticus = <span className="text-yellow-300">Lifetime Access</span> + <span className="text-emerald-300">8% Bonus APY</span> + <span className="text-purple-300">Airdrops</span>
-                    </p>
-                  </div>
 
                   {/* Price & Stats */}
                   <div className="flex flex-wrap justify-center gap-6 mb-12">
