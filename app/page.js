@@ -2555,13 +2555,6 @@ function GLoungeComponent({ user }) {
             Overview
           </button>
           <button 
-            onClick={() => setActiveSection('collective')}
-            className={`w-full text-left px-4 py-3 rounded-lg transition-all flex items-center gap-3 ${activeSection === 'collective' ? 'bg-amber-600/20 text-amber-300 border border-amber-500/30' : 'text-amber-100/70 hover:bg-slate-800/50'}`}
-          >
-            <Lightbulb className="w-5 h-5" />
-            Codex Collective
-          </button>
-          <button 
             onClick={() => setActiveSection('tradingbot')}
             className={`w-full text-left px-4 py-3 rounded-lg transition-all flex items-center gap-3 ${activeSection === 'tradingbot' ? 'bg-blue-600/20 text-blue-300 border border-blue-500/30' : 'text-amber-100/70 hover:bg-slate-800/50'}`}
           >
