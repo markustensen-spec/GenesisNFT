@@ -2309,51 +2309,6 @@ export default function App() {
             </div>
           </div>
         )}
-                    </div>
-                    <div className="text-center">
-                      <div className="w-16 h-16 bg-amber-600/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <span className="text-2xl font-bold text-amber-400">2</span>
-                      </div>
-                      <h4 className="text-amber-100 font-bold mb-2">Community Votes</h4>
-                      <p className="text-amber-100/60 text-sm">NFT holders vote on which ideas to fund</p>
-                    </div>
-                    <div className="text-center">
-                      <div className="w-16 h-16 bg-amber-600/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <span className="text-2xl font-bold text-amber-400">3</span>
-                      </div>
-                      <h4 className="text-amber-100 font-bold mb-2">Funding Opens</h4>
-                      <p className="text-amber-100/60 text-sm">Approved ideas get a funding campaign</p>
-                    </div>
-                    <div className="text-center">
-                      <div className="w-16 h-16 bg-amber-600/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <span className="text-2xl font-bold text-amber-400">4</span>
-                      </div>
-                      <h4 className="text-amber-100 font-bold mb-2">Make it Happen</h4>
-                      <p className="text-amber-100/60 text-sm">Funded projects become reality!</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-
-              {/* CTA */}
-              <Card className="bg-gradient-to-r from-amber-600/20 to-amber-900/20 border-amber-600/50">
-                <CardContent className="py-12 text-center">
-                  <h3 className="text-3xl font-bold text-amber-100 mb-4">Got a Crazy Idea?</h3>
-                  <p className="text-amber-100/70 mb-6 max-w-2xl mx-auto">
-                    The wilder the better! Submit your idea and let the Codex Collective decide if it's worth funding.
-                  </p>
-                  <Button 
-                    size="lg" 
-                    className="bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 px-8"
-                  >
-                    <Lightbulb className="w-5 h-5 mr-2" />
-                    Submit Your Idea
-                  </Button>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        )}
 
         {activeTab === 'whitepaper' && (
           <WhitepaperSection />
