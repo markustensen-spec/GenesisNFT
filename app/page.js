@@ -2562,12 +2562,10 @@ function GLoungeComponent({ user }) {
             <>
               {/* Welcome Header */}
               <div className="text-center mb-12">
-                <h1 className="text-4xl md:text-5xl font-bold text-amber-100 mb-4">G Lounge – Welcome to the exclusive golf club like Lounge</h1>
-                <p className="text-xl text-amber-100/80 max-w-3xl mx-auto mb-4">
-                  G Lounge is the premier virtual hub driven by the community, for the community
-                </p>
-                <p className="text-lg text-amber-200/70 max-w-3xl mx-auto">
-                  Hosting seamless game integration with golf simulation, MAX points, and Codex Collective's DAO.
+                <h1 className="text-4xl md:text-5xl font-bold text-amber-100 mb-2">G Lounge</h1>
+                <p className="text-2xl md:text-3xl text-amber-400 italic font-light mb-4">Exclusive</p>
+                <p className="text-xl text-amber-100/80 max-w-3xl mx-auto">
+                  Web3 golf club – Premium virtual hub driven by the community, for the community.
                 </p>
               </div>
 
