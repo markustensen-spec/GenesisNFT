@@ -2188,7 +2188,7 @@ export default function App() {
         )}
 
         {activeTab === 'game' && (
-          <GameComponent user={user} />
+          <GLoungeComponent user={user} />
         )}
 
         {activeTab === 'codexcats' && (
