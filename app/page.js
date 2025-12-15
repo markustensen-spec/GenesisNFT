@@ -2953,12 +2953,18 @@ function GLoungeComponent({ user }) {
                 Back to Overview
               </Button>
               
-              <div className="text-center mb-12">
-                <div className="w-20 h-20 mx-auto mb-4 rounded-xl bg-gradient-to-br from-amber-600 to-amber-800 flex items-center justify-center">
-                  <Lightbulb className="w-10 h-10 text-white" />
+              {/* Hero Image for Codex Collective */}
+              <div className="relative mb-12 rounded-2xl overflow-hidden">
+                <img 
+                  src="/images/codex-collective-bg.jpg" 
+                  alt="Codex Collective"
+                  className="w-full h-64 md:h-80 object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent"></div>
+                <div className="absolute bottom-0 left-0 right-0 p-8 text-center">
+                  <h1 className="text-4xl md:text-5xl font-bold text-amber-100 mb-4">Codex Collective</h1>
+                  <p className="text-xl text-amber-300">Community DAO, memes or business - backing the most voted on ideas</p>
                 </div>
-                <h1 className="text-4xl md:text-5xl font-bold text-amber-100 mb-4">Codex Collective</h1>
-                <p className="text-xl text-amber-300">Community DAO, memes or business - backing the most voted on ideas</p>
               </div>
               
               <Card className="bg-gradient-to-br from-amber-900/20 to-slate-900/50 border-amber-600/30 mb-12">
