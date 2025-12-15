@@ -2541,11 +2541,17 @@ function GLoungeComponent({ user }) {
       {/* Steam-like Social Hub Sidebar */}
       <div className="hidden lg:flex w-72 bg-slate-950/90 border-r border-amber-900/30 flex-col relative z-10">
         <div className="p-4 border-b border-amber-900/30">
-          <div className="flex items-center gap-2 mb-1">
-            <Crown className="w-6 h-6 text-amber-500" />
-            <h3 className="text-lg font-bold text-amber-100">G Lounge</h3>
+          <div className="flex items-center gap-3 mb-1">
+            <img 
+              src="/images/glounge-logo.jpg" 
+              alt="G Lounge" 
+              className="w-10 h-10 rounded-lg object-cover"
+            />
+            <div>
+              <h3 className="text-lg font-bold text-amber-100">G Lounge</h3>
+              <p className="text-xs text-amber-400 italic">Exclusive Members Club</p>
+            </div>
           </div>
-          <p className="text-xs text-amber-400 italic">Exclusive Members Club</p>
         </div>
         
         {/* Navigation */}
