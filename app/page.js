@@ -2346,6 +2346,11 @@ function GLoungeComponent({ user }) {
   const [rulesAccepted, setRulesAccepted] = useState(false)
   const [showRules, setShowRules] = useState(false)
   const [audioPlaying, setAudioPlaying] = useState(true)
+  const [showSignup, setShowSignup] = useState(false)
+  const [signupEmail, setSignupEmail] = useState('')
+  const [signupUsername, setSignupUsername] = useState('')
+  const [emailOptIn, setEmailOptIn] = useState(true)
+  const [signupStatus, setSignupStatus] = useState('')
   const audioRef = React.useRef(null)
   
   // Check if rules were previously accepted (localStorage)
