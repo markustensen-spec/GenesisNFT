@@ -1530,17 +1530,17 @@ export default function App() {
               {/* New Introduction */}
               <div className="text-center mb-12">
                 <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-amber-200 via-amber-400 to-amber-200 bg-clip-text text-transparent">
-                  Leonardo Da Vinci Codex NFT Collection
+                  Leonardo Codex NFT
                 </h1>
                 <p className="text-2xl md:text-3xl text-amber-100 font-bold mb-4">
-                  500 ultra-exclusive Illuminati Atlanticus pieces inspired by his Codex manuscripts
+                  9500 Genesis Codex
+                </p>
+                <p className="text-2xl md:text-3xl text-amber-100 font-bold mb-4">
+                  500 Illuminati Atlanticus
                 </p>
                 <div className="max-w-3xl mx-auto">
-                  <p className="text-xl text-amber-100/80 mb-4">
-                    This isn't just a drop.
-                  </p>
                   <p className="text-xl text-amber-100/80">
-                    This is an exclusive club — the Cax Codex, a modern secret society echoing da Vinci's inner circle of patrons, apprentices, and visionaries.
+                    The Codex, a modern secret society echoing da Vinci's inner circle of patrons, apprentices, and visionaries
                   </p>
                 </div>
               </div>
