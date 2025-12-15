@@ -1511,17 +1511,17 @@ export default function App() {
               {/* New Introduction */}
               <div className="text-center mb-12">
                 <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-amber-200 via-amber-400 to-amber-200 bg-clip-text text-transparent">
-                  Leonardo Codex NFT
+                  Leonardo Da Vinci on chain
                 </h1>
-                <p className="text-2xl md:text-3xl text-amber-100 font-bold mb-2">
-                  Genesis Codex <span className="text-amber-400">›</span> 9500
-                </p>
                 <p className="text-2xl md:text-3xl text-amber-100 font-bold mb-4">
-                  Illuminate Atlanticus <span className="text-amber-400">›</span> 500
+                  Genesis Codex NFT
+                </p>
+                <p className="text-xl md:text-2xl text-amber-100 mb-4">
+                  10,000 unique pieces on Solana.
                 </p>
                 <div className="max-w-3xl mx-auto">
                   <p className="text-xl text-amber-100/80">
-                    Modern Codex interpretation with real game utility, APY bonus, Airdrops' all hosted on Solana.
+                    Real game utility, APY bonus, Airdrops within an exclusive community
                   </p>
                 </div>
               </div>
