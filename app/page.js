@@ -2396,6 +2396,39 @@ function GLoungeComponent({ user }) {
     setRulesAccepted(true)
   }
   
+  const handleGLoungeSignup = async () => {
+    if (!signupEmail || !signupUsername) {
+      setSignupStatus('Please fill in all fields')
+      return
+    }
+    
+    setSignupStatus('Creating account...')
+    
+    try {
+      const response = await fetch('/api/glounge-signup', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email: signupEmail,
+          username: signupUsername,
+          emailOptIn: emailOptIn
+        })
+      })
+      
+      const data = await response.json()
+      
+      if (response.ok) {
+        setSignupStatus('Welcome to G Lounge! Check your email for confirmation.')
+        setShowSignup(false)
+        localStorage.setItem('glounge_member', 'true')
+      } else {
+        setSignupStatus(data.error || 'Something went wrong')
+      }
+    } catch (error) {
+      setSignupStatus('Error creating account. Please try again.')
+    }
+  }
+  
   const codex7Rules = [
     { num: 1, title: "Uncompromising Respect", desc: "Extend courtesy, dignity, and equality to every fellow member, regardless of holdings, skill, or status." },
     { num: 2, title: "Absolute Integrity", desc: "Conduct all wagers, votes, trades, and interactions with complete honesty; deceit in any form is beneath a gentleman." },
