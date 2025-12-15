@@ -836,14 +836,6 @@ export default function App() {
               <Button variant="ghost" onClick={playGame} className="text-amber-100 hover:text-amber-400">
                 G Lounge
               </Button>
-              <Button variant="ghost" onClick={() => setActiveTab('lounge')} className="text-amber-100 hover:text-amber-400 flex items-center">
-                <Crown className="w-4 h-4 mr-1" />
-                Caviar
-              </Button>
-              <Button variant="ghost" onClick={() => setActiveTab('codexcats')} className="text-amber-100 hover:text-amber-400 flex items-center">
-                <Lightbulb className="w-4 h-4 mr-1" />
-                Codex Collective
-              </Button>
               <Button variant="ghost" onClick={() => setActiveTab('whitepaper')} className="text-amber-100 hover:text-amber-400">
                 Whitepaper
               </Button>
