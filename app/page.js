@@ -814,11 +814,11 @@ export default function App() {
             <div className="flex items-center space-x-2">
               <img 
                 src="/images/noir-logo.png" 
-                alt="Noir Genesis 9 Logo" 
+                alt="Noir97 Logo" 
                 className="w-8 h-8 md:w-10 md:h-10 object-contain"
               />
-              <span className="text-lg md:text-xl font-semibold">
-                <span className="text-slate-300">Noir</span> <span className="text-amber-400">Genesis</span> <span className="text-red-500">9</span>
+              <span className="text-lg md:text-xl font-semibold text-slate-100">
+                Noir97
               </span>
             </div>
             
