@@ -891,7 +891,7 @@ export default function App() {
                 NFT
               </Button>
               <Button variant="ghost" onClick={() => { playGame(); setMobileMenuOpen(false) }} className="w-full text-amber-100">
-                Minigames
+                G Lounge
               </Button>
               <Button variant="ghost" onClick={() => { setActiveTab('lounge'); setMobileMenuOpen(false) }} className="w-full text-amber-100">
                 Caviar
