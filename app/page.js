@@ -1542,7 +1542,7 @@ export default function App() {
                   </h2>
                   
                   <p className="text-xl md:text-2xl text-amber-100 mb-8 font-bold drop-shadow-lg">
-                    9500 G Codex + 500 Illuminated Atlanticus
+                    9500 G Codex + 500 Illuminate Atlanticus
                   </p>
 
                   {/* Price & Stats */}
