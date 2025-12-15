@@ -2780,10 +2780,20 @@ function GLoungeComponent({ user }) {
 
                 {/* 3. Games */}
                 <Card 
-                  className="bg-gradient-to-br from-emerald-900/30 to-slate-900/60 border-2 border-emerald-500/50 overflow-hidden cursor-pointer hover:border-emerald-400 transition-all"
+                  className="bg-gradient-to-br from-emerald-900/30 to-slate-900/60 border-2 border-emerald-500/50 overflow-hidden cursor-pointer hover:border-emerald-400 transition-all relative"
                   onClick={() => setActiveSection('games')}
                 >
-                  <CardHeader>
+                  <div 
+                    className="absolute inset-0 z-0"
+                    style={{
+                      backgroundImage: 'url(/images/games-bg.jpg)',
+                      backgroundSize: 'cover',
+                      backgroundPosition: 'center'
+                    }}
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-900/80 to-emerald-900/70"></div>
+                  </div>
+                  <CardHeader className="relative z-10">
                     <div className="flex items-center gap-4">
                       <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-emerald-600 to-emerald-800 flex items-center justify-center">
                         <Trophy className="w-8 h-8 text-white" />
