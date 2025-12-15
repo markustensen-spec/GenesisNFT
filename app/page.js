@@ -2739,17 +2739,27 @@ function GLoungeComponent({ user }) {
                 
                 {/* 1. Codex Collective */}
                 <Card 
-                  className="bg-gradient-to-br from-amber-900/30 to-slate-900/60 border-2 border-amber-500/50 overflow-hidden cursor-pointer hover:border-amber-400 transition-all"
+                  className="bg-gradient-to-br from-amber-900/30 to-slate-900/60 border-2 border-amber-500/50 overflow-hidden cursor-pointer hover:border-amber-400 transition-all relative"
                   onClick={() => setActiveSection('collective')}
                 >
-                  <CardHeader>
+                  <div 
+                    className="absolute inset-0 z-0"
+                    style={{
+                      backgroundImage: 'url(/images/codex-collective-bg.jpg)',
+                      backgroundSize: 'cover',
+                      backgroundPosition: 'center'
+                    }}
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-900/80 to-amber-900/70"></div>
+                  </div>
+                  <CardHeader className="relative z-10">
                     <div className="flex items-center gap-4">
                       <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-amber-600 to-amber-800 flex items-center justify-center">
                         <Lightbulb className="w-8 h-8 text-white" />
                       </div>
                       <div>
                         <CardTitle className="text-2xl text-amber-100">1. Codex Collective</CardTitle>
-                        <CardDescription className="text-amber-300">Community DAO, memes or business - backing the most voted on ideas</CardDescription>
+                        <CardDescription className="text-amber-300">Community DAO</CardDescription>
                       </div>
                       <ChevronRight className="w-8 h-8 text-amber-400 ml-auto" />
                     </div>
