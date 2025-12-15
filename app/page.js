@@ -2652,10 +2652,10 @@ function GLoungeComponent({ user }) {
       <div className="flex-1 overflow-auto relative z-10">
         <div className="container mx-auto px-4 py-8 max-w-5xl">
           
-          {/* Simplified Caviar Info under G Lounge */}
+          {/* Simplified Caviar Info under description */}
           <div className="mb-6 text-center">
-            <p className="text-amber-100/80 text-lg">Caviar governance integrates through the ecosystem</p>
-            <p className="text-amber-400 font-semibold">$CAX releases February 14th</p>
+            <p className="text-amber-100/80 text-lg">Caviar integrates through the ecosystem</p>
+            <p className="text-amber-400 font-semibold">$CAX release date is February 14th</p>
           </div>
           
           {/* Mobile Navigation */}
