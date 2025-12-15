@@ -3213,61 +3213,54 @@ function GLoungeComponent({ user }) {
                 Back to Overview
               </Button>
               
-              <div className="text-center mb-12">
-                <div className="w-20 h-20 mx-auto mb-4 rounded-xl bg-gradient-to-br from-emerald-600 to-emerald-800 flex items-center justify-center">
-                  <Trophy className="w-10 h-10 text-white" />
+              {/* Hero Image for Games */}
+              <div className="relative mb-12 rounded-2xl overflow-hidden">
+                <img 
+                  src="/images/games-bg.jpg" 
+                  alt="Games"
+                  className="w-full h-64 md:h-80 object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent"></div>
+                <div className="absolute bottom-0 left-0 right-0 p-8 text-center">
+                  <h1 className="text-4xl md:text-5xl font-bold text-amber-100 mb-4">Games</h1>
+                  <p className="text-xl text-emerald-300">Golf sim, minigames and coin-flip</p>
                 </div>
-                <h1 className="text-4xl md:text-5xl font-bold text-amber-100 mb-4">Games</h1>
-                <p className="text-xl text-emerald-300">Golf sim, minigames and coin-flip</p>
               </div>
               
-              <Card className="bg-gradient-to-br from-emerald-900/30 to-slate-900/60 border-2 border-emerald-500/50">
+              {/* Golf Simulator */}
+              <Card className="bg-gradient-to-br from-emerald-900/30 to-slate-900/60 border-2 border-emerald-500/50 mb-6">
                 <CardContent className="p-8">
-                  <p className="text-xl text-amber-100/90 leading-relaxed mb-8">
-                    <span className="text-emerald-400 font-bold">Golf simulation game</span> – Hyper-realistic gameplay with PvP wagers, rankings, team modes, minigames, and full <span className="text-amber-400 font-bold">$CAX</span> integration.
-                  </p>
-                  
-                  {/* Caviar Golf Hub */}
-                  <div className="bg-slate-800/60 rounded-xl p-6 mb-6 border border-emerald-500/30">
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center">
-                        <Trophy className="w-6 h-6 text-white" />
-                      </div>
-                      <div>
-                        <h4 className="text-xl font-bold text-emerald-300">Caviar Golf Hub</h4>
-                        <p className="text-amber-100/60 text-sm">Powered by CAX Token</p>
-                      </div>
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center">
+                      <Trophy className="w-7 h-7 text-white" />
                     </div>
-                    
-                    <ul className="space-y-3 text-amber-100/80">
-                      <li className="flex items-start gap-2">
-                        <ChevronRight className="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0" />
-                        <span>Play on iconic courses with advanced physics, weather effects, and precise controls</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <ChevronRight className="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0" />
-                        <span><strong className="text-emerald-300">Global Ranking System:</strong> ELO-based leaderboards – climb ranks through skill-based matches</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <ChevronRight className="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0" />
-                        <span><strong className="text-emerald-300">PvP Wagering:</strong> Challenge players worldwide; wager CAX tokens (provably fair, on-chain)</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <ChevronRight className="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0" />
-                        <span><strong className="text-emerald-300">Team Play:</strong> Form squads for team battles and split prize pools</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <ChevronRight className="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0" />
-                        <span><strong className="text-emerald-300">Quick Minigames:</strong> Closest-to-Pin, Long Drive, Trick Shots, Coin-flip and more</span>
-                      </li>
-                    </ul>
+                    <div>
+                      <h2 className="text-2xl font-bold text-emerald-300">Golf Simulator</h2>
+                      <p className="text-amber-100/70">Get on the green</p>
+                    </div>
                   </div>
                   
-                  <div className="bg-emerald-900/30 border border-emerald-500/30 rounded-lg p-4 text-center">
-                    <p className="text-emerald-200 font-semibold">
-                      Use CAX for entry fees, boosts, custom cosmetics, and instant payouts. Every swing can turn into real earnings!
-                    </p>
+                  <p className="text-lg text-amber-100/80 leading-relaxed">
+                    Friendly or competitive matches and tournaments
+                  </p>
+                </CardContent>
+              </Card>
+              
+              {/* Minigames */}
+              <Card className="bg-gradient-to-br from-purple-900/30 to-slate-900/60 border-2 border-purple-500/50">
+                <CardContent className="p-8">
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center">
+                      <Play className="w-7 h-7 text-white" />
+                    </div>
+                    <div>
+                      <h2 className="text-2xl font-bold text-purple-300">Minigames</h2>
+                    </div>
                   </div>
+                  
+                  <p className="text-lg text-amber-100/80 leading-relaxed">
+                    Agar, coin-flip, fall guys like game, rock paper scissors
+                  </p>
                 </CardContent>
               </Card>
             </>
