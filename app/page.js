@@ -2659,16 +2659,10 @@ function GLoungeComponent({ user }) {
       <div className="flex-1 overflow-auto relative z-10">
         <div className="container mx-auto px-4 py-8 max-w-5xl">
           
-          {/* CAVIAR Governance Token Banner - Always at top */}
-          <div className="mb-8 bg-gradient-to-r from-amber-900/60 via-yellow-900/50 to-amber-900/60 backdrop-blur-md border-2 border-amber-500/50 rounded-2xl p-6 text-center">
-            <div className="flex items-center justify-center gap-3 mb-3">
-              <Coins className="w-8 h-8 text-amber-400" />
-              <h2 className="text-2xl md:text-3xl font-bold text-amber-100">$CAVIAR</h2>
-              <Coins className="w-8 h-8 text-amber-400" />
-            </div>
-            <p className="text-lg md:text-xl text-amber-100/90 max-w-3xl mx-auto">
-              $CAVIAR is the foundational governance and utility token that powers every aspect of G Lounge. <span className="text-amber-400 font-bold">CAX holders own the G Lounge.</span>
-            </p>
+          {/* Simplified Caviar Info under G Lounge */}
+          <div className="mb-6 text-center">
+            <p className="text-amber-100/80 text-lg">Caviar governance integrates through the ecosystem</p>
+            <p className="text-amber-400 font-semibold">$CAX releases February 14th</p>
           </div>
           
           {/* Mobile Navigation */}
