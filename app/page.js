@@ -1891,7 +1891,7 @@ export default function App() {
                   <CardContent className="text-amber-100/70">
                     <p className="mb-3">NFT holders receive enhanced $CAX rewards</p>
                     <ul className="space-y-2 text-sm">
-                      <li>✓ Illuminati Atlanticus NFT: +8% APY</li>
+                      <li>✓ Atlanticus NFT: +8% APY</li>
                       <li>✓ Sketch NFT: +2% APY</li>
                       <li>✓ Exclusive airdrops</li>
                       <li>✓ Governance multiplier</li>
