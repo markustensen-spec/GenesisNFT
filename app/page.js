@@ -2454,7 +2454,20 @@ function GLoungeComponent({ user }) {
   }
   
   return (
-    <div className="flex min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-amber-950/30">
+    <div className="flex min-h-screen">
+      {/* Background Image */}
+      <div 
+        className="fixed inset-0 z-0"
+        style={{
+          backgroundImage: 'url(/images/glounge-bg.jpg)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed'
+        }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-950/85 via-slate-900/90 to-slate-950/95"></div>
+      </div>
+      
       {/* Audio Control Button - Fixed Position */}
       <button 
         onClick={toggleAudio}
@@ -2499,7 +2512,7 @@ function GLoungeComponent({ user }) {
       )}
 
       {/* Steam-like Social Hub Sidebar */}
-      <div className="hidden lg:flex w-72 bg-slate-950/90 border-r border-amber-900/30 flex-col">
+      <div className="hidden lg:flex w-72 bg-slate-950/90 border-r border-amber-900/30 flex-col relative z-10">
         <div className="p-4 border-b border-amber-900/30">
           <div className="flex items-center gap-2 mb-1">
             <Crown className="w-6 h-6 text-amber-500" />
