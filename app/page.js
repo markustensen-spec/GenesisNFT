@@ -2652,12 +2652,6 @@ function GLoungeComponent({ user }) {
       <div className="flex-1 overflow-auto relative z-10">
         <div className="container mx-auto px-4 py-8 max-w-5xl">
           
-          {/* Simplified Caviar Info under description */}
-          <div className="mb-6 text-center">
-            <p className="text-amber-100/80 text-lg">Caviar integrates through the ecosystem</p>
-            <p className="text-amber-400 font-semibold">$CAX release date is February 14th</p>
-          </div>
-          
           {/* Mobile Navigation */}
           <div className="lg:hidden mb-8">
             <div className="flex flex-wrap gap-2 justify-center mb-4">
