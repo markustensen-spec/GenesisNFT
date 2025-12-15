@@ -2350,6 +2350,309 @@ export default function App() {
   )
 }
 
+// G Lounge Component - Welcome page with Steam-like social hub
+function GLoungeComponent({ user }) {
+  const [activeSection, setActiveSection] = useState('overview')
+  
+  return (
+    <div className="flex min-h-screen">
+      {/* Steam-like Social Hub Sidebar */}
+      <div className="hidden lg:flex w-72 bg-slate-950/90 border-r border-amber-900/30 flex-col">
+        <div className="p-4 border-b border-amber-900/30">
+          <h3 className="text-lg font-bold text-amber-100 flex items-center">
+            <Users className="w-5 h-5 mr-2 text-amber-500" />
+            G Lounge Hub
+          </h3>
+          <p className="text-xs text-amber-100/60 mt-1">Your crypto community</p>
+        </div>
+        
+        {/* Navigation */}
+        <nav className="flex-1 p-3 space-y-1">
+          <button 
+            onClick={() => setActiveSection('overview')}
+            className={`w-full text-left px-4 py-3 rounded-lg transition-all flex items-center gap-3 ${activeSection === 'overview' ? 'bg-amber-600/20 text-amber-300 border border-amber-500/30' : 'text-amber-100/70 hover:bg-slate-800/50'}`}
+          >
+            <Crown className="w-5 h-5" />
+            Overview
+          </button>
+          <button 
+            onClick={() => setActiveSection('collective')}
+            className={`w-full text-left px-4 py-3 rounded-lg transition-all flex items-center gap-3 ${activeSection === 'collective' ? 'bg-amber-600/20 text-amber-300 border border-amber-500/30' : 'text-amber-100/70 hover:bg-slate-800/50'}`}
+          >
+            <Lightbulb className="w-5 h-5" />
+            Codex Collective
+          </button>
+          <button 
+            onClick={() => setActiveSection('tradingbot')}
+            className={`w-full text-left px-4 py-3 rounded-lg transition-all flex items-center gap-3 ${activeSection === 'tradingbot' ? 'bg-blue-600/20 text-blue-300 border border-blue-500/30' : 'text-amber-100/70 hover:bg-slate-800/50'}`}
+          >
+            <Zap className="w-5 h-5" />
+            Trading Bot MAX
+            <Badge className="ml-auto bg-blue-600/30 text-blue-200 text-xs">Soon</Badge>
+          </button>
+          <button 
+            onClick={() => setActiveSection('games')}
+            className={`w-full text-left px-4 py-3 rounded-lg transition-all flex items-center gap-3 ${activeSection === 'games' ? 'bg-emerald-600/20 text-emerald-300 border border-emerald-500/30' : 'text-amber-100/70 hover:bg-slate-800/50'}`}
+          >
+            <Trophy className="w-5 h-5" />
+            Games
+          </button>
+        </nav>
+        
+        {/* User Status */}
+        <div className="p-4 border-t border-amber-900/30">
+          {user ? (
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-amber-600 to-amber-800 flex items-center justify-center">
+                <span className="text-white font-bold">{user.username?.charAt(0).toUpperCase()}</span>
+              </div>
+              <div>
+                <p className="text-amber-100 font-semibold text-sm">{user.username}</p>
+                <p className="text-emerald-400 text-xs flex items-center">
+                  <span className="w-2 h-2 bg-emerald-400 rounded-full mr-1"></span>
+                  Online
+                </p>
+              </div>
+            </div>
+          ) : (
+            <div className="text-amber-100/60 text-sm text-center">
+              Connect wallet to access features
+            </div>
+          )}
+        </div>
+        
+        {/* Quick Stats */}
+        <div className="p-4 border-t border-amber-900/30 bg-slate-900/50">
+          <div className="grid grid-cols-2 gap-3 text-center">
+            <div>
+              <p className="text-2xl font-bold text-amber-400">1.2K</p>
+              <p className="text-xs text-amber-100/60">Members</p>
+            </div>
+            <div>
+              <p className="text-2xl font-bold text-emerald-400">847</p>
+              <p className="text-xs text-amber-100/60">Online</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Main Content Area */}
+      <div className="flex-1 overflow-auto">
+        <div className="container mx-auto px-4 py-8 max-w-5xl">
+          
+          {/* Welcome Header */}
+          <div className="text-center mb-12">
+            <h1 className="text-4xl md:text-5xl font-bold text-amber-100 mb-4">Welcome to G Lounge</h1>
+            <p className="text-xl text-amber-100/80 max-w-3xl mx-auto">
+              The all-in-one platform bringing together premium crypto tools, trading automation, and exciting Play-to-Earn gaming experiences.
+            </p>
+          </div>
+
+          {/* Mobile Navigation */}
+          <div className="lg:hidden mb-8 flex flex-wrap gap-2 justify-center">
+            <Button 
+              variant={activeSection === 'overview' ? 'default' : 'outline'}
+              onClick={() => setActiveSection('overview')}
+              className={activeSection === 'overview' ? 'bg-amber-600' : 'border-amber-600/50 text-amber-400'}
+              size="sm"
+            >
+              Overview
+            </Button>
+            <Button 
+              variant={activeSection === 'collective' ? 'default' : 'outline'}
+              onClick={() => setActiveSection('collective')}
+              className={activeSection === 'collective' ? 'bg-amber-600' : 'border-amber-600/50 text-amber-400'}
+              size="sm"
+            >
+              Collective
+            </Button>
+            <Button 
+              variant={activeSection === 'tradingbot' ? 'default' : 'outline'}
+              onClick={() => setActiveSection('tradingbot')}
+              className={activeSection === 'tradingbot' ? 'bg-blue-600' : 'border-blue-600/50 text-blue-400'}
+              size="sm"
+            >
+              Trading Bot
+            </Button>
+            <Button 
+              variant={activeSection === 'games' ? 'default' : 'outline'}
+              onClick={() => setActiveSection('games')}
+              className={activeSection === 'games' ? 'bg-emerald-600' : 'border-emerald-600/50 text-emerald-400'}
+              size="sm"
+            >
+              Games
+            </Button>
+          </div>
+
+          <p className="text-center text-xl text-amber-200 mb-12 font-semibold">Explore our three main categories:</p>
+
+          {/* Category Cards */}
+          <div className="space-y-8">
+            
+            {/* 1. Codex Collective */}
+            <Card className="bg-gradient-to-br from-amber-900/30 to-slate-900/60 border-2 border-amber-500/50 overflow-hidden">
+              <CardHeader>
+                <div className="flex items-center gap-4">
+                  <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-amber-600 to-amber-800 flex items-center justify-center">
+                    <Lightbulb className="w-8 h-8 text-white" />
+                  </div>
+                  <div>
+                    <CardTitle className="text-2xl text-amber-100">1. Codex Collective</CardTitle>
+                    <CardDescription className="text-amber-300">The heart of G Lounge</CardDescription>
+                  </div>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <p className="text-amber-100/80 text-lg leading-relaxed">
+                  Your dedicated space for community-driven insights, advanced trading strategies, alpha calls, market analysis, and exclusive member perks.
+                </p>
+              </CardContent>
+            </Card>
+
+            {/* 2. Trading Bot MAX */}
+            <Card className="bg-gradient-to-br from-blue-900/30 to-slate-900/60 border-2 border-blue-500/50 overflow-hidden">
+              <CardHeader>
+                <div className="flex items-center gap-4">
+                  <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center">
+                    <Zap className="w-8 h-8 text-white" />
+                  </div>
+                  <div className="flex-1">
+                    <div className="flex items-center gap-3">
+                      <CardTitle className="text-2xl text-amber-100">2. Trading Bot MAX</CardTitle>
+                      <Badge className="bg-blue-600 text-white">Coming Soon</Badge>
+                    </div>
+                    <CardDescription className="text-blue-300">Automated Trading Solution</CardDescription>
+                  </div>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <p className="text-amber-100/80 text-lg leading-relaxed mb-6">
+                  Get ready for Trading Bot MAX – our powerful automated trading solution designed to maximize profits with minimal effort.
+                </p>
+                
+                <h4 className="text-xl font-bold text-blue-300 mb-4">Features on the horizon:</h4>
+                <ul className="grid md:grid-cols-2 gap-3 text-amber-100/80">
+                  <li className="flex items-start gap-2">
+                    <TrendingUp className="w-5 h-5 text-blue-400 mt-0.5 flex-shrink-0" />
+                    <span>AI-driven strategies for spot, futures, and grid trading</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <Zap className="w-5 h-5 text-blue-400 mt-0.5 flex-shrink-0" />
+                    <span>Customizable bots with risk management tools</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <TrendingUp className="w-5 h-5 text-blue-400 mt-0.5 flex-shrink-0" />
+                    <span>Backtesting, copy trading, and multi-exchange support</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <Wallet className="w-5 h-5 text-blue-400 mt-0.5 flex-shrink-0" />
+                    <span>Seamless integration with your favorite platforms</span>
+                  </li>
+                </ul>
+                
+                <div className="mt-6 bg-blue-900/30 border border-blue-500/30 rounded-lg p-4 text-center">
+                  <p className="text-blue-200 font-semibold">Stay tuned – this game-changer launches soon!</p>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* 3. Games */}
+            <Card className="bg-gradient-to-br from-emerald-900/30 to-slate-900/60 border-2 border-emerald-500/50 overflow-hidden">
+              <CardHeader>
+                <div className="flex items-center gap-4">
+                  <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-emerald-600 to-emerald-800 flex items-center justify-center">
+                    <Trophy className="w-8 h-8 text-white" />
+                  </div>
+                  <div>
+                    <CardTitle className="text-2xl text-amber-100">3. Games</CardTitle>
+                    <CardDescription className="text-emerald-300">Play-to-Earn Gaming</CardDescription>
+                  </div>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <p className="text-amber-100/80 text-lg leading-relaxed mb-6">
+                  Dive into immersive Play-to-Earn gaming with real crypto rewards!
+                </p>
+                
+                {/* Caviar Golf Hub */}
+                <div className="bg-slate-800/60 rounded-xl p-6 mb-6 border border-emerald-500/30">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center">
+                      <Trophy className="w-6 h-6 text-white" />
+                    </div>
+                    <div>
+                      <h4 className="text-xl font-bold text-emerald-300">Caviar Golf Hub</h4>
+                      <p className="text-amber-100/60 text-sm">Powered by CAX Token</p>
+                    </div>
+                  </div>
+                  
+                  <p className="text-amber-100/80 mb-4">
+                    Our flagship title is a hyper-realistic golf simulation game that combines pro-level gameplay with blockchain rewards:
+                  </p>
+                  
+                  <ul className="space-y-3 text-amber-100/80 mb-6">
+                    <li className="flex items-start gap-2">
+                      <ChevronRight className="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0" />
+                      <span>Play on iconic courses with advanced physics, weather effects, and precise controls</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <ChevronRight className="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0" />
+                      <span><strong className="text-emerald-300">Global Ranking System:</strong> ELO-based leaderboards – climb ranks through skill-based matches and earn exclusive rewards</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <ChevronRight className="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0" />
+                      <span><strong className="text-emerald-300">PvP Wagering:</strong> Challenge players worldwide in head-to-head matches; wager CAX tokens on holes, rounds, or full games (provably fair, on-chain)</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <ChevronRight className="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0" />
+                      <span><strong className="text-emerald-300">Team Play:</strong> Form squads for team battles, relays, and cooperative tournaments – share strategies and split prize pools</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <ChevronRight className="w-5 h-5 text-emerald-400 mt-0.5 flex-shrink-0" />
+                      <span><strong className="text-emerald-300">Quick Minigames:</strong> Closest-to-Pin, Long Drive contests, Trick Shots, and more for fast-paced fun and casual wagers</span>
+                    </li>
+                  </ul>
+                  
+                  <div className="bg-emerald-900/30 border border-emerald-500/30 rounded-lg p-4">
+                    <p className="text-emerald-200">
+                      Use CAX for entry fees, boosts, custom cosmetics, and instant payouts. Every swing can turn into real earnings!
+                    </p>
+                  </div>
+                </div>
+                
+                <p className="text-amber-100/70 text-center italic">
+                  More games in development – join now and be first on the leaderboard.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* CTA Section */}
+          <Card className="mt-12 bg-gradient-to-r from-amber-600/20 via-emerald-600/20 to-blue-600/20 border-2 border-amber-500/50">
+            <CardContent className="py-12 text-center">
+              <h3 className="text-3xl font-bold text-amber-100 mb-4">Ready to enter G Lounge?</h3>
+              <p className="text-xl text-amber-100/80 mb-6">
+                Connect your wallet, grab CAX, and start exploring today!
+              </p>
+              {user ? (
+                <Badge className="bg-emerald-600/30 text-emerald-300 px-6 py-3 text-lg border border-emerald-500/50">
+                  <CheckCircle className="w-5 h-5 mr-2 inline" />
+                  Welcome, {user.username}!
+                </Badge>
+              ) : (
+                <Button size="lg" className="bg-gradient-to-r from-amber-600 to-emerald-600 hover:from-amber-500 hover:to-emerald-500 text-white px-8">
+                  <Wallet className="w-5 h-5 mr-2" />
+                  Connect Wallet
+                </Button>
+              )}
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 // Game Component
 function GameComponent({ user }) {
   const canvasRef = React.useRef(null)
