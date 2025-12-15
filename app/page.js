@@ -3368,13 +3368,6 @@ function GLoungeComponent({ user }) {
                   </div>
                 </CardContent>
               </Card>
-              
-              <Card className="bg-gradient-to-r from-amber-600/20 via-purple-600/20 to-emerald-600/20 border-2 border-amber-500/50">
-                <CardContent className="py-8 text-center">
-                  <h3 className="text-2xl font-bold text-amber-100 mb-2">Join the club – hold $CAX and tee off with us!</h3>
-                  <p className="text-3xl">⛳💎</p>
-                </CardContent>
-              </Card>
             </>
           )}
         </div>
