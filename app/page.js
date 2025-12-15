@@ -2707,7 +2707,7 @@ function GLoungeComponent({ user }) {
           {activeSection === 'overview' && (
             <>
               {/* Welcome Header with Exclusive Branding */}
-              <div className="text-center mb-12">
+              <div className="text-center mb-8">
                 <div className="inline-block mb-4">
                   <div className="flex items-center justify-center gap-3 mb-2">
                     <div className="h-px w-16 bg-gradient-to-r from-transparent to-amber-500"></div>
@@ -2717,9 +2717,11 @@ function GLoungeComponent({ user }) {
                 </div>
                 <h1 className="text-4xl md:text-5xl font-bold text-amber-100 mb-2">G Lounge</h1>
                 <p className="text-2xl md:text-3xl text-amber-400 italic font-light mb-4">Exclusive</p>
-                <p className="text-xl text-amber-100/80 max-w-3xl mx-auto">
+                <p className="text-xl text-amber-100/80 max-w-3xl mx-auto mb-4">
                   Web3 golf club – Premium virtual hub driven by the community, for the community.
                 </p>
+                <p className="text-amber-100/70">Caviar integrates through the ecosystem</p>
+                <p className="text-amber-400 font-semibold">$CAX release date is February 14th</p>
               </div>
 
               {/* Subtle 7 Rules Link */}
