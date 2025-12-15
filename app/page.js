@@ -2527,7 +2527,7 @@ function GLoungeComponent({ user }) {
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   <Crown className="w-8 h-8 text-amber-500" />
-                  <CardTitle className="text-2xl text-amber-100">The Codex 7</CardTitle>
+                  <CardTitle className="text-2xl text-amber-100">7 Rules Gentlemen Codex</CardTitle>
                 </div>
                 <Button variant="ghost" onClick={() => setShowRules(false)} className="text-amber-100">
                   <X className="w-6 h-6" />
