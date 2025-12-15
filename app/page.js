@@ -2753,7 +2753,7 @@ function GLoungeComponent({ user }) {
                   </CardHeader>
                 </Card>
 
-                {/* 3. Games */}
+                {/* Games */}
                 <Card 
                   className="bg-gradient-to-br from-emerald-900/30 to-slate-900/60 border-2 border-emerald-500/50 overflow-hidden cursor-pointer hover:border-emerald-400 transition-all relative"
                   onClick={() => setActiveSection('games')}
@@ -2774,7 +2774,7 @@ function GLoungeComponent({ user }) {
                         <Trophy className="w-8 h-8 text-white" />
                       </div>
                       <div>
-                        <CardTitle className="text-2xl text-amber-100">3. Games</CardTitle>
+                        <CardTitle className="text-2xl text-amber-100">Games</CardTitle>
                         <CardDescription className="text-emerald-300">Golf simulation, coin flips and other minigames</CardDescription>
                       </div>
                       <ChevronRight className="w-8 h-8 text-emerald-400 ml-auto" />
