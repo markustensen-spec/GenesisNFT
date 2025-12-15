@@ -2558,10 +2558,17 @@ function GLoungeComponent({ user }) {
             Overview
           </button>
           <button 
+            onClick={() => setActiveSection('max')}
+            className={`w-full text-left px-4 py-3 rounded-lg transition-all flex items-center gap-3 ${activeSection === 'max' ? 'bg-purple-600/20 text-purple-300 border border-purple-500/30' : 'text-amber-100/70 hover:bg-slate-800/50'}`}
+          >
+            <Zap className="w-5 h-5" />
+            Max
+          </button>
+          <button 
             onClick={() => setActiveSection('tradingbot')}
             className={`w-full text-left px-4 py-3 rounded-lg transition-all flex items-center gap-3 ${activeSection === 'tradingbot' ? 'bg-blue-600/20 text-blue-300 border border-blue-500/30' : 'text-amber-100/70 hover:bg-slate-800/50'}`}
           >
-            <Zap className="w-5 h-5" />
+            <TrendingUp className="w-5 h-5" />
             Trading Bot MAX
             <Badge className="ml-auto bg-blue-600/30 text-blue-200 text-xs">Soon</Badge>
           </button>
@@ -2576,7 +2583,7 @@ function GLoungeComponent({ user }) {
             onClick={() => setActiveSection('tokenomics')}
             className={`w-full text-left px-4 py-3 rounded-lg transition-all flex items-center gap-3 ${activeSection === 'tokenomics' ? 'bg-purple-600/20 text-purple-300 border border-purple-500/30' : 'text-amber-100/70 hover:bg-slate-800/50'}`}
           >
-            <TrendingUp className="w-5 h-5" />
+            <Coins className="w-5 h-5" />
             Tokenomics
           </button>
         </nav>
