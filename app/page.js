@@ -2033,12 +2033,12 @@ export default function App() {
                 <Card className="bg-gradient-to-br from-amber-900/30 to-slate-900/50 border-amber-600/30">
                   <CardHeader>
                     <Play className="w-12 h-12 text-amber-500 mb-3" />
-                    <CardTitle className="text-amber-100 text-xl">Minigames</CardTitle>
+                    <CardTitle className="text-amber-100 text-xl">G Lounge Games</CardTitle>
                   </CardHeader>
                   <CardContent className="text-amber-100/70">
-                    <p className="mb-4">Collection of engaging minigames with crypto rewards and competitive leaderboards.</p>
+                    <p className="mb-4">Collection of Play-to-Earn games with crypto rewards and competitive leaderboards.</p>
                     <ul className="space-y-2 text-sm">
-                      <li>✓ Play-to-earn mechanics</li>
+                      <li>✓ Caviar Golf Hub powered by CAX</li>
                       <li>✓ Daily challenges & tournaments</li>
                       <li>✓ NFT rewards for winners</li>
                       <li>✓ Global leaderboards</li>
