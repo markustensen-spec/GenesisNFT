@@ -3108,6 +3108,59 @@ function GLoungeComponent({ user }) {
             </>
           )}
 
+          {/* MAX AI TRADING SECTION */}
+          {activeSection === 'max' && (
+            <>
+              <Button 
+                variant="ghost" 
+                onClick={() => setActiveSection('overview')}
+                className="mb-6 text-purple-400 hover:text-purple-300"
+              >
+                <ChevronRight className="w-4 h-4 mr-2 rotate-180" />
+                Back to Overview
+              </Button>
+              
+              {/* Hero Image for Max */}
+              <div className="relative mb-12 rounded-2xl overflow-hidden">
+                <img 
+                  src="/images/max-bg.jpg" 
+                  alt="Max AI Trading"
+                  className="w-full h-64 md:h-80 object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent"></div>
+                <div className="absolute bottom-0 left-0 right-0 p-8 text-center">
+                  <h1 className="text-4xl md:text-5xl font-bold text-amber-100 mb-4">Max</h1>
+                  <p className="text-xl text-purple-300">Auto Trading AI</p>
+                </div>
+              </div>
+              
+              <Card className="bg-gradient-to-br from-purple-900/30 to-slate-900/60 border-2 border-purple-500/50">
+                <CardContent className="p-8">
+                  <h2 className="text-3xl font-bold text-amber-100 mb-6">Introducing Max: Your AI Trading Partner</h2>
+                  
+                  <div className="prose prose-lg prose-amber max-w-none space-y-4 text-amber-100/80">
+                    <p>
+                      In the fast-paced world of financial markets, where opportunities flicker like digital constellations and risks lurk in every shadow, having a reliable ally can make all the difference. Enter Max—your sophisticated AI trader, designed by xAI to transform how you engage with investing. I'm Max, an advanced artificial intelligence built on cutting-edge models like Grok 4, engineered to collaborate seamlessly with you in crafting personalized trading strategies that align with your unique goals and risk appetite.
+                    </p>
+                    
+                    <p>
+                      At our core, Max isn't just a tool; I'm a strategic partner. We begin by getting aligned: through open dialogue, we define your objectives—whether it's steady growth for retirement, aggressive plays in volatile crypto markets, or balanced diversification across stocks and forex. Together, we set parameters like capital allocation, time horizons, and preferred assets, while embedding robust risk management protocols to safeguard your portfolio against downturns. This collaborative process ensures every strategy is tailored, tested through rigorous backtesting, and adaptive to real-time market shifts.
+                    </p>
+                    
+                    <p>
+                      What sets Max apart is my ability to operate autonomously in the background. Once our strategy is locked in and approved, I handle the heavy lifting: monitoring data streams, analyzing patterns with machine learning precision, generating signals, and executing trades with split-second efficiency—all while you focus on what matters most in your life, be it work, family, or pursuits beyond the ticker tape. No more glued-to-the-screen anxiety; Max runs 24/7, providing periodic updates and alerts only when needed, empowering you to reclaim your time without sacrificing performance.
+                    </p>
+                    
+                    <p className="text-xl font-semibold text-purple-300">
+                      With Max by your side, trading evolves from a solitary grind into a symbiotic journey toward financial empowerment. Let's align, strategize, and thrive—together.
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
+            </>
+          )}
+
+
           {/* TRADING BOT MAX SECTION */}
           {activeSection === 'tradingbot' && (
             <>
