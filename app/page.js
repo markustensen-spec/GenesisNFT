@@ -3097,15 +3097,21 @@ function GLoungeComponent({ user }) {
                 Back to Overview
               </Button>
               
-              <div className="text-center mb-12">
-                <div className="w-20 h-20 mx-auto mb-4 rounded-xl bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center">
-                  <Zap className="w-10 h-10 text-white" />
+              {/* Hero Image for Trading Bot MAX */}
+              <div className="relative mb-12 rounded-2xl overflow-hidden">
+                <img 
+                  src="/images/trading-bot-bg.jpg" 
+                  alt="Trading Bot MAX"
+                  className="w-full h-64 md:h-80 object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent"></div>
+                <div className="absolute bottom-0 left-0 right-0 p-8 text-center">
+                  <div className="flex items-center justify-center gap-3 mb-4">
+                    <h1 className="text-4xl md:text-5xl font-bold text-amber-100">Trading Bot MAX</h1>
+                    <Badge className="bg-blue-600 text-white text-lg px-4 py-1">Coming Soon</Badge>
+                  </div>
+                  <p className="text-xl text-blue-300">Automated shot caller</p>
                 </div>
-                <div className="flex items-center justify-center gap-3 mb-4">
-                  <h1 className="text-4xl md:text-5xl font-bold text-amber-100">Trading Bot MAX</h1>
-                  <Badge className="bg-blue-600 text-white text-lg px-4 py-1">Coming Soon</Badge>
-                </div>
-                <p className="text-xl text-blue-300">Automated shot caller</p>
               </div>
               
               <Card className="bg-gradient-to-br from-blue-900/30 to-slate-900/60 border-2 border-blue-500/50">
