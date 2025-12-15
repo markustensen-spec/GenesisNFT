@@ -2627,40 +2627,14 @@ function GLoungeComponent({ user }) {
       <div className="flex-1 overflow-auto relative z-10">
         <div className="container mx-auto px-4 py-8 max-w-5xl">
           
-          {/* Mobile Navigation */}
+          {/* Subtle 7 Rules Link (Mobile) */}
           <div className="lg:hidden mb-8">
-            <div className="flex flex-wrap gap-2 justify-center mb-4">
-              <Button 
-                variant={activeSection === 'overview' ? 'default' : 'outline'}
-                onClick={() => setActiveSection('overview')}
-                className={activeSection === 'overview' ? 'bg-amber-600' : 'border-amber-600/50 text-amber-400'}
-                size="sm"
-              >
-                Overview
-              </Button>
-              <Button 
-                variant={activeSection === 'tradingbot' ? 'default' : 'outline'}
-                onClick={() => setActiveSection('tradingbot')}
-                className={activeSection === 'tradingbot' ? 'bg-blue-600' : 'border-blue-600/50 text-blue-400'}
-                size="sm"
-              >
-                Trading Bot
-              </Button>
-              <Button 
-                variant={activeSection === 'games' ? 'default' : 'outline'}
-                onClick={() => setActiveSection('games')}
-                className={activeSection === 'games' ? 'bg-emerald-600' : 'border-emerald-600/50 text-emerald-400'}
-                size="sm"
-              >
-                Games
-              </Button>
-            </div>
             <button 
               onClick={() => setShowRules(true)}
-              className="w-full px-4 py-2 rounded-lg bg-amber-900/30 border border-amber-600/50 text-amber-200 text-sm flex items-center justify-center gap-2"
+              className="w-full px-4 py-2 rounded-lg text-amber-100/40 hover:text-amber-300 text-sm flex items-center justify-center gap-2"
             >
               <Star className="w-4 h-4" />
-              View The Codex 7 Rules
+              View 7 Rules Gentlemen Codex
             </button>
           </div>
 
