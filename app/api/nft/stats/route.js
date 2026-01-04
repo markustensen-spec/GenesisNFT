@@ -46,7 +46,7 @@ export async function GET() {
         totalSupply: TOTAL_SUPPLY,
         totalMinted,
         remaining,
-        foundersRemaining,
+        foundersRemaining: FOUNDERS_REMAINING,
         uniqueOwners: displayOwners,
         progress: ((totalMinted / TOTAL_SUPPLY) * 100).toFixed(2),
         mintPriceSOL: MINT_PRICE_SOL,
