@@ -947,7 +947,7 @@ export default function App() {
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-2">
               <img 
-                src="/images/noir-logo.png" 
+                src="/images/codex-capital-logo.png" 
                 alt="Codex Capital Logo" 
                 className="w-8 h-8 md:w-10 md:h-10 object-contain"
               />
