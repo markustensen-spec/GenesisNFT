@@ -217,23 +217,6 @@ export default function WhitepaperSection() {
           </div>
         </div>
 
-        {/* Founder */}
-        <Card className="bg-gradient-to-r from-slate-900/80 to-slate-900/50 border-amber-600/30 mb-8">
-          <CardContent className="py-8">
-            <div className="text-center">
-              <h3 className="text-2xl font-bold text-amber-100 mb-4">The Founder</h3>
-              <p className="text-xl text-amber-300 font-semibold mb-2">Markus Stensen</p>
-              <p className="text-amber-100/70 mb-4">Norwegian | 97' | Ex-TikTok & Disney+</p>
-              <p className="text-amber-100/80 max-w-2xl mx-auto mb-6">
-                "If the vision hits you the same way it hits me, let's talk numbers that work for both of us. Counter-offer, ask questions, propose a different structure — I read and answer everything myself."
-              </p>
-              <p className="text-sm text-amber-100/60 italic">
-                The longship is in the water, sails are up, and the wind is perfect. There's still room in the front rows for the right people.
-              </p>
-            </div>
-          </CardContent>
-        </Card>
-
         {/* Contact for Investment */}
         <Card className="bg-gradient-to-r from-amber-600/20 to-amber-900/20 border-amber-600/50">
           <CardContent className="py-12 text-center">
@@ -241,15 +224,6 @@ export default function WhitepaperSection() {
             <p className="text-xl text-amber-100/80 mb-6">
               Interested in joining the Genesis journey?
             </p>
-            <div className="space-y-3">
-              <p className="text-lg">
-                <span className="text-amber-100/60">Email:</span>{' '}
-                <a href="mailto:MarkuStensen@gmail.com" className="text-amber-400 hover:text-amber-300 font-semibold underline">
-                  MarkuStensen@gmail.com
-                </a>
-              </p>
-              <p className="text-sm text-amber-100/60">Also available via Telegram: @Catqat Markus</p>
-            </div>
             <div className="mt-8">
               <Button 
                 onClick={() => window.open('https://customer-assets.emergentagent.com/job_genesishq/artifacts/3ry0vxfv_Genesis Nexus7%20%E2%80%93%20WHITEPAPER%2C%20RM%20%26%20ANGEL%20DEALS.docx.pdf', '_blank')}
