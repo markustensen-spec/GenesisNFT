@@ -15,9 +15,9 @@ const TOTAL_SUPPLY = 20000
 const FOUNDER_SUPPLY = 1000
 const CODEX_SUPPLY = 19000
 
-// Mock: Start with 0 minted, slow countdown based on time
-// Increases by ~1 every 10 minutes for slow realistic growth
-const LAUNCH_DATE = new Date('2025-01-01').getTime()
+// Mock: Fixed display number
+const MOCK_MINTED = 4367
+const FOUNDERS_REMAINING = 200
 
 export async function GET() {
   try {
