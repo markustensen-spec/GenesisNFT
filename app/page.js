@@ -2546,14 +2546,14 @@ export default function App() {
         <div className="container mx-auto px-4 text-center">
           <div className="flex items-center justify-center space-x-2 mb-4">
             <img 
-              src="https://customer-assets.emergentagent.com/job_genesishq-web3/artifacts/wtztw3gp_1000004278.jpg.png" 
-              alt="Genesis Nexus7 Logo" 
+              src="/images/noir-logo.png" 
+              alt="Codex Capital Logo" 
               className="w-8 h-8 object-contain"
             />
-            <span className="text-xl font-bold text-amber-100">Genesis Nexus7</span>
+            <span className="text-xl font-bold text-amber-100">Codex Capital</span>
           </div>
           <p className="text-amber-100/60 mb-4">Where Renaissance Meets Revolution</p>
-          <p className="text-sm text-amber-100/40">© 2025 Genesis Nexus7. All rights reserved.</p>
+          <p className="text-sm text-amber-100/40">© 2025 Codex Capital. All rights reserved.</p>
           <div className="mt-4 text-xs text-amber-100/30">
             <p>⚠️ Testnet Environment - Not for Production Use</p>
             <p>Smart contracts require audit before mainnet deployment</p>
