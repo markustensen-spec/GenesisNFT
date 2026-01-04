@@ -34,7 +34,13 @@ export default function App() {
   const [globalAudioPlaying, setGlobalAudioPlaying] = useState(true)
   const [currentTrack, setCurrentTrack] = useState(0)
   const globalAudioRef = React.useRef(null)
-  const playlist = ['/audio/tnt.mp3', '/audio/rock-n-roll-train.mp3', '/audio/party-people.mp3']
+  const playlist = [
+    '/audio/tnt.mp3',              // 1. AC/DC - T.N.T.
+    '/audio/jayz-paris.mp3',       // 2. JAY-Z - Ni**as In Paris
+    '/audio/trae-ibiza.mp3',       // 3. Trae Tha Truth - In Ibiza
+    '/audio/rock-n-roll-train.mp3', // 4. AC/DC - Rock N Roll Train
+    '/audio/party-people.mp3'      // 5. Vince Staples - Party People
+  ]
   
   // Auth states
   const [showAuthModal, setShowAuthModal] = useState(false)
