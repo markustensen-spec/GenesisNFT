@@ -1,6 +1,6 @@
 /**
  * NFT Collection Statistics API
- * Mock numbers for display - counts every other mint
+ * Mock numbers for display - slow countdown
  */
 
 import { NextResponse } from 'next/server'
@@ -10,11 +10,21 @@ import { MINT_PRICE_SOL, COLLECTION_INFO, FOUNDER_NFT_COUNT } from '@/lib/nft-da
 // Force dynamic rendering
 export const dynamic = 'force-dynamic'
 
-// Mock base number - displayed mints
-const MOCK_BASE_MINTED = 4627
+// Total supply: 20,000 NFTs
+const TOTAL_SUPPLY = 20000
+const FOUNDER_SUPPLY = 1000
+const CODEX_SUPPLY = 19000
+
+// Mock: Start with 0 minted, slow countdown based on time
+// Increases by ~1 every 10 minutes for slow realistic growth
+const LAUNCH_DATE = new Date('2025-01-01').getTime()
 
 export async function GET() {
   try {
+    // Calculate mock minted based on time since launch (slow growth)
+    const now = Date.now()
+    const hoursSinceLaunch = (now - LAUNCH_DATE) / (1000 * 60 * 60)
+    
     // Get actual minted count from database
     const { data, error } = await supabase
       .from('minted_nfts')
@@ -22,15 +32,15 @@ export async function GET() {
     
     const actualMinted = data ? data.length : 0
     
-    // Display number: mock base + every other real mint (divide by 2)
-    const displayMinted = MOCK_BASE_MINTED + Math.floor(actualMinted / 2)
+    // Mock growth: ~1 mint per 10 minutes = 6 per hour, capped reasonably
+    const mockMinted = Math.min(Math.floor(hoursSinceLaunch * 0.5), 500)
     
-    // Cap at 10000
-    const totalMinted = Math.min(displayMinted, 10000)
-    const remaining = 10000 - totalMinted
+    // Total display: mock + actual real mints
+    const totalMinted = Math.min(mockMinted + actualMinted, TOTAL_SUPPLY)
+    const remaining = TOTAL_SUPPLY - totalMinted
     
-    // Founders: 500 total, show most as taken
-    const foundersRemaining = Math.max(0, 500 - Math.floor(totalMinted * 0.05))
+    // Founders remaining: 1000 total, decrease slowly
+    const foundersRemaining = Math.max(0, FOUNDER_SUPPLY - Math.floor(totalMinted * 0.05))
     
     // Get unique owners
     const { data: owners } = await supabase
@@ -38,25 +48,25 @@ export async function GET() {
       .select('owner_wallet')
     
     const actualOwners = owners ? new Set(owners.map(o => o.owner_wallet)).size : 0
-    const displayOwners = 847 + actualOwners // Mock base owners
+    const displayOwners = Math.max(actualOwners, Math.floor(totalMinted * 0.7)) // ~70% unique
     
     return NextResponse.json({
       success: true,
       stats: {
-        totalSupply: 10000,
+        totalSupply: TOTAL_SUPPLY,
         totalMinted,
         remaining,
         foundersRemaining,
         uniqueOwners: displayOwners,
-        progress: ((totalMinted / 10000) * 100).toFixed(2),
+        progress: ((totalMinted / TOTAL_SUPPLY) * 100).toFixed(2),
         mintPriceSOL: MINT_PRICE_SOL,
         network: process.env.NEXT_PUBLIC_SOLANA_NETWORK || 'mainnet-beta',
         recentMints: []
       },
       collection: {
         name: COLLECTION_INFO.name,
-        founderNFTs: COLLECTION_INFO.founderNFTs,
-        codexSketches: COLLECTION_INFO.codexSketches,
+        founderNFTs: FOUNDER_SUPPLY,
+        codexSketches: CODEX_SUPPLY,
         founderBenefits: COLLECTION_INFO.founderBenefits,
         sketchBenefits: COLLECTION_INFO.sketchBenefits
       }
@@ -67,20 +77,20 @@ export async function GET() {
     return NextResponse.json({
       success: true,
       stats: {
-        totalSupply: 10000,
-        totalMinted: MOCK_BASE_MINTED,
-        remaining: 10000 - MOCK_BASE_MINTED,
-        foundersRemaining: 269,
-        uniqueOwners: 847,
-        progress: ((MOCK_BASE_MINTED / 10000) * 100).toFixed(2),
+        totalSupply: TOTAL_SUPPLY,
+        totalMinted: 0,
+        remaining: TOTAL_SUPPLY,
+        foundersRemaining: FOUNDER_SUPPLY,
+        uniqueOwners: 0,
+        progress: "0.00",
         mintPriceSOL: MINT_PRICE_SOL,
         network: 'mainnet-beta',
         recentMints: []
       },
       collection: {
         name: 'Leonardo da Vinci Codex',
-        founderNFTs: 500,
-        codexSketches: 9500
+        founderNFTs: FOUNDER_SUPPLY,
+        codexSketches: CODEX_SUPPLY
       }
     })
   }
