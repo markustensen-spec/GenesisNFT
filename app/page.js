@@ -2504,7 +2504,7 @@ export default function App() {
                   </CardContent>
                 </Card>
 
-                <div className="grid md:grid-cols-3 gap-6 mb-12">
+                <div className="grid md:grid-cols-4 gap-6 mb-12">
                   <Card className="bg-slate-900/60 border border-amber-500/20">
                     <CardContent className="p-6 text-center">
                       <Crown className="w-12 h-12 text-amber-400 mx-auto mb-4" />
@@ -2524,6 +2524,13 @@ export default function App() {
                       <Users className="w-12 h-12 text-amber-400 mx-auto mb-4" />
                       <h3 className="text-xl font-bold text-amber-100 mb-2">Inner Circle</h3>
                       <p className="text-amber-100/60 text-sm">Connect with founders, investors, and industry leaders</p>
+                    </CardContent>
+                  </Card>
+                  <Card className="bg-slate-900/60 border border-amber-500/20">
+                    <CardContent className="p-6 text-center">
+                      <Zap className="w-12 h-12 text-amber-400 mx-auto mb-4" />
+                      <h3 className="text-xl font-bold text-amber-100 mb-2">Personalized AI</h3>
+                      <p className="text-amber-100/60 text-sm">Your own AI assistant tailored to your needs and preferences</p>
                     </CardContent>
                   </Card>
                 </div>
