@@ -39,7 +39,8 @@ export default function App() {
     '/audio/jayz-paris.mp3',       // 2. JAY-Z - Ni**as In Paris
     '/audio/trae-ibiza.mp3',       // 3. Trae Tha Truth - In Ibiza
     '/audio/rock-n-roll-train.mp3', // 4. AC/DC - Rock N Roll Train
-    '/audio/party-people.mp3'      // 5. Vince Staples - Party People
+    '/audio/party-people.mp3',     // 5. Vince Staples - Party People
+    '/audio/asap-trunks.mp3'       // 6. A$AP Rocky - Trunks
   ]
   
   // Auth states
