@@ -2818,8 +2818,11 @@ function GLoungeComponent({ user }) {
                       <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-emerald-600 to-emerald-800 flex items-center justify-center">
                         <Trophy className="w-8 h-8 text-white" />
                       </div>
-                      <div>
-                        <CardTitle className="text-2xl text-amber-100">Games</CardTitle>
+                      <div className="flex-1">
+                        <div className="flex items-center gap-3">
+                          <CardTitle className="text-2xl text-amber-100">Games</CardTitle>
+                          <Badge className="bg-emerald-600 text-white">Coming Soon</Badge>
+                        </div>
                         <CardDescription className="text-emerald-300">Golf simulation, coin flips and other minigames</CardDescription>
                       </div>
                       <ChevronRight className="w-8 h-8 text-emerald-400 ml-auto" />
