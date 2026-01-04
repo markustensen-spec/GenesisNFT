@@ -967,11 +967,11 @@ export default function App() {
               <Button variant="ghost" onClick={() => setActiveTab('crypto')} className="text-amber-100 hover:text-amber-400">
                 NFT
               </Button>
-              <Button variant="ghost" onClick={() => setActiveTab('noir97')} className="text-amber-100 hover:text-amber-400">
-                Noir97
-              </Button>
               <Button variant="ghost" onClick={playGame} className="text-amber-100 hover:text-amber-400">
                 G Lounge
+              </Button>
+              <Button variant="ghost" onClick={() => setActiveTab('noir97')} className="text-amber-100 hover:text-amber-400">
+                Noir97
               </Button>
               <Button variant="ghost" onClick={() => setActiveTab('whitepaper')} className="text-amber-100 hover:text-amber-400">
                 Whitepaper
