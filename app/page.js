@@ -2385,13 +2385,11 @@ function GLoungeComponent({ user }) {
   const [activeSection, setActiveSection] = useState('overview')
   const [rulesAccepted, setRulesAccepted] = useState(false)
   const [showRules, setShowRules] = useState(false)
-  const [audioPlaying, setAudioPlaying] = useState(true)
   const [showSignup, setShowSignup] = useState(false)
   const [signupEmail, setSignupEmail] = useState('')
   const [signupUsername, setSignupUsername] = useState('')
   const [emailOptIn, setEmailOptIn] = useState(true)
   const [signupStatus, setSignupStatus] = useState('')
-  const audioRef = React.useRef(null)
   
   // Check if rules were previously accepted (localStorage)
   React.useEffect(() => {
@@ -2402,32 +2400,6 @@ function GLoungeComponent({ user }) {
       }
     }
   }, [])
-  
-  // Audio player for G Lounge ambiance
-  React.useEffect(() => {
-    if (rulesAccepted && typeof window !== 'undefined') {
-      audioRef.current = new Audio('/audio/7Days.mp3')
-      audioRef.current.loop = true
-      audioRef.current.volume = 0.3
-      audioRef.current.play().catch(e => console.log('Audio autoplay prevented'))
-      
-      return () => {
-        if (audioRef.current) {
-          audioRef.current.pause()
-          audioRef.current = null
-        }
-      }
-    }
-  }, [rulesAccepted])
-  
-  const toggleAudio = () => {
-    if (audioRef.current) {
-      if (audioPlaying) {
-        audioRef.current.pause()
-      } else {
-        audioRef.current.play()
-      }
-      setAudioPlaying(!audioPlaying)
     }
   }
   
