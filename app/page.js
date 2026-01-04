@@ -874,6 +874,19 @@ export default function App() {
             </div>
 
             <div className="flex items-center space-x-4">
+              {/* Global Audio Toggle */}
+              <button 
+                onClick={toggleGlobalAudio}
+                className="p-2 rounded-full bg-amber-600/20 hover:bg-amber-600/30 transition-colors"
+                title={globalAudioPlaying ? 'Mute music' : 'Play music'}
+              >
+                {globalAudioPlaying ? (
+                  <Volume2 className="w-5 h-5 text-amber-400" />
+                ) : (
+                  <VolumeX className="w-5 h-5 text-amber-400" />
+                )}
+              </button>
+              
               {user ? (
                 <div className="flex items-center space-x-3">
                   <div className="hidden sm:block text-right">
