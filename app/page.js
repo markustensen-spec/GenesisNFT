@@ -57,6 +57,34 @@ export default function App() {
     }
   }, [])
 
+  // Global audio auto-play on page load
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      globalAudioRef.current = new Audio('/audio/7Days.mp3')
+      globalAudioRef.current.loop = true
+      globalAudioRef.current.volume = 0.3
+      globalAudioRef.current.play().catch(e => console.log('Audio autoplay prevented - user interaction required'))
+      
+      return () => {
+        if (globalAudioRef.current) {
+          globalAudioRef.current.pause()
+          globalAudioRef.current = null
+        }
+      }
+    }
+  }, [])
+
+  const toggleGlobalAudio = () => {
+    if (globalAudioRef.current) {
+      if (globalAudioPlaying) {
+        globalAudioRef.current.pause()
+      } else {
+        globalAudioRef.current.play()
+      }
+      setGlobalAudioPlaying(!globalAudioPlaying)
+    }
+  }
+
   useEffect(() => {
     if (activeTab === 'investments') {
       fetchCryptoPrices()
