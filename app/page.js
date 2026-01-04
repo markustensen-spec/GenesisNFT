@@ -2546,9 +2546,9 @@ export default function App() {
         <div className="container mx-auto px-4 text-center">
           <div className="flex items-center justify-center space-x-2 mb-4">
             <img 
-              src="/images/codex-capital-logo.png" 
+              src="/images/cc-logo-gold.jpg" 
               alt="Codex Capital Logo" 
-              className="w-8 h-8 object-contain"
+              className="w-8 h-8 object-contain rounded"
             />
             <span className="text-xl font-bold text-amber-100">Codex Capital</span>
           </div>
