@@ -873,11 +873,14 @@ export default function App() {
               <Button variant="ghost" onClick={() => setActiveTab('home')} className="text-amber-100 hover:text-amber-400">
                 Home
               </Button>
-              <Button variant="ghost" onClick={() => setActiveTab('investments')} className="text-amber-100 hover:text-amber-400">
+              <Button variant="ghost" onClick={() => setShowHubEmailPopup(true)} className="text-amber-100 hover:text-amber-400">
                 HUB
               </Button>
               <Button variant="ghost" onClick={() => setActiveTab('crypto')} className="text-amber-100 hover:text-amber-400">
                 NFT
+              </Button>
+              <Button variant="ghost" onClick={() => setActiveTab('noir97')} className="text-amber-100 hover:text-amber-400">
+                Noir97
               </Button>
               <Button variant="ghost" onClick={playGame} className="text-amber-100 hover:text-amber-400">
                 G Lounge
