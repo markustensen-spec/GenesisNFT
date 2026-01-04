@@ -2528,16 +2528,122 @@ export default function App() {
                 </div>
 
                 <div className="bg-gradient-to-r from-amber-900/30 to-slate-900/50 rounded-2xl p-8 border border-amber-500/30">
-                  <h3 className="text-2xl font-bold text-amber-100 mb-4">Membership Opening Soon</h3>
+                  <h3 className="text-2xl font-bold text-amber-100 mb-4">Apply for Membership</h3>
                   <p className="text-amber-100/70 mb-6">
-                    Only 97 founding memberships will be available. Join the waitlist to be notified.
+                    Only 97 founding memberships will be available. Apply now to secure your spot.
                   </p>
-                  <Button 
-                    onClick={() => { setAuthMode('register'); setShowAuthModal(true) }}
-                    className="bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 px-8 py-3 text-lg"
+                  
+                  <form 
+                    onSubmit={async (e) => {
+                      e.preventDefault()
+                      const form = e.target
+                      const formData = new FormData(form)
+                      
+                      setNoir97Status('Submitting application...')
+                      
+                      try {
+                        const response = await fetch('/api/noir97-application', {
+                          method: 'POST',
+                          body: formData
+                        })
+                        
+                        const data = await response.json()
+                        
+                        if (data.success) {
+                          setNoir97Status('✓ ' + data.message)
+                          form.reset()
+                        } else {
+                          setNoir97Status('❌ ' + data.error)
+                        }
+                      } catch (error) {
+                        setNoir97Status('❌ Error submitting application')
+                      }
+                    }}
+                    className="space-y-4 text-left"
                   >
-                    Join the Waitlist
-                  </Button>
+                    <div className="grid md:grid-cols-2 gap-4">
+                      <div>
+                        <Label className="text-amber-100">Full Name *</Label>
+                        <Input
+                          name="name"
+                          placeholder="Your full name"
+                          className="bg-slate-800 border-amber-900/30 text-amber-100 mt-1"
+                          required
+                        />
+                      </div>
+                      <div>
+                        <Label className="text-amber-100">Email *</Label>
+                        <Input
+                          name="email"
+                          type="email"
+                          placeholder="your@email.com"
+                          className="bg-slate-800 border-amber-900/30 text-amber-100 mt-1"
+                          required
+                        />
+                      </div>
+                    </div>
+                    
+                    <div className="grid md:grid-cols-2 gap-4">
+                      <div>
+                        <Label className="text-amber-100">Phone</Label>
+                        <Input
+                          name="phone"
+                          placeholder="+1 234 567 8900"
+                          className="bg-slate-800 border-amber-900/30 text-amber-100 mt-1"
+                        />
+                      </div>
+                      <div>
+                        <Label className="text-amber-100">Occupation</Label>
+                        <Input
+                          name="occupation"
+                          placeholder="Your profession"
+                          className="bg-slate-800 border-amber-900/30 text-amber-100 mt-1"
+                        />
+                      </div>
+                    </div>
+                    
+                    <div>
+                      <Label className="text-amber-100">Why do you want to join Noir97?</Label>
+                      <textarea
+                        name="reason"
+                        placeholder="Tell us about yourself and why you'd be a great fit..."
+                        className="w-full bg-slate-800 border border-amber-900/30 text-amber-100 mt-1 rounded-md p-3 min-h-[100px]"
+                      />
+                    </div>
+                    
+                    <div>
+                      <Label className="text-amber-100">How did you hear about us?</Label>
+                      <Input
+                        name="referral"
+                        placeholder="Referral, social media, etc."
+                        className="bg-slate-800 border-amber-900/30 text-amber-100 mt-1"
+                      />
+                    </div>
+                    
+                    <div>
+                      <Label className="text-amber-100">Supporting Documents (CV, Portfolio, etc.)</Label>
+                      <Input
+                        name="file"
+                        type="file"
+                        accept=".pdf,.doc,.docx,.png,.jpg,.jpeg"
+                        className="bg-slate-800 border-amber-900/30 text-amber-100 mt-1 file:bg-amber-600 file:text-white file:border-0 file:rounded file:px-4 file:py-2 file:mr-4"
+                      />
+                      <p className="text-amber-100/50 text-xs mt-1">Accepted: PDF, DOC, DOCX, PNG, JPG (max 5MB)</p>
+                    </div>
+                    
+                    {noir97Status && (
+                      <p className={`text-sm ${noir97Status.includes('✓') ? 'text-emerald-400' : noir97Status.includes('❌') ? 'text-red-400' : 'text-amber-400'}`}>
+                        {noir97Status}
+                      </p>
+                    )}
+                    
+                    <Button 
+                      type="submit"
+                      className="w-full bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 px-8 py-3 text-lg"
+                    >
+                      Submit Application
+                    </Button>
+                  </form>
                 </div>
               </div>
             </div>
