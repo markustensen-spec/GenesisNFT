@@ -2559,11 +2559,20 @@ function GLoungeComponent({ user }) {
             Overview
           </button>
           <button 
-            onClick={() => setActiveSection('max')}
-            className={`w-full text-left px-4 py-3 rounded-lg transition-all flex items-center gap-3 ${activeSection === 'max' ? 'bg-purple-600/20 text-purple-300 border border-purple-500/30' : 'text-amber-100/70 hover:bg-slate-800/50'}`}
+            onClick={() => setActiveSection('codex')}
+            className={`w-full text-left px-4 py-3 rounded-lg transition-all flex items-center gap-3 ${activeSection === 'codex' ? 'bg-purple-600/20 text-purple-300 border border-purple-500/30' : 'text-amber-100/70 hover:bg-slate-800/50'}`}
           >
             <Zap className="w-5 h-5" />
-            Max
+            Codex Collective
+            <Badge className="ml-auto bg-purple-600/30 text-purple-200 text-xs">Soon</Badge>
+          </button>
+          <button 
+            onClick={() => setActiveSection('caviar')}
+            className={`w-full text-left px-4 py-3 rounded-lg transition-all flex items-center gap-3 ${activeSection === 'caviar' ? 'bg-amber-600/20 text-amber-300 border border-amber-500/30' : 'text-amber-100/70 hover:bg-slate-800/50'}`}
+          >
+            <Coins className="w-5 h-5" />
+            Caviar Token
+            <Badge className="ml-auto bg-amber-600/30 text-amber-200 text-xs">Soon</Badge>
           </button>
           <button 
             onClick={() => setActiveSection('tradingbot')}
@@ -2579,6 +2588,7 @@ function GLoungeComponent({ user }) {
           >
             <Trophy className="w-5 h-5" />
             Games
+            <Badge className="ml-auto bg-emerald-600/30 text-emerald-200 text-xs">Soon</Badge>
           </button>
           <button 
             onClick={() => setActiveSection('tokenomics')}
