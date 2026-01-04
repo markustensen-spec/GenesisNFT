@@ -2475,9 +2475,9 @@ export default function App() {
                 {/* Noir97 Logo */}
                 <div className="mb-12">
                   <img 
-                    src="/images/noir97-logo.png"
+                    src="/images/noir97-logo.jpg"
                     alt="Noir97 Logo"
-                    className="w-48 h-48 md:w-64 md:h-64 mx-auto object-contain mb-8"
+                    className="w-48 h-48 md:w-64 md:h-64 mx-auto object-contain mb-8 rounded-xl"
                   />
                   <h1 className="text-5xl md:text-7xl font-bold text-white mb-4">
                     Noir97
