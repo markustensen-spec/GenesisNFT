@@ -853,6 +853,94 @@ export default function App() {
         </div>
       )}
 
+      {/* HUB Email Club Popup */}
+      {showHubEmailPopup && (
+        <div className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4">
+          <Card className="w-full max-w-md bg-slate-900 border-amber-900/30">
+            <CardHeader>
+              <div className="flex justify-between items-center">
+                <CardTitle className="text-amber-100">📧 Join Our Email Club</CardTitle>
+                <button onClick={() => {
+                  setShowHubEmailPopup(false)
+                  setHubEmailStatus('')
+                }}>
+                  <X className="w-6 h-6 text-amber-400" />
+                </button>
+              </div>
+              <CardDescription className="text-amber-100/60">
+                Get exclusive updates, early access, and insider news from Codex Capital HUB
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <form onSubmit={async (e) => {
+                e.preventDefault()
+                setHubEmailStatus('Joining email club...')
+                
+                try {
+                  const response = await fetch('/api/glounge-signup', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ 
+                      email: hubEmail, 
+                      username: 'HUB Member',
+                      emailOptIn: true 
+                    })
+                  })
+                  
+                  const data = await response.json()
+                  
+                  if (data.success) {
+                    setHubEmailStatus('✓ Welcome to the club! Check your inbox for updates.')
+                    setHubEmail('')
+                    setTimeout(() => {
+                      setShowHubEmailPopup(false)
+                      setHubEmailStatus('')
+                      setActiveTab('investments')
+                    }, 2000)
+                  } else {
+                    setHubEmailStatus('✓ You are already a member! Redirecting...')
+                    setTimeout(() => {
+                      setShowHubEmailPopup(false)
+                      setHubEmailStatus('')
+                      setActiveTab('investments')
+                    }, 1500)
+                  }
+                } catch (error) {
+                  setHubEmailStatus('❌ Error: ' + error.message)
+                }
+              }} className="space-y-4">
+                <div>
+                  <Label className="text-amber-100">Email Address</Label>
+                  <Input
+                    type="email"
+                    placeholder="your@email.com"
+                    value={hubEmail}
+                    onChange={(e) => setHubEmail(e.target.value)}
+                    className="bg-slate-800 border-amber-900/30 text-amber-100 mt-2"
+                    required
+                  />
+                </div>
+                {hubEmailStatus && (
+                  <p className={`text-sm ${hubEmailStatus.includes('✓') ? 'text-emerald-400' : 'text-amber-400'}`}>
+                    {hubEmailStatus}
+                  </p>
+                )}
+                <Button type="submit" className="w-full bg-amber-600 hover:bg-amber-700">
+                  Join Email Club
+                </Button>
+                <button 
+                  type="button"
+                  onClick={() => { setShowHubEmailPopup(false); setActiveTab('investments') }}
+                  className="w-full text-amber-100/60 text-sm hover:text-amber-100"
+                >
+                  Skip for now →
+                </button>
+              </form>
+            </CardContent>
+          </Card>
+        </div>
+      )}
+
       {/* Navigation */}
       <nav className="fixed top-0 w-full z-40 bg-slate-950/80 backdrop-blur-xl border-b border-amber-900/20">
         <div className="container mx-auto px-4 py-4">
