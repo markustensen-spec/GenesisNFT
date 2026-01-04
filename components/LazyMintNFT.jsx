@@ -236,6 +236,14 @@ export default function LazyMintNFT({ user }) {
           <Gift className="w-4 h-4 mr-2" />
           Mint Flere NFTs
         </Button>
+        
+        <Button 
+          onClick={() => window.location.href = '/my-nfts'}
+          variant="outline"
+          className="w-full border-amber-500/50 text-amber-100 hover:bg-amber-600/20"
+        >
+          Se Mine NFTs →
+        </Button>
       </div>
     )
   }
