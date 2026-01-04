@@ -857,11 +857,11 @@ export default function App() {
             <div className="flex items-center space-x-2">
               <img 
                 src="/images/noir-logo.png" 
-                alt="Noir97 Logo" 
+                alt="Codex Capital Logo" 
                 className="w-8 h-8 md:w-10 md:h-10 object-contain"
               />
               <span className="text-lg md:text-xl font-semibold text-slate-100">
-                Noir97
+                Codex Capital
               </span>
             </div>
             
