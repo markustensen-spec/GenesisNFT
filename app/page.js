@@ -3157,8 +3157,8 @@ function GLoungeComponent({ user }) {
             </>
           )}
 
-          {/* MAX AI TRADING SECTION */}
-          {activeSection === 'max' && (
+          {/* CODEX COLLECTIVE SECTION */}
+          {activeSection === 'codex' && (
             <>
               <Button 
                 variant="ghost" 
@@ -3169,43 +3169,153 @@ function GLoungeComponent({ user }) {
                 Back to Overview
               </Button>
               
-              {/* Hero Image for Max */}
+              {/* Hero Image for Codex */}
               <div className="relative mb-12 rounded-2xl overflow-hidden">
                 <img 
                   src="/images/max-bg.jpg" 
-                  alt="Max AI Trading"
+                  alt="Codex Collective"
                   className="w-full h-64 md:h-80 object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent"></div>
                 <div className="absolute bottom-0 left-0 right-0 p-8 text-center">
-                  <h1 className="text-4xl md:text-5xl font-bold text-amber-100 mb-4">Max</h1>
-                  <p className="text-xl text-purple-300">Auto Trading AI</p>
+                  <h1 className="text-4xl md:text-5xl font-bold text-amber-100 mb-4">Codex Collective</h1>
+                  <p className="text-xl text-purple-300">Decentralized Launchpad</p>
+                  <Badge className="mt-4 bg-purple-600 text-white text-lg px-4 py-1">Coming Soon</Badge>
                 </div>
               </div>
               
               <Card className="bg-gradient-to-br from-purple-900/30 to-slate-900/60 border-2 border-purple-500/50">
                 <CardContent className="p-8">
-                  <h2 className="text-3xl font-bold text-amber-100 mb-6">Introducing Max: Your AI Trading Partner</h2>
+                  <h2 className="text-3xl font-bold text-amber-100 mb-6">The Codex Collective</h2>
                   
                   <div className="prose prose-lg prose-amber max-w-none space-y-4 text-amber-100/80">
                     <p>
-                      In the fast-paced world of financial markets, where opportunities flicker like digital constellations and risks lurk in every shadow, having a reliable ally can make all the difference. Enter Max—your sophisticated AI trader, designed by xAI to transform how you engage with investing. I'm Max, an advanced artificial intelligence built on cutting-edge models like Grok 4, engineered to collaborate seamlessly with you in crafting personalized trading strategies that align with your unique goals and risk appetite.
+                      The Codex Collective is our decentralized launchpad—a curated platform where promising Web3 projects meet discerning investors. As a member of G Lounge, you get exclusive early access to vetted token launches, NFT drops, and groundbreaking DeFi protocols.
                     </p>
                     
                     <p>
-                      At our core, Max isn't just a tool; I'm a strategic partner. We begin by getting aligned: through open dialogue, we define your objectives—whether it's steady growth for retirement, aggressive plays in volatile crypto markets, or balanced diversification across stocks and forex. Together, we set parameters like capital allocation, time horizons, and preferred assets, while embedding robust risk management protocols to safeguard your portfolio against downturns. This collaborative process ensures every strategy is tailored, tested through rigorous backtesting, and adaptive to real-time market shifts.
+                      Inspired by Leonardo da Vinci&apos;s legendary codices—his notebooks filled with revolutionary ideas—the Codex Collective embodies the same spirit of innovation and forward-thinking. Here, we gather the brightest minds in blockchain to identify, incubate, and launch the next generation of transformative projects.
                     </p>
                     
-                    <p>
-                      What sets Max apart is my ability to operate autonomously in the background. Once our strategy is locked in and approved, I handle the heavy lifting: monitoring data streams, analyzing patterns with machine learning precision, generating signals, and executing trades with split-second efficiency—all while you focus on what matters most in your life, be it work, family, or pursuits beyond the ticker tape. No more glued-to-the-screen anxiety; Max runs 24/7, providing periodic updates and alerts only when needed, empowering you to reclaim your time without sacrificing performance.
-                    </p>
+                    <h3 className="text-xl font-semibold text-purple-300 mt-8 mb-4">What You&apos;ll Get:</h3>
+                    <ul className="space-y-2">
+                      <li>✓ Early access to curated token launches</li>
+                      <li>✓ Exclusive NFT drops from emerging artists</li>
+                      <li>✓ Guaranteed allocation for $CAX holders</li>
+                      <li>✓ Community voting on featured projects</li>
+                      <li>✓ Direct access to project founders</li>
+                    </ul>
                     
-                    <p className="text-xl font-semibold text-purple-300">
-                      With Max by your side, trading evolves from a solitary grind into a symbiotic journey toward financial empowerment. Let's align, strategize, and thrive—together.
+                    <p className="text-xl font-semibold text-purple-300 mt-8">
+                      The Codex Collective launches Q2 2025. Stay tuned.
                     </p>
                   </div>
                 </CardContent>
               </Card>
+            </>
+          )}
+
+          {/* CAVIAR TOKEN SECTION */}
+          {activeSection === 'caviar' && (
+            <>
+              <Button 
+                variant="ghost" 
+                onClick={() => setActiveSection('overview')}
+                className="mb-6 text-amber-400 hover:text-amber-300"
+              >
+                <ChevronRight className="w-4 h-4 mr-2 rotate-180" />
+                Back to Overview
+              </Button>
+              
+              {/* Hero for Caviar */}
+              <div className="relative mb-12 rounded-2xl overflow-hidden bg-gradient-to-br from-amber-900/50 to-slate-900">
+                <div className="p-8 md:p-12 text-center">
+                  <h1 className="text-4xl md:text-6xl font-bold text-amber-100 mb-4">Caviar Token</h1>
+                  <p className="text-2xl text-amber-300 mb-2">$CAX</p>
+                  <p className="text-xl text-amber-100/70">Going Live February 14th 🚀</p>
+                  <Badge className="mt-4 bg-amber-600 text-white text-lg px-4 py-1">Coming Soon</Badge>
+                </div>
+              </div>
+              
+              <Card className="bg-gradient-to-br from-amber-900/30 to-slate-900/60 border-2 border-amber-500/50 mb-8">
+                <CardContent className="p-8">
+                  <h2 className="text-3xl font-bold text-amber-100 mb-6">Caviar Integrates Throughout the Ecosystem</h2>
+                  
+                  <div className="prose prose-lg prose-amber max-w-none space-y-4 text-amber-100/80">
+                    <p>
+                      $CAX (Caviar Token) is the lifeblood of G Lounge. It powers everything from governance decisions to in-game transactions, staking rewards, and exclusive access. Every aspect of our ecosystem is designed to create utility and value for $CAX holders.
+                    </p>
+                    
+                    <p>
+                      As a $CAX holder, you&apos;re not just holding a token—you&apos;re holding a key to an exclusive world of opportunities, rewards, and community-driven growth.
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="bg-gradient-to-br from-slate-900/80 to-amber-900/30 border-2 border-amber-500/30 mb-8">
+                <CardContent className="p-8">
+                  <h2 className="text-3xl font-bold text-amber-100 mb-6">$CAX Tokenomics</h2>
+                  
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+                    <div className="bg-slate-800/50 rounded-xl p-4 text-center">
+                      <div className="text-3xl font-bold text-amber-400">1B</div>
+                      <div className="text-amber-100/60 text-sm">Total Supply</div>
+                    </div>
+                    <div className="bg-slate-800/50 rounded-xl p-4 text-center">
+                      <div className="text-3xl font-bold text-amber-400">20%</div>
+                      <div className="text-amber-100/60 text-sm">Base APY</div>
+                    </div>
+                    <div className="bg-slate-800/50 rounded-xl p-4 text-center">
+                      <div className="text-3xl font-bold text-amber-400">2x</div>
+                      <div className="text-amber-100/60 text-sm">G Lounge Boost</div>
+                    </div>
+                    <div className="bg-slate-800/50 rounded-xl p-4 text-center">
+                      <div className="text-3xl font-bold text-amber-400">1%</div>
+                      <div className="text-amber-100/60 text-sm">Burn Rate</div>
+                    </div>
+                  </div>
+
+                  <h3 className="text-xl font-semibold text-amber-300 mb-4">Token Distribution</h3>
+                  <div className="space-y-3">
+                    <div className="flex justify-between items-center bg-slate-800/30 rounded-lg p-3">
+                      <span className="text-amber-100">Community & Rewards</span>
+                      <span className="text-amber-400 font-bold">40%</span>
+                    </div>
+                    <div className="flex justify-between items-center bg-slate-800/30 rounded-lg p-3">
+                      <span className="text-amber-100">Development & Treasury</span>
+                      <span className="text-amber-400 font-bold">25%</span>
+                    </div>
+                    <div className="flex justify-between items-center bg-slate-800/30 rounded-lg p-3">
+                      <span className="text-amber-100">Liquidity Pool</span>
+                      <span className="text-amber-400 font-bold">20%</span>
+                    </div>
+                    <div className="flex justify-between items-center bg-slate-800/30 rounded-lg p-3">
+                      <span className="text-amber-100">Team (Vested)</span>
+                      <span className="text-amber-400 font-bold">15%</span>
+                    </div>
+                  </div>
+
+                  <h3 className="text-xl font-semibold text-amber-300 mt-8 mb-4">$CAX Utility</h3>
+                  <ul className="space-y-2 text-amber-100/80">
+                    <li>✓ Governance voting on G Lounge proposals</li>
+                    <li>✓ Staking rewards with up to 40% APY for NFT holders</li>
+                    <li>✓ In-game currency for all G Lounge games</li>
+                    <li>✓ Entry fees and wagers in Caviar Golf Hub</li>
+                    <li>✓ Priority access to Codex Collective launches</li>
+                    <li>✓ Exclusive merchandise and experiences</li>
+                  </ul>
+                </CardContent>
+              </Card>
+
+              <div className="text-center">
+                <Button 
+                  onClick={() => setActiveSection('tokenomics')}
+                  className="bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600"
+                >
+                  View Full Tokenomics →
+                </Button>
+              </div>
             </>
           )}
 
