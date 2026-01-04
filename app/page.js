@@ -60,10 +60,21 @@ export default function App() {
   // Global audio auto-play on page load
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      globalAudioRef.current = new Audio('/audio/7Days.mp3')
+      globalAudioRef.current = new Audio('/audio/tnt.mp3')
       globalAudioRef.current.loop = true
       globalAudioRef.current.volume = 0.3
-      globalAudioRef.current.play().catch(e => console.log('Audio autoplay prevented - user interaction required'))
+      // Try to autoplay - will work after user interaction
+      const playPromise = globalAudioRef.current.play()
+      if (playPromise !== undefined) {
+        playPromise.catch(e => {
+          // Autoplay was prevented, add click listener to start
+          const startAudio = () => {
+            globalAudioRef.current?.play()
+            document.removeEventListener('click', startAudio)
+          }
+          document.addEventListener('click', startAudio)
+        })
+      }
       
       return () => {
         if (globalAudioRef.current) {
