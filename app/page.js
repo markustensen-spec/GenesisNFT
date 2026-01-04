@@ -26,6 +26,10 @@ export default function App() {
   const [whitelistStatus, setWhitelistStatus] = useState('')
   const [stats, setStats] = useState({ totalMinted: 0, remaining: 10000 })
   
+  // Global audio state
+  const [globalAudioPlaying, setGlobalAudioPlaying] = useState(true)
+  const globalAudioRef = React.useRef(null)
+  
   // Auth states
   const [showAuthModal, setShowAuthModal] = useState(false)
   const [authMode, setAuthMode] = useState('login') // 'login', 'register', or 'reset'
