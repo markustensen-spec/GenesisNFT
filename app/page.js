@@ -2400,8 +2400,6 @@ function GLoungeComponent({ user }) {
       }
     }
   }, [])
-    }
-  }
   
   const acceptRules = () => {
     localStorage.setItem('codex7_accepted', 'true')
