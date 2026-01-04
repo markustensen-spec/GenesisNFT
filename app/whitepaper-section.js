@@ -178,61 +178,20 @@ export default function WhitepaperSection() {
           </CardContent>
         </Card>
 
-        {/* Angel Deals */}
-        <div className="mb-12">
-          <h3 className="text-3xl font-bold text-amber-100 text-center mb-8">Angel Investment Opportunities</h3>
-          <div className="grid md:grid-cols-3 gap-6">
-            <Card className="bg-slate-900/50 border-amber-900/30 hover:border-amber-600/50 transition-all">
-              <CardHeader>
-                <CardTitle className="text-amber-100 text-2xl">Tier 1</CardTitle>
-                <CardDescription className="text-amber-400 text-xl font-bold">€100,000</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-4xl font-bold text-amber-500 mb-4">7% Equity</p>
-                <p className="text-amber-100/70">Early supporter stake in Genesis Nexus7 with significant equity position</p>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-gradient-to-br from-amber-900/30 to-slate-900/50 border-amber-600/50 hover:border-amber-600 transition-all">
-              <CardHeader>
-                <CardTitle className="text-amber-100 text-2xl">Tier 2</CardTitle>
-                <CardDescription className="text-amber-400 text-xl font-bold">€500,000</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-4xl font-bold text-amber-400 mb-4">20% Equity</p>
-                <p className="text-amber-100/70">Major stakeholder position with substantial influence</p>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-gradient-to-br from-purple-900/30 to-slate-900/50 border-purple-600/50 hover:border-purple-500 transition-all">
-              <CardHeader>
-                <CardTitle className="text-amber-100 text-2xl">Tier 3 "Genesis Syndicate"</CardTitle>
-                <CardDescription className="text-purple-400 text-xl font-bold">€1,000,000</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-4xl font-bold text-purple-400 mb-4">35% Equity</p>
-                <p className="text-amber-100/70">Founding partner with controlling interest and strategic input</p>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-
-        {/* Contact for Investment */}
+        {/* Contact */}
         <Card className="bg-gradient-to-r from-amber-600/20 to-amber-900/20 border-amber-600/50">
           <CardContent className="py-12 text-center">
-            <h3 className="text-3xl font-bold text-amber-100 mb-6">Investment Inquiries</h3>
+            <h3 className="text-3xl font-bold text-amber-100 mb-6">Get In Touch</h3>
             <p className="text-xl text-amber-100/80 mb-6">
               Interested in joining the Genesis journey?
             </p>
-            <div className="mt-8">
-              <Button 
-                onClick={() => window.open('https://customer-assets.emergentagent.com/job_genesishq/artifacts/3ry0vxfv_Genesis Nexus7%20%E2%80%93%20WHITEPAPER%2C%20RM%20%26%20ANGEL%20DEALS.docx.pdf', '_blank')}
-                size="lg" 
-                className="bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600"
-              >
-                <BookOpen className="w-5 h-5 mr-2" />
-                Download Full Whitepaper
-              </Button>
+            <div className="space-y-3">
+              <p className="text-lg">
+                <span className="text-amber-100/60">Telegram:</span>{' '}
+                <a href="https://t.me/GMax69" target="_blank" rel="noopener noreferrer" className="text-amber-400 hover:text-amber-300 font-semibold">
+                  @GMax69
+                </a>
+              </p>
             </div>
           </CardContent>
         </Card>
