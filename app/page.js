@@ -2448,6 +2448,93 @@ export default function App() {
           </div>
         )}
 
+        {/* Noir97 Exclusive Club */}
+        {activeTab === 'noir97' && (
+          <div 
+            className="min-h-screen relative"
+            style={{
+              backgroundImage: 'url(/images/noir97-cat-bg.jpg)',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              backgroundAttachment: 'fixed'
+            }}
+          >
+            <div className="absolute inset-0 bg-gradient-to-b from-slate-950/80 via-slate-900/85 to-slate-950/95"></div>
+            
+            <div className="relative container mx-auto px-4 py-16">
+              <div className="max-w-4xl mx-auto text-center">
+                {/* Noir97 Logo */}
+                <div className="mb-12">
+                  <img 
+                    src="/images/noir97-logo.png"
+                    alt="Noir97 Logo"
+                    className="w-48 h-48 md:w-64 md:h-64 mx-auto object-contain mb-8"
+                  />
+                  <h1 className="text-5xl md:text-7xl font-bold text-white mb-4">
+                    Noir97
+                  </h1>
+                  <p className="text-2xl text-amber-300 mb-2">The Exclusive Club</p>
+                  <p className="text-amber-100/70 text-lg">Where legends gather</p>
+                </div>
+
+                <Card className="bg-slate-900/80 border-2 border-amber-500/30 backdrop-blur-xl mb-12">
+                  <CardContent className="p-8 md:p-12">
+                    <h2 className="text-3xl font-bold text-amber-100 mb-6">Welcome to Noir97</h2>
+                    <div className="prose prose-lg prose-amber max-w-none text-amber-100/80 space-y-4">
+                      <p>
+                        Noir97 is more than just a club—it&apos;s a sanctuary for the discerning few. An exclusive inner circle where visionaries, creators, and pioneers converge in an atmosphere of refined sophistication.
+                      </p>
+                      <p>
+                        Within these digital halls, members gain access to unprecedented opportunities, private events, and a network of like-minded individuals who understand that true value lies not in what you own, but in the company you keep.
+                      </p>
+                      <p className="text-xl font-semibold text-amber-300">
+                        The 97 signifies perfection—only the most dedicated earn their place among us.
+                      </p>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                <div className="grid md:grid-cols-3 gap-6 mb-12">
+                  <Card className="bg-slate-900/60 border border-amber-500/20">
+                    <CardContent className="p-6 text-center">
+                      <Crown className="w-12 h-12 text-amber-400 mx-auto mb-4" />
+                      <h3 className="text-xl font-bold text-amber-100 mb-2">Elite Access</h3>
+                      <p className="text-amber-100/60 text-sm">Private channels, exclusive drops, and first-look opportunities</p>
+                    </CardContent>
+                  </Card>
+                  <Card className="bg-slate-900/60 border border-amber-500/20">
+                    <CardContent className="p-6 text-center">
+                      <Star className="w-12 h-12 text-amber-400 mx-auto mb-4" />
+                      <h3 className="text-xl font-bold text-amber-100 mb-2">VIP Events</h3>
+                      <p className="text-amber-100/60 text-sm">Invitation-only gatherings and networking opportunities</p>
+                    </CardContent>
+                  </Card>
+                  <Card className="bg-slate-900/60 border border-amber-500/20">
+                    <CardContent className="p-6 text-center">
+                      <Users className="w-12 h-12 text-amber-400 mx-auto mb-4" />
+                      <h3 className="text-xl font-bold text-amber-100 mb-2">Inner Circle</h3>
+                      <p className="text-amber-100/60 text-sm">Connect with founders, investors, and industry leaders</p>
+                    </CardContent>
+                  </Card>
+                </div>
+
+                <div className="bg-gradient-to-r from-amber-900/30 to-slate-900/50 rounded-2xl p-8 border border-amber-500/30">
+                  <h3 className="text-2xl font-bold text-amber-100 mb-4">Membership Opening Soon</h3>
+                  <p className="text-amber-100/70 mb-6">
+                    Only 97 founding memberships will be available. Join the waitlist to be notified.
+                  </p>
+                  <Button 
+                    onClick={() => { setAuthMode('register'); setShowAuthModal(true) }}
+                    className="bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 px-8 py-3 text-lg"
+                  >
+                    Join the Waitlist
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
         {activeTab === 'whitepaper' && (
           <WhitepaperSection />
         )}
