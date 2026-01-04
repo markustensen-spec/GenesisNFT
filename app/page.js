@@ -878,20 +878,20 @@ export default function App() {
                 setHubEmailStatus('Joining email club...')
                 
                 try {
-                  const response = await fetch('/api/glounge-signup', {
+                  const response = await fetch('/api/hub-signup', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ 
-                      email: hubEmail, 
-                      username: 'HUB Member',
-                      emailOptIn: true 
-                    })
+                    body: JSON.stringify({ email: hubEmail })
                   })
                   
                   const data = await response.json()
                   
                   if (data.success) {
-                    setHubEmailStatus('✓ Welcome to the club! Check your inbox for updates.')
+                    if (data.alreadySubscribed) {
+                      setHubEmailStatus('✓ You are already a member! Redirecting...')
+                    } else {
+                      setHubEmailStatus('✓ Welcome to the club! Check your inbox for updates.')
+                    }
                     setHubEmail('')
                     setTimeout(() => {
                       setShowHubEmailPopup(false)
@@ -899,12 +899,7 @@ export default function App() {
                       setActiveTab('investments')
                     }, 2000)
                   } else {
-                    setHubEmailStatus('✓ You are already a member! Redirecting...')
-                    setTimeout(() => {
-                      setShowHubEmailPopup(false)
-                      setHubEmailStatus('')
-                      setActiveTab('investments')
-                    }, 1500)
+                    setHubEmailStatus('❌ ' + data.error)
                   }
                 } catch (error) {
                   setHubEmailStatus('❌ Error: ' + error.message)
