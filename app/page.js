@@ -2518,19 +2518,6 @@ function GLoungeComponent({ user }) {
         <div className="absolute inset-0 bg-gradient-to-b from-slate-950/85 via-slate-900/90 to-slate-950/95"></div>
       </div>
       
-      {/* Audio Control Button - Fixed Position */}
-      <button 
-        onClick={toggleAudio}
-        className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-gradient-to-br from-amber-600 to-amber-800 border-2 border-amber-500/50 flex items-center justify-center shadow-lg hover:scale-110 transition-transform"
-        title={audioPlaying ? 'Mute music' : 'Play music'}
-      >
-        {audioPlaying ? (
-          <Volume2 className="w-6 h-6 text-white" />
-        ) : (
-          <VolumeX className="w-6 h-6 text-white" />
-        )}
-      </button>
-      
       {/* Codex 7 Rules Modal */}
       {showRules && (
         <div className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4" onClick={() => setShowRules(false)}>
