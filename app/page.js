@@ -3369,7 +3369,7 @@ function GLoungeComponent({ user }) {
               {/* Hero Image for Codex */}
               <div className="relative mb-12 rounded-2xl overflow-hidden">
                 <img 
-                  src="/images/max-bg.jpg" 
+                  src="/images/codex-collective-bg.jpg" 
                   alt="Codex Collective"
                   className="w-full h-64 md:h-80 object-cover"
                 />
