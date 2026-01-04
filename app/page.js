@@ -63,14 +63,32 @@ export default function App() {
     }
   }, [])
 
-  // Global audio auto-play on page load
+  // Global audio auto-play on page load with playlist
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      globalAudioRef.current = new Audio('/audio/tnt.mp3')
-      globalAudioRef.current.loop = true
-      globalAudioRef.current.volume = 0.3
+      const playTrack = (trackIndex) => {
+        if (globalAudioRef.current) {
+          globalAudioRef.current.pause()
+        }
+        globalAudioRef.current = new Audio(playlist[trackIndex])
+        globalAudioRef.current.volume = 0.3
+        
+        // When track ends, play next
+        globalAudioRef.current.onended = () => {
+          const nextTrack = (trackIndex + 1) % playlist.length
+          setCurrentTrack(nextTrack)
+          playTrack(nextTrack)
+        }
+        
+        if (globalAudioPlaying) {
+          globalAudioRef.current.play().catch(e => console.log('Autoplay prevented'))
+        }
+      }
+      
+      playTrack(currentTrack)
+      
       // Try to autoplay - will work after user interaction
-      const playPromise = globalAudioRef.current.play()
+      const playPromise = globalAudioRef.current?.play()
       if (playPromise !== undefined) {
         playPromise.catch(e => {
           // Autoplay was prevented, add click listener to start
