@@ -497,7 +497,7 @@ export default function App() {
                 <CardTitle className="text-amber-100">
                   {showVerificationMessage ? 'Verify Your Email' : 
                    resetEmailSent ? 'Check Your Email' :
-                   authMode === 'login' ? 'Login to Genesis Nexus7' : 
+                   authMode === 'login' ? 'Login to Genesis' : 
                    authMode === 'reset' ? 'Reset Password' : 
                    'Create Account'}
                 </CardTitle>
@@ -519,7 +519,7 @@ export default function App() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 19v-8.93a2 2 0 01.89-1.664l7-4.666a2 2 0 012.22 0l7 4.666A2 2 0 0121 10.07V19M3 19a2 2 0 002 2h14a2 2 0 002-2M3 19l6.75-4.5M21 19l-6.75-4.5M3 10l6.75 4.5M21 10l-6.75 4.5m0 0l-1.14.76a2 2 0 01-2.22 0l-1.14-.76" />
                       </svg>
                     </div>
-                    <h3 className="text-3xl font-bold text-emerald-400 mb-4">Welcome to Genesis Nexus7!</h3>
+                    <h3 className="text-3xl font-bold text-emerald-400 mb-4">Welcome to Genesis!</h3>
                     <p className="text-xl text-amber-100 mb-2">
                       Your account has been created successfully
                     </p>
@@ -544,7 +544,7 @@ export default function App() {
                       <div>
                         <h5 className="text-amber-100 font-semibold mb-1">Check Your Email</h5>
                         <p className="text-amber-100/60 text-sm">
-                          Open your inbox and look for an email from Genesis Nexus7/Supabase
+                          Open your inbox and look for an email from Genesis/Supabase
                         </p>
                       </div>
                     </div>
@@ -1081,7 +1081,7 @@ export default function App() {
                 <div className="absolute inset-0 bg-gradient-to-b from-slate-950/70 via-slate-950/85 to-slate-950"></div>
                 <div className="relative text-center py-20 px-4 animate-fade-in">
                   <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-amber-200 via-amber-400 to-amber-600 bg-clip-text text-transparent">
-                    Genesis Nexus7
+                    Genesis
                   </h1>
                   <p className="text-xl md:text-2xl text-amber-100 max-w-3xl mx-auto mb-8 drop-shadow-lg">
                     Your money, your power, one Nexus.
@@ -1090,7 +1090,7 @@ export default function App() {
                     {!user && (
                       <Button size="lg" onClick={() => { setAuthMode('register'); setShowAuthModal(true) }} className="bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 text-white px-8 shadow-xl">
                         <UserPlus className="w-5 h-5 mr-2" />
-                        Join Genesis Nexus7
+                        Join Genesis
                       </Button>
                     )}
                     <Button size="lg" onClick={playGame} className="bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-500 hover:to-emerald-600 text-white px-8 shadow-xl">
@@ -1223,7 +1223,7 @@ export default function App() {
                         <div className="bg-amber-600 rounded-full w-8 h-8 flex items-center justify-center text-white font-bold flex-shrink-0">1</div>
                         <div>
                           <h3 className="text-xl font-bold text-amber-100 mb-2">Create Your Account</h3>
-                          <p className="text-amber-100/70">Sign up to join the Genesis Nexus7 community. Get instant access to the platform and receive your unique wallet address.</p>
+                          <p className="text-amber-100/70">Sign up to join the Genesis community. Get instant access to the platform and receive your unique wallet address.</p>
                         </div>
                       </div>
                     </CardContent>
@@ -1478,7 +1478,7 @@ export default function App() {
                     Caviar Token ($CAX) - Dropping February 14
                   </h2>
                   <p className="text-xl md:text-2xl text-amber-100 max-w-3xl mx-auto mb-8 drop-shadow-lg">
-                    Your key to governance, staking rewards, and platform participation. Shape the future of Genesis Nexus7.
+                    Your key to governance, staking rewards, and platform participation. Shape the future of Genesis.
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4 justify-center">
                     <Button size="lg" className="bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 shadow-xl" disabled>
@@ -1531,7 +1531,7 @@ export default function App() {
                       <CardTitle className="text-amber-100 text-xl">Governance</CardTitle>
                     </CardHeader>
                     <CardContent className="text-amber-100/70">
-                      <p className="mb-3">Vote on platform decisions and shape Genesis Nexus7's future</p>
+                      <p className="mb-3">Vote on platform decisions and shape Genesis's future</p>
                       <ul className="space-y-2 text-sm">
                         <li>✓ Proposal voting rights</li>
                         <li>✓ Treasury allocation decisions</li>
@@ -1855,7 +1855,7 @@ export default function App() {
                             <ul className="text-sm text-amber-100/80 space-y-2">
                               <li className="flex items-start">
                                 <Sparkles className="w-4 h-4 mr-2 mt-0.5 text-yellow-400" />
-                                <span><strong>LIFETIME ACCESS</strong> to all Genesis Nexus7 features</span>
+                                <span><strong>LIFETIME ACCESS</strong> to all Genesis features</span>
                               </li>
                               <li className="flex items-start">
                                 <TrendingUp className="w-4 h-4 mr-2 mt-0.5 text-emerald-400" />
@@ -1909,7 +1909,7 @@ export default function App() {
                     Caviar Token (&#36;CAX)
                   </h2>
                   <p className="text-xl md:text-2xl text-amber-100 max-w-3xl mx-auto mb-8 drop-shadow-lg">
-                    Your key to governance, staking rewards, and platform participation. Shape the future of Genesis Nexus7.
+                    Your key to governance, staking rewards, and platform participation. Shape the future of Genesis.
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4 justify-center">
                     <Button size="lg" className="bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-500 hover:to-amber-600 shadow-xl opacity-70" disabled>
@@ -1973,7 +1973,7 @@ export default function App() {
                     Caviar Token ($CAX) - Dropping February 14
                   </h2>
                   <p className="text-xl md:text-2xl text-amber-100 max-w-3xl mx-auto mb-8 drop-shadow-lg">
-                    The governance and utility token powering the Genesis Nexus7 ecosystem
+                    The governance and utility token powering the Genesis ecosystem
                   </p>
                   
                   {/* Token Stats */}
@@ -2146,7 +2146,7 @@ export default function App() {
                 <CardContent className="p-8">
                   <h3 className="text-3xl font-bold text-amber-100 mb-4">Codex Collective</h3>
                   <p className="text-amber-100/80 text-lg leading-relaxed mb-4">
-                    The Caviar community is Genesis Nexus7&apos;s exclusive members club, housing the prestigious Codex Collective. Inspired by Leonardo da Vinci&apos;s codices—his notebooks of revolutionary ideas—this is a modern-day gathering of elite minds where Renaissance thinking meets Web3 innovation.
+                    The Caviar community is Genesis&apos;s exclusive members club, housing the prestigious Codex Collective. Inspired by Leonardo da Vinci&apos;s codices—his notebooks of revolutionary ideas—this is a modern-day gathering of elite minds where Renaissance thinking meets Web3 innovation.
                   </p>
                   <p className="text-amber-100/80 text-lg leading-relaxed">
                     Here, members share knowledge, collaborate on groundbreaking projects, and push the boundaries of what&apos;s possible in blockchain, art, and technology. This isn&apos;t just a community—it&apos;s a movement of visionaries shaping the future.
@@ -2468,7 +2468,7 @@ export default function App() {
                     <CardDescription className="text-amber-300">Codex Idea #3</CardDescription>
                   </CardHeader>
                   <CardContent className="text-amber-100/80">
-                    <p className="mb-4 text-sm">Become a stakeholder in Genesis Nexus7! Community members can directly invest and share in success.</p>
+                    <p className="mb-4 text-sm">Become a stakeholder in Genesis! Community members can directly invest and share in success.</p>
                     <div className="flex items-center justify-between">
                       <span className="text-amber-400 font-bold">Goal: $1M</span>
                       <Badge className="bg-amber-600/30 text-amber-200 border-amber-500/50">Voting Soon</Badge>
@@ -3488,7 +3488,7 @@ function GLoungeComponent({ user }) {
                     <CardDescription className="text-amber-300">Codex Idea #3</CardDescription>
                   </CardHeader>
                   <CardContent className="text-amber-100/80">
-                    <p className="mb-4 text-sm">Become a stakeholder in Genesis Nexus7! Community members can directly invest and share in success.</p>
+                    <p className="mb-4 text-sm">Become a stakeholder in Genesis! Community members can directly invest and share in success.</p>
                     <div className="flex items-center justify-between">
                       <span className="text-amber-400 font-bold">Goal: $1M</span>
                       <Badge className="bg-amber-600/30 text-amber-200 border-amber-500/50">Voting Soon</Badge>
