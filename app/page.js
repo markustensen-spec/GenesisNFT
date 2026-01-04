@@ -947,9 +947,9 @@ export default function App() {
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-2">
               <img 
-                src="/images/codex-capital-logo.png" 
+                src="/images/cc-logo-gold.jpg" 
                 alt="Codex Capital Logo" 
-                className="w-8 h-8 md:w-10 md:h-10 object-contain"
+                className="w-8 h-8 md:w-10 md:h-10 object-contain rounded"
               />
               <span className="text-lg md:text-xl font-semibold text-slate-100">
                 Codex Capital
