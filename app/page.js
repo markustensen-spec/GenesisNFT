@@ -30,9 +30,11 @@ export default function App() {
   const [whitelistStatus, setWhitelistStatus] = useState('')
   const [stats, setStats] = useState({ totalMinted: 0, remaining: 10000 })
   
-  // Global audio state
+  // Global audio state with playlist
   const [globalAudioPlaying, setGlobalAudioPlaying] = useState(true)
+  const [currentTrack, setCurrentTrack] = useState(0)
   const globalAudioRef = React.useRef(null)
+  const playlist = ['/audio/tnt.mp3', '/audio/party-people.mp3']
   
   // Auth states
   const [showAuthModal, setShowAuthModal] = useState(false)
