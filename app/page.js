@@ -2702,10 +2702,10 @@ function GLoungeComponent({ user }) {
               {/* Category Cards */}
               <div className="space-y-6">
                 
-                {/* 1. Max - AI Auto Trader */}
+                {/* Codex Collective - Decentralized Launchpad */}
                 <Card 
                   className="bg-gradient-to-br from-purple-900/30 to-slate-900/60 border-2 border-purple-500/50 overflow-hidden cursor-pointer hover:border-purple-400 transition-all relative"
-                  onClick={() => setActiveSection('max')}
+                  onClick={() => setActiveSection('codex')}
                 >
                   <div 
                     className="absolute inset-0 z-0"
@@ -2722,11 +2722,46 @@ function GLoungeComponent({ user }) {
                       <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-purple-600 to-purple-800 flex items-center justify-center">
                         <Zap className="w-8 h-8 text-white" />
                       </div>
-                      <div>
-                        <CardTitle className="text-2xl text-amber-100">Max</CardTitle>
-                        <CardDescription className="text-purple-300">AI Auto Trader</CardDescription>
+                      <div className="flex-1">
+                        <div className="flex items-center gap-3">
+                          <CardTitle className="text-2xl text-amber-100">Codex Collective</CardTitle>
+                          <Badge className="bg-purple-600 text-white">Coming Soon</Badge>
+                        </div>
+                        <CardDescription className="text-purple-300">Decentralized Launchpad</CardDescription>
                       </div>
                       <ChevronRight className="w-8 h-8 text-purple-400 ml-auto" />
+                    </div>
+                  </CardHeader>
+                </Card>
+
+                {/* Caviar Token */}
+                <Card 
+                  className="bg-gradient-to-br from-amber-900/30 to-slate-900/60 border-2 border-amber-500/50 overflow-hidden cursor-pointer hover:border-amber-400 transition-all relative"
+                  onClick={() => setActiveSection('caviar')}
+                >
+                  <div 
+                    className="absolute inset-0 z-0"
+                    style={{
+                      backgroundImage: 'url(/images/caviar-bg.jpg)',
+                      backgroundSize: 'cover',
+                      backgroundPosition: 'center'
+                    }}
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-900/80 to-amber-900/70"></div>
+                  </div>
+                  <CardHeader className="relative z-10">
+                    <div className="flex items-center gap-4">
+                      <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-amber-600 to-amber-800 flex items-center justify-center">
+                        <Coins className="w-8 h-8 text-white" />
+                      </div>
+                      <div className="flex-1">
+                        <div className="flex items-center gap-3">
+                          <CardTitle className="text-2xl text-amber-100">Caviar Token</CardTitle>
+                          <Badge className="bg-amber-600 text-white">Coming Soon</Badge>
+                        </div>
+                        <CardDescription className="text-amber-300">$CAX - Feb 14th Launch</CardDescription>
+                      </div>
+                      <ChevronRight className="w-8 h-8 text-amber-400 ml-auto" />
                     </div>
                   </CardHeader>
                 </Card>
