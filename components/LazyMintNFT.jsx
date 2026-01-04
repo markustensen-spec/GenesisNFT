@@ -309,25 +309,42 @@ export default function LazyMintNFT({ user }) {
                   variant="outline"
                   onClick={() => setQuantity(Math.max(1, quantity - 1))}
                   disabled={quantity <= 1}
-                  className="h-8 w-8 p-0 border-amber-500/50"
+                  className="h-10 w-10 p-0 border-amber-500/50 text-amber-100"
                 >
-                  <Minus className="w-4 h-4" />
+                  <Minus className="w-5 h-5" />
                 </Button>
-                <span className="text-2xl font-bold text-amber-400 w-8 text-center">{quantity}</span>
+                <span className="text-3xl font-bold text-amber-400 w-12 text-center">{quantity}</span>
                 <Button
                   size="sm"
                   variant="outline"
                   onClick={() => setQuantity(Math.min(maxQuantity, quantity + 1))}
                   disabled={quantity >= maxQuantity}
-                  className="h-8 w-8 p-0 border-amber-500/50"
+                  className="h-10 w-10 p-0 border-amber-500/50 text-amber-100"
                 >
-                  <Plus className="w-4 h-4" />
+                  <Plus className="w-5 h-5" />
                 </Button>
               </div>
             </div>
-            <div className="flex justify-between text-sm">
-              <span className="text-slate-400">Total pris</span>
-              <span className="text-amber-400 font-bold">{totalPrice} SOL</span>
+            
+            {/* Quick Select Buttons */}
+            <div className="grid grid-cols-4 gap-2 mb-4">
+              {[1, 3, 5, 10].map(num => (
+                <Button
+                  key={num}
+                  size="sm"
+                  variant={quantity === num ? "default" : "outline"}
+                  onClick={() => setQuantity(Math.min(num, maxQuantity))}
+                  disabled={num > maxQuantity}
+                  className={`${quantity === num ? 'bg-amber-600 text-white' : 'border-amber-500/30 text-amber-100 hover:bg-amber-600/20'}`}
+                >
+                  {num}
+                </Button>
+              ))}
+            </div>
+            
+            <div className="flex justify-between text-sm bg-amber-900/20 rounded-lg p-3">
+              <span className="text-amber-200">Total pris</span>
+              <span className="text-amber-400 font-bold text-lg">{totalPrice} SOL</span>
             </div>
           </div>
 
