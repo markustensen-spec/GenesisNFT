@@ -25,6 +25,7 @@ export default function App() {
   const [showHubEmailPopup, setShowHubEmailPopup] = useState(false)
   const [hubEmail, setHubEmail] = useState('')
   const [hubEmailStatus, setHubEmailStatus] = useState('')
+  const [noir97Status, setNoir97Status] = useState('')
   const [whitelistEmail, setWhitelistEmail] = useState('')
   const [whitelistStatus, setWhitelistStatus] = useState('')
   const [stats, setStats] = useState({ totalMinted: 0, remaining: 10000 })
