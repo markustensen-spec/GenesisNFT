@@ -68,11 +68,11 @@ export async function GET() {
       success: true,
       stats: {
         totalSupply: TOTAL_SUPPLY,
-        totalMinted: 0,
-        remaining: TOTAL_SUPPLY,
-        foundersRemaining: FOUNDER_SUPPLY,
-        uniqueOwners: 0,
-        progress: "0.00",
+        totalMinted: MOCK_MINTED,
+        remaining: TOTAL_SUPPLY - MOCK_MINTED,
+        foundersRemaining: FOUNDERS_REMAINING,
+        uniqueOwners: Math.floor(MOCK_MINTED * 0.7),
+        progress: ((MOCK_MINTED / TOTAL_SUPPLY) * 100).toFixed(2),
         mintPriceSOL: MINT_PRICE_SOL,
         network: 'mainnet-beta',
         recentMints: []
