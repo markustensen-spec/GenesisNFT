@@ -1027,11 +1027,11 @@ export default function App() {
               <Button variant="ghost" onClick={() => { setActiveTab('crypto'); setMobileMenuOpen(false) }} className="w-full text-amber-100">
                 NFT
               </Button>
-              <Button variant="ghost" onClick={() => { setActiveTab('noir97'); setMobileMenuOpen(false) }} className="w-full text-amber-100">
-                Noir97
-              </Button>
               <Button variant="ghost" onClick={() => { playGame(); setMobileMenuOpen(false) }} className="w-full text-amber-100">
                 G Lounge
+              </Button>
+              <Button variant="ghost" onClick={() => { setActiveTab('noir97'); setMobileMenuOpen(false) }} className="w-full text-amber-100">
+                Noir97
               </Button>
               <Button variant="ghost" onClick={() => { setActiveTab('whitepaper'); setMobileMenuOpen(false) }} className="w-full text-amber-100">
                 Whitepaper
