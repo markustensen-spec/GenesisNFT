@@ -3021,16 +3021,21 @@ function GLoungeComponent({ user }) {
                     <div className="h-px w-16 bg-gradient-to-l from-transparent to-amber-500"></div>
                   </div>
                 </div>
-                <h1 className="text-4xl md:text-5xl font-bold text-amber-100 mb-2">G Lounge</h1>
-                <p className="text-2xl md:text-3xl text-amber-400 italic font-light mb-4">Exclusive</p>
-                <p className="text-xl text-amber-100/80 max-w-3xl mx-auto mb-4">
-                  Web3 golf club – Premium virtual hub driven by the community, for the community.
+                <h1 className="text-4xl md:text-5xl font-bold text-amber-100 mb-4">A Web3 Golf Club</h1>
+                <p className="text-2xl text-amber-400 font-semibold mb-6">Powered by Caviar</p>
+                <p className="text-lg text-amber-100/80 max-w-3xl mx-auto mb-6">
+                  A premium virtual golf hub built by the community — governed by the community.
                 </p>
-                <p className="text-amber-100/70">Caviar integrates throughout the ecosystem</p>
-                <p className="text-amber-400 font-semibold mb-2">$CAX going live February 14th</p>
-                <p className="text-amber-100/60">
-                  $CAX governance info <button onClick={() => setActiveSection('tokenomics')} className="text-amber-400 underline hover:text-amber-300">here</button>
+                <p className="text-amber-100/70 max-w-2xl mx-auto mb-6">
+                  Caviar is the governance backbone of the ecosystem, embedded across experiences, access, and decision-making. Holders shape the future of the club through on-chain participation and exclusive utilities.
                 </p>
+                <div className="bg-amber-900/30 border border-amber-500/30 rounded-xl p-4 inline-block mb-4">
+                  <p className="text-2xl font-bold text-amber-400">$CAX goes live February 14th</p>
+                </div>
+                <div>
+                  <span className="text-amber-100/70">Caviar Governance → </span>
+                  <a href="/caviar" className="text-amber-400 underline hover:text-amber-300 font-semibold">Learn more</a>
+                </div>
               </div>
 
               {/* Subtle 7 Rules Link */}
