@@ -129,7 +129,7 @@ CREATE TRIGGER on_profile_updated
 
 2. **Legg til i "Redirect URLs":**
 ```
-https://nexus-noir.preview.emergentagent.com
+https://caviar-capital.preview.emergentagent.com
 http://localhost:3000
 ```
 
