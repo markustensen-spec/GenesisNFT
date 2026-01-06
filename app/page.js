@@ -2489,13 +2489,14 @@ export default function App() {
           <div 
             className="min-h-screen relative"
             style={{
-              backgroundImage: 'url(/images/noir97-cat-bg.jpg)',
-              backgroundSize: '120%',
-              backgroundPosition: 'center 20%',
-              backgroundAttachment: 'fixed'
+              backgroundImage: 'url(/images/noir97-cat-bg-new.jpg)',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center center',
+              backgroundAttachment: 'fixed',
+              backgroundRepeat: 'no-repeat'
             }}
           >
-            <div className="absolute inset-0 bg-gradient-to-b from-slate-950/70 via-slate-900/80 to-slate-950/90"></div>
+            <div className="absolute inset-0 bg-gradient-to-b from-slate-950/50 via-slate-900/60 to-slate-950/80"></div>
             
             <div className="relative container mx-auto px-4 py-16">
               <div className="max-w-4xl mx-auto text-center">
