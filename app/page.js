@@ -2511,7 +2511,7 @@ export default function App() {
                     Noir97
                   </h1>
                   <p className="text-2xl text-amber-300 mb-2">The Exclusive Club</p>
-                  <p className="text-amber-100/70 text-lg">Where High performance individuals, Wizards, Whales and investors gather</p>
+                  <p className="text-amber-100/70 text-lg">Where high performance individuals, Wizards, Whales and investors gather</p>
                 </div>
 
                 <Card className="bg-slate-900/80 border-2 border-amber-500/30 backdrop-blur-xl mb-12">
