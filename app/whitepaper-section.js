@@ -13,10 +13,10 @@ export default function WhitepaperSection() {
           style={{
             backgroundImage: `url('https://customer-assets.emergentagent.com/job_genesishq/artifacts/ndy17uf2_file_0000000069a4724696e7f1a07b4a6694.png')`,
             backgroundSize: 'cover',
-            backgroundPosition: 'center'
+            backgroundPosition: 'center 30%'
           }}
         >
-          <div className="absolute inset-0 bg-gradient-to-b from-slate-950/60 via-slate-950/80 to-slate-950"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-slate-950/40 via-slate-950/60 to-slate-950"></div>
           <div className="relative text-center py-20 px-4">
             <h2 className="text-5xl md:text-6xl font-bold text-amber-100 mb-4">
               CC Genesis Whitepaper
