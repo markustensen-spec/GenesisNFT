@@ -2840,7 +2840,7 @@ function GLoungeComponent({ user }) {
       <div 
         className="fixed inset-0 z-0"
         style={{
-          backgroundImage: 'url(/images/glounge-bg.jpg)',
+          backgroundImage: 'url(/images/glounge-bg.png)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundAttachment: 'fixed'
