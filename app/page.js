@@ -2490,7 +2490,7 @@ export default function App() {
             className="min-h-screen relative"
             style={{
               backgroundImage: 'url(/images/noir97-cat-bg.jpg)',
-              backgroundSize: 'cover',
+              backgroundSize: '85%',
               backgroundPosition: 'center top',
               backgroundAttachment: 'fixed',
               backgroundRepeat: 'no-repeat'
