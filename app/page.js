@@ -3174,7 +3174,7 @@ function GLoungeComponent({ user }) {
                           <CardTitle className="text-2xl text-amber-100">Games</CardTitle>
                           <Badge className="bg-emerald-600 text-white">Coming Soon</Badge>
                         </div>
-                        <CardDescription className="text-emerald-300">Golf simulation, coin flips and other minigames</CardDescription>
+                        <CardDescription className="text-emerald-300">Golf simulation etc., coin flips and other minigames</CardDescription>
                       </div>
                       <ChevronRight className="w-8 h-8 text-emerald-400 ml-auto" />
                     </div>
